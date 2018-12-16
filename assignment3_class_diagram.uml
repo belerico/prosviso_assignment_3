@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="156.0" y="80.0">com.assignment3.jpa.models.SharableCard</node>
+    <node x="201.0" y="155.0">com.assignment3.jpa.models.Place</node>
+    <node x="106.75" y="0.0">com.assignment3.jpa.models.Card</node>
+    <node x="0.0" y="230.0">com.assignment3.jpa.models.User</node>
+    <node x="0.0" y="155.0">com.assignment3.jpa.models.BusinessActivity</node>
+    <node x="0.0" y="80.0">com.assignment3.jpa.models.StandardCard</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.assignment3.jpa.models.StandardCard" target="com.assignment3.jpa.models.Card">
+      <point x="0.0" y="-15.0" />
+      <point x="68.0" y="55.0" />
+      <point x="126.25" y="55.0" />
+      <point x="-19.5" y="15.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.SharableCard" target="com.assignment3.jpa.models.Card">
+      <point x="0.0" y="-15.0" />
+      <point x="223.5" y="55.0" />
+      <point x="165.25" y="55.0" />
+      <point x="19.5" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="28.0" />
+  <SelectedNodes>
+    <node>com.assignment3.jpa.models.BusinessActivity</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

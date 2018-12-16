@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="assignment3unit/Hibernate" uuid="f472bbc2-9c7a-4dd8-9d57-4240d23f8260">
+    <data-source source="LOCAL" name="assignment3-unit/Hibernate" uuid="c6f114f7-271d-46a1-bd8b-365df9e36147">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
@@ -9,7 +9,7 @@
 
 /home/belerico/IdeaProjects/assignment3/src/main/resources/META-INF/persistence.xml</remarks>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/assignment3db</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/assignment3?createDatabaseIfNotExist=true</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="yearIsDateType" value="false" />
