@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import java.util.Date;
 import java.util.List;
 
 public class Main {
@@ -15,6 +16,9 @@ public class Main {
         user.setName("user3");
         user.setSurname("surname");
         user.setPassword("password3");
+        user.setDateOfBirth(new Date());
+        user.setEmail("prova@emailcom");
+        user.setSex(true);
         entityManager.getTransaction().begin();
         entityManager.persist(user);
         entityManager.getTransaction().commit();
