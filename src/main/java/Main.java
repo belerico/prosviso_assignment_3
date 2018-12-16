@@ -20,9 +20,9 @@ public class Main {
         entityManager.getTransaction().commit();
 
         TypedQuery<User> query = entityManager.createQuery("SELECT c FROM User c", User.class);
-        List results = query.getResultList();
+        List<User> results = query.getResultList();
 
-        for (Object c : results) {
+        for (User c : results) {
             System.out.println(c);
         }
 
