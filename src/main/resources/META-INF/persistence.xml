@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.0"
-             xmlns="http://java.sun.com/xml/ns/persistence"
->
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
     <persistence-unit name="assignment3-unit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.assignment3.jpa.models.BusinessActivity</class>
@@ -12,14 +10,13 @@
         <class>com.assignment3.jpa.models.User</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/assignment3?createDatabaseIfNotExist=true" />
             <property name="hibernate.connection.username" value="root" />
             <property name="hibernate.connection.password" value="root" />
-            <property name="hibernate.show_sql" value="false" />
+            <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
-            <property name="hibernate.id.new_generator_mappings"
-                      value="true" />
+            <property name="hibernate.id.new_generator_mappings" value="true" />
         </properties>
     </persistence-unit>
 </persistence>
