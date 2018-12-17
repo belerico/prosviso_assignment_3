@@ -16,6 +16,14 @@ public class Card implements Serializable {
         @NaturalId(mutable = false)
         private Strig cardNumber;
     */
+    private int quantity;
+
+    public Card() {
+    }
+
+    public Card(int quantity) {
+        this.quantity = quantity;
+    }
 
     public Long getId() {
         return id;
@@ -25,23 +33,33 @@ public class Card implements Serializable {
         this.id = id;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Card)) return false;
         Card card = (Card) o;
-        return id.equals(card.id);
+        return quantity == card.quantity &&
+                id.equals(card.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, quantity);
     }
 
     @Override
     public String toString() {
         return "Card{" +
                 "id=" + id +
+                ", quantity=" + quantity +
                 '}';
     }
 }

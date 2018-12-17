@@ -5,7 +5,9 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @DiscriminatorValue(value = "ST")
@@ -17,6 +19,13 @@ public class StandardCard extends Card implements Serializable {
             orphanRemoval = true
     )
     private Set<UserStandardCard> users = new HashSet<>();
+
+    public StandardCard() {
+    }
+
+    public StandardCard(int quantity) {
+        super(quantity);
+    }
 
     Set<UserStandardCard> getUsers() {
         return users;
@@ -44,6 +53,6 @@ public class StandardCard extends Card implements Serializable {
     public String toString() {
         return "StandardCard{" +
                 "users=" + users +
-                '}';
+                "} " + super.toString();
     }
 }
