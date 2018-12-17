@@ -1,61 +1,50 @@
 package com.assignment3.jpa.models;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
 
 
-@Entity
+@Entity(name="Place")
+@Table
 public class Place
 {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long place_id;
     private String citta;
     private String provincia;
     private String regione;
 
-    public Long getId() {
-        return id;
-    }
+    @OneToMany(mappedBy = "place")
+    private ArrayList<User> user = new ArrayList<>();
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public void setPlace_id(Long place_id) { this.place_id = place_id; }
 
-    public String getCitta() {
-        return citta;
-    }
+    public void setCitta(String citta) { this.citta = citta; }
 
-    public void setCitta(String citta) {
-        this.citta = citta;
-    }
+    public void setProvincia(String provincia) { this.provincia = provincia; }
 
-    public String getProvincia() {
-        return provincia;
-    }
+    public void setRegione(String regione) { this.regione = regione; }
 
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
-    }
+    public Long getPlace_id() { return place_id; }
 
-    public String getRegione() {
-        return regione;
-    }
+    public String getCitta() { return citta; }
 
-    public void setRegione(String regione) {
-        this.regione = regione;
-    }
+    public String getProvincia() { return provincia; }
+
+    public String getRegione() { return regione; }
+
 
 
     @Override
     public String toString() {
         return "Place{" +
-                "id=" + id +
+                "id=" + place_id +
                 ", citta='" + citta + '\'' +
                 ", provincia='" + provincia + '\'' +
                 ", regione='" + regione + '\'' +
                 '}';
     }
+
+
 }

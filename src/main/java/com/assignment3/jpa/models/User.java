@@ -1,22 +1,26 @@
 package com.assignment3.jpa.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
-@Entity
+@Entity(name = "User")
+@Table
 public class User {
 
     @Id
     @GeneratedValue
     private Long id;
+
+
     private String name;
     private String surname;
     private String password;
     private String email;
     private Date dateOfBirth;
     private boolean sex;
+
+    @ManyToOne()
+    private Place place;
 
     public Long getId() {
         return id;
@@ -73,6 +77,12 @@ public class User {
     public void setSex(boolean sex) {
         this.sex = sex;
     }
+
+    public Place getPlace() { return place; }
+
+    public void setPlace(Place place) { this.place = place; }
+
+
 
     @Override
     public String toString() {
