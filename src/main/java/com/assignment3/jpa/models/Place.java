@@ -2,7 +2,6 @@ package com.assignment3.jpa.models;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -74,23 +73,6 @@ public class Place {
     public void removeUser(User user) {
         this.users.remove(user);
         user.setPlace(null);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Place)) return false;
-        Place place = (Place) o;
-        return id.equals(place.id) &&
-                city.equals(place.city) &&
-                province.equals(place.province) &&
-                region.equals(place.region) &&
-                users.equals(place.users);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, city, province, region);
     }
 
     @Override

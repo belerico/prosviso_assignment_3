@@ -44,6 +44,7 @@ public class Main {
         entityManager.getTransaction().commit();
 
         entityManager.getTransaction().begin();
+        place1.removeUser(user2);
         user1.removeStandardCard(sc2);
         entityManager.getTransaction().commit();
 
