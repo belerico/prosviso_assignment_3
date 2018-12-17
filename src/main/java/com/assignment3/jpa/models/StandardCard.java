@@ -13,11 +13,7 @@ import java.util.Set;
 @DiscriminatorValue(value = "ST")
 public class StandardCard extends Card implements Serializable {
 
-    @OneToMany(
-            mappedBy = "user",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserStandardCard> users = new HashSet<>();
 
     public StandardCard() {

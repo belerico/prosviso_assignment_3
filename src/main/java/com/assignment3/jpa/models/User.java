@@ -24,12 +24,10 @@ public class User implements Serializable {
     private String email;
     private Date dateOfBirth;
     private boolean sex;
-    @OneToMany(
-            mappedBy = "standardCard",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
+    @OneToMany(mappedBy = "standardCard", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserStandardCard> standardCards = new HashSet<>();
+    @ManyToOne
+    private Place place;
 
     public User() {
     }
@@ -97,6 +95,22 @@ public class User implements Serializable {
 
     public void setSex(boolean sex) {
         this.sex = sex;
+    }
+
+    public Place getPlace() {
+        return place;
+    }
+
+    void setPlace(Place place) {
+        this.place = place;
+    }
+
+    public Set<UserStandardCard> getStandardCards() {
+        return standardCards;
+    }
+
+    public void setStandardCards(Set<UserStandardCard> standardCards) {
+        this.standardCards = standardCards;
     }
 
     public void addStandardCard(StandardCard standardCard) {
