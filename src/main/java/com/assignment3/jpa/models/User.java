@@ -1,26 +1,47 @@
 package com.assignment3.jpa.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
-@Entity(name = "User")
-@Table
-public class User {
+@Entity
+public class User implements Serializable {
 
     @Id
     @GeneratedValue
     private Long id;
-
-
     private String name;
     private String surname;
     private String password;
+    /*
+        @NaturalId represent domain model unique identifiers that have a meaning in the real world too.
+        A natural id may be mutable or immutable, so an immutable natural id is expected to never change its value.
+    */
+    // @NaturalId(mutable = true)
     private String email;
     private Date dateOfBirth;
     private boolean sex;
+    @OneToMany(
+            mappedBy = "standardCard",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private Set<UserStandardCard> standardCards = new HashSet<>();
 
-    @ManyToOne()
-    private Place place;
+    public User() {
+    }
+
+    public User(String name, String surname, String password, String email, Date dateOfBirth, boolean sex) {
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.sex = sex;
+    }
 
     public Long getId() {
         return id;
@@ -78,11 +99,39 @@ public class User {
         this.sex = sex;
     }
 
-    public Place getPlace() { return place; }
+    public void addStandardCard(StandardCard standardCard) {
+        UserStandardCard userStandardCard = new UserStandardCard(this, standardCard);
+        this.standardCards.add(userStandardCard);
+        standardCard.getUsers().add(userStandardCard);
+    }
 
-    public void setPlace(Place place) { this.place = place; }
+    public void removeStandardCard(StandardCard standardCard) {
+        UserStandardCard userStandardCard = new UserStandardCard(this, standardCard);
+        standardCard.getUsers().remove(userStandardCard);
+        this.standardCards.remove(userStandardCard);
+        userStandardCard.setStandardCard(null);
+        userStandardCard.setUser(null);
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return sex == user.sex &&
+                id.equals(user.id) &&
+                name.equals(user.name) &&
+                surname.equals(user.surname) &&
+                password.equals(user.password) &&
+                email.equals(user.email) &&
+                dateOfBirth.equals(user.dateOfBirth) &&
+                standardCards.equals(user.standardCards);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, surname, password, email, dateOfBirth, sex);
+    }
 
     @Override
     public String toString() {
