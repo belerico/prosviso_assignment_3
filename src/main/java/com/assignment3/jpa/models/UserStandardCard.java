@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 public class UserStandardCard implements Serializable {
@@ -54,21 +53,6 @@ public class UserStandardCard implements Serializable {
 
     public void setConsumed(int consumed) {
         this.consumed = consumed;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof UserStandardCard)) return false;
-        UserStandardCard that = (UserStandardCard) o;
-        return consumed == that.consumed &&
-                user.equals(that.user) &&
-                standardCard.equals(that.standardCard);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(user, standardCard, consumed);
     }
 
     @Override
