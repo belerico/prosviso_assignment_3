@@ -1,6 +1,9 @@
 package com.assignment3.jpa.models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,7 +16,7 @@ public class Place {
     private String city;
     private String province;
     private String region;
-    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "place")
     private Set<User> users = new HashSet<>();
 
     public Place() {
