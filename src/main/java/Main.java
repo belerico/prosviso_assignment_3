@@ -1,12 +1,11 @@
+import com.assignment3.jpa.models.Place;
 import com.assignment3.jpa.models.StandardCard;
 import com.assignment3.jpa.models.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 import java.util.Date;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,6 +19,9 @@ public class Main {
         StandardCard sc2 = new StandardCard();
         StandardCard sc3 = new StandardCard();
 
+        Place place1 = new Place("city1", "province1", "region1");
+        // Place place2 = new Place("city2", "province2", "region2");
+
         entityManager.getTransaction().begin();
         entityManager.persist(user1);
         entityManager.persist(user2);
@@ -27,6 +29,12 @@ public class Main {
         entityManager.persist(sc1);
         entityManager.persist(sc2);
         entityManager.persist(sc3);
+
+        entityManager.persist(place1);
+        // entityManager.persist(place2);
+
+        place1.addUser(user1);
+        place1.addUser(user2);
 
         user1.addStandardCard(sc1);
         user1.addStandardCard(sc2);
