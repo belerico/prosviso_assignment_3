@@ -2,7 +2,6 @@ package com.assignment3.jpa.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -21,7 +20,7 @@ public class Card implements Serializable {
     public Card() {
     }
 
-    public Card(int quantity) {
+    Card(int quantity) {
         this.quantity = quantity;
     }
 
@@ -39,20 +38,6 @@ public class Card implements Serializable {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Card)) return false;
-        Card card = (Card) o;
-        return quantity == card.quantity &&
-                id.equals(card.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, quantity);
     }
 
     @Override

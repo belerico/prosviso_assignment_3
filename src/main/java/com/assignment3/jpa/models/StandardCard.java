@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -29,20 +28,6 @@ public class StandardCard extends Card implements Serializable {
 
     public void setUsers(Set<UserStandardCard> users) {
         this.users = users;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof StandardCard)) return false;
-        if (!super.equals(o)) return false;
-        StandardCard that = (StandardCard) o;
-        return users.equals(that.users);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode());
     }
 
     @Override
