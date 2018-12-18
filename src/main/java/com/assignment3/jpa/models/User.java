@@ -133,18 +133,12 @@ public class User implements Serializable {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return sex == user.sex &&
-                name.equals(user.name) &&
-                surname.equals(user.surname) &&
-                password.equals(user.password) &&
-                email.equals(user.email) &&
-                dateOfBirth.equals(user.dateOfBirth) &&
-                place.equals(user.place);
+        return id.equals(user.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, password, email, dateOfBirth, sex, place);
+        return Objects.hash(id);
     }
 
     @Override
@@ -157,6 +151,8 @@ public class User implements Serializable {
                 ", email='" + email + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", sex=" + sex +
+                ", standardCards=" + standardCards +
+                ", place=" + place +
                 '}';
     }
 

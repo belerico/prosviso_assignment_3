@@ -47,13 +47,12 @@ public class Card implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Card)) return false;
         Card card = (Card) o;
-        return quantity == card.quantity &&
-                id.equals(card.id);
+        return id.equals(card.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, quantity);
+        return Objects.hash(id);
     }
 
     @Override
@@ -61,6 +60,7 @@ public class Card implements Serializable {
         return "Card{" +
                 "id=" + id +
                 ", quantity=" + quantity +
+                ", businessActivity=" + businessActivity +
                 '}';
     }
 }

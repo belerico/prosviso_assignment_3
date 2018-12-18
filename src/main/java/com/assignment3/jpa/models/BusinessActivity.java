@@ -74,14 +74,12 @@ public class BusinessActivity {
         if (this == o) return true;
         if (!(o instanceof BusinessActivity)) return false;
         BusinessActivity that = (BusinessActivity) o;
-        return name.equals(that.name) &&
-                type.equals(that.type) &&
-                place.equals(that.place);
+        return id.equals(that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, place);
+        return Objects.hash(id);
     }
 
     @Override
@@ -91,7 +89,7 @@ public class BusinessActivity {
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", place=" + place +
+                ", cards=" + cards +
                 '}';
-
     }
 }

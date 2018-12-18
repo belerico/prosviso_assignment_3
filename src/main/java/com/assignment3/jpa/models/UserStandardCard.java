@@ -61,14 +61,13 @@ public class UserStandardCard implements Serializable {
         if (this == o) return true;
         if (!(o instanceof UserStandardCard)) return false;
         UserStandardCard that = (UserStandardCard) o;
-        return consumed == that.consumed &&
-                user.equals(that.user) &&
+        return user.equals(that.user) &&
                 standardCard.equals(that.standardCard);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, standardCard, consumed);
+        return Objects.hash(user, standardCard);
     }
 
     @Override
@@ -79,5 +78,4 @@ public class UserStandardCard implements Serializable {
                 ", consumed=" + consumed +
                 '}';
     }
-
 }
