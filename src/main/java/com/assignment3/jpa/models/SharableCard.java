@@ -36,9 +36,6 @@ public class SharableCard extends Card implements Serializable {
 
     @Override
     public String toString() {
-        return "SharableCard{" +
-                "users1=" + users1 +
-                ", users2=" + users2 +
-                "} " + super.toString();
+        return "SharableCard{} " + super.toString();
     }
 }
