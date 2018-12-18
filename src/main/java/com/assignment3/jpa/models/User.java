@@ -26,6 +26,8 @@ public class User implements Serializable {
     private boolean sex;
     @OneToMany(mappedBy = "standardCard", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserStandardCard> standardCards = new HashSet<>();
+    @OneToMany(mappedBy = "sharableCard", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<UserSharableCard> sharableCards = new HashSet<>();
     @ManyToOne
     private Place place;
 
@@ -110,8 +112,24 @@ public class User implements Serializable {
         return standardCards;
     }
 
+    public Set<UserSharableCard> getSharableCards() {
+        return sharableCards;
+    }
+
+    public void setSharableCards(Set<UserSharableCard> sharableCards) {
+        this.sharableCards = sharableCards;
+    }
+
     public void setStandardCards(Set<UserStandardCard> standardCards) {
         this.standardCards = standardCards;
+    }
+
+    public void addSharableCard(User user, SharableCard sharableCard) {
+        UserSharableCard userSharableCard = new UserSharableCard(this, user, sharableCard);
+        this.sharableCards.add(userSharableCard);
+        user.getSharableCards().add(userSharableCard);
+        sharableCard.getUsers1().add(userSharableCard);
+        sharableCard.getUsers2().add(userSharableCard);
     }
 
     public void addStandardCard(StandardCard standardCard) {
