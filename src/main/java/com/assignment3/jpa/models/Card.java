@@ -16,11 +16,12 @@ public class Card implements Serializable {
         private Strig cardNumber;
     */
     private int quantity;
+    @OneToOne
+    private BusinessActivity businessActivity;
 
-    public Card() {
-    }
+    public Card() {}
 
-    Card(int quantity) {
+    public Card(int quantity) {
         this.quantity = quantity;
     }
 

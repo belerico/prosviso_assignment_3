@@ -7,4 +7,5 @@ import java.io.Serializable;
 @Entity
 @DiscriminatorValue(value = "SH")
 public class SharableCard extends Card implements Serializable {
+
 }
