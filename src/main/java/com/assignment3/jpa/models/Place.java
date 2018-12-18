@@ -18,6 +18,8 @@ public class Place {
     private String region;
     @OneToMany(mappedBy = "place")
     private Set<User> users = new HashSet<>();
+    @OneToMany(mappedBy = "place")
+    private Set<BusinessActivity> activities = new HashSet<>();
 
     public Place() {
     }

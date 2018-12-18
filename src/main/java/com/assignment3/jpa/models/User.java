@@ -28,6 +28,7 @@ public class User implements Serializable {
     @ManyToOne
     private Place place;
 
+
     public User() {
     }
 
