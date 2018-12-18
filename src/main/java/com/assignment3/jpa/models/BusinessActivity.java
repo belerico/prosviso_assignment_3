@@ -69,6 +69,16 @@ public class BusinessActivity {
         this.cards = cards;
     }
 
+    public void addPlace(Place place) {
+        this.place = place;
+        place.getActivities().add(this);
+    }
+
+    public void removePlace(Place place) {
+        this.place = null;
+        place.getActivities().remove(this);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

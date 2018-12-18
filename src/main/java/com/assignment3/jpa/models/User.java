@@ -124,30 +124,38 @@ public class User implements Serializable {
         this.standardCards = standardCards;
     }
 
+    public void addPlace(Place place) {
+        this.place = place;
+        place.getUsers().add(this);
+    }
+
+    public void removePlace(Place place) {
+        this.place = null;
+        place.getUsers().remove(this);
+    }
+
     public void addSharableCard(User user, SharableCard sharableCard) {
         UserSharableCard userSharableCard = new UserSharableCard(this, user, sharableCard);
         this.sharableCards.add(userSharableCard);
-        user.getSharableCards().add(userSharableCard);
         sharableCard.getUsers1().add(userSharableCard);
-        System.out.println(sharableCard.getUsers1());
-        sharableCard.getUsers2().add(userSharableCard);
-        System.out.println(sharableCard.getUsers2());
+        /*
+            Need to maintain the simmetry between users
+         */
         userSharableCard = new UserSharableCard(user, this, sharableCard);
-        //this.sharableCards.add(userSharableCard);
-        //user.getSharableCards().add(userSharableCard);
-        sharableCard.getUsers1().add(userSharableCard);
-        System.out.println(sharableCard.getUsers1());
+        user.getSharableCards().add(userSharableCard);
         sharableCard.getUsers2().add(userSharableCard);
-        System.out.println(sharableCard.getUsers1());
     }
 
-    public void removeSharableCard(SharableCard sharableCard) {
-       /* for (UserSharableCard userSharableCard: sharableCard.getUsers1()) {
-            System.out.println(userSharableCard);
-        }
-        for (UserSharableCard userSharableCard: sharableCard.getUsers2()) {
-            System.out.println(userSharableCard);
-        }*/
+    public void removeSharableCard(User user, SharableCard sharableCard) {
+        UserSharableCard userSharableCard = new UserSharableCard(this, user, sharableCard);
+        this.sharableCards.remove(userSharableCard);
+        sharableCard.getUsers1().remove(userSharableCard);
+        /*
+            Need to maintain the simmetry between users
+         */
+        userSharableCard = new UserSharableCard(user, this, sharableCard);
+        user.getSharableCards().remove(userSharableCard);
+        sharableCard.getUsers2().remove(userSharableCard);
     }
 
     public void addStandardCard(StandardCard standardCard) {

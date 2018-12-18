@@ -68,6 +68,14 @@ public class Place {
         this.users = users;
     }
 
+    public Set<BusinessActivity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(Set<BusinessActivity> activities) {
+        this.activities = activities;
+    }
+
     public void addBusinessActivity(BusinessActivity businessActivity) {
         this.activities.add(businessActivity);
         businessActivity.setPlace(this);
