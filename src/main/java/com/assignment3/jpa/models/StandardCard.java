@@ -31,6 +31,15 @@ public class StandardCard extends Card implements Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof StandardCard)) return false;
+        if (!super.equals(o)) return false;
+        StandardCard that = (StandardCard) o;
+        return users.equals(that.users);
+    }
+
+    @Override
     public String toString() {
         return "StandardCard{" +
                 "users=" + users +

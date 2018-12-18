@@ -1,24 +1,22 @@
 package com.assignment3.jpa.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
 public class Place {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String city;
     private String province;
     private String region;
-    @OneToMany(mappedBy = "place")
+    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL)
     private Set<User> users = new HashSet<>();
-    @OneToMany(mappedBy = "place")
+    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL)
     private Set<BusinessActivity> activities = new HashSet<>();
 
     public Place() {
@@ -70,6 +68,16 @@ public class Place {
         this.users = users;
     }
 
+    public void addBusinessActivity(BusinessActivity businessActivity) {
+        this.activities.add(businessActivity);
+        businessActivity.setPlace(this);
+    }
+
+    public void removeBusinessActivity(BusinessActivity businessActivity) {
+        this.activities.remove(businessActivity);
+        businessActivity.setPlace(null);
+    }
+
     public void addUser(User user) {
         this.users.add(user);
         user.setPlace(this);
@@ -78,6 +86,21 @@ public class Place {
     public void removeUser(User user) {
         this.users.remove(user);
         user.setPlace(null);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Place)) return false;
+        Place place = (Place) o;
+        return city.equals(place.city) &&
+                province.equals(place.province) &&
+                region.equals(place.region);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(city, province, region);
     }
 
     @Override

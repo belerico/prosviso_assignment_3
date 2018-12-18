@@ -4,13 +4,14 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String surname;
@@ -125,6 +126,25 @@ public class User implements Serializable {
         this.standardCards.remove(userStandardCard);
         userStandardCard.setStandardCard(null);
         userStandardCard.setUser(null);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return sex == user.sex &&
+                name.equals(user.name) &&
+                surname.equals(user.surname) &&
+                password.equals(user.password) &&
+                email.equals(user.email) &&
+                dateOfBirth.equals(user.dateOfBirth) &&
+                place.equals(user.place);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, password, email, dateOfBirth, sex, place);
     }
 
     @Override
