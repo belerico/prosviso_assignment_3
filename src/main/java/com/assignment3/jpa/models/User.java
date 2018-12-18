@@ -129,7 +129,25 @@ public class User implements Serializable {
         this.sharableCards.add(userSharableCard);
         user.getSharableCards().add(userSharableCard);
         sharableCard.getUsers1().add(userSharableCard);
+        System.out.println(sharableCard.getUsers1());
         sharableCard.getUsers2().add(userSharableCard);
+        System.out.println(sharableCard.getUsers2());
+        userSharableCard = new UserSharableCard(user, this, sharableCard);
+        //this.sharableCards.add(userSharableCard);
+        //user.getSharableCards().add(userSharableCard);
+        sharableCard.getUsers1().add(userSharableCard);
+        System.out.println(sharableCard.getUsers1());
+        sharableCard.getUsers2().add(userSharableCard);
+        System.out.println(sharableCard.getUsers1());
+    }
+
+    public void removeSharableCard(SharableCard sharableCard) {
+       /* for (UserSharableCard userSharableCard: sharableCard.getUsers1()) {
+            System.out.println(userSharableCard);
+        }
+        for (UserSharableCard userSharableCard: sharableCard.getUsers2()) {
+            System.out.println(userSharableCard);
+        }*/
     }
 
     public void addStandardCard(StandardCard standardCard) {
@@ -169,8 +187,6 @@ public class User implements Serializable {
                 ", email='" + email + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", sex=" + sex +
-                ", standardCards=" + standardCards +
-                ", place=" + place +
                 '}';
     }
 
