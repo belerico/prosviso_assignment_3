@@ -3,49 +3,100 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="259.0" y="80.0">com.assignment3.jpa.models.SharableCard</node>
-    <node x="0.0" y="80.0">com.assignment3.jpa.models.Place</node>
-    <node x="166.0" y="0.0">com.assignment3.jpa.models.Card</node>
-    <node x="35.29249999999999" y="181.0">com.assignment3.jpa.models.User</node>
-    <node x="0.0" y="235.0">com.assignment3.jpa.models.BusinessActivity</node>
-    <node x="103.0" y="80.0">com.assignment3.jpa.models.StandardCard</node>
+    <node x="18.544642857142833" y="103.0">com.assignment3.jpa.models.UserStandardCard</node>
+    <node x="173.45089285714283" y="1101.0">com.assignment3.jpa.models.SharableCard</node>
+    <node x="22.294642857142833" y="539.0">com.assignment3.jpa.models.Place</node>
+    <node x="531.4508928571429" y="575.0">com.assignment3.jpa.models.Card</node>
+    <node x="0.75" y="252.0">com.assignment3.jpa.models.User</node>
+    <node x="73.79464285714283" y="757.0">com.assignment3.jpa.models.BusinessActivity</node>
+    <node x="94.9114955357143" y="0.0">com.assignment3.jpa.models.StandardCard</node>
   </nodes>
   <notes />
   <edges>
     <edge source="com.assignment3.jpa.models.User" target="com.assignment3.jpa.models.Place">
-      <point x="-15.600000000000001" y="-15.0" />
-      <point x="46.692499999999995" y="130.0" />
-      <point x="31.125" y="130.0" />
-      <point x="-10.375" y="15.0" />
+      <point x="122.625" y="118.5" />
+      <point x="286.875" y="514.0" />
+      <point x="269.91964285714283" y="514.0" />
+      <point x="106.125" y="-84.0" />
     </edge>
-    <edge source="com.assignment3.jpa.models.StandardCard" target="com.assignment3.jpa.models.Card">
-      <point x="34.0" y="-15.0" />
-      <point x="0.0" y="15.0" />
+    <edge source="com.assignment3.jpa.models.User" target="com.assignment3.jpa.models.UserStandardCard">
+      <point x="-136.25" y="-118.5" />
+      <point x="28.0" y="227.0" />
+      <point x="43.24464285714282" y="227.0" />
+      <point x="-98.80000000000001" y="49.5" />
     </edge>
-    <edge source="com.assignment3.jpa.models.User" target="com.assignment3.jpa.models.StandardCard">
-      <point x="31.200000000000003" y="-15.0" />
-      <point x="93.49249999999999" y="140.0" />
-      <point x="171.0" y="140.0" />
-      <point x="0.0" y="15.0" />
-    </edge>
-    <edge source="com.assignment3.jpa.models.Place" target="com.assignment3.jpa.models.User">
-      <point x="31.125" y="15.0" />
-      <point x="72.625" y="140.0" />
-      <point x="77.89249999999998" y="140.0" />
-      <point x="15.599999999999994" y="-15.0" />
+    <edge source="com.assignment3.jpa.models.StandardCard" target="com.assignment3.jpa.models.UserStandardCard">
+      <point x="0.0" y="26.5" />
+      <point x="228.9114955357143" y="83.0" />
+      <point x="234.66964285714283" y="83.0" />
+      <point x="92.625" y="-49.5" />
     </edge>
     <edge source="com.assignment3.jpa.models.SharableCard" target="com.assignment3.jpa.models.Card">
       <point x="0.0" y="-15.0" />
-      <point x="326.5" y="55.0" />
-      <point x="231.0" y="55.0" />
-      <point x="26.0" y="15.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.Card" target="com.assignment3.jpa.models.BusinessActivity">
+      <point x="-107.625" y="-49.5" />
+      <point x="133.32589285714283" y="927.0" />
+      <point x="118.79464285714283" y="927.0" />
+      <point x="-45.0" y="72.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.BusinessActivity" target="com.assignment3.jpa.models.Card">
+      <point x="45.0" y="72.5" />
+      <point x="208.79464285714283" y="927.0" />
+      <point x="205.07589285714283" y="927.0" />
+      <point x="-35.875" y="-49.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.UserStandardCard" target="com.assignment3.jpa.models.User">
+      <point x="49.400000000000034" y="49.5" />
+      <point x="27.25" y="-118.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.BusinessActivity" target="com.assignment3.jpa.models.Place">
+      <point x="0.0" y="-72.5" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.Place" target="com.assignment3.jpa.models.BusinessActivity">
+      <point x="94.33333333333331" y="84.0" />
+      <point x="258.12797619047615" y="732.0" />
+      <point x="223.79464285714283" y="732.0" />
+      <point x="60.0" y="-72.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.Place" target="com.assignment3.jpa.models.User">
+      <point x="-106.125" y="-84.0" />
+      <point x="57.66964285714283" y="514.0" />
+      <point x="41.625" y="514.0" />
+      <point x="-122.625" y="118.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.User" target="com.assignment3.jpa.models.StandardCard">
+      <point x="136.25" y="-118.5" />
+      <point x="300.5" y="227.0" />
+      <point x="286.07589285714283" y="227.0" />
+      <point x="286.07589285714283" y="83.0" />
+      <point x="267.1972098214286" y="83.0" />
+      <point x="38.28571428571428" y="26.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.UserStandardCard" target="com.assignment3.jpa.models.StandardCard">
+      <point x="-30.875" y="-49.5" />
+      <point x="111.16964285714283" y="83.0" />
+      <point x="152.34006696428574" y="83.0" />
+      <point x="-76.57142857142856" y="26.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.StandardCard" target="com.assignment3.jpa.models.Card">
+      <point x="76.57142857142856" y="26.5" />
+      <point x="305.4829241071428" y="83.0" />
+      <point x="338.25" y="83.0" />
+      <point x="338.25" y="927.0" />
+      <point x="276.82589285714283" y="927.0" />
+      <point x="35.875" y="-49.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="189.0" y="102.0" />
+  <settings layout="Hierarchic Group" zoom="1.0" x="347.5" y="807.0" />
   <SelectedNodes>
-    <node>com.assignment3.jpa.models.User</node>
+    <node>com.assignment3.jpa.models.Card</node>
   </SelectedNodes>
-  <Categories />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
 </Diagram>
