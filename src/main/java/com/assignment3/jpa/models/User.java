@@ -104,10 +104,6 @@ public class User implements Serializable {
         return place;
     }
 
-    private Set<UserSharableCard> getSharableCards() {
-        return this.sharableCards;
-    }
-
     public void addPlace(Place place) {
         this.place = place;
         place.getUsers().add(this);
@@ -126,7 +122,7 @@ public class User implements Serializable {
             Need to maintain the simmetry between users
          */
         userSharableCard = new UserSharableCard(user, this, sharableCard);
-        user.getSharableCards().add(userSharableCard);
+        user.sharableCards.add(userSharableCard);
         sharableCard.getUsers2().add(userSharableCard);
     }
 
@@ -138,7 +134,7 @@ public class User implements Serializable {
             Need to maintain the simmetry between users
          */
         userSharableCard = new UserSharableCard(user, this, sharableCard);
-        user.getSharableCards().remove(userSharableCard);
+        user.sharableCards.remove(userSharableCard);
         sharableCard.getUsers2().remove(userSharableCard);
     }
 
