@@ -3,96 +3,119 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="18.544642857142833" y="103.0">com.assignment3.jpa.models.UserStandardCard</node>
-    <node x="173.45089285714283" y="1101.0">com.assignment3.jpa.models.SharableCard</node>
-    <node x="22.294642857142833" y="539.0">com.assignment3.jpa.models.Place</node>
-    <node x="531.4508928571429" y="575.0">com.assignment3.jpa.models.Card</node>
-    <node x="0.75" y="252.0">com.assignment3.jpa.models.User</node>
-    <node x="73.79464285714283" y="757.0">com.assignment3.jpa.models.BusinessActivity</node>
-    <node x="94.9114955357143" y="0.0">com.assignment3.jpa.models.StandardCard</node>
+    <node x="956.5" y="1230.5">com.assignment3.jpa.models.UserStandardCard</node>
+    <node x="1302.5" y="642.0">com.assignment3.jpa.models.SharableCard</node>
+    <node x="58.5" y="316.0">com.assignment3.jpa.models.Place</node>
+    <node x="1696.5" y="790.5">com.assignment3.jpa.models.Card</node>
+    <node x="476.5" y="830.0">com.assignment3.jpa.models.User</node>
+    <node x="1750.0" y="47.5">com.assignment3.jpa.models.BusinessActivity</node>
+    <node x="957.5" y="630.5">com.assignment3.jpa.models.UserSharableCard</node>
+    <node x="1386.0" y="1253.5">com.assignment3.jpa.models.StandardCard</node>
   </nodes>
   <notes />
   <edges>
     <edge source="com.assignment3.jpa.models.User" target="com.assignment3.jpa.models.Place">
-      <point x="122.625" y="118.5" />
-      <point x="286.875" y="514.0" />
-      <point x="269.91964285714283" y="514.0" />
-      <point x="106.125" y="-84.0" />
+      <point x="-40.0" y="-130.0" />
+      <point x="600.0" y="400.0" />
+      <point x="141.5" y="0.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.User" target="com.assignment3.jpa.models.SharableCard">
+      <point x="0.0" y="-130.0" />
+      <point x="640.0" y="440.0" />
+      <point x="1440.0" y="440.0" />
+      <point x="0.0" y="-38.0" />
     </edge>
     <edge source="com.assignment3.jpa.models.User" target="com.assignment3.jpa.models.UserStandardCard">
-      <point x="-136.25" y="-118.5" />
-      <point x="28.0" y="227.0" />
-      <point x="43.24464285714282" y="227.0" />
-      <point x="-98.80000000000001" y="49.5" />
+      <point x="163.5" y="80.0" />
+      <point x="880.0" y="1040.0" />
+      <point x="880.0" y="1240.0" />
+      <point x="-123.5" y="-40.0" />
     </edge>
-    <edge source="com.assignment3.jpa.models.StandardCard" target="com.assignment3.jpa.models.UserStandardCard">
-      <point x="0.0" y="26.5" />
-      <point x="228.9114955357143" y="83.0" />
-      <point x="234.66964285714283" y="83.0" />
-      <point x="92.625" y="-49.5" />
+    <edge source="com.assignment3.jpa.models.UserSharableCard" target="com.assignment3.jpa.models.User">
+      <point x="0.0" y="-49.5" />
+      <point x="1080.0" y="480.0" />
+      <point x="660.0" y="480.0" />
+      <point x="20.0" y="-130.0" />
     </edge>
-    <edge source="com.assignment3.jpa.models.SharableCard" target="com.assignment3.jpa.models.Card">
-      <point x="0.0" y="-15.0" />
+    <edge source="com.assignment3.jpa.models.User" target="com.assignment3.jpa.models.UserSharableCard">
+      <point x="60.0" y="-130.0" />
+      <point x="700.0" y="560.0" />
+      <point x="1000.0" y="560.0" />
+      <point x="-80.0" y="-49.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.SharableCard" target="com.assignment3.jpa.models.UserSharableCard">
+      <point x="0.0" y="38.0" />
+      <point x="1440.0" y="840.0" />
+      <point x="1080.0" y="840.0" />
       <point x="0.0" y="49.5" />
     </edge>
+    <edge source="com.assignment3.jpa.models.StandardCard" target="com.assignment3.jpa.models.UserStandardCard">
+      <point x="-40.0" y="26.5" />
+      <point x="1480.0" y="1440.0" />
+      <point x="1120.0" y="1440.0" />
+      <point x="40.0" y="49.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.SharableCard" target="com.assignment3.jpa.models.Card">
+      <point x="137.5" y="0.0" />
+      <point x="1800.0" y="680.0" />
+      <point x="-40.0" y="-49.5" />
+    </edge>
     <edge source="com.assignment3.jpa.models.Card" target="com.assignment3.jpa.models.BusinessActivity">
-      <point x="-107.625" y="-49.5" />
-      <point x="133.32589285714283" y="927.0" />
-      <point x="118.79464285714283" y="927.0" />
-      <point x="-45.0" y="72.5" />
+      <point x="0.0" y="-49.5" />
+      <point x="0.0" y="72.5" />
     </edge>
     <edge source="com.assignment3.jpa.models.BusinessActivity" target="com.assignment3.jpa.models.Card">
-      <point x="45.0" y="72.5" />
-      <point x="208.79464285714283" y="927.0" />
-      <point x="205.07589285714283" y="927.0" />
-      <point x="-35.875" y="-49.5" />
-    </edge>
-    <edge source="com.assignment3.jpa.models.UserStandardCard" target="com.assignment3.jpa.models.User">
-      <point x="49.400000000000034" y="49.5" />
-      <point x="27.25" y="-118.5" />
+      <point x="90.0" y="0.0" />
+      <point x="2080.0" y="120.0" />
+      <point x="2080.0" y="840.0" />
+      <point x="143.5" y="0.0" />
     </edge>
     <edge source="com.assignment3.jpa.models.BusinessActivity" target="com.assignment3.jpa.models.Place">
       <point x="0.0" y="-72.5" />
-      <point x="0.0" y="84.0" />
+      <point x="1840.0" y="0.0" />
+      <point x="200.0" y="0.0" />
+      <point x="0.0" y="-84.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.UserStandardCard" target="com.assignment3.jpa.models.User">
+      <point x="123.5" y="-40.0" />
+      <point x="1280.0" y="1240.0" />
+      <point x="1280.0" y="1000.0" />
+      <point x="163.5" y="40.0" />
     </edge>
     <edge source="com.assignment3.jpa.models.Place" target="com.assignment3.jpa.models.BusinessActivity">
-      <point x="94.33333333333331" y="84.0" />
-      <point x="258.12797619047615" y="732.0" />
-      <point x="223.79464285714283" y="732.0" />
-      <point x="60.0" y="-72.5" />
-    </edge>
-    <edge source="com.assignment3.jpa.models.Place" target="com.assignment3.jpa.models.User">
-      <point x="-106.125" y="-84.0" />
-      <point x="57.66964285714283" y="514.0" />
-      <point x="41.625" y="514.0" />
-      <point x="-122.625" y="118.5" />
+      <point x="141.5" y="-40.0" />
+      <point x="1680.0" y="360.0" />
+      <point x="1680.0" y="160.0" />
+      <point x="-90.0" y="40.0" />
     </edge>
     <edge source="com.assignment3.jpa.models.User" target="com.assignment3.jpa.models.StandardCard">
-      <point x="136.25" y="-118.5" />
-      <point x="300.5" y="227.0" />
-      <point x="286.07589285714283" y="227.0" />
-      <point x="286.07589285714283" y="83.0" />
-      <point x="267.1972098214286" y="83.0" />
-      <point x="38.28571428571428" y="26.5" />
+      <point x="163.5" y="0.0" />
+      <point x="1480.0" y="960.0" />
+      <point x="-40.0" y="-26.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.Place" target="com.assignment3.jpa.models.User">
+      <point x="141.5" y="40.0" />
+      <point x="400.0" y="440.0" />
+      <point x="400.0" y="880.0" />
+      <point x="-163.5" y="-80.0" />
     </edge>
     <edge source="com.assignment3.jpa.models.UserStandardCard" target="com.assignment3.jpa.models.StandardCard">
-      <point x="-30.875" y="-49.5" />
-      <point x="111.16964285714283" y="83.0" />
-      <point x="152.34006696428574" y="83.0" />
-      <point x="-76.57142857142856" y="26.5" />
+      <point x="123.5" y="0.0" />
+      <point x="-134.0" y="0.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.models.UserSharableCard" target="com.assignment3.jpa.models.SharableCard">
+      <point x="122.5" y="0.0" />
+      <point x="-137.5" y="0.0" />
     </edge>
     <edge source="com.assignment3.jpa.models.StandardCard" target="com.assignment3.jpa.models.Card">
-      <point x="76.57142857142856" y="26.5" />
-      <point x="305.4829241071428" y="83.0" />
-      <point x="338.25" y="83.0" />
-      <point x="338.25" y="927.0" />
-      <point x="276.82589285714283" y="927.0" />
-      <point x="35.875" y="-49.5" />
+      <point x="134.0" y="0.0" />
+      <point x="1840.0" y="1280.0" />
+      <point x="0.0" y="49.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="347.5" y="807.0" />
+  <settings layout="Hierarchic Group" zoom="0.36933333333333335" x="1040.0" y="740.0" />
   <SelectedNodes>
-    <node>com.assignment3.jpa.models.Card</node>
+    <node>com.assignment3.jpa.models.UserSharableCard</node>
   </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
