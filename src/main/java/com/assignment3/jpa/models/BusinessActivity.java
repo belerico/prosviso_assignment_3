@@ -69,6 +69,16 @@ public class BusinessActivity {
         this.cards = cards;
     }
 
+    public void addCard(Card card) {
+        this.cards.add(card);
+        card.setBusinessActivity(this);
+    }
+
+    public void removeCard(Card card) {
+        this.cards.remove(card);
+        card.setBusinessActivity(null);
+    }
+
     public void addPlace(Place place) {
         this.place = place;
         place.getActivities().add(this);
@@ -98,7 +108,6 @@ public class BusinessActivity {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
-                ", place=" + place +
                 ", cards=" + cards +
                 '}';
     }

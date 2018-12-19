@@ -42,6 +42,14 @@ public class Card implements Serializable {
         this.quantity = quantity;
     }
 
+    public BusinessActivity getBusinessActivity() {
+        return businessActivity;
+    }
+
+    void setBusinessActivity(BusinessActivity businessActivity) {
+        this.businessActivity = businessActivity;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -60,7 +68,6 @@ public class Card implements Serializable {
         return "Card{" +
                 "id=" + id +
                 ", quantity=" + quantity +
-                ", businessActivity=" + businessActivity +
                 '}';
     }
 }

@@ -43,6 +43,9 @@ public class Main {
         entityManager.persist(ba1);
         entityManager.persist(ba2);
 
+        ba1.addCard(sc1);
+        ba2.addCard(sc2);
+
         place1.addBusinessActivity(ba1);
         place1.addBusinessActivity(ba2);
 
@@ -62,9 +65,7 @@ public class Main {
         entityManager.getTransaction().begin();
         user1.removeStandardCard(sc2);
         user2.removeStandardCard(sc3);
-        user1.removePlace(place1);
         user1.removeSharableCard(user2, sh1);
-        ba1.removePlace(place1);
         entityManager.getTransaction().commit();
     }
 }

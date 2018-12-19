@@ -60,7 +60,7 @@ public class Place {
         this.region = region;
     }
 
-    public Set<User> getUsers() {
+    Set<User> getUsers() {
         return users;
     }
 
@@ -68,7 +68,7 @@ public class Place {
         this.users = users;
     }
 
-    public Set<BusinessActivity> getActivities() {
+    Set<BusinessActivity> getActivities() {
         return activities;
     }
 
@@ -118,7 +118,8 @@ public class Place {
                 ", city='" + city + '\'' +
                 ", province='" + province + '\'' +
                 ", region='" + region + '\'' +
-                ", user=" + users +
+                ", users=" + users +
+                ", activities=" + activities +
                 '}';
     }
 }

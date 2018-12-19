@@ -48,10 +48,6 @@ public class User implements Serializable {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -100,28 +96,16 @@ public class User implements Serializable {
         this.sex = sex;
     }
 
-    public Place getPlace() {
-        return place;
-    }
-
     void setPlace(Place place) {
         this.place = place;
     }
 
-    public Set<UserStandardCard> getStandardCards() {
-        return standardCards;
+    public Place getPlace() {
+        return place;
     }
 
-    public Set<UserSharableCard> getSharableCards() {
-        return sharableCards;
-    }
-
-    public void setSharableCards(Set<UserSharableCard> sharableCards) {
-        this.sharableCards = sharableCards;
-    }
-
-    public void setStandardCards(Set<UserStandardCard> standardCards) {
-        this.standardCards = standardCards;
+    private Set<UserSharableCard> getSharableCards() {
+        return this.sharableCards;
     }
 
     public void addPlace(Place place) {
@@ -197,5 +181,4 @@ public class User implements Serializable {
                 ", sex=" + sex +
                 '}';
     }
-
 }

@@ -26,14 +26,8 @@ public class StandardCard extends Card implements Serializable {
         return users;
     }
 
-    public void setUsers(Set<UserStandardCard> users) {
-        this.users = users;
-    }
-
     @Override
     public String toString() {
-        return "StandardCard{" +
-                "users=" + users +
-                "} " + super.toString();
+        return "StandardCard{} " + super.toString();
     }
 }
