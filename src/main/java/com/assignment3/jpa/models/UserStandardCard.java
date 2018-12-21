@@ -15,7 +15,7 @@ public class UserStandardCard implements Serializable {
     @Id
     @ManyToOne
     private StandardCard standardCard;
-    private int consumed;
+    private int consumed = 0;
 
     public UserStandardCard() {
     }
@@ -36,7 +36,7 @@ public class UserStandardCard implements Serializable {
         return user;
     }
 
-    void setUser(User user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
@@ -44,7 +44,7 @@ public class UserStandardCard implements Serializable {
         return standardCard;
     }
 
-    void setStandardCard(StandardCard standardCard) {
+    public void setStandardCard(StandardCard standardCard) {
         this.standardCard = standardCard;
     }
 

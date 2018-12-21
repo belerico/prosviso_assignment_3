@@ -1,9 +1,9 @@
 package com.assignment3.jpa.models;
 
 import javax.persistence.*;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 public class Place {
@@ -14,10 +14,10 @@ public class Place {
     private String city;
     private String province;
     private String region;
-    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL)
-    private Set<User> users = new HashSet<>();
-    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL)
-    private Set<BusinessActivity> activities = new HashSet<>();
+    @OneToMany(mappedBy = "place", cascade = CascadeType.MERGE, orphanRemoval = true)
+    private List<User> users = new ArrayList<>();
+    @OneToMany(mappedBy = "place", cascade = CascadeType.MERGE, orphanRemoval = true)
+    private List<BusinessActivity> activities = new ArrayList<>();
 
     public Place() {
     }
@@ -60,19 +60,19 @@ public class Place {
         this.region = region;
     }
 
-    Set<User> getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
-    public void setUsers(Set<User> users) {
+    public void setUsers(List<User> users) {
         this.users = users;
     }
 
-    Set<BusinessActivity> getActivities() {
+    public List<BusinessActivity> getActivities() {
         return activities;
     }
 
-    public void setActivities(Set<BusinessActivity> activities) {
+    public void setActivities(List<BusinessActivity> activities) {
         this.activities = activities;
     }
 
@@ -101,14 +101,12 @@ public class Place {
         if (this == o) return true;
         if (!(o instanceof Place)) return false;
         Place place = (Place) o;
-        return city.equals(place.city) &&
-                province.equals(place.province) &&
-                region.equals(place.region);
+        return id.equals(place.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(city, province, region);
+        return Objects.hash(id);
     }
 
     @Override
@@ -118,8 +116,6 @@ public class Place {
                 ", city='" + city + '\'' +
                 ", province='" + province + '\'' +
                 ", region='" + region + '\'' +
-                ", users=" + users +
-                ", activities=" + activities +
                 '}';
     }
 }

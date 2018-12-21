@@ -18,12 +18,27 @@ public class SharableCard extends Card implements Serializable {
     @OneToMany(mappedBy = "user2", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserSharableCard> users2 = new HashSet<>();
 
-    Set<UserSharableCard> getUsers1() {
+    public SharableCard() {
+    }
+
+    public SharableCard(int quantity) {
+        super(quantity);
+    }
+
+    public Set<UserSharableCard> getUsers1() {
         return users1;
     }
 
-    Set<UserSharableCard> getUsers2() {
+    public void setUsers1(Set<UserSharableCard> users1) {
+        this.users1 = users1;
+    }
+
+    public Set<UserSharableCard> getUsers2() {
         return users2;
+    }
+
+    public void setUsers2(Set<UserSharableCard> users2) {
+        this.users2 = users2;
     }
 
     @Override

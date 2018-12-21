@@ -18,6 +18,7 @@ public class UserSharableCard implements Serializable {
     @Id
     @ManyToOne
     private SharableCard sharableCard;
+    private int consumed;
 
     public UserSharableCard() {
     }
@@ -26,6 +27,13 @@ public class UserSharableCard implements Serializable {
         this.user1 = user1;
         this.user2 = user2;
         this.sharableCard = sharableCard;
+    }
+
+    public UserSharableCard(User user1, User user2, SharableCard sharableCard, int consumed) {
+        this.user1 = user1;
+        this.user2 = user2;
+        this.sharableCard = sharableCard;
+        this.consumed = consumed;
     }
 
     public User getUser1() {
@@ -52,6 +60,14 @@ public class UserSharableCard implements Serializable {
         this.sharableCard = sharableCard;
     }
 
+    public int getConsumed() {
+        return consumed;
+    }
+
+    public void setConsumed(int consumed) {
+        this.consumed = consumed;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -65,14 +81,5 @@ public class UserSharableCard implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(user1, user2, sharableCard);
-    }
-
-    @Override
-    public String toString() {
-        return "UserSharableCard{" +
-                "user1=" + user1 +
-                ", user2=" + user2 +
-                ", sharableCard=" + sharableCard +
-                '}';
     }
 }

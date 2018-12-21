@@ -1,9 +1,11 @@
 package com.assignment3.jpa.models;
 
+import org.hibernate.annotations.NaturalId;
+
 import javax.persistence.*;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 public class BusinessActivity {
@@ -11,15 +13,13 @@ public class BusinessActivity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    /*Name of the activity*/
+    @NaturalId
     private String name;
-    /*Type of the activity (e.g restaurant, bar, kebabbaro..)*/
     private String type;
     @ManyToOne
     private Place place;
-    @OneToMany(mappedBy = "businessActivity", cascade = CascadeType.ALL)
-    private Set<Card> cards = new HashSet<>();
-
+    @OneToMany(mappedBy = "businessActivity", cascade = CascadeType.MERGE, orphanRemoval = true)
+    private List<Card> cards = new ArrayList<>();
 
     public BusinessActivity() {
     }
@@ -57,15 +57,15 @@ public class BusinessActivity {
         return place;
     }
 
-    void setPlace(Place place) {
+    public void setPlace(Place place) {
         this.place = place;
     }
 
-    public Set<Card> getCards() {
+    public List<Card> getCards() {
         return cards;
     }
 
-    public void setCards(Set<Card> cards) {
+    public void setCards(List<Card> cards) {
         this.cards = cards;
     }
 
@@ -77,6 +77,12 @@ public class BusinessActivity {
     public void removeCard(Card card) {
         this.cards.remove(card);
         card.setBusinessActivity(null);
+    }
+
+    public void removeAllCard() {
+        for (Card c : this.cards)
+            c.setBusinessActivity(null);
+        this.cards.clear();
     }
 
     public void addPlace(Place place) {
@@ -94,12 +100,12 @@ public class BusinessActivity {
         if (this == o) return true;
         if (!(o instanceof BusinessActivity)) return false;
         BusinessActivity that = (BusinessActivity) o;
-        return id.equals(that.id);
+        return name.equals(that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(name);
     }
 
     @Override
