@@ -5,39 +5,20 @@ import com.assignment3.jpa.models.BusinessActivity;
 
 import java.util.List;
 
-public class BusinessActivityService implements ServiceInterface<BusinessActivity, Long> {
+public class BusinessActivityService extends AbstractService<BusinessActivity, Long> {
 
-    private static BusinessActivityDao bDao;
+    private BusinessActivityDao bDao;
 
     public BusinessActivityService() {
-        bDao = new BusinessActivityDao();
-    }
-
-    @Override
-    public void create(BusinessActivity entity) {
-        bDao.begin();
-        bDao.create(entity);
-        bDao.commit();
-    }
-
-    @Override
-    public BusinessActivity read(Long id) {
-        bDao.begin();
-        BusinessActivity b = bDao.read(id);
-        bDao.commit();
-        return b;
-    }
-
-    @Override
-    public void update(BusinessActivity entity) {
-        bDao.begin();
-        bDao.update(entity);
-        bDao.commit();
+        super(BusinessActivity.class, new BusinessActivityDao(BusinessActivity.class));
+        bDao = (BusinessActivityDao) getDao();
     }
 
     @Override
     public void delete(BusinessActivity entity) {
-
+        bDao.begin();
+        bDao.delete(entity);
+        bDao.commit();
     }
 
     @Override
@@ -50,6 +31,8 @@ public class BusinessActivityService implements ServiceInterface<BusinessActivit
 
     @Override
     public void deleteAll() {
-
+        List<BusinessActivity> businessActivities = readAll();
+        for (BusinessActivity b : businessActivities)
+            delete(b);
     }
 }

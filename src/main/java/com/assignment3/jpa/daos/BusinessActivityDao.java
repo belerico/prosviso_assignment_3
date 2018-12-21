@@ -6,34 +6,16 @@ import java.util.List;
 
 public class BusinessActivityDao extends AbstractDao<BusinessActivity, Long> {
 
-
-    @Override
-    public void create(BusinessActivity entity) {
-        getEntityManager().persist(entity);
+    public BusinessActivityDao(Class<BusinessActivity> businessActivityClass) {
+        super(businessActivityClass);
     }
 
-    @Override
-    public BusinessActivity read(Long id) {
-        return getEntityManager().find(BusinessActivity.class, id);
-    }
-
-    @Override
-    public void update(BusinessActivity entity) {
-        getEntityManager().merge(entity);
-    }
-
-    @Override
-    void delete(BusinessActivity entity) {
-        getEntityManager().remove(entity);
-    }
-
-    @Override
     public List<BusinessActivity> readAll() {
-        return getEntityManager().createQuery("from BusinessActivity").getResultList();
+        return readAll("from BusinessActivity");
     }
 
     @Override
-    void deleteAll() {
+    public void deleteAll() {
         List<BusinessActivity> businessActivities = readAll();
         for (BusinessActivity b : businessActivities)
             delete(b);

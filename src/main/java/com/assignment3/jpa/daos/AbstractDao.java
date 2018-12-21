@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 
 public abstract class AbstractDao<T, Id extends Serializable> {
 
@@ -16,7 +16,10 @@ public abstract class AbstractDao<T, Id extends Serializable> {
         entityManager = entityManagerFactory.createEntityManager();
     }
 
-    AbstractDao() {
+    private final Class<T> tClass;
+
+    AbstractDao(Class<T> tClass) {
+        this.tClass = tClass;
     }
 
     public void begin() {
@@ -36,15 +39,25 @@ public abstract class AbstractDao<T, Id extends Serializable> {
         return entityManager;
     }
 
-    abstract void create(T entity);
+    public void create(T entity) {
+        getEntityManager().persist(entity);
+    }
 
-    abstract T read(Id id);
+    public T read(Id id) {
+        return getEntityManager().find(tClass, id);
+    }
 
-    abstract void update(T entity);
+    public void update(T entity) {
+        getEntityManager().merge(entity);
+    }
 
-    abstract void delete(T entity);
+    public void delete(T entity) {
+        getEntityManager().remove(entity);
+    }
 
-    abstract Collection<T> readAll();
+    public List<T> readAll(String query) {
+        return getEntityManager().createQuery(query).getResultList();
+    }
 
     abstract void deleteAll();
 }

@@ -17,10 +17,12 @@ public class Card implements Serializable {
         private Strig cardNumber;
     */
     private int quantity;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name = "businessActivity_id")
     private BusinessActivity businessActivity;
 
-    public Card() {}
+    public Card() {
+    }
 
     public Card(int quantity) {
         this.quantity = quantity;
