@@ -22,7 +22,7 @@ public class Card implements Serializable {
 
     public Card() {}
 
-    Card(int quantity) {
+    public Card(int quantity) {
         this.quantity = quantity;
     }
 
@@ -46,7 +46,7 @@ public class Card implements Serializable {
         return businessActivity;
     }
 
-    void setBusinessActivity(BusinessActivity businessActivity) {
+    public void setBusinessActivity(BusinessActivity businessActivity) {
         this.businessActivity = businessActivity;
     }
 

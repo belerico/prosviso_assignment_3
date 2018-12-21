@@ -22,8 +22,12 @@ public class StandardCard extends Card implements Serializable {
         super(quantity);
     }
 
-    Set<UserStandardCard> getUsers() {
+    public Set<UserStandardCard> getUsers() {
         return users;
+    }
+
+    public void setUsers(Set<UserStandardCard> users) {
+        this.users = users;
     }
 
     @Override
