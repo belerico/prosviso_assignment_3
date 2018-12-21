@@ -6,29 +6,12 @@ import java.util.List;
 
 public class StandardCardDao extends AbstractDao<StandardCard, Long> {
 
-    @Override
-    public void create(StandardCard entity) {
-        getEntityManager().persist(entity);
+    public StandardCardDao(Class<StandardCard> standardCardClass) {
+        super(standardCardClass);
     }
 
-    @Override
-    public StandardCard read(Long id) {
-        return getEntityManager().find(StandardCard.class, id);
-    }
-
-    @Override
-    public void update(StandardCard entity) {
-        getEntityManager().merge(entity);
-    }
-
-    @Override
-    public void delete(StandardCard entity) {
-        getEntityManager().remove(entity);
-    }
-
-    @Override
     public List<StandardCard> readAll() {
-        return getEntityManager().createQuery("SELECT card FROM Card card WHERE Type(card) = StandardCard").getResultList();
+        return readAll("SELECT card FROM Card card WHERE Type(card) = StandardCard");
     }
 
     @Override
