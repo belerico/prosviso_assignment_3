@@ -1,7 +1,5 @@
-package com.assignment3.jpa.models;
+package com.assignment3.jpa.model;
 
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -21,7 +19,6 @@ public class BusinessActivity {
     @ManyToOne
     private Place place;
     @OneToMany(mappedBy = "businessActivity", cascade = CascadeType.ALL, orphanRemoval = true)
-    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Card> cards = new ArrayList<>();
 
     public BusinessActivity() {

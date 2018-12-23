@@ -1,4 +1,4 @@
-package com.assignment3.jpa.models;
+package com.assignment3.jpa.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;

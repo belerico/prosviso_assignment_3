@@ -1,4 +1,4 @@
-package com.assignment3.jpa.models;
+package com.assignment3.jpa.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,7 +18,6 @@ public class Card implements Serializable {
     */
     private int quantity;
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinColumn(name = "businessActivity_id")
     private BusinessActivity businessActivity;
 
     public Card() {
