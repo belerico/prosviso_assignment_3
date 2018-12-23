@@ -2,12 +2,12 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
     <persistence-unit name="assignment3-unit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>com.assignment3.jpa.models.BusinessActivity</class>
-        <class>com.assignment3.jpa.models.Card</class>
-        <class>com.assignment3.jpa.models.Place</class>
-        <class>com.assignment3.jpa.models.SharableCard</class>
-        <class>com.assignment3.jpa.models.StandardCard</class>
-        <class>com.assignment3.jpa.models.User</class>
+        <class>com.assignment3.jpa.model.BusinessActivity</class>
+        <class>com.assignment3.jpa.model.Card</class>
+        <class>com.assignment3.jpa.model.Place</class>
+        <class>com.assignment3.jpa.model.SharableCard</class>
+        <class>com.assignment3.jpa.model.StandardCard</class>
+        <class>com.assignment3.jpa.model.User</class>
         <properties>
             <property name="hibernate.connection.driver_class" value="com.p6spy.engine.spy.P6SpyDriver"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect"/>

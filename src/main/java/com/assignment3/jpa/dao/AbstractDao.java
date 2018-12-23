@@ -1,4 +1,4 @@
-package com.assignment3.jpa.daos;
+package com.assignment3.jpa.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -35,7 +35,7 @@ public abstract class AbstractDao<T, Id extends Serializable> {
         entityManager.getTransaction().rollback();
     }
 
-    EntityManager getEntityManager() {
+    public EntityManager getEntityManager() {
         return entityManager;
     }
 
@@ -51,13 +51,25 @@ public abstract class AbstractDao<T, Id extends Serializable> {
         getEntityManager().merge(entity);
     }
 
+    public void update(Id id) {
+        update(read(id));
+    }
+
     public void delete(T entity) {
         getEntityManager().remove(entity);
     }
 
-    public List<T> readAll(String query) {
-        return getEntityManager().createQuery(query).getResultList();
+    public void delete(Id id) {
+        delete(read(id));
     }
 
-    abstract void deleteAll();
+    public List<T> readAll() {
+        return getEntityManager().createQuery("from " + tClass.getName()).getResultList();
+    }
+
+    public void deleteAll() {
+        List<T> list = readAll();
+        for (T t : list)
+            delete(t);
+    }
 }
