@@ -6,19 +6,21 @@ import javax.persistence.Persistence;
 import java.io.Serializable;
 import java.util.List;
 
-public abstract class AbstractDao<T, Id extends Serializable> implements Serializable {
+import static javax.persistence.Persistence.*;
+
+public class Dao<T, Id extends Serializable> implements Serializable {
 
     private static EntityManagerFactory entityManagerFactory;
     private static EntityManager entityManager;
 
     static {
-        entityManagerFactory = Persistence.createEntityManagerFactory("assignment3-unit");
+        entityManagerFactory = createEntityManagerFactory("assignment3-unit");
         entityManager = entityManagerFactory.createEntityManager();
     }
 
     private final Class<T> tClass;
 
-    AbstractDao(Class<T> tClass) {
+    public Dao(Class<T> tClass) {
         this.tClass = tClass;
     }
 
