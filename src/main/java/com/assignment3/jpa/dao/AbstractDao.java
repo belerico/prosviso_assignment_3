@@ -8,8 +8,8 @@ import java.util.List;
 
 public abstract class AbstractDao<T, Id extends Serializable> implements Serializable {
 
-    private static EntityManagerFactory entityManagerFactory;
-    private static EntityManager entityManager;
+    private final static EntityManagerFactory entityManagerFactory;
+    private final static EntityManager entityManager;
 
     static {
         entityManagerFactory = Persistence.createEntityManagerFactory("assignment3-unit");
@@ -23,16 +23,20 @@ public abstract class AbstractDao<T, Id extends Serializable> implements Seriali
     }
 
     public void begin() {
-        entityManager.getTransaction().begin();
+        getEntityManager().getTransaction().begin();
+    }
+
+    public void flush() {
+        getEntityManager().flush();
     }
 
     public void commit() {
-        entityManager.flush();
-        entityManager.getTransaction().commit();
+        flush();
+        getEntityManager().getTransaction().commit();
     }
 
     public void rollback() {
-        entityManager.getTransaction().rollback();
+        getEntityManager().getTransaction().rollback();
     }
 
     public EntityManager getEntityManager() {
@@ -40,19 +44,19 @@ public abstract class AbstractDao<T, Id extends Serializable> implements Seriali
     }
 
     public void create(T entity) {
-        entityManager.persist(entity);
+        getEntityManager().persist(entity);
     }
 
     public T read(Id id) {
         return getEntityManager().find(tClass, id);
     }
 
-    public void update(T entity) {
-        getEntityManager().merge(entity);
+    public T update(T entity) {
+        return getEntityManager().merge(entity);
     }
 
-    public void update(Id id) {
-        update(read(id));
+    public T update(Id id) {
+        return update(read(id));
     }
 
     public void delete(T entity) {

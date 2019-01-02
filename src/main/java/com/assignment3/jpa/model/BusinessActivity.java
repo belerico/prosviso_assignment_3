@@ -98,7 +98,7 @@ public class BusinessActivity {
         if (this == o) return true;
         if (!(o instanceof BusinessActivity)) return false;
         BusinessActivity that = (BusinessActivity) o;
-        return name.equals(that.name);
+        return Objects.equals(name, that.name);
     }
 
     @Override

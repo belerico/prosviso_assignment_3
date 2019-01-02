@@ -1,5 +1,7 @@
 package com.assignment3.jpa.model;
 
+import org.hibernate.annotations.NaturalId;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -16,11 +18,7 @@ public class User implements Serializable {
     private String name;
     private String surname;
     private String password;
-    /*
-        @NaturalId represent domain model unique identifiers that have a meaning in the real world too.
-        A natural id may be mutable or immutable, so an immutable natural id is expected to never change its value.
-    */
-    // @NaturalId(mutable = true)
+    @NaturalId
     private String email;
     private Date dateOfBirth;
     private boolean sex;
@@ -176,12 +174,12 @@ public class User implements Serializable {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return id.equals(user.id);
+        return Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(email);
     }
 
     @Override

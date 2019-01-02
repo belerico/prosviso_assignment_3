@@ -4,8 +4,8 @@ import com.assignment3.jpa.model.StandardCard;
 
 public class StandardCardDao extends AbstractDao<StandardCard, Long> {
 
-    public StandardCardDao(Class<StandardCard> standardCardClass) {
-        super(standardCardClass);
+    public StandardCardDao() {
+        super(StandardCard.class);
     }
 
 }

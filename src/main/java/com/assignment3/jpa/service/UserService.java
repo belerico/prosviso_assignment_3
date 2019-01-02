@@ -1,11 +1,36 @@
 package com.assignment3.jpa.service;
 
+import com.assignment3.jpa.dao.StandardCardDao;
 import com.assignment3.jpa.dao.UserDao;
+import com.assignment3.jpa.model.StandardCard;
 import com.assignment3.jpa.model.User;
+
+import java.util.List;
 
 public class UserService extends AbstractService<User, Long> {
 
+    private StandardCardDao scDao;
+
     public UserService() {
-        super(new UserDao(User.class));
+        super(new UserDao());
+        scDao = new StandardCardDao();
+    }
+
+    public void addUserStandardCard(User u, StandardCard s) {
+        getDao().begin();
+        getDao().create(u);
+        scDao.create(s);
+        u.addStandardCard(s);
+        getDao().flush();
+        getDao().commit();
+    }
+
+    public void removeUserStandardCard(StandardCard s) {
+        List<User> users = readAll();
+        getDao().begin();
+        for (User u : users)
+            u.removeStandardCard(s);
+        getDao().flush();
+        getDao().commit();
     }
 }
