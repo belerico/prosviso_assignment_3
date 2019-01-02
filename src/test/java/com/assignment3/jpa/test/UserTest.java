@@ -1,4 +1,4 @@
-package com.assignment3.jpa.tests;
+package com.assignment3.jpa.test;
 
 import org.junit.jupiter.api.Test;
 

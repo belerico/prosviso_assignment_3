@@ -9,7 +9,7 @@ import java.util.List;
 public class StandardCardService extends AbstractService<StandardCard, Long> {
 
     public StandardCardService() {
-        super(new StandardCardDao(StandardCard.class));
+        super(new StandardCardDao());
     }
 
     @Override

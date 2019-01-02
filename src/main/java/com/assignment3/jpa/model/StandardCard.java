@@ -18,6 +18,14 @@ public class StandardCard extends Card implements Serializable {
     public StandardCard() {
     }
 
+    public StandardCard(String cardNumber, int quantity) {
+        super(cardNumber, quantity);
+    }
+
+    public StandardCard(String cardNumber) {
+        super(cardNumber);
+    }
+
     public StandardCard(int quantity) {
         super(quantity);
     }

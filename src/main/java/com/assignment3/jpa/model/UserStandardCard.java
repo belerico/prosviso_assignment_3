@@ -61,8 +61,8 @@ public class UserStandardCard implements Serializable {
         if (this == o) return true;
         if (!(o instanceof UserStandardCard)) return false;
         UserStandardCard that = (UserStandardCard) o;
-        return user.equals(that.user) &&
-                standardCard.equals(that.standardCard);
+        return Objects.equals(user, that.user) &&
+                Objects.equals(standardCard, that.standardCard);
     }
 
     @Override

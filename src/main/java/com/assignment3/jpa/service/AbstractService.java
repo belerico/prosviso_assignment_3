@@ -17,16 +17,10 @@ public abstract class AbstractService<T, Id extends Serializable> implements Ser
         return this.dao;
     }
 
-    public void startTransaction() {
-        dao.begin();
-    }
-
-    public void endTransaction() {
-        dao.commit();
-    }
-
     public void create(T entity) {
+        dao.begin();
         dao.create(entity);
+        dao.commit();
     }
 
     public T read(Id id) {
@@ -36,16 +30,18 @@ public abstract class AbstractService<T, Id extends Serializable> implements Ser
         return t;
     }
 
-    public void update(T entity) {
+    public T update(T entity) {
         dao.begin();
-        dao.update(entity);
+        T t = dao.update(entity);
         dao.commit();
+        return t;
     }
 
-    public void update(Id id) {
+    public T update(Id id) {
         dao.begin();
-        dao.update(id);
+        T t = dao.update(id);
         dao.commit();
+        return t;
     }
 
     public void delete(T entity) {
