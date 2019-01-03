@@ -5,7 +5,7 @@ import com.assignment3.jpa.dao.AbstractDao;
 import java.io.Serializable;
 import java.util.List;
 
-public abstract class AbstractService<T, Id extends Serializable> implements Serializable {
+public abstract class AbstractService<T, Id extends Serializable> implements Service<T, Id> {
 
     private AbstractDao<T, Id> dao;
 
@@ -37,30 +37,17 @@ public abstract class AbstractService<T, Id extends Serializable> implements Ser
         return t;
     }
 
-    public T update(Id id) {
-        dao.begin();
-        T t = dao.update(id);
-        dao.commit();
-        return t;
-    }
-
     public void delete(T entity) {
         dao.begin();
         dao.delete(entity);
         dao.commit();
     }
 
-    public void delete(Id id) {
-        dao.begin();
-        dao.delete(id);
-        dao.commit();
-    }
-
     public List<T> readAll() {
         dao.begin();
-        List<T> s = dao.readAll();
+        List<T> l = dao.readAll();
         dao.commit();
-        return s;
+        return l;
     }
 
     public void deleteAll() {

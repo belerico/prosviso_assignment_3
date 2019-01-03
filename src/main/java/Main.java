@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
         StandardCard st1 = new StandardCard("AAAA");
         StandardCard st2 = new StandardCard("BBBB");
+        StandardCard st3 = new StandardCard("CCCC");
         BusinessActivity ba1 = new BusinessActivity("name1", "type1");
         BusinessActivity ba2 = new BusinessActivity("name2", "type2");
         User user1 = new User("n1", "s1", "p1", "e1", new Date(), true);
@@ -19,34 +20,33 @@ public class Main {
         StandardCardService standardCardService = new StandardCardService();
         BusinessActivityService businessActivityService = new BusinessActivityService();
 
-        userService.create(user1);
-        standardCardService.create(st1);
+        ba1.addCard(st1);
+        ba1.addCard(st2);
+        ba2.addCard(st3);
 
-        /*user1 = userService.read(1L);
-        st1 = standardCardService.read(1L);*/
-
-        userService.getDao().begin();
+        businessActivityService.create(ba1);
+        businessActivityService.create(ba2);
 
         user1.addStandardCard(st1);
-
-        userService.getDao().commit();
-
+        user1.addStandardCard(st2);
         userService.create(user1);
+        user2.addStandardCard(st2);
+        userService.create(user2);
+        user1.addStandardCard(st3);
+        userService.create(user1);
+        user1.setName("another");
+        userService.update(user1);
 
-        /*List<BusinessActivity> l = businessActivityService.readAll();
-        for (BusinessActivity b: l) {
-            List<Card> c = b.getCards();
-            for(Card x: c) {
-                if (x instanceof StandardCard)
-                    userService.removeUserStandardCard((StandardCard) x);
-            }
-        }*/
+        System.out.println(ba1.getCards());
+        businessActivityService.deleteCard(ba1, st1);
+        System.out.println(ba1.getCards());
+        businessActivityService.deleteCard(ba1, st2);
+        System.out.println(ba1.getCards());
 
-        //userService.removeUserStandardCard(st1);
 
-        //standardCardService.deleteAll();
-        //businessActivityService.deleteAll();
+        /*for (StandardCard s: user1.getStandardCards())
+            user1.removeStandardCard(s);
 
-        //System.out.println(standardCardService.readAll());
+        userService.delete(user1);*/
     }
 }

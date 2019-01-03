@@ -1,5 +1,8 @@
 package com.assignment3.jpa.model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -14,6 +17,7 @@ public class UserStandardCard implements Serializable {
     private User user;
     @Id
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private StandardCard standardCard;
     private int consumed = 0;
 

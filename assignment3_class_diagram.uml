@@ -3,63 +3,292 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="0.0" y="742.0">com.assignment3.jpa.models.UserStandardCard</node>
-    <node x="660.0" y="149.0">com.assignment3.jpa.models.SharableCard</node>
-    <node x="0.0" y="529.0">com.assignment3.jpa.models.Place</node>
-    <node x="532.0" y="454.0">com.assignment3.jpa.daos.StandardCardDao</node>
-    <node x="508.25" y="0.0">com.assignment3.jpa.models.Card</node>
-    <node x="714.0" y="454.0">com.assignment3.jpa.daos.BusinessActivityDao</node>
-    <node x="531.0" y="305.0">com.assignment3.jpa.daos.AbstractDao</node>
-    <node x="133.5" y="305.0">com.assignment3.jpa.services.AbstractService</node>
-    <node x="260.0" y="431.0">com.assignment3.jpa.services.StandardCardService</node>
-    <node x="0.0" y="0.0">com.assignment3.jpa.models.User</node>
-    <node x="330.0" y="529.0">com.assignment3.jpa.models.BusinessActivity</node>
-    <node x="557.0" y="529.0">com.assignment3.jpa.models.UserSharableCard</node>
-    <node x="372.0" y="160.5">com.assignment3.jpa.models.StandardCard</node>
-    <node x="0.0" y="431.0">com.assignment3.jpa.services.BusinessActivityService</node>
+    <node x="421.5208333333333" y="339.5">com.assignment3.jpa.model.UserStandardCard</node>
+    <node x="21.5" y="1344.5">com.assignment3.jpa.dao.StandardCardDao</node>
+    <node x="756.5208333333333" y="0.0">com.assignment3.jpa.model.Card</node>
+    <node x="647.0208333333333" y="182.0">com.assignment3.jpa.model.SharableCard</node>
+    <node x="392.90687134502934" y="929.0">com.assignment3.jpa.dao.Dao</node>
+    <node x="641.7999582289053" y="860.0">com.assignment3.jpa.model.Place</node>
+    <node x="432.35458437761076" y="1487.5">com.assignment3.jpa.service.StandardCardService</node>
+    <node x="91.18791771094402" y="1476.0">com.assignment3.jpa.service.UserService</node>
+    <node x="251.90687134502934" y="1121.0">com.assignment3.jpa.dao.AbstractDao</node>
+    <node x="825.0208333333333" y="1098.0">com.assignment3.jpa.model.BusinessActivity</node>
+    <node x="329.8958333333332" y="193.5">com.assignment3.jpa.model.StandardCard</node>
+    <node x="660.2170426065161" y="1487.5">com.assignment3.jpa.service.BusinessActivityService</node>
+    <node x="250.04166666666669" y="1344.5">com.assignment3.jpa.dao.UserDao</node>
+    <node x="689.5208333333333" y="328.0">com.assignment3.jpa.model.UserSharableCard</node>
+    <node x="661.8624582289053" y="1344.5">com.assignment3.jpa.dao.BusinessActivityDao</node>
+    <node x="524.8101712614867" y="550.0">com.assignment3.jpa.model.User</node>
+    <node x="415.8624582289053" y="1333.0">com.assignment3.jpa.service.AbstractService</node>
+    <node x="627.9068713450292" y="1155.5">com.assignment3.jpa.service.Service</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="com.assignment3.jpa.services.StandardCardService" target="com.assignment3.jpa.services.AbstractService">
-      <point x="0.0" y="-26.5" />
-      <point x="373.0" y="406.0" />
-      <point x="303.0" y="406.0" />
-      <point x="56.5" y="38.0" />
+    <edge source="com.assignment3.jpa.model.SharableCard" target="com.assignment3.jpa.model.UserSharableCard">
+      <point x="55.0" y="38.0" />
+      <point x="839.5208333333333" y="308.0" />
+      <point x="842.6458333333333" y="308.0" />
+      <point x="30.625" y="-61.0" />
     </edge>
-    <edge source="com.assignment3.jpa.daos.BusinessActivityDao" target="com.assignment3.jpa.daos.AbstractDao">
+    <edge source="com.assignment3.jpa.dao.UserDao" target="com.assignment3.jpa.dao.AbstractDao">
       <point x="0.0" y="-15.0" />
-      <point x="805.0" y="429.0" />
-      <point x="798.0" y="429.0" />
-      <point x="89.0" y="49.5" />
+      <point x="302.0416666666667" y="1303.0" />
+      <point x="363.15687134502934" y="1303.0" />
+      <point x="-66.75" y="49.5" />
     </edge>
-    <edge source="com.assignment3.jpa.models.SharableCard" target="com.assignment3.jpa.models.Card">
+    <edge source="com.assignment3.jpa.model.User" target="com.assignment3.jpa.model.SharableCard">
+      <point x="13.625" y="-130.0" />
+      <point x="701.9351712614867" y="470.0" />
+      <point x="679.0208333333333" y="470.0" />
+      <point x="679.0208333333333" y="308.0" />
+      <point x="674.5208333333333" y="308.0" />
+      <point x="-110.0" y="38.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.service.StandardCardService" target="com.assignment3.jpa.model.StandardCard">
+      <point x="-36.80000000000001" y="-15.0" />
+      <point x="487.5545843776107" y="1406.0" />
+      <point x="194.0" y="1406.0" />
+      <point x="194.0" y="1263.0" />
+      <point x="181.3207915622387" y="1263.0" />
+      <point x="181.3207915622387" y="298.0" />
+      <point x="413.6458333333332" y="298.0" />
+      <point x="-50.25" y="26.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.User" target="com.assignment3.jpa.model.Place">
+      <point x="81.75" y="130.0" />
+      <point x="770.0601712614867" y="840.0" />
+      <point x="819.9249582289053" y="840.0" />
+      <point x="35.62499999999997" y="-84.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.StandardCard" target="com.assignment3.jpa.model.UserStandardCard">
+      <point x="83.75" y="26.5" />
+      <point x="547.6458333333333" y="308.0" />
+      <point x="575.8958333333333" y="308.0" />
+      <point x="30.874999999999886" y="-49.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.Card" target="com.assignment3.jpa.model.BusinessActivity">
+      <point x="41.0" y="61.0" />
+      <point x="941.0208333333333" y="152.0" />
+      <point x="984.937917710944" y="152.0" />
+      <point x="984.937917710944" y="1058.0" />
+      <point x="950.1458333333333" y="1058.0" />
+      <point x="34.125" y="-72.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.Place" target="com.assignment3.jpa.model.User">
+      <point x="-35.625" y="-84.0" />
+      <point x="748.6749582289053" y="840.0" />
+      <point x="715.5601712614867" y="840.0" />
+      <point x="27.25" y="130.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.service.UserService" target="com.assignment3.jpa.service.AbstractService">
+      <point x="64.57142857142856" y="-26.5" />
+      <point x="268.7593462823726" y="1446.0" />
+      <point x="434.6957915622387" y="1446.0" />
+      <point x="-94.16666666666663" y="26.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.dao.BusinessActivityDao" target="com.assignment3.jpa.model.BusinessActivity">
+      <point x="60.66666666666666" y="-15.0" />
+      <point x="813.5291248955721" y="1313.0" />
+      <point x="855.3541666666667" y="1313.0" />
+      <point x="-60.66666666666663" y="72.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.BusinessActivity" target="com.assignment3.jpa.model.Card">
+      <point x="56.875" y="-72.5" />
+      <point x="972.8958333333333" y="1068.0" />
+      <point x="995.937917710944" y="1068.0" />
+      <point x="995.937917710944" y="142.0" />
+      <point x="982.0208333333333" y="142.0" />
+      <point x="82.0" y="61.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.UserStandardCard" target="com.assignment3.jpa.model.User">
+      <point x="49.39999999999998" y="49.5" />
+      <point x="594.4208333333333" y="490.0" />
+      <point x="647.4351712614867" y="490.0" />
+      <point x="-40.875" y="-130.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.service.UserService" target="com.assignment3.jpa.dao.StandardCardDao">
+      <point x="-32.285714285714334" y="-26.5" />
+      <point x="171.9022034252297" y="1436.0" />
+      <point x="48.5" y="1436.0" />
+      <point x="-54.0" y="15.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.dao.BusinessActivityDao" target="com.assignment3.jpa.dao.AbstractDao">
+      <point x="0.0" y="-15.0" />
+      <point x="752.8624582289053" y="1293.0" />
+      <point x="585.6568713450293" y="1293.0" />
+      <point x="155.75" y="49.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.SharableCard" target="com.assignment3.jpa.model.Card">
       <point x="0.0" y="-38.0" />
-      <point x="797.5" y="124.0" />
-      <point x="723.5" y="124.0" />
-      <point x="71.75" y="49.5" />
+      <point x="784.5208333333333" y="162.0" />
+      <point x="859.0208333333333" y="162.0" />
+      <point x="-41.0" y="61.0" />
     </edge>
-    <edge source="com.assignment3.jpa.daos.StandardCardDao" target="com.assignment3.jpa.daos.AbstractDao">
+    <edge source="com.assignment3.jpa.dao.StandardCardDao" target="com.assignment3.jpa.dao.AbstractDao">
       <point x="0.0" y="-15.0" />
-      <point x="613.0" y="429.0" />
-      <point x="620.0" y="429.0" />
-      <point x="-89.0" y="49.5" />
+      <point x="102.5" y="1283.0" />
+      <point x="274.15687134502934" y="1283.0" />
+      <point x="-155.75" y="49.5" />
     </edge>
-    <edge source="com.assignment3.jpa.services.BusinessActivityService" target="com.assignment3.jpa.services.AbstractService">
-      <point x="0.0" y="-26.5" />
-      <point x="120.0" y="406.0" />
-      <point x="190.0" y="406.0" />
-      <point x="-56.5" y="38.0" />
+    <edge source="com.assignment3.jpa.service.AbstractService" target="com.assignment3.jpa.service.Service">
+      <point x="75.33333333333331" y="-26.5" />
+      <point x="604.1957915622387" y="1313.0" />
+      <point x="675.9068713450292" y="1313.0" />
+      <point x="0.0" y="15.0" />
     </edge>
-    <edge source="com.assignment3.jpa.models.StandardCard" target="com.assignment3.jpa.models.Card">
+    <edge source="com.assignment3.jpa.service.UserService" target="com.assignment3.jpa.model.User">
+      <point x="-64.57142857142856" y="-26.5" />
+      <point x="139.61648913951547" y="1446.0" />
+      <point x="11.0" y="1446.0" />
+      <point x="11.0" y="1273.0" />
+      <point x="230.40687134502934" y="1273.0" />
+      <point x="230.40687134502934" y="830.0" />
+      <point x="552.0601712614867" y="830.0" />
+      <point x="-136.25" y="130.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.dao.UserDao" target="com.assignment3.jpa.model.User">
+      <point x="-34.66666666666663" y="-15.0" />
+      <point x="267.37500000000006" y="1273.0" />
+      <point x="241.40687134502934" y="1273.0" />
+      <point x="241.40687134502934" y="840.0" />
+      <point x="606.5601712614867" y="840.0" />
+      <point x="-81.75" y="130.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.User" target="com.assignment3.jpa.model.UserStandardCard">
+      <point x="-68.125" y="-130.0" />
+      <point x="620.1851712614867" y="500.0" />
+      <point x="545.0208333333333" y="500.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.StandardCard" target="com.assignment3.jpa.model.Card">
+      <point x="-67.0" y="-26.5" />
+      <point x="396.8958333333332" y="142.0" />
+      <point x="777.0208333333333" y="142.0" />
+      <point x="-123.0" y="61.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.service.UserService" target="com.assignment3.jpa.model.StandardCard">
+      <point x="-96.85714285714278" y="-26.5" />
+      <point x="107.33077485380124" y="1456.0" />
+      <point x="0.0" y="1456.0" />
+      <point x="0.0" y="278.0" />
+      <point x="346.6458333333332" y="278.0" />
+      <point x="-117.25" y="26.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.UserSharableCard" target="com.assignment3.jpa.model.User">
+      <point x="98.0" y="61.0" />
+      <point x="910.0208333333333" y="530.0" />
+      <point x="838.1851712614867" y="530.0" />
+      <point x="149.87499999999997" y="-130.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.service.StandardCardService" target="com.assignment3.jpa.model.BusinessActivity">
+      <point x="73.60000000000002" y="-15.0" />
+      <point x="597.9545843776108" y="1446.0" />
+      <point x="932.3652046783626" y="1446.0" />
+      <point x="932.3652046783626" y="1313.0" />
+      <point x="916.0208333333333" y="1313.0" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.service.StandardCardService" target="com.assignment3.jpa.dao.StandardCardDao">
+      <point x="-73.60000000000002" y="-15.0" />
+      <point x="450.75458437761074" y="1416.0" />
+      <point x="156.5" y="1416.0" />
+      <point x="54.0" y="15.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.dao.AbstractDao" target="com.assignment3.jpa.dao.Dao">
+      <point x="0.0" y="-49.5" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.User" target="com.assignment3.jpa.model.UserSharableCard">
+      <point x="95.375" y="-130.0" />
+      <point x="783.6851712614867" y="510.0" />
+      <point x="812.0208333333333" y="510.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.service.BusinessActivityService" target="com.assignment3.jpa.model.BusinessActivity">
+      <point x="76.5" y="-15.0" />
+      <point x="838.7170426065161" y="1456.0" />
+      <point x="986.7087510442774" y="1456.0" />
+      <point x="986.7087510442774" y="1313.0" />
+      <point x="976.6875" y="1313.0" />
+      <point x="60.66666666666663" y="72.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.BusinessActivity" target="com.assignment3.jpa.model.Place">
+      <point x="-56.875" y="-72.5" />
+      <point x="859.1458333333333" y="1068.0" />
+      <point x="748.6749582289053" y="1068.0" />
+      <point x="-35.625" y="84.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.service.AbstractService" target="com.assignment3.jpa.dao.AbstractDao">
       <point x="0.0" y="-26.5" />
-      <point x="506.0" y="124.0" />
-      <point x="580.0" y="124.0" />
-      <point x="-71.75" y="49.5" />
+      <point x="528.8624582289053" y="1313.0" />
+      <point x="496.65687134502934" y="1313.0" />
+      <point x="66.75" y="49.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.UserStandardCard" target="com.assignment3.jpa.model.StandardCard">
+      <point x="-92.62500000000011" y="-49.5" />
+      <point x="452.3958333333332" y="308.0" />
+      <point x="480.6458333333332" y="308.0" />
+      <point x="16.75" y="26.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.service.BusinessActivityService" target="com.assignment3.jpa.dao.BusinessActivityDao">
+      <point x="25.5" y="-15.0" />
+      <point x="787.7170426065161" y="1436.0" />
+      <point x="752.8624582289053" y="1436.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.service.BusinessActivityService" target="com.assignment3.jpa.service.AbstractService">
+      <point x="-25.5" y="-15.0" />
+      <point x="736.7170426065161" y="1426.0" />
+      <point x="623.029124895572" y="1426.0" />
+      <point x="94.16666666666663" y="26.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.service.StandardCardService" target="com.assignment3.jpa.service.AbstractService">
+      <point x="36.799999999999955" y="-15.0" />
+      <point x="561.1545843776107" y="1456.0" />
+      <point x="547.6957915622387" y="1456.0" />
+      <point x="18.83333333333337" y="26.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.User" target="com.assignment3.jpa.model.StandardCard">
+      <point x="-149.875" y="-130.0" />
+      <point x="538.4351712614867" y="530.0" />
+      <point x="411.0208333333333" y="530.0" />
+      <point x="411.0208333333333" y="308.0" />
+      <point x="447.1458333333332" y="308.0" />
+      <point x="-16.75" y="26.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.dao.StandardCardDao" target="com.assignment3.jpa.model.StandardCard">
+      <point x="-54.0" y="-15.0" />
+      <point x="48.5" y="1263.0" />
+      <point x="86.06937134502925" y="1263.0" />
+      <point x="86.06937134502925" y="288.0" />
+      <point x="380.1458333333332" y="288.0" />
+      <point x="-83.75" y="26.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.Place" target="com.assignment3.jpa.model.BusinessActivity">
+      <point x="106.87499999999997" y="84.0" />
+      <point x="891.1749582289053" y="1078.0" />
+      <point x="904.6458333333333" y="1078.0" />
+      <point x="-11.375" y="-72.5" />
+    </edge>
+    <edge source="com.assignment3.jpa.model.UserSharableCard" target="com.assignment3.jpa.model.SharableCard">
+      <point x="-91.875" y="-61.0" />
+      <point x="720.1458333333333" y="308.0" />
+      <point x="729.5208333333333" y="308.0" />
+      <point x="-55.0" y="38.0" />
+    </edge>
+    <edge source="com.assignment3.jpa.service.UserService" target="com.assignment3.jpa.dao.UserDao">
+      <point x="32.285714285714334" y="-26.5" />
+      <point x="236.47363199665836" y="1436.0" />
+      <point x="302.0416666666667" y="1436.0" />
+      <point x="0.0" y="15.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.36933333333333335" x="1040.0" y="460.5956678700361" />
+  <settings layout="Hierarchic Group" zoom="0.36933333333333335" x="1040.0" y="253.5956678700361" />
   <SelectedNodes>
-    <node>com.assignment3.jpa.daos.StandardCardDao</node>
+    <node>com.assignment3.jpa.model.Card</node>
+    <node>com.assignment3.jpa.model.SharableCard</node>
+    <node>com.assignment3.jpa.model.Place</node>
+    <node>com.assignment3.jpa.model.StandardCard</node>
   </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
