@@ -101,6 +101,13 @@ public class User implements Serializable {
         return standardCards;
     }
 
+    /*public List<StandardCard> getStandardCards() {
+        List<StandardCard> l = new ArrayList<>();
+        for (UserStandardCard u: standardCards)
+            l.add(u.getStandardCard());
+        return l;
+    }*/
+
     public void setStandardCards(Set<UserStandardCard> standardCards) {
         this.standardCards = standardCards;
     }

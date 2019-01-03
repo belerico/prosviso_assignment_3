@@ -16,7 +16,7 @@ public class UserService extends AbstractService<User, Long> {
         scDao = new StandardCardDao();
     }
 
-    public void addUserStandardCard(User u, StandardCard s) {
+    public void addStandardCard(User u, StandardCard s) {
         getDao().begin();
         getDao().create(u);
         scDao.create(s);
@@ -25,12 +25,13 @@ public class UserService extends AbstractService<User, Long> {
         getDao().commit();
     }
 
-    public void removeUserStandardCard(StandardCard s) {
+    public void removeStandardCardFromAllUser(StandardCard s) {
         List<User> users = readAll();
         getDao().begin();
-        for (User u : users)
-            u.removeStandardCard(s);
-        getDao().flush();
+        for (User u : users) {
+            if (u.getStandardCards().contains(s))
+                u.removeStandardCard(s);
+        }
         getDao().commit();
     }
 }

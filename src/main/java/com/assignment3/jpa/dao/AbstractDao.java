@@ -2,11 +2,12 @@ package com.assignment3.jpa.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.io.Serializable;
 import java.util.List;
 
-public abstract class AbstractDao<T, Id extends Serializable> implements Serializable {
+public abstract class AbstractDao<T, Id extends Serializable> implements Dao<T, Id> {
 
     private final static EntityManagerFactory entityManagerFactory;
     private final static EntityManager entityManager;
@@ -22,8 +23,12 @@ public abstract class AbstractDao<T, Id extends Serializable> implements Seriali
         this.tClass = tClass;
     }
 
+    public EntityTransaction getTransaction() {
+        return getEntityManager().getTransaction();
+    }
+
     public void begin() {
-        getEntityManager().getTransaction().begin();
+        getTransaction().begin();
     }
 
     public void flush() {
@@ -31,12 +36,11 @@ public abstract class AbstractDao<T, Id extends Serializable> implements Seriali
     }
 
     public void commit() {
-        flush();
-        getEntityManager().getTransaction().commit();
+        getTransaction().commit();
     }
 
     public void rollback() {
-        getEntityManager().getTransaction().rollback();
+        getTransaction().rollback();
     }
 
     public EntityManager getEntityManager() {
@@ -55,18 +59,11 @@ public abstract class AbstractDao<T, Id extends Serializable> implements Seriali
         return getEntityManager().merge(entity);
     }
 
-    public T update(Id id) {
-        return update(read(id));
-    }
-
     public void delete(T entity) {
         getEntityManager().remove(entity);
     }
 
-    public void delete(Id id) {
-        delete(read(id));
-    }
-
+    @SuppressWarnings("unchecked")
     public List<T> readAll() {
         return getEntityManager().createQuery("from " + tClass.getName()).getResultList();
     }
