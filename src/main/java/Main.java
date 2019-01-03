@@ -43,6 +43,7 @@ public class Main {
         businessActivityService.deleteCard(ba1, st2);
         System.out.println(ba1.getCards());
 
+        // Ciao Roby
 
         /*for (StandardCard s: user1.getStandardCards())
             user1.removeStandardCard(s);
