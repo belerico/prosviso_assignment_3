@@ -5,9 +5,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -34,13 +32,6 @@ public class StandardCard extends Card implements Serializable {
 
     public Set<UserStandardCard> getUsers() {
         return users;
-    }
-
-    public List<User> getUsersList() {
-        List<User> l = new ArrayList<>();
-        for (UserStandardCard u : users)
-            l.add(u.getUser());
-        return l;
     }
 
     public void setUsers(Set<UserStandardCard> users) {
