@@ -1,37 +1,33 @@
 package com.assignment3.jpa.service;
 
-import com.assignment3.jpa.dao.StandardCardDao;
 import com.assignment3.jpa.dao.UserDao;
-import com.assignment3.jpa.model.StandardCard;
 import com.assignment3.jpa.model.User;
+import com.assignment3.jpa.model.UserStandardCard;
 
-import java.util.List;
+import java.util.Iterator;
 
 public class UserService extends AbstractService<User, Long> {
 
-    private StandardCardDao scDao;
-
     public UserService() {
         super(new UserDao());
-        scDao = new StandardCardDao();
     }
 
-    public void addStandardCard(User u, StandardCard s) {
+    @Override
+    public void delete(User entity) {
         getDao().begin();
-        getDao().create(u);
-        scDao.create(s);
-        u.addStandardCard(s);
-        getDao().flush();
-        getDao().commit();
-    }
-
-    public void removeStandardCardFromAllUser(StandardCard s) {
-        List<User> users = readAll();
-        getDao().begin();
-        for (User u : users) {
-            if (u.getStandardCards().contains(s))
-                u.removeStandardCard(s);
+        Iterator<UserStandardCard> i = entity.getStandardCards().iterator();
+        while (i.hasNext()) {
+            UserStandardCard u = i.next();
+            i.remove();
+            u.getUser().removeStandardCard(u.getStandardCard());
         }
+        getDao().delete(entity);
         getDao().commit();
+    }
+
+    @Override
+    public void deleteAll() {
+        for (User u : readAll())
+            delete(u);
     }
 }

@@ -3,8 +3,9 @@ package com.assignment3.jpa.service;
 import com.assignment3.jpa.dao.StandardCardDao;
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.StandardCard;
+import com.assignment3.jpa.model.UserStandardCard;
 
-import java.util.List;
+import java.util.Iterator;
 
 public class StandardCardService extends AbstractService<StandardCard, Long> {
 
@@ -14,16 +15,22 @@ public class StandardCardService extends AbstractService<StandardCard, Long> {
 
     @Override
     public void delete(StandardCard entity) {
+        getDao().begin();
+        Iterator<UserStandardCard> i = entity.getUsers().iterator();
+        while (i.hasNext()) {
+            UserStandardCard u = i.next();
+            i.remove();
+            u.getUser().removeStandardCard(entity);
+        }
         BusinessActivity b = entity.getBusinessActivity();
         if (b != null)
             b.removeCard(entity);
-        super.delete(entity);
+        getDao().commit();
     }
 
     @Override
     public void deleteAll() {
-        List<StandardCard> standardCards = readAll();
-        for (StandardCard s : standardCards)
+        for (StandardCard s : readAll())
             delete(s);
     }
 }

@@ -36,6 +36,7 @@ public abstract class AbstractDao<T, Id extends Serializable> implements Dao<T, 
     }
 
     public void commit() {
+        flush();
         getTransaction().commit();
     }
 
@@ -69,8 +70,7 @@ public abstract class AbstractDao<T, Id extends Serializable> implements Dao<T, 
     }
 
     public void deleteAll() {
-        List<T> list = readAll();
-        for (T t : list)
+        for (T t : readAll())
             delete(t);
     }
 }

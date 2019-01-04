@@ -37,11 +37,7 @@ public abstract class AbstractService<T, Id extends Serializable> implements Ser
         return t;
     }
 
-    public void delete(T entity) {
-        dao.begin();
-        dao.delete(entity);
-        dao.commit();
-    }
+    public abstract void delete(T entity);
 
     public List<T> readAll() {
         dao.begin();
@@ -50,10 +46,5 @@ public abstract class AbstractService<T, Id extends Serializable> implements Ser
         return l;
     }
 
-    public void deleteAll() {
-        dao.begin();
-        dao.deleteAll();
-        dao.commit();
-    }
-
+    public abstract void deleteAll();
 }
