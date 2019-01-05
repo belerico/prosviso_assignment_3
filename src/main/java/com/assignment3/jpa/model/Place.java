@@ -14,9 +14,9 @@ public class Place {
     private String city;
     private String province;
     private String region;
-    @OneToMany(mappedBy = "place", cascade = CascadeType.MERGE, orphanRemoval = true)
+    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL)
     private List<User> users = new ArrayList<>();
-    @OneToMany(mappedBy = "place", cascade = CascadeType.MERGE, orphanRemoval = true)
+    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL)
     private List<BusinessActivity> activities = new ArrayList<>();
 
     public Place() {
