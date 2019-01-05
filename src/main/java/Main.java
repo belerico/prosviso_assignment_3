@@ -1,7 +1,9 @@
-import com.assignment3.jpa.model.*;
+import com.assignment3.jpa.model.BusinessActivity;
+import com.assignment3.jpa.model.SharableCard;
+import com.assignment3.jpa.model.StandardCard;
+import com.assignment3.jpa.model.User;
 import com.assignment3.jpa.service.BusinessActivityService;
 import com.assignment3.jpa.service.CardService;
-import com.assignment3.jpa.service.PlaceService;
 import com.assignment3.jpa.service.UserService;
 
 import java.util.Date;
@@ -58,13 +60,13 @@ public class Main {
         //businessActivityService.deleteAll();
         userService.delete(user1);
 
-        Place p1 = new Place("AAAA", "Bergamo", "BG", "Lombardia");
+        /*Place p1 = new Place("AAAA", "Bergamo", "BG", "Lombardia");
         Place p2 = new Place("BBBB", "Bergamo", "BG", "Lombardia");
         PlaceService placeService = new PlaceService();
         placeService.create(p1);
         placeService.create(p2);
         user1.addPlace(p1);
         userService.update(user1);
-        placeService.deleteAll();
+        placeService.deleteAll();*/
     }
 }

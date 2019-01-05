@@ -36,7 +36,7 @@ public abstract class AbstractDao<T, Id extends Serializable> implements Dao<T, 
     }
 
     public void commit() {
-        //flush();
+        flush();
         getTransaction().commit();
     }
 

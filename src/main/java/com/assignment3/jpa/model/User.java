@@ -186,7 +186,7 @@ public class User implements Serializable {
         while (iUSH.hasNext()) {
             ush = iUSH.next();
             iUSH.remove();
-            removeSharableCard(this, ush.getSharableCard());
+            removeSharableCard(ush.getUser2(), ush.getSharableCard());
         }
     }
 
