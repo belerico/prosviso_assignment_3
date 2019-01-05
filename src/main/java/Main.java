@@ -49,12 +49,14 @@ public class Main {
         user1.setName("another");
         userService.update(user1);
 
-        //cardService.deleteAll();
-        //businessActivityService.deleteAll();
+        //ba1.removeAllCard();
+        //businessActivityService.delete(ba1);
+        //cardService.delete(st1);
+        //businessActivityService.deleteAllCard(ba1);
         //userService.deleteAll();
         //businessActivityService.deleteCard(st1);
         //businessActivityService.deleteAll();
-        //userService.deleteAll();
+        userService.delete(user1);
 
         Place p1 = new Place("AAAA", "Bergamo", "BG", "Lombardia");
         Place p2 = new Place("BBBB", "Bergamo", "BG", "Lombardia");
@@ -62,7 +64,6 @@ public class Main {
         placeService.create(p1);
         placeService.create(p2);
         user1.addPlace(p1);
-        user1.addPlace(p2);
         userService.update(user1);
         placeService.deleteAll();
     }

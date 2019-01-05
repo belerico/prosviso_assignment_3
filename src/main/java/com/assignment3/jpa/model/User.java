@@ -4,10 +4,7 @@ import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class User implements Serializable {
@@ -146,8 +143,8 @@ public class User implements Serializable {
 
     public void removeStandardCard(StandardCard standardCard) {
         UserStandardCard userStandardCard = new UserStandardCard(this, standardCard);
-        standardCard.getUsers().remove(userStandardCard);
         this.standardCards.remove(userStandardCard);
+        standardCard.getUsers().remove(userStandardCard);
         userStandardCard.setStandardCard(null);
         userStandardCard.setUser(null);
     }
@@ -174,6 +171,23 @@ public class User implements Serializable {
         userSharableCard = new UserSharableCard(user, this, sharableCard);
         user.getSharableCards().remove(userSharableCard);
         sharableCard.getUsers2().remove(userSharableCard);
+    }
+
+    public void removeAllCard() {
+        Iterator<UserStandardCard> iUSC = getStandardCards().iterator();
+        UserStandardCard usc;
+        while (iUSC.hasNext()) {
+            usc = iUSC.next();
+            iUSC.remove();
+            removeStandardCard(usc.getStandardCard());
+        }
+        Iterator<UserSharableCard> iUSH = getSharableCards().iterator();
+        UserSharableCard ush;
+        while (iUSH.hasNext()) {
+            ush = iUSH.next();
+            iUSH.remove();
+            removeSharableCard(this, ush.getSharableCard());
+        }
     }
 
     @Override
