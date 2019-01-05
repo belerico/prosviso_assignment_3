@@ -3,7 +3,6 @@ package com.assignment3.jpa.service;
 import com.assignment3.jpa.dao.BusinessActivityDao;
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Card;
-import com.assignment3.jpa.model.StandardCard;
 
 import java.util.ListIterator;
 
@@ -14,16 +13,16 @@ public class BusinessActivityService extends AbstractService<BusinessActivity, L
     }
 
     public void deleteCard(Card c) {
-        new StandardCardService().delete((StandardCard) c);
+        new CardService().delete(c);
     }
 
     public void deleteAllCard(BusinessActivity b) {
-        StandardCardService service = new StandardCardService();
+        CardService service = new CardService();
         ListIterator<Card> iter = b.getCards().listIterator();
         while (iter.hasNext()) {
             Card c = iter.next();
             iter.remove();
-            service.delete((StandardCard) c);
+            service.delete(c);
         }
     }
 
