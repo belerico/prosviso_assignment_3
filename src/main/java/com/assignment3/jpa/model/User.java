@@ -26,7 +26,7 @@ public class User implements Serializable {
     private Set<UserStandardCard> standardCards = new HashSet<>();
     @OneToMany(mappedBy = "sharableCard", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserSharableCard> sharableCards = new HashSet<>();
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Place place;
 
     public User() {

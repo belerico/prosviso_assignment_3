@@ -1,7 +1,9 @@
 import com.assignment3.jpa.model.BusinessActivity;
+import com.assignment3.jpa.model.Place;
 import com.assignment3.jpa.model.StandardCard;
 import com.assignment3.jpa.model.User;
 import com.assignment3.jpa.service.BusinessActivityService;
+import com.assignment3.jpa.service.PlaceService;
 import com.assignment3.jpa.service.StandardCardService;
 import com.assignment3.jpa.service.UserService;
 
@@ -19,7 +21,6 @@ public class Main {
         UserService userService = new UserService();
         StandardCardService standardCardService = new StandardCardService();
         BusinessActivityService businessActivityService = new BusinessActivityService();
-
         ba1.addCard(st1);
         ba1.addCard(st2);
         ba2.addCard(st3);
@@ -44,6 +45,15 @@ public class Main {
         //standardCardService.delete(st1);
         //businessActivityService.deleteAll();
         //userService.deleteAll();
-        businessActivityService.deleteCard(st1);
+        //businessActivityService.deleteCard(st1);
+        /*businessActivityService.deleteAll();
+        userService.deleteAll();*/
+
+        Place p1 = new Place("Bergamo", "BG", "Lombardia");
+        PlaceService placeService = new PlaceService();
+        placeService.create(p1);
+        user1.addPlace(p1);
+        userService.update(user1);
+        placeService.delete(p1);
     }
 }
