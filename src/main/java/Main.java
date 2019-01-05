@@ -56,12 +56,13 @@ public class Main {
         //businessActivityService.deleteAll();
         //userService.deleteAll();
 
-        Place p1 = new Place("Bergamo", "BG", "Lombardia");
-        Place p2 = new Place("Bergamo", "BG", "Lombardia");
+        Place p1 = new Place("AAAA", "Bergamo", "BG", "Lombardia");
+        Place p2 = new Place("BBBB", "Bergamo", "BG", "Lombardia");
         PlaceService placeService = new PlaceService();
         placeService.create(p1);
         placeService.create(p2);
         user1.addPlace(p1);
+        user1.addPlace(p2);
         userService.update(user1);
         placeService.deleteAll();
     }
