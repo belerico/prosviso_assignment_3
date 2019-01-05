@@ -25,12 +25,7 @@ public class StandardCardService extends AbstractService<StandardCard, Long> {
         BusinessActivity b = entity.getBusinessActivity();
         if (b != null)
             b.removeCard(entity);
+        getDao().delete(entity);
         getDao().commit();
-    }
-
-    @Override
-    public void deleteAll() {
-        for (StandardCard s : readAll())
-            delete(s);
     }
 }

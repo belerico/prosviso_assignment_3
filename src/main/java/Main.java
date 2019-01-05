@@ -27,6 +27,10 @@ public class Main {
         businessActivityService.create(ba1);
         businessActivityService.create(ba2);
 
+        standardCardService.create(st1);
+        standardCardService.create(st2);
+        standardCardService.create(st3);
+
         user1.addStandardCard(st1);
         user1.addStandardCard(st2);
         userService.create(user1);
@@ -37,8 +41,9 @@ public class Main {
         user1.setName("another");
         userService.update(user1);
 
-        businessActivityService.deleteAll();
-        userService.deleteAll();
-        //businessActivityService.delete(ba1);
+        //standardCardService.delete(st1);
+        //businessActivityService.deleteAll();
+        //userService.deleteAll();
+        businessActivityService.deleteCard(st1);
     }
 }
