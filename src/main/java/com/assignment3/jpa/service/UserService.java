@@ -25,9 +25,4 @@ public class UserService extends AbstractService<User, Long> {
         getDao().commit();
     }
 
-    @Override
-    public void deleteAll() {
-        for (User u : readAll())
-            delete(u);
-    }
 }
