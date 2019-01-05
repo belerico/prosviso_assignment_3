@@ -82,4 +82,14 @@ public class UserSharableCard implements Serializable {
     public int hashCode() {
         return Objects.hash(user1, user2, sharableCard);
     }
+
+    @Override
+    public String toString() {
+        return "UserSharableCard{" +
+                "user1=" + user1 +
+                ", user2=" + user2 +
+                ", sharableCard=" + sharableCard +
+                ", consumed=" + consumed +
+                '}';
+    }
 }
