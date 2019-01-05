@@ -21,6 +21,18 @@ public class SharableCard extends Card implements Serializable {
     public SharableCard() {
     }
 
+    public SharableCard(String cardNumber, int quantity) {
+        super(cardNumber, quantity);
+    }
+
+    public SharableCard(String cardNumber) {
+        super(cardNumber);
+    }
+
+    public SharableCard(int quantity) {
+        super(quantity);
+    }
+
     public Set<UserSharableCard> getUsers1() {
         return users1;
     }
