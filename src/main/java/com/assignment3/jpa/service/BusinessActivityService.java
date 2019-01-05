@@ -34,10 +34,4 @@ public class BusinessActivityService extends AbstractService<BusinessActivity, L
         getDao().delete(b);
         getDao().commit();
     }
-
-    @Override
-    public void deleteAll() {
-        for (BusinessActivity b : readAll())
-            delete(b);
-    }
 }

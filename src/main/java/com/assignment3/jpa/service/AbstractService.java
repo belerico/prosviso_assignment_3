@@ -46,5 +46,9 @@ public abstract class AbstractService<T, Id extends Serializable> implements Ser
         return l;
     }
 
-    public abstract void deleteAll();
+    public void deleteAll() {
+        List<T> list = readAll();
+        for (T l : list)
+            delete(l);
+    }
 }

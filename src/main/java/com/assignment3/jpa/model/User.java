@@ -22,7 +22,7 @@ public class User implements Serializable {
     private String email;
     private Date dateOfBirth;
     private boolean sex;
-    @OneToMany(mappedBy = "standardCard", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, orphanRemoval = true)
+    @OneToMany(mappedBy = "standardCard", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserStandardCard> standardCards = new HashSet<>();
     @OneToMany(mappedBy = "sharableCard", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserSharableCard> sharableCards = new HashSet<>();
