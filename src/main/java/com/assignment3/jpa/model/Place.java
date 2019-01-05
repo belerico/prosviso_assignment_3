@@ -1,5 +1,7 @@
 package com.assignment3.jpa.model;
 
+import org.hibernate.annotations.NaturalId;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,8 @@ public class Place {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NaturalId
+    private String CAP;
     private String city;
     private String province;
     private String region;
@@ -22,7 +26,8 @@ public class Place {
     public Place() {
     }
 
-    public Place(String city, String province, String region) {
+    public Place(String CAP, String city, String province, String region) {
+        this.CAP = CAP;
         this.city = city;
         this.province = province;
         this.region = region;
@@ -58,6 +63,14 @@ public class Place {
 
     public void setRegion(String region) {
         this.region = region;
+    }
+
+    public String getCAP() {
+        return CAP;
+    }
+
+    public void setCAP(String CAP) {
+        this.CAP = CAP;
     }
 
     public List<User> getUsers() {
@@ -101,12 +114,12 @@ public class Place {
         if (this == o) return true;
         if (!(o instanceof Place)) return false;
         Place place = (Place) o;
-        return id.equals(place.id);
+        return Objects.equals(CAP, place.CAP);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(CAP);
     }
 
     @Override
