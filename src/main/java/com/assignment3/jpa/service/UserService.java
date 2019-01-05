@@ -9,10 +9,16 @@ public class UserService extends AbstractService<User, Long> {
         super(new UserDao());
     }
 
-    @Override
-    public void delete(User user) {
+    public void deleteAllCard(User user) {
         getDao().begin();
         user.removeAllCard();
+        getDao().commit();
+    }
+
+    @Override
+    public void delete(User user) {
+        deleteAllCard(user);
+        getDao().begin();
         getDao().delete(user);
         getDao().commit();
     }
