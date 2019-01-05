@@ -1,11 +1,11 @@
 package com.assignment3.jpa.service;
 
 import com.assignment3.jpa.dao.PlaceDao;
+import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Place;
 import com.assignment3.jpa.model.User;
 
 import java.util.Iterator;
-import java.util.List;
 
 public class PlaceService extends AbstractService<Place, Long> {
 
@@ -13,13 +13,19 @@ public class PlaceService extends AbstractService<Place, Long> {
 
     @Override
     public void delete(Place entity) {
-        /*Iterator<User> i = entity.getUsers().iterator();
-        while (i.hasNext()) {
-            User u = i.next();
-            i.remove();
-            u.removePlace(entity);
-        }*/
         getDao().begin();
+        Iterator<User> iU = entity.getUsers().iterator();
+        while (iU.hasNext()) {
+            User u = iU.next();
+            iU.remove();
+            u.removePlace(entity);
+        }
+        Iterator<BusinessActivity> iB = entity.getActivities().iterator();
+        while (iB.hasNext()) {
+            BusinessActivity b = iB.next();
+            iB.remove();
+            b.removePlace(entity);
+        }
         getDao().delete(entity);
         getDao().commit();
 
