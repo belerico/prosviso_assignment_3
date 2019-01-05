@@ -3,9 +3,7 @@ package com.assignment3.jpa.model;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 public class BusinessActivity {
@@ -76,11 +74,33 @@ public class BusinessActivity {
 
     public void removeCard(Card card) {
         this.cards.remove(card);
+        if (card instanceof StandardCard) {
+            Iterator<UserStandardCard> i = ((StandardCard) card).getUsers().iterator();
+            UserStandardCard u;
+            while (i.hasNext()) {
+                u = i.next();
+                i.remove();
+                u.getUser().removeStandardCard((StandardCard) card);
+            }
+        } else if (card instanceof SharableCard) {
+            Iterator<UserSharableCard> i = ((SharableCard) card).getUsers1().iterator();
+            UserSharableCard u;
+            while (i.hasNext()) {
+                u = i.next();
+                i.remove();
+                u.getUser1().removeSharableCard(u.getUser2(), (SharableCard) card);
+            }
+        }
         card.setBusinessActivity(null);
     }
 
     public void removeAllCard() {
-        this.cards.clear();
+        ListIterator<Card> i = this.getCards().listIterator();
+        while (i.hasNext()) {
+            Card card = i.next();
+            i.remove();
+            removeCard(card);
+        }
     }
 
     public void addPlace(Place place) {
