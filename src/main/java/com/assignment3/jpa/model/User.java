@@ -165,11 +165,13 @@ public class User implements Serializable {
         UserSharableCard userSharableCard = new UserSharableCard(this, user, sharableCard);
         this.getSharableCards().remove(userSharableCard);
         sharableCard.getUsers1().remove(userSharableCard);
+        sharableCard.getUsers2().remove(userSharableCard);
         /*
             Need to maintain the simmetry between users
          */
         userSharableCard = new UserSharableCard(user, this, sharableCard);
         user.getSharableCards().remove(userSharableCard);
+        sharableCard.getUsers1().remove(userSharableCard);
         sharableCard.getUsers2().remove(userSharableCard);
     }
 
