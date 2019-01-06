@@ -19,7 +19,6 @@ public class Helper {
     }
 
     public static void resetIdAutoIncrement(Class tClass) {
-        System.out.println(tClass.getName());
         entityManager.getTransaction().begin();
         entityManager.createNativeQuery("ALTER TABLE " + tClass.getSimpleName() + " AUTO_INCREMENT=1", tClass)
                 .executeUpdate();
