@@ -1,5 +1,10 @@
 package com.assignment3.jpa;
 
+import com.assignment3.jpa.service.BusinessActivityService;
+import com.assignment3.jpa.service.CardService;
+import com.assignment3.jpa.service.PlaceService;
+import com.assignment3.jpa.service.UserService;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -15,6 +20,7 @@ public class Helper {
     }
 
     public static void resetIdAutoIncrement(Class tClass) {
+        System.out.println("PROVAAAAA:"+tClass.getName());
         entityManager.getTransaction().begin();
         entityManager.createNativeQuery("ALTER TABLE " + tClass.getSimpleName() + " AUTO_INCREMENT=1", tClass)
                 .executeUpdate();
@@ -22,16 +28,9 @@ public class Helper {
     }
 
     public static void dropDatabase() {
-        /*new PlaceService().deleteAll();
+        new PlaceService().deleteAll();
         new BusinessActivityService().deleteAll();
-        new UserService().deleteAll();*/
-        entityManager.getTransaction().begin();
-        entityManager.createQuery("delete from UserSharableCard").executeUpdate();
-        entityManager.createQuery("delete from UserStandardCard").executeUpdate();
-        entityManager.createQuery("delete from Card").executeUpdate();
-        entityManager.createQuery("delete from User").executeUpdate();
-        entityManager.createQuery("delete from Place").executeUpdate();
-        entityManager.createQuery("delete from BusinessActivity").executeUpdate();
-        entityManager.getTransaction().commit();
+        new UserService().deleteAll();
+        new CardService().deleteAll();
     }
 }

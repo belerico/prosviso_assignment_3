@@ -25,8 +25,11 @@ public class Main {
         UserService userService = new UserService();
         CardService cardService = new CardService();
         BusinessActivityService businessActivityService = new BusinessActivityService();
+        cardService.create(st1);
+        cardService.create(st2);
+        cardService.deleteAll();
 
-        ba1.addCard(st1);
+        /*ba1.addCard(st1);
         ba1.addCard(st2);
         ba2.addCard(st3);
         ba1.addCard(sh1);
@@ -50,7 +53,7 @@ public class Main {
         user1.addStandardCard(st3);
         userService.create(user1);
         user1.setName("another");
-        userService.update(user1);
+        userService.update(user1);*/
 
         //ba1.removeAllCard();
         //businessActivityService.delete(ba1);
@@ -70,7 +73,6 @@ public class Main {
         user1.addPlace(p1);
         userService.update(user1);
         placeService.deleteAll();*/
-
-        Helper.dropDatabase();
+        //Helper.dropDatabase();
     }
 }

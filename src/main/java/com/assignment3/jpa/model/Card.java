@@ -59,6 +59,14 @@ public class Card implements Serializable {
         this.businessActivity = businessActivity;
     }
 
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
