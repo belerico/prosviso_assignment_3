@@ -53,13 +53,13 @@ public class Main {
 
         //ba1.removeAllCard();
         //businessActivityService.delete(ba1);
-        //cardService.delete(st1);
+        cardService.deleteAll();
         //businessActivityService.deleteAllCard(ba1);
-        //userService.deleteAll();
-        //businessActivityService.deleteCard(st1);
-        //businessActivityService.deleteAll();
-        userService.removeStandardCard(user1, st1);
         userService.deleteAll();
+        //businessActivityService.deleteCard(st1);
+        businessActivityService.deleteAll();
+        //userService.removeStandardCard(user1, st1);
+        //userService.deleteAll();
 
         /*Place p1 = new Place("AAAA", "Bergamo", "BG", "Lombardia");
         Place p2 = new Place("BBBB", "Bergamo", "BG", "Lombardia");

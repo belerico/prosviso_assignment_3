@@ -44,6 +44,10 @@ public abstract class AbstractDao<T, Id extends Serializable> implements Dao<T, 
         getTransaction().rollback();
     }
 
+    public void close() {
+        getEntityManager().close();
+    }
+
     public EntityManager getEntityManager() {
         return entityManager;
     }
