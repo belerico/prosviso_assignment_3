@@ -18,6 +18,14 @@ public class Helper {
         entityManager = entityManagerFactory.createEntityManager();
     }
 
+    public static void resetIdAutoIncrement(Class tClass) {
+        System.out.println(tClass.getName());
+        entityManager.getTransaction().begin();
+        entityManager.createNativeQuery("ALTER TABLE " + tClass.getSimpleName() + " AUTO_INCREMENT=1", tClass)
+                .executeUpdate();
+        entityManager.getTransaction().commit();
+    }
+
     public static void dropDatabase() {
         new PlaceService().deleteAll();
         new BusinessActivityService().deleteAll();

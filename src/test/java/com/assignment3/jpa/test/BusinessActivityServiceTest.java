@@ -19,9 +19,10 @@ class BusinessActivityServiceTest {
 
     @BeforeAll
     static void before() {
+        Helper.dropDatabase();
+        Helper.resetIdAutoIncrement(BusinessActivity.class);
         faker = new Faker(new Locale("it"));
         businessActivityService = new BusinessActivityService();
-        Helper.dropDatabase();
     }
 
     @AfterAll
