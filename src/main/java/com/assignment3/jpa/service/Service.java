@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface Service<T, Id extends Serializable> {
 
-    T create(T entity);
+    void create(T entity);
 
     T read(Id id);
 
