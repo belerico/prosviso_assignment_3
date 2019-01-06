@@ -58,7 +58,7 @@ public class Main {
         //userService.deleteAll();
         //businessActivityService.deleteCard(st1);
         //businessActivityService.deleteAll();
-        userService.delete(user1);
+        userService.removeStandardCard(user1, st1);
         userService.deleteAll();
 
         /*Place p1 = new Place("AAAA", "Bergamo", "BG", "Lombardia");
