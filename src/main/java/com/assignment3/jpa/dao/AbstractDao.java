@@ -52,8 +52,9 @@ public abstract class AbstractDao<T, Id extends Serializable> implements Dao<T, 
         return entityManager;
     }
 
-    public void create(T entity) {
+    public T create(T entity) {
         getEntityManager().persist(entity);
+        return entity;
     }
 
     public T read(Id id) {

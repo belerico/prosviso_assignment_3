@@ -12,9 +12,9 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.3.2</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -94,7 +94,7 @@
                     <version>9.4.7.v20170914</version>
                     <configuration>
                         <webApp>
-                            <contextPath>/${build.finalName}</contextPath>
+                            <contextPath>/${project.build.finalName}</contextPath>
                         </webApp>
                         <stopKey>CTRL+C</stopKey>
                         <stopPort>8999</stopPort>

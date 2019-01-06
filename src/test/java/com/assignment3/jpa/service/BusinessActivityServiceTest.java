@@ -1,52 +1,52 @@
-package com.assignment3.jpa;
+package com.assignment3.jpa.service;
 
+import com.assignment3.jpa.Helper;
 import com.assignment3.jpa.model.BusinessActivity;
-import com.assignment3.jpa.service.BusinessActivityService;
 import com.github.javafaker.Faker;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.Locale;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-class BusinessActivityServiceTest {
+public class BusinessActivityServiceTest {
 
     private static Faker faker;
     private static BusinessActivityService businessActivityService;
 
-    @BeforeAll
-    static void before() {
+    @AfterClass
+    public static void dropDb() {
+        Helper.dropDatabase();
+    }
+
+    @Before
+    public void before() {
         Helper.dropDatabase();
         Helper.resetIdAutoIncrement(BusinessActivity.class);
         faker = new Faker(new Locale("it"));
         businessActivityService = new BusinessActivityService();
     }
 
-    @AfterAll
-    static void tearDown() {
-        businessActivityService.getDao().close();
-    }
-
     private BusinessActivity createBusinessActivity() {
         BusinessActivity businessActivity = new BusinessActivity();
         businessActivity.setName(faker.company().name());
         businessActivity.setType(faker.company().profession());
-        businessActivityService.create(businessActivity);
-        return businessActivity;
+        return businessActivityService.create(businessActivity);
     }
 
     @Test
-    void create() {
+    public void create() {
         BusinessActivity businessActivity = createBusinessActivity();
         assertNotNull(businessActivity.getId());
     }
 
     @Test
-    void read() {
+    public void read() {
+        createBusinessActivity();
         BusinessActivity businessActivity = businessActivityService.read(1L);
         assertNotNull(businessActivity);
         assertNotNull(businessActivity.getName());
@@ -54,49 +54,52 @@ class BusinessActivityServiceTest {
     }
 
     @Test
-    void update() {
-        BusinessActivity businessActivity = businessActivityService.read(1L);
+    public void update() {
+        BusinessActivity businessActivity = createBusinessActivity();
         businessActivity.setType("Test");
         businessActivity = businessActivityService.update(businessActivity);
-        assertEquals(businessActivity.getType(), "Test");
+        BusinessActivity newBusinessActivity = businessActivityService.read(businessActivity.getId());
+        assertEquals(newBusinessActivity.getType(), "Test");
     }
 
     @Test
-    void readAll() {
+    public void readAll() {
         createBusinessActivity();
         createBusinessActivity();
         List<BusinessActivity> list = businessActivityService.readAll();
-        assertEquals(list.size(), 1);
+        assertEquals(list.size(), 2);
     }
 
     @Test
-    void deleteAll() {
+    public void deleteAll() {
+        createBusinessActivity();
+        createBusinessActivity();
         businessActivityService.deleteAll();
         List<BusinessActivity> list = businessActivityService.readAll();
         assertEquals(list.size(), 0);
     }
 
     @Test
-    void addPlace() {
+    public void addPlace() {
     }
 
     @Test
-    void removePlace() {
+    public void removePlace() {
     }
 
     @Test
-    void addCard() {
+    public void addCard() {
     }
 
     @Test
-    void removeCard() {
+    public void removeCard() {
     }
 
     @Test
-    void removeAllCard() {
+    public void removeAllCard() {
     }
 
     @Test
-    void delete() {
+    public void delete() {
     }
 }

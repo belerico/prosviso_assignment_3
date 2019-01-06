@@ -17,10 +17,11 @@ public abstract class AbstractService<T, Id extends Serializable> implements Ser
         return this.dao;
     }
 
-    public void create(T entity) {
+    public T create(T entity) {
         dao.begin();
-        dao.create(entity);
+        entity = dao.create(entity);
         dao.commit();
+        return entity;
     }
 
     public T read(Id id) {

@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface Dao<T, Id extends Serializable> {
 
-    void create(T entity);
+    T create(T entity);
 
     T read(Id id);
 
