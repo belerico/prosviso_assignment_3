@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class BusinessActivityServiceTest {
@@ -41,12 +42,11 @@ class BusinessActivityServiceTest {
     @Test
     void create() {
         BusinessActivity businessActivity = createBusinessActivity();
-        assertNotNull(businessActivity.getId(), "PASSED");
+        assertNotNull(businessActivity.getId());
     }
 
     @Test
     void read() {
-        //BusinessActivity businessActivity = createBusinessActivity();
         BusinessActivity businessActivity = businessActivityService.read(1L);
         assertNotNull(businessActivity);
         assertNotNull(businessActivity.getName());
@@ -55,6 +55,10 @@ class BusinessActivityServiceTest {
 
     @Test
     void update() {
+        BusinessActivity businessActivity = businessActivityService.read(1L);
+        businessActivity.setType("Test");
+        businessActivity = businessActivityService.update(businessActivity);
+        assertEquals(businessActivity.getType(), "Test");
     }
 
     @Test
