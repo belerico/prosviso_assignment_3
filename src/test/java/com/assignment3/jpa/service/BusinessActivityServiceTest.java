@@ -2,6 +2,7 @@ package com.assignment3.jpa.service;
 
 import com.assignment3.jpa.Helper;
 import com.assignment3.jpa.model.BusinessActivity;
+import com.assignment3.jpa.model.Place;
 import com.github.javafaker.Faker;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -31,6 +32,20 @@ public class BusinessActivityServiceTest {
         businessActivityService = new BusinessActivityService();
     }
 
+    private BusinessActivity createBusinessActivityWithPlace() {
+        BusinessActivity businessActivity = new BusinessActivity();
+        businessActivity.setName(faker.company().name());
+        businessActivity.setType(faker.company().profession());
+        Place place = new Place();
+        place.setCity(faker.address().city());
+        place.setCAP(faker.address().zipCode());
+        place.setRegion(faker.address().state());
+        place.setProvince(faker.address().country());
+        businessActivity.addPlace(place);
+        businessActivityService.create(businessActivity);
+        return businessActivity;
+    }
+
     private BusinessActivity createBusinessActivity() {
         BusinessActivity businessActivity = new BusinessActivity();
         businessActivity.setName(faker.company().name());
@@ -49,6 +64,7 @@ public class BusinessActivityServiceTest {
     public void read() {
         BusinessActivity businessActivity = createBusinessActivity();
         businessActivity = businessActivityService.read(businessActivity.getId());
+        assertNotNull(businessActivity);
         assertNotNull(businessActivity.getName());
         assertNotNull(businessActivity.getType());
     }
@@ -81,6 +97,7 @@ public class BusinessActivityServiceTest {
 
     @Test
     public void addPlace() {
+
     }
 
     @Test
