@@ -1,6 +1,5 @@
-package com.assignment3.jpa.test;
+package com.assignment3.jpa;
 
-import com.assignment3.jpa.Helper;
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.service.BusinessActivityService;
 import com.github.javafaker.Faker;
@@ -8,6 +7,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -63,10 +63,17 @@ class BusinessActivityServiceTest {
 
     @Test
     void readAll() {
+        createBusinessActivity();
+        createBusinessActivity();
+        List<BusinessActivity> list = businessActivityService.readAll();
+        assertEquals(list.size(), 1);
     }
 
     @Test
     void deleteAll() {
+        businessActivityService.deleteAll();
+        List<BusinessActivity> list = businessActivityService.readAll();
+        assertEquals(list.size(), 0);
     }
 
     @Test
