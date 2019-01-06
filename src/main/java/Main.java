@@ -1,3 +1,4 @@
+import com.assignment3.jpa.Helper;
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.SharableCard;
 import com.assignment3.jpa.model.StandardCard;
@@ -53,11 +54,11 @@ public class Main {
 
         //ba1.removeAllCard();
         //businessActivityService.delete(ba1);
-        cardService.deleteAll();
+        //cardService.deleteAll();
         //businessActivityService.deleteAllCard(ba1);
-        userService.deleteAll();
+        //userService.deleteAll();
         //businessActivityService.deleteCard(st1);
-        businessActivityService.deleteAll();
+        //businessActivityService.deleteAll();
         //userService.removeStandardCard(user1, st1);
         //userService.deleteAll();
 
@@ -69,5 +70,7 @@ public class Main {
         user1.addPlace(p1);
         userService.update(user1);
         placeService.deleteAll();*/
+
+        Helper.dropDatabase();
     }
 }
