@@ -96,8 +96,9 @@ public class BusinessActivity {
 
     public void removeAllCard() {
         ListIterator<Card> i = this.getCards().listIterator();
+        Card card;
         while (i.hasNext()) {
-            Card card = i.next();
+            card = i.next();
             i.remove();
             removeCard(card);
         }
