@@ -32,9 +32,33 @@ public class UserService extends AbstractService<User, Long> {
         getDao().commit();
     }
 
+    public void removeStandardCard(User user, StandardCard standardCard) {
+        getDao().begin();
+        user.removeStandardCard(standardCard);
+        getDao().commit();
+    }
+
+    public void removeAllStandardCard(User user) {
+        getDao().begin();
+        user.removeAllStandardCard();
+        getDao().commit();
+    }
+
     public void addSharableCard(User user1, User user2, SharableCard sharableCard) {
         getDao().begin();
         user1.addSharableCard(user2, sharableCard);
+        getDao().commit();
+    }
+
+    public void removeSharableCard(User user1, User user2, SharableCard sharableCard) {
+        getDao().commit();
+        user1.removeSharableCard(user2, sharableCard);
+        getDao().begin();
+    }
+
+    public void removeAllSharableCard(User user) {
+        getDao().begin();
+        user.removeAllSharableCard();
         getDao().commit();
     }
 

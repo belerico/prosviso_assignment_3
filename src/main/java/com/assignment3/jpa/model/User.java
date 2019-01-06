@@ -149,6 +149,16 @@ public class User implements Serializable {
         userStandardCard.setUser(null);
     }
 
+    public void removeAllStandardCard() {
+        Iterator<UserStandardCard> iUSC = getStandardCards().iterator();
+        UserStandardCard usc;
+        while (iUSC.hasNext()) {
+            usc = iUSC.next();
+            iUSC.remove();
+            removeStandardCard(usc.getStandardCard());
+        }
+    }
+
     public void addSharableCard(User user, SharableCard sharableCard) {
         UserSharableCard userSharableCard = new UserSharableCard(this, user, sharableCard);
         this.getSharableCards().add(userSharableCard);
@@ -175,14 +185,7 @@ public class User implements Serializable {
         sharableCard.getUsers2().remove(userSharableCard);
     }
 
-    public void removeAllCard() {
-        Iterator<UserStandardCard> iUSC = getStandardCards().iterator();
-        UserStandardCard usc;
-        while (iUSC.hasNext()) {
-            usc = iUSC.next();
-            iUSC.remove();
-            removeStandardCard(usc.getStandardCard());
-        }
+    public void removeAllSharableCard() {
         Iterator<UserSharableCard> iUSH = getSharableCards().iterator();
         UserSharableCard ush;
         while (iUSH.hasNext()) {
@@ -190,6 +193,11 @@ public class User implements Serializable {
             iUSH.remove();
             removeSharableCard(ush.getUser2(), ush.getSharableCard());
         }
+    }
+
+    public void removeAllCard() {
+        removeAllStandardCard();
+        removeAllSharableCard();
     }
 
     @Override
