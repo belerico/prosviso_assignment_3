@@ -1,6 +1,7 @@
 package com.assignment3.jpa;
 
 import com.assignment3.jpa.service.BusinessActivityService;
+import com.assignment3.jpa.service.CardService;
 import com.assignment3.jpa.service.PlaceService;
 import com.assignment3.jpa.service.UserService;
 
@@ -19,7 +20,7 @@ public class Helper {
     }
 
     public static void resetIdAutoIncrement(Class tClass) {
-        System.out.println(tClass.getName());
+        System.out.println("PROVAAAAA:"+tClass.getName());
         entityManager.getTransaction().begin();
         entityManager.createNativeQuery("ALTER TABLE " + tClass.getSimpleName() + " AUTO_INCREMENT=1", tClass)
                 .executeUpdate();
@@ -30,5 +31,6 @@ public class Helper {
         new PlaceService().deleteAll();
         new BusinessActivityService().deleteAll();
         new UserService().deleteAll();
+        new CardService().deleteAll();
     }
 }
