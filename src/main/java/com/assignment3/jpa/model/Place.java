@@ -5,6 +5,7 @@ import org.hibernate.annotations.NaturalId;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Objects;
 
 @Entity
@@ -99,6 +100,16 @@ public class Place {
         businessActivity.setPlace(null);
     }
 
+    public void removeAllActivities() {
+        ListIterator<BusinessActivity> i = getActivities().listIterator();
+        BusinessActivity businessActivity;
+        while (i.hasNext()) {
+            businessActivity = i.next();
+            i.remove();
+            businessActivity.removePlace(this);
+        }
+    }
+
     public void addUser(User user) {
         this.users.add(user);
         user.setPlace(this);
@@ -107,6 +118,16 @@ public class Place {
     public void removeUser(User user) {
         this.users.remove(user);
         user.setPlace(null);
+    }
+
+    public void removeAllUser() {
+        ListIterator<User> i = getUsers().listIterator();
+        User user;
+        while (i.hasNext()) {
+            user = i.next();
+            i.remove();
+            user.removePlace(this);
+        }
     }
 
     @Override

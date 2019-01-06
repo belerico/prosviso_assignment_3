@@ -3,11 +3,26 @@ package com.assignment3.jpa.service;
 import com.assignment3.jpa.dao.BusinessActivityDao;
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Card;
+import com.assignment3.jpa.model.Place;
 
 public class BusinessActivityService extends AbstractService<BusinessActivity, Long> {
 
     public BusinessActivityService() {
         super(new BusinessActivityDao());
+    }
+
+    public void addPlace(BusinessActivity businessActivity, Place place) {
+        getDao().begin();
+        businessActivity.addPlace(place);
+        getDao().commit();
+    }
+
+    public void removePlace(BusinessActivity businessActivity) {
+        Place place = businessActivity.getPlace();
+        getDao().begin();
+        if (place != null)
+            businessActivity.removePlace(place);
+        getDao().commit();
     }
 
     public void addCard(BusinessActivity businessActivity, Card card) {
@@ -16,7 +31,7 @@ public class BusinessActivityService extends AbstractService<BusinessActivity, L
         getDao().commit();
     }
 
-    public void deleteCard(Card card) {
+    public void removeCard(Card card) {
         BusinessActivity businessActivity = card.getBusinessActivity();
         getDao().begin();
         if (businessActivity != null)
@@ -24,7 +39,7 @@ public class BusinessActivityService extends AbstractService<BusinessActivity, L
         getDao().commit();
     }
 
-    public void deleteAllCard(BusinessActivity businessActivity) {
+    public void removeAllCard(BusinessActivity businessActivity) {
         getDao().begin();
         if (businessActivity != null)
             businessActivity.removeAllCard();
@@ -33,7 +48,7 @@ public class BusinessActivityService extends AbstractService<BusinessActivity, L
 
     @Override
     public void delete(BusinessActivity b) {
-        deleteAllCard(b);
+        removeAllCard(b);
         getDao().begin();
         getDao().delete(b);
         getDao().commit();

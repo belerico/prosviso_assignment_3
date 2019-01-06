@@ -1,34 +1,30 @@
 package com.assignment3.jpa.service;
 
 import com.assignment3.jpa.dao.PlaceDao;
-import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Place;
-import com.assignment3.jpa.model.User;
-
-import java.util.Iterator;
 
 public class PlaceService extends AbstractService<Place, Long> {
 
     public PlaceService() { super(new PlaceDao()); }
 
-    @Override
-    public void delete(Place entity) {
+    public void removeAllActivities(Place place) {
         getDao().begin();
-        Iterator<User> iU = entity.getUsers().iterator();
-        while (iU.hasNext()) {
-            User u = iU.next();
-            iU.remove();
-            u.removePlace(entity);
-        }
-        Iterator<BusinessActivity> iB = entity.getActivities().iterator();
-        while (iB.hasNext()) {
-            BusinessActivity b = iB.next();
-            iB.remove();
-            b.removePlace(entity);
-        }
-        getDao().delete(entity);
+        place.removeAllActivities();
         getDao().commit();
+    }
 
+    public void removeAllUser(Place place) {
+        getDao().begin();
+        place.removeAllUser();
+        getDao().commit();
+    }
 
+    @Override
+    public void delete(Place place) {
+        removeAllUser(place);
+        removeAllActivities(place);
+        getDao().begin();
+        getDao().delete(place);
+        getDao().commit();
     }
 }

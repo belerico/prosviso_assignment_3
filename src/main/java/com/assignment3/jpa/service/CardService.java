@@ -11,6 +11,6 @@ public class CardService extends AbstractService<Card, Long> {
 
     @Override
     public void delete(Card card) {
-        new BusinessActivityService().deleteCard(card);
+        new BusinessActivityService().removeCard(card);
     }
 }
