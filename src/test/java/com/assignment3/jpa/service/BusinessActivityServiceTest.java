@@ -26,7 +26,7 @@ public class BusinessActivityServiceTest {
     @Before
     public void before() {
         Helper.dropDatabase();
-        Helper.resetIdAutoIncrement(BusinessActivity.class);
+        //Helper.resetIdAutoIncrement(BusinessActivity.class);
         faker = new Faker(new Locale("it"));
         businessActivityService = new BusinessActivityService();
     }
@@ -35,7 +35,8 @@ public class BusinessActivityServiceTest {
         BusinessActivity businessActivity = new BusinessActivity();
         businessActivity.setName(faker.company().name());
         businessActivity.setType(faker.company().profession());
-        return businessActivityService.create(businessActivity);
+        businessActivityService.create(businessActivity);
+        return businessActivity;
     }
 
     @Test
@@ -46,9 +47,8 @@ public class BusinessActivityServiceTest {
 
     @Test
     public void read() {
-        createBusinessActivity();
-        BusinessActivity businessActivity = businessActivityService.read(1L);
-        assertNotNull(businessActivity);
+        BusinessActivity businessActivity = createBusinessActivity();
+        businessActivity = businessActivityService.read(businessActivity.getId());
         assertNotNull(businessActivity.getName());
         assertNotNull(businessActivity.getType());
     }
