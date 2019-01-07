@@ -1,9 +1,4 @@
-package com.assignment3.jpa.utils;
-
-import com.assignment3.jpa.service.BusinessActivityService;
-import com.assignment3.jpa.service.CardService;
-import com.assignment3.jpa.service.PlaceService;
-import com.assignment3.jpa.service.UserService;
+package com.assignment3.jpa.service;
 
 public class ServiceFactory {
 

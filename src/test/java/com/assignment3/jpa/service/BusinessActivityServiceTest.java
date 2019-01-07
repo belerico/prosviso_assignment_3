@@ -2,7 +2,6 @@ package com.assignment3.jpa.service;
 
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.utils.Helper;
-import com.assignment3.jpa.utils.ServiceFactory;
 import com.assignment3.jpa.utils.faker.BusinessActivityFaker;
 import org.junit.AfterClass;
 import org.junit.Before;
