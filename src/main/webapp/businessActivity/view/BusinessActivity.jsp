@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Hello BusinessActivity!</title>
+    <title>Hello Business Activity!</title>
 </head>
 <body>
 <h2><s:property value="businessActivity.name" /></h2>

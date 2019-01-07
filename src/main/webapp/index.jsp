@@ -16,6 +16,6 @@
 <body>
 <h1>Welcome To Struts 2!</h1>
 <p><a href="<s:url action='user/hello'/>">User</a></p>
-<p><a href="<s:url action='businessActivity/business'/>">Business</a></p>
+<p><a href="<s:url action='businessActivity/business'/>">Business Activity</a></p>
 </body>
 </html>
