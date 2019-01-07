@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: belerico
-  Date: 1/3/19
-  Time: 2:28 PM
+  User: co
+  Date: 07/01/19
+  Time: 19.24
   To change this template use File | Settings | File Templates.
 --%>
 <!DOCTYPE html>
@@ -11,11 +11,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Basic Struts 2 Application - Welcome</title>
+    <title>Hello BusinessActivity!</title>
 </head>
 <body>
-<h1>Welcome To Struts 2!</h1>
-<p><a href="<s:url action='user/hello'/>">User</a></p>
-<p><a href="<s:url action='businessActivity/business'/>">Business</a></p>
+<h2><s:property value="businessActivity.name" /></h2>
 </body>
 </html>

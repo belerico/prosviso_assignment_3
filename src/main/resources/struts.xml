@@ -16,4 +16,9 @@
             <result name="success">view/User.jsp</result>
         </action>
     </package>
+    <package name="businessActivity" namespace="/businessActivity" extends="struts-default">
+    <action name="business" class="com.assignment3.action.BusinessActivityAction" method="executeBusinessActivity">
+        <result name="success">view/BusinessActivity.jsp</result>
+    </action>
+    </package>
 </struts>
