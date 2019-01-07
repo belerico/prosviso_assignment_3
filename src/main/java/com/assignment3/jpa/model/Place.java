@@ -91,12 +91,12 @@ public class Place {
     }
 
     public void addBusinessActivity(BusinessActivity businessActivity) {
-        this.activities.add(businessActivity);
+        getActivities().add(businessActivity);
         businessActivity.setPlace(this);
     }
 
     public void removeBusinessActivity(BusinessActivity businessActivity) {
-        this.activities.remove(businessActivity);
+        getActivities().remove(businessActivity);
         businessActivity.setPlace(null);
     }
 
@@ -106,17 +106,17 @@ public class Place {
         while (i.hasNext()) {
             businessActivity = i.next();
             i.remove();
-            businessActivity.removePlace(this);
+            businessActivity.removePlace();
         }
     }
 
     public void addUser(User user) {
-        this.users.add(user);
+        getUsers().add(user);
         user.setPlace(this);
     }
 
     public void removeUser(User user) {
-        this.users.remove(user);
+        getUsers().remove(user);
         user.setPlace(null);
     }
 
@@ -126,7 +126,7 @@ public class Place {
         while (i.hasNext()) {
             user = i.next();
             i.remove();
-            user.removePlace(this);
+            user.removePlace();
         }
     }
 

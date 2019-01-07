@@ -23,7 +23,7 @@ public class User implements Serializable {
     private Set<UserStandardCard> standardCards = new HashSet<>();
     @OneToMany(mappedBy = "sharableCard", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserSharableCard> sharableCards = new HashSet<>();
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Place place;
 
     public User() {
@@ -123,9 +123,9 @@ public class User implements Serializable {
         place.getUsers().add(this);
     }
 
-    public void removePlace(Place place) {
+    public void removePlace() {
+        getPlace().getUsers().remove(this);
         setPlace(null);
-        place.getUsers().remove(this);
     }
 
     public void addStandardCard(StandardCard standardCard) {

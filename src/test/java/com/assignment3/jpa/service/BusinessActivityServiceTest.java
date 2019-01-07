@@ -1,23 +1,21 @@
 package com.assignment3.jpa.service;
 
-import com.assignment3.jpa.Helper;
 import com.assignment3.jpa.model.BusinessActivity;
-import com.assignment3.jpa.model.Place;
-import com.github.javafaker.Faker;
+import com.assignment3.jpa.utils.Helper;
+import com.assignment3.jpa.utils.ServiceFactory;
+import com.assignment3.jpa.utils.faker.BusinessActivityFaker;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
-import java.util.Locale;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class BusinessActivityServiceTest {
 
-    private static Faker faker;
-    private static BusinessActivityService businessActivityService;
+    private BusinessActivityFaker faker = new BusinessActivityFaker();
+    private BusinessActivityService businessActivityService;
 
     @AfterClass
     public static void dropDb() {
@@ -27,29 +25,23 @@ public class BusinessActivityServiceTest {
     @Before
     public void before() {
         Helper.dropDatabase();
-        //Helper.resetIdAutoIncrement(BusinessActivity.class);
-        faker = new Faker(new Locale("it"));
-        businessActivityService = new BusinessActivityService();
+        businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
+    }
+
+    private BusinessActivity createBusinessActivityWithCards() {
+        BusinessActivity businessActivity = faker.createWithCards(5);
+        businessActivityService.create(businessActivity);
+        return businessActivity;
     }
 
     private BusinessActivity createBusinessActivityWithPlace() {
-        BusinessActivity businessActivity = new BusinessActivity();
-        businessActivity.setName(faker.company().name());
-        businessActivity.setType(faker.company().profession());
-        Place place = new Place();
-        place.setCity(faker.address().city());
-        place.setCAP(faker.address().zipCode());
-        place.setRegion(faker.address().state());
-        place.setProvince(faker.address().country());
-        businessActivity.addPlace(place);
+        BusinessActivity businessActivity = faker.createWithPlace();
         businessActivityService.create(businessActivity);
         return businessActivity;
     }
 
     private BusinessActivity createBusinessActivity() {
-        BusinessActivity businessActivity = new BusinessActivity();
-        businessActivity.setName(faker.company().name());
-        businessActivity.setType(faker.company().profession());
+        BusinessActivity businessActivity = faker.create();
         businessActivityService.create(businessActivity);
         return businessActivity;
     }
@@ -74,8 +66,8 @@ public class BusinessActivityServiceTest {
         BusinessActivity businessActivity = createBusinessActivity();
         businessActivity.setType("Test");
         businessActivity = businessActivityService.update(businessActivity);
-        BusinessActivity newBusinessActivity = businessActivityService.read(businessActivity.getId());
-        assertEquals(newBusinessActivity.getType(), "Test");
+        businessActivity = businessActivityService.read(businessActivity.getId());
+        assertEquals(businessActivity.getType(), "Test");
     }
 
     @Test
@@ -90,6 +82,7 @@ public class BusinessActivityServiceTest {
     public void deleteAll() {
         createBusinessActivity();
         createBusinessActivity();
+        createBusinessActivity();
         businessActivityService.deleteAll();
         List<BusinessActivity> list = businessActivityService.readAll();
         assertEquals(list.size(), 0);
@@ -97,26 +90,46 @@ public class BusinessActivityServiceTest {
 
     @Test
     public void addPlace() {
-
+        BusinessActivity businessActivity = createBusinessActivityWithPlace();
+        assertNotNull(businessActivity.getPlace());
     }
 
     @Test
     public void removePlace() {
+        BusinessActivity businessActivity = createBusinessActivityWithPlace();
+        businessActivityService.removePlace(businessActivity);
+        businessActivity = businessActivityService.read(businessActivity.getId());
+        assertNull(businessActivity.getPlace());
     }
 
     @Test
     public void addCard() {
+        BusinessActivity businessActivity = createBusinessActivityWithCards();
+        assertEquals(5, businessActivity.getCards().size());
     }
 
     @Test
     public void removeCard() {
+        BusinessActivity businessActivity = createBusinessActivityWithCards();
+        //List<Card> cards = businessActivityService.getCards(businessActivity);
+        businessActivityService.removeCard(businessActivity.getCards().get(0));
+        //BusinessActivity newBusinessActivity = businessActivityService.read(businessActivity.getId());
+        assertEquals(4, businessActivity.getCards().size());
     }
 
     @Test
     public void removeAllCard() {
+        BusinessActivity businessActivity = createBusinessActivityWithCards();
+        businessActivityService.removeAllCard(businessActivity);
+        businessActivity = businessActivityService.read(businessActivity.getId());
+        assertEquals(0, businessActivity.getCards().size());
     }
 
     @Test
     public void delete() {
+        BusinessActivity businessActivity = createBusinessActivityWithCards();
+        businessActivityService.delete(businessActivity);
+        assertEquals(0, businessActivityService.readAll().size());
+
     }
 }

@@ -22,7 +22,7 @@ public class UserService extends AbstractService<User, Long> {
         Place place = user.getPlace();
         getDao().begin();
         if (place != null)
-            user.removePlace(place);
+            user.removePlace();
         getDao().commit();
     }
 

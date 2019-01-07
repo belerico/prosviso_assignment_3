@@ -21,7 +21,7 @@ public class BusinessActivityService extends AbstractService<BusinessActivity, L
         Place place = businessActivity.getPlace();
         getDao().begin();
         if (place != null)
-            businessActivity.removePlace(place);
+            businessActivity.removePlace();
         getDao().commit();
     }
 
@@ -30,6 +30,15 @@ public class BusinessActivityService extends AbstractService<BusinessActivity, L
         businessActivity.addCard(card);
         getDao().commit();
     }
+
+    /*public List<Card> getCards(BusinessActivity businessActivity) {
+        getDao().begin();
+        List<Card> cards = getDao().getEntityManager().createQuery("from Card where businessActivity.id=:id", Card.class)
+                .setParameter("id", businessActivity.getId())
+                .getResultList();
+        getDao().commit();
+        return cards;
+    }*/
 
     public void removeCard(Card card) {
         BusinessActivity businessActivity = card.getBusinessActivity();
@@ -48,6 +57,7 @@ public class BusinessActivityService extends AbstractService<BusinessActivity, L
 
     @Override
     public void delete(BusinessActivity b) {
+        removePlace(b);
         removeAllCard(b);
         getDao().begin();
         getDao().delete(b);
