@@ -14,7 +14,7 @@ public class BusinessActivity {
     @NaturalId
     private String name;
     private String type;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Place place;
     @OneToMany(mappedBy = "businessActivity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Card> cards = new ArrayList<>();
@@ -68,12 +68,12 @@ public class BusinessActivity {
     }
 
     public void addCard(Card card) {
-        this.cards.add(card);
+        getCards().add(card);
         card.setBusinessActivity(this);
     }
 
     public void removeCard(Card card) {
-        this.cards.remove(card);
+        getCards().remove(card);
         if (card instanceof StandardCard) {
             Iterator<UserStandardCard> i = ((StandardCard) card).getUsers().iterator();
             UserStandardCard u;
@@ -95,7 +95,7 @@ public class BusinessActivity {
     }
 
     public void removeAllCard() {
-        ListIterator<Card> i = this.getCards().listIterator();
+        ListIterator<Card> i = getCards().listIterator();
         Card card;
         while (i.hasNext()) {
             card = i.next();
@@ -105,13 +105,13 @@ public class BusinessActivity {
     }
 
     public void addPlace(Place place) {
-        this.place = place;
+        setPlace(place);
         place.getActivities().add(this);
     }
 
-    public void removePlace(Place place) {
-        this.place = null;
-        place.getActivities().remove(this);
+    public void removePlace() {
+        getPlace().getActivities().remove(this);
+        setPlace(null);
     }
 
     @Override

@@ -1,52 +1,35 @@
 package com.assignment3.jpa.service;
 
-import com.assignment3.jpa.Helper;
 import com.assignment3.jpa.model.Card;
-import com.github.javafaker.Faker;
+import com.assignment3.jpa.utils.Helper;
+import com.assignment3.jpa.utils.ServiceFactory;
+import com.assignment3.jpa.utils.faker.CardFaker;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import static org.junit.Assert.*;
 
 public class CardServiceTest {
 
-    private static Faker faker;
-    private static CardService cardService;
-    private static ArrayList<String> codeCard;
+    private CardService cardService;
 
     @AfterClass
     public static void tearDown() {
-        cardService.getDao().close();
+        Helper.dropDatabase();
     }
 
     @Before
     public void before() {
         Helper.dropDatabase();
         //Helper.resetIdAutoIncrement(Card.class);
-        faker = new Faker(new Locale("it"));
-        cardService =  new CardService();
-        codeCard = new ArrayList<String>();
+        cardService = ServiceFactory.getInstance().getCardService();
     }
 
     private Card createCard() {
-        Card card = new Card();
-        String code = faker.code().asin();
-        if(codeCard.size() == 0) {
-            codeCard.add(code);
-        }
-        else {
-            do {
-                code = faker.code().asin();
-            } while (codeCard.contains(code));
-            codeCard.add(code);
-        }
-        card.setCardNumber(code);
-        card.setQuantity(10);
+        Card card = new CardFaker().create();
         cardService.create(card);
         return card;
     }
@@ -60,24 +43,26 @@ public class CardServiceTest {
     @Test
     public void read() {
         Card card = createCard();
-        Card card2 = cardService.read(card.getId());
-        assertNotNull(card2);
+        card = cardService.read(card.getId());
+        assertNotNull(card);
     }
 
     @Test
     public void update() {
         Card card = createCard();
-        String num = faker.code().asin();
         card.setQuantity(8);
-        assertEquals(8, card.getQuantity());
+        card = cardService.update(card);
+        Card newCard = cardService.read(card.getId());
+        assertEquals(8, newCard.getQuantity());
     }
 
     @Test
     public void readAll() {
-        Card card1 = createCard();
-        Card card2 = createCard();
+        createCard();
+        createCard();
+        createCard();
         List<Card> cards = cardService.readAll();
-        assertNotEquals(0, cards.size());
+        assertEquals(3, cards.size());
     }
 
     @Test

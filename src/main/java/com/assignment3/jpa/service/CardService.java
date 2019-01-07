@@ -13,12 +13,10 @@ public class CardService extends AbstractService<Card, Long> {
     @Override
     public void delete(Card card) {
         BusinessActivity businessActivity = card.getBusinessActivity();
-        if(businessActivity !=  null)
-            new BusinessActivityService().removeCard(card);
-        else  {
-            getDao().begin();
-            getDao().delete(card);
-            getDao().commit();
-        }
+        getDao().begin();
+        if (businessActivity != null)
+            businessActivity.removeCard(card);
+        getDao().delete(card);
+        getDao().commit();
     }
 }

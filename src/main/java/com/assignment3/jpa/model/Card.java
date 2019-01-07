@@ -16,7 +16,7 @@ public class Card implements Serializable {
     @NaturalId
     private String cardNumber;
     private int quantity;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private BusinessActivity businessActivity;
 
     public Card() {
@@ -65,6 +65,16 @@ public class Card implements Serializable {
 
     public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
+    }
+
+    public void addBusinessActivity(BusinessActivity businessActivity) {
+        setBusinessActivity(businessActivity);
+        businessActivity.getCards().add(this);
+    }
+
+    public void removeBusinessActivity() {
+        setBusinessActivity(null);
+        getBusinessActivity().getCards().remove(this);
     }
 
     @Override

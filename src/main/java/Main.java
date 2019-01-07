@@ -1,16 +1,15 @@
-import com.assignment3.jpa.Helper;
-import com.assignment3.jpa.model.BusinessActivity;
-import com.assignment3.jpa.model.SharableCard;
-import com.assignment3.jpa.model.StandardCard;
-import com.assignment3.jpa.model.User;
+import com.assignment3.jpa.model.*;
 import com.assignment3.jpa.service.BusinessActivityService;
 import com.assignment3.jpa.service.CardService;
 import com.assignment3.jpa.service.UserService;
+import com.assignment3.jpa.utils.Helper;
+import com.assignment3.jpa.utils.faker.PlaceFaker;
 
 import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
+        Helper.dropDatabase();
         StandardCard st1 = new StandardCard("AAAA");
         StandardCard st2 = new StandardCard("BBBB");
         StandardCard st3 = new StandardCard("CCCC");
@@ -25,11 +24,13 @@ public class Main {
         UserService userService = new UserService();
         CardService cardService = new CardService();
         BusinessActivityService businessActivityService = new BusinessActivityService();
-        cardService.create(st1);
+        /*cardService.create(st1);
         cardService.create(st2);
-        cardService.deleteAll();
+        cardService.deleteAll();*/
+        Place p = new PlaceFaker().create();
 
-        /*ba1.addCard(st1);
+        ba1.addPlace(p);
+        ba1.addCard(st1);
         ba1.addCard(st2);
         ba2.addCard(st3);
         ba1.addCard(sh1);
@@ -53,14 +54,15 @@ public class Main {
         user1.addStandardCard(st3);
         userService.create(user1);
         user1.setName("another");
-        userService.update(user1);*/
+        userService.update(user1);
 
         //ba1.removeAllCard();
         //businessActivityService.delete(ba1);
         //cardService.deleteAll();
         //businessActivityService.deleteAllCard(ba1);
         //userService.deleteAll();
-        //businessActivityService.deleteCard(st1);
+        //System.out.println(businessActivityService.getCards(ba1));
+        //System.out.println(ba1.getCards().size());
         //businessActivityService.deleteAll();
         //userService.removeStandardCard(user1, st1);
         //userService.deleteAll();

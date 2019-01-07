@@ -1,4 +1,6 @@
-package com.assignment3.jpa;
+package com.assignment3.jpa.utils;
+
+import com.assignment3.jpa.model.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -26,12 +28,12 @@ public class Helper {
         new BusinessActivityService().deleteAll();
         new UserService().deleteAll();*/
         entityManager.getTransaction().begin();
-        entityManager.createQuery("delete from UserSharableCard").executeUpdate();
-        entityManager.createQuery("delete from UserStandardCard").executeUpdate();
-        entityManager.createQuery("delete from Card").executeUpdate();
-        entityManager.createQuery("delete from User").executeUpdate();
-        entityManager.createQuery("delete from Place").executeUpdate();
-        entityManager.createQuery("delete from BusinessActivity").executeUpdate();
+        entityManager.createNativeQuery("delete ignore from " + UserSharableCard.class.getSimpleName()).executeUpdate();
+        entityManager.createNativeQuery("delete ignore from " + UserStandardCard.class.getSimpleName()).executeUpdate();
+        entityManager.createNativeQuery("delete ignore from " + Card.class.getSimpleName()).executeUpdate();
+        entityManager.createNativeQuery("delete ignore from " + User.class.getSimpleName()).executeUpdate();
+        entityManager.createNativeQuery("delete ignore from " + Place.class.getSimpleName()).executeUpdate();
+        entityManager.createNativeQuery("delete ignore from " + BusinessActivity.class.getSimpleName()).executeUpdate();
         entityManager.getTransaction().commit();
     }
 }

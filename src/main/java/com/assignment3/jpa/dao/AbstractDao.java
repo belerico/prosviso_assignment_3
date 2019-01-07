@@ -68,9 +68,8 @@ public abstract class AbstractDao<T, Id extends Serializable> implements Dao<T, 
         getEntityManager().remove(entity);
     }
 
-    @SuppressWarnings("unchecked")
     public List<T> readAll() {
-        return getEntityManager().createQuery("from " + tClass.getName()).getResultList();
+        return getEntityManager().createQuery("from " + tClass.getName(), tClass).getResultList();
     }
 
     public void deleteAll() {
