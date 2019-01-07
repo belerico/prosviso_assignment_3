@@ -18,7 +18,8 @@ public class UserAction extends ActionSupport {
         return SUCCESS;
     }
 
-    public User getUser() {
+    public User getUser()
+    {
         return user;
     }
 }

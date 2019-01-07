@@ -19,4 +19,8 @@ public class BusinessActivityAction extends ActionSupport {
         return SUCCESS;
     }
 
+    public BusinessActivity getBusinessActivity()
+    {
+        return businessActivity;
+    }
 }
