@@ -5,15 +5,15 @@
 
 <struts>
 
-   <!-- <constant name="struts.devMode" value="true"/>-->
-
-    <package name="basicstruts2" namespace="/" extends="struts-default">
+    <constant name="struts.devMode" value="true"/>
+    <package name="basicstruts2"  extends="struts-default">
         <action name="index">
             <result>/index.jsp</result>
         </action>
-        <action name="diocane" class="com.assignment3.action.HelloWorldAction" method="execute">
-            <result name="success">/HelloWorld.jsp</result>
+    </package>
+    <package name="user" namespace="/user" extends="struts-default">
+        <action name="hello" class="com.assignment3.action.UserAction" method="cazzo">
+            <result name="success">view/User.jsp</result>
         </action>
     </package>
-
 </struts>
