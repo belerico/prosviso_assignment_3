@@ -9,10 +9,10 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Succesfully registered user!</title>
 </head>
 <body>
-<h4>UserName : <s:property value="username"/></h4>
+<h4>e-mail : <s:property value="email"/></h4>
 <h4>Password : <s:property value="password"/></h4>
 </body>
 </html>
