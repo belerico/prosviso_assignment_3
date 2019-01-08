@@ -1,4 +1,4 @@
-package com.assignment3.action;
+package com.assignment3.action.user;
 
 import com.opensymphony.xwork2.ActionSupport;
 

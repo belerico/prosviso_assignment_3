@@ -1,4 +1,4 @@
-package com.assignment3.action;
+package com.assignment3.action.businessactivity;
 
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.service.BusinessActivityService;

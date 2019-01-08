@@ -1,4 +1,4 @@
-package com.assignment3.action;
+package com.assignment3.action.user;
 
 import com.assignment3.jpa.model.User;
 import com.assignment3.jpa.service.ServiceFactory;
@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class UserAction extends ActionSupport {
 
     private UserFaker faker = new UserFaker();
-    private UserService userService = ServiceFactory.getInstance().getUserService();;
+    private UserService userService = ServiceFactory.getInstance().getUserService();
     private User user;
     private String name;
 

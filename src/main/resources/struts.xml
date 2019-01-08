@@ -12,18 +12,19 @@
         </action>
     </package>
     <package name="user" namespace="/user" extends="struts-default">
-        <action name="hello" class="com.assignment3.action.UserAction" method="cazzo">
+        <action name="hello" class="com.assignment3.action.user.UserAction" method="cazzo">
             <result name="success">view/User.jsp</result>
         </action>
         <action name="login" >
             <result>view/login.jsp</result>
         </action>
-        <action name="Welcome" class="com.assignment3.action.WelcomeUserAction">
+        <action name="Welcome" class="com.assignment3.action.user.WelcomeUserAction">
             <result name="SUCCESS">view/userWelcome.jsp</result>
         </action>
     </package>
     <package name="businessActivity" namespace="/businessActivity" extends="struts-default">
-    <action name="business" class="com.assignment3.action.BusinessActivityAction" method="executeBusinessActivity">
+        <action name="business" class="com.assignment3.action.businessactivity.BusinessActivityAction"
+                method="executeBusinessActivity">
         <result name="success">view/BusinessActivity.jsp</result>
     </action>
     </package>
