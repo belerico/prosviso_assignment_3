@@ -16,7 +16,7 @@ public class ServiceFactory {
     }
 
     public static synchronized ServiceFactory getInstance() {
-        while (instance == null) {
+        if (instance == null) {
             instance = new ServiceFactory();
         }
         return instance;
