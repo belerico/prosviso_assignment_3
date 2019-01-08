@@ -34,13 +34,13 @@ public class BusinessActivityService extends AbstractService<BusinessActivity, L
     }
 
     public void removeCard(Card card) {
-        /*BusinessActivity businessActivity = card.getBusinessActivity();
+        BusinessActivity businessActivity = card.getBusinessActivity();
         getDao().begin();
         if (businessActivity != null)
             businessActivity.removeCard(card);
-        getDao().commit();*/
-        cardService = ServiceFactory.getInstance().getCardService();
-        cardService.delete(card);
+        getDao().commit();
+        /*cardService = ServiceFactory.getInstance().getCardService();
+        cardService.delete(card);*/
     }
 
     public void removeAllCard(BusinessActivity businessActivity) {

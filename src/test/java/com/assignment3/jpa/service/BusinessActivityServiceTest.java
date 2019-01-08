@@ -109,7 +109,6 @@ public class BusinessActivityServiceTest {
         BusinessActivity businessActivity = createBusinessActivity();
         Card card = new CardFaker().create();
         businessActivity.addCard(card);
-
         assertEquals(1, businessActivity.getCards().size());
     }
 
