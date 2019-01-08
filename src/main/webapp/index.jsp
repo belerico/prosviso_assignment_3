@@ -18,5 +18,6 @@
 <p><a href="<s:url action='user/hello'/>">User</a></p>
 <p><a href="<s:url action='user/add'/>">AddUser</a></p>
 <p><a href="<s:url action='businessActivity/business'/>">Business Activity</a></p>
+<p><a href="<s:url action='user/login'/>">User Login</a></p>
 </body>
 </html>

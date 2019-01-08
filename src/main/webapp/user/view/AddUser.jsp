@@ -21,7 +21,7 @@
     <s:textfield name="dateOfBirth" label="dateOfBirth" value="%{ user.getDateOfBirth() }"/>
     <s:password name="password" label="Password" value="%{ user.getPassword() }" showPassword="true"/>
     <s:radio label="Sex" name="sex"  list="#{true:'Male', false:'Female'}" value="%{ user.isSex() }"/>
-    <s:submit/>
+    <s:submit label="Register"/>
 </s:form>
 
 </body>

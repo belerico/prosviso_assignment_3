@@ -11,6 +11,7 @@
             <result>/index.jsp</result>
         </action>
     </package>
+
     <package name="user" namespace="/user" extends="struts-default">
         <action name="hello" class="com.assignment3.action.user.UserAction" method="cazzo">
             <result name="success">view/User.jsp</result>
@@ -22,7 +23,17 @@
             <result name="success">view/UserWelcome.jsp</result>
             <result name="error">view/Error.jsp</result>
         </action>
+        <action name="login">
+            <result>view/Login.jsp</result>
+        </action>
+        <action name = "loginAction"
+                class = "com.assignment3.action.user.LoginAction"
+                method = "execute">
+            <result name = "success">view/LoginSuccess.jsp</result>
+            <result name = "error">view/LoginError.jsp</result>
+        </action>
     </package>
+
     <package name="businessActivity" namespace="/businessActivity" extends="struts-default">
     <action name="business" class="com.assignment3.action.businessactivity.BusinessActivityAction" method="executeBusinessActivity">
         <result name="success">view/BusinessActivity.jsp</result>
