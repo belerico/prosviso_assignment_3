@@ -1,5 +1,6 @@
 package com.assignment3.jpa.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -10,10 +11,10 @@ import java.util.Objects;
 public class UserStandardCard implements Serializable {
 
     @Id
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private User user;
     @Id
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private StandardCard standardCard;
     private int consumed = 0;
 

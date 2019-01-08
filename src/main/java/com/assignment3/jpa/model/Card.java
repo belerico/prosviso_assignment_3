@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Card implements Serializable {
+public abstract class Card implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -67,7 +67,7 @@ public class Card implements Serializable {
         this.cardNumber = cardNumber;
     }
 
-    public void addBusinessActivity(BusinessActivity businessActivity) {
+    /*public void addBusinessActivity(BusinessActivity businessActivity) {
         setBusinessActivity(businessActivity);
         businessActivity.getCards().add(this);
     }
@@ -75,7 +75,7 @@ public class Card implements Serializable {
     public void removeBusinessActivity() {
         setBusinessActivity(null);
         getBusinessActivity().getCards().remove(this);
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {

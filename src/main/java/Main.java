@@ -24,18 +24,22 @@ public class Main {
         UserService userService = new UserService();
         CardService cardService = new CardService();
         BusinessActivityService businessActivityService = new BusinessActivityService();
-        /*cardService.create(st1);
+        cardService.create(st1);
         cardService.create(st2);
-        cardService.deleteAll();*/
+        cardService.create(st3);
+        cardService.create(sh1);
+        cardService.create(sh2);
+        cardService.create(sh3);
+        //cardService.deleteAll();
         Place p = new PlaceFaker().create();
 
-        ba1.addPlace(p);
+        /*ba1.addPlace(p);
         ba1.addCard(st1);
         ba1.addCard(st2);
         ba2.addCard(st3);
         ba1.addCard(sh1);
         ba1.addCard(sh2);
-        ba2.addCard(sh3);
+        ba2.addCard(sh3);*/
 
         businessActivityService.create(ba1);
         businessActivityService.create(ba2);
@@ -47,14 +51,15 @@ public class Main {
         user1.addSharableCard(user2, sh2);
         user1.addStandardCard(st1);
         user1.addStandardCard(st2);
-        userService.create(user1);
-        user2.addSharableCard(user1, sh3);
+        //userService.update(user1);
+        userService.getDao().flush();
+        /*user2.addSharableCard(user1, sh3);
         user2.addStandardCard(st2);
         userService.create(user2);
         user1.addStandardCard(st3);
         userService.create(user1);
         user1.setName("another");
-        userService.update(user1);
+        userService.update(user1);*/
 
         //ba1.removeAllCard();
         //businessActivityService.delete(ba1);

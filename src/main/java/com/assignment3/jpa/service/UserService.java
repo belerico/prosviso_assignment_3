@@ -51,9 +51,9 @@ public class UserService extends AbstractService<User, Long> {
     }
 
     public void removeSharableCard(User user1, User user2, SharableCard sharableCard) {
-        getDao().commit();
-        user1.removeSharableCard(user2, sharableCard);
         getDao().begin();
+        user1.removeSharableCard(user2, sharableCard);
+        getDao().commit();
     }
 
     public void removeAllSharableCard(User user) {
@@ -70,6 +70,7 @@ public class UserService extends AbstractService<User, Long> {
 
     @Override
     public void delete(User user) {
+        removePlace(user);
         removeAllCard(user);
         getDao().begin();
         getDao().delete(user);
