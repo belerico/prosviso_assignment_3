@@ -11,6 +11,19 @@ public class UserAction extends ActionSupport {
     private UserFaker faker = new UserFaker();
     private UserService userService = ServiceFactory.getInstance().getUserService();;
     private User user;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String prova() {
+        return SUCCESS;
+    }
 
     public String cazzo() {
         user = faker.create();
