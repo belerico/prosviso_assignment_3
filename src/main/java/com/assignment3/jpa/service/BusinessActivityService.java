@@ -7,6 +7,8 @@ import com.assignment3.jpa.model.Place;
 
 public class BusinessActivityService extends AbstractService<BusinessActivity, Long> {
 
+    CardService cardService;
+
     public BusinessActivityService() {
         super(new BusinessActivityDao());
     }
@@ -32,11 +34,13 @@ public class BusinessActivityService extends AbstractService<BusinessActivity, L
     }
 
     public void removeCard(Card card) {
-        BusinessActivity businessActivity = card.getBusinessActivity();
+        /*BusinessActivity businessActivity = card.getBusinessActivity();
         getDao().begin();
         if (businessActivity != null)
             businessActivity.removeCard(card);
-        getDao().commit();
+        getDao().commit();*/
+        cardService = ServiceFactory.getInstance().getCardService();
+        cardService.delete(card);
     }
 
     public void removeAllCard(BusinessActivity businessActivity) {

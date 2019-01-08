@@ -130,24 +130,24 @@ public class User implements Serializable {
 
     public void addStandardCard(StandardCard standardCard) {
         UserStandardCard userStandardCard = new UserStandardCard(this, standardCard);
-        this.standardCards.add(userStandardCard);
+        getStandardCards().add(userStandardCard);
         standardCard.getUsers().add(userStandardCard);
     }
 
     public void removeStandardCard(StandardCard standardCard) {
         UserStandardCard userStandardCard = new UserStandardCard(this, standardCard);
-        this.standardCards.remove(userStandardCard);
+        getStandardCards().remove(userStandardCard);
         standardCard.getUsers().remove(userStandardCard);
         userStandardCard.setStandardCard(null);
         userStandardCard.setUser(null);
     }
 
     public void removeAllStandardCard() {
-        Iterator<UserStandardCard> iUSC = getStandardCards().iterator();
+        Iterator<UserStandardCard> i = getStandardCards().iterator();
         UserStandardCard usc;
-        while (iUSC.hasNext()) {
-            usc = iUSC.next();
-            iUSC.remove();
+        while (i.hasNext()) {
+            usc = i.next();
+            i.remove();
             removeStandardCard(usc.getStandardCard());
         }
     }
@@ -179,11 +179,11 @@ public class User implements Serializable {
     }
 
     public void removeAllSharableCard() {
-        Iterator<UserSharableCard> iUSH = getSharableCards().iterator();
+        Iterator<UserSharableCard> i = getSharableCards().iterator();
         UserSharableCard ush;
-        while (iUSH.hasNext()) {
-            ush = iUSH.next();
-            iUSH.remove();
+        while (i.hasNext()) {
+            ush = i.next();
+            i.remove();
             removeSharableCard(ush.getUser2(), ush.getSharableCard());
         }
     }

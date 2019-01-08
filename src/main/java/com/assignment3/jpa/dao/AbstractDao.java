@@ -1,20 +1,19 @@
 package com.assignment3.jpa.dao;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 import java.io.Serializable;
 import java.util.List;
 
 public abstract class AbstractDao<T, Id extends Serializable> implements Dao<T, Id> {
 
-    private final static EntityManagerFactory entityManagerFactory;
+    //private final static EntityManagerSingleton entityManagerFactory;
     private final static EntityManager entityManager;
 
     static {
-        entityManagerFactory = Persistence.createEntityManagerFactory("assignment3-unit");
-        entityManager = entityManagerFactory.createEntityManager();
+        /*entityManagerFactory = Persistence.createEntityManagerFactory("assignment3-unit");
+        entityManager = entityManagerFactory.createEntityManager();*/
+        entityManager = EntityManagerSingleton.createEntityManager();
     }
 
     private final Class<T> tClass;
@@ -36,16 +35,12 @@ public abstract class AbstractDao<T, Id extends Serializable> implements Dao<T, 
     }
 
     public void commit() {
-        //flush();
+        flush();
         getTransaction().commit();
     }
 
     public void rollback() {
         getTransaction().rollback();
-    }
-
-    public void close() {
-        getEntityManager().close();
     }
 
     public EntityManager getEntityManager() {

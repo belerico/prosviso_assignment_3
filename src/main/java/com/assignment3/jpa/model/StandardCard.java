@@ -38,6 +38,33 @@ public class StandardCard extends Card implements Serializable {
         this.users = users;
     }
 
+    /*@Override
+    public void addUser(User user) {
+        UserStandardCard userStandardCard = new UserStandardCard(user, this);
+        getUsers().add(userStandardCard);
+        user.getStandardCards().add(userStandardCard);
+    }
+
+    @Override
+    public void removeUser(User user) {
+        UserStandardCard userStandardCard = new UserStandardCard(user, this);
+        getUsers().remove(userStandardCard);
+        user.getStandardCards().remove(userStandardCard);
+        userStandardCard.setUser(null);
+        userStandardCard.setStandardCard(null);
+    }
+
+    @Override
+    public void removeAllUser() {
+        UserStandardCard userStandardCard;
+        Iterator<UserStandardCard> i = getUsers().iterator();
+        while (i.hasNext()) {
+            userStandardCard = i.next();
+            i.remove();
+            removeUser(userStandardCard.getUser());
+        }
+    }*/
+
     @Override
     public String toString() {
         return "StandardCard{} " + super.toString();
