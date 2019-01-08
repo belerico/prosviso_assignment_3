@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: avogadro
@@ -8,9 +9,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>ERROR PAGE</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>ERROR</title>
 </head>
 <body>
-    <strong>DIO CANE SCRIVI BENE L'EMAIL <a href="https://www.youtube.com/watch?v=GBACLpkon6Q">Clicca qui per risolvere</a></strong>
+<h1>Something wrong</h1>
+<s:if test="hasActionErrors()">
+    <div class="alert alert-danger" role="alert">
+        <s:actionerror/>
+    </div>
+</s:if>
+<p><a href="<s:url action='createUserPage'/>">Create a new user</a></p>
 </body>
 </html>

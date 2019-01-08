@@ -1,9 +1,9 @@
-package com.assignment3.action.businessactivity;
+package com.assignment3.action;
 
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.service.BusinessActivityService;
 import com.assignment3.jpa.service.ServiceFactory;
-import com.assignment3.jpa.utils.faker.BusinessActivityFaker;
+import com.assignment3.utils.faker.BusinessActivityFaker;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BusinessActivityAction extends ActionSupport {

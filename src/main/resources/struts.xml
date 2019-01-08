@@ -6,37 +6,37 @@
 <struts>
 
     <constant name="struts.devMode" value="true"/>
-    <package name="basicstruts2"  extends="struts-default">
+    <package name="welcome" extends="struts-default">
         <action name="index">
             <result>/index.jsp</result>
         </action>
     </package>
 
     <package name="user" namespace="/user" extends="struts-default">
-        <action name="hello" class="com.assignment3.action.user.UserAction" method="cazzo">
+        <action name="user" class="com.assignment3.action.UserAction" method="JSPRedirect">
             <result name="success">view/User.jsp</result>
         </action>
-        <action name="add" class="com.assignment3.action.user.FakeUserAction" method="execute">
-            <result>view/AddUser.jsp</result>
+        <action name="createUserPage" class="com.assignment3.action.UserAction" method="createUserPage">
+            <result name="success">view/CreateUser.jsp</result>
         </action>
-        <action name="welcome" class="com.assignment3.action.user.WelcomeUserAction" method="execute">
-            <result name="success">view/UserWelcome.jsp</result>
+        <action name="createUser" class="com.assignment3.action.UserAction" method="createUser">
+            <result name="success" type="chain">showUsers</result>
             <result name="error">view/Error.jsp</result>
         </action>
-        <action name="login">
-            <result>view/Login.jsp</result>
-        </action>
-        <action name = "loginAction"
-                class = "com.assignment3.action.user.LoginAction"
-                method = "execute">
-            <result name = "success">view/LoginSuccess.jsp</result>
-            <result name = "error">view/LoginError.jsp</result>
+        <action name="showUsers" class="com.assignment3.action.UserAction" method="showUsers">
+            <result name="success">view/ShowUsers.jsp</result>
+            <!--<result name="error">view/Error.jsp</result>-->
         </action>
     </package>
 
     <package name="businessActivity" namespace="/businessActivity" extends="struts-default">
-    <action name="business" class="com.assignment3.action.businessactivity.BusinessActivityAction" method="executeBusinessActivity">
-        <result name="success">view/BusinessActivity.jsp</result>
-    </action>
+        <action name="business" class="com.assignment3.action.BusinessActivityAction" method="executeBusinessActivity">
+            <result name="success">view/BusinessActivity.jsp</result>
+        </action>
+    </package>
+    <package name="place" namespace="/place" extends="struts-default">
+        <action name="showPlace" class="com.assignment3.action.PlaceAction" method="execute">
+            <result name="success">view/Place.jsp</result>
+        </action>
     </package>
 </struts>

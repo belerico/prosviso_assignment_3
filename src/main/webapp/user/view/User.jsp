@@ -10,11 +10,15 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Hello User!</title>
+    <title>User</title>
 </head>
 <body>
-<h2><s:property value="user.name" /></h2>
+<h1>User page</h1>
+<p><a href="<s:url action='showUsers'/>">Show all users</a></p>
+<p><a href="<s:url action='createUserPage'/>">Create a new user</a></p>
 </body>
 </html>
 

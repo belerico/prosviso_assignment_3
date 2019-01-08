@@ -1,8 +1,8 @@
 package com.assignment3.jpa.service;
 
 import com.assignment3.jpa.model.Card;
-import com.assignment3.jpa.utils.Helper;
-import com.assignment3.jpa.utils.faker.CardFaker;
+import com.assignment3.utils.Helper;
+import com.assignment3.utils.faker.CardFaker;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;

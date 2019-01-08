@@ -4,9 +4,9 @@ import com.assignment3.jpa.model.SharableCard;
 import com.assignment3.jpa.model.StandardCard;
 import com.assignment3.jpa.model.User;
 import com.assignment3.jpa.model.UserSharableCard;
-import com.assignment3.jpa.utils.Helper;
-import com.assignment3.jpa.utils.faker.CardFaker;
-import com.assignment3.jpa.utils.faker.UserFaker;
+import com.assignment3.utils.Helper;
+import com.assignment3.utils.faker.CardFaker;
+import com.assignment3.utils.faker.UserFaker;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
@@ -138,7 +138,7 @@ public class UserServiceTest {
 
     @Test
     public void removeAllStandardCard() {
-        User user = createUserWithStandardCards(5);
+        User user = createUserWithStandardCards(2);
         userService.removeAllStandardCard(user);
         assertEquals(0, user.getStandardCards().size());
     }
@@ -159,7 +159,7 @@ public class UserServiceTest {
 
     @Test
     public void removeAllSharableCard() {
-        User user = createUserWithSharableCards(5);
+        User user = createUserWithSharableCards(2);
         userService.removeAllSharableCard(user);
         assertEquals(0, user.getSharableCards().size());
     }

@@ -1,4 +1,4 @@
-package com.assignment3.jpa.utils.faker;
+package com.assignment3.utils.faker;
 
 import com.assignment3.jpa.model.StandardCard;
 
