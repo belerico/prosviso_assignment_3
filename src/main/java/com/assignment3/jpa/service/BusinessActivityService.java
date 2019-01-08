@@ -31,15 +31,6 @@ public class BusinessActivityService extends AbstractService<BusinessActivity, L
         getDao().commit();
     }
 
-    /*public List<Card> getCards(BusinessActivity businessActivity) {
-        getDao().begin();
-        List<Card> cards = getDao().getEntityManager().createQuery("from Card where businessActivity.id=:id", Card.class)
-                .setParameter("id", businessActivity.getId())
-                .getResultList();
-        getDao().commit();
-        return cards;
-    }*/
-
     public void removeCard(Card card) {
         BusinessActivity businessActivity = card.getBusinessActivity();
         getDao().begin();

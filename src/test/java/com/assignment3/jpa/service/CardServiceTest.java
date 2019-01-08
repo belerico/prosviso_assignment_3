@@ -13,7 +13,8 @@ import static org.junit.Assert.*;
 
 public class CardServiceTest {
 
-    private CardService cardService;
+    private CardService cardService = ServiceFactory.getInstance().getCardService();
+    private CardFaker faker = new CardFaker();
 
     @AfterClass
     public static void tearDown() {
@@ -24,11 +25,16 @@ public class CardServiceTest {
     public void before() {
         Helper.dropDatabase();
         //Helper.resetIdAutoIncrement(Card.class);
-        cardService = ServiceFactory.getInstance().getCardService();
+    }
+
+    private void createCards(int quantity) {
+        List<Card> cards = faker.create(quantity);
+        for (Card card : cards)
+            cardService.create(card);
     }
 
     private Card createCard() {
-        Card card = new CardFaker().create();
+        Card card = faker.create();
         cardService.create(card);
         return card;
     }
@@ -57,27 +63,22 @@ public class CardServiceTest {
 
     @Test
     public void readAll() {
-        createCard();
-        createCard();
-        createCard();
-        List<Card> cards = cardService.readAll();
-        assertEquals(3, cards.size());
+        createCards(2);
+        assertEquals(2, cardService.readAll().size());
     }
 
     @Test
     public void deleteAll() {
-        createCard();
-        createCard();
+        createCards(2);
         cardService.deleteAll();
-        List<Card> cards = cardService.readAll();
-        assertEquals(0, cards.size());
+        assertEquals(0, cardService.readAll().size());
     }
 
     @Test
     public void delete() {
         Card card = createCard();
         cardService.delete(card);
-        Card card2 = cardService.read(card.getId());
-        assertNull(card2);
+        card = cardService.read(card.getId());
+        assertNull(card);
     }
 }

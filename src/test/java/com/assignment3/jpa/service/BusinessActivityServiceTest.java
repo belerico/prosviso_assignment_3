@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 public class BusinessActivityServiceTest {
 
     private BusinessActivityFaker faker = new BusinessActivityFaker();
-    private BusinessActivityService businessActivityService;
+    private BusinessActivityService businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
 
     @AfterClass
     public static void dropDb() {
@@ -24,11 +24,16 @@ public class BusinessActivityServiceTest {
     @Before
     public void before() {
         Helper.dropDatabase();
-        businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
     }
 
-    private BusinessActivity createBusinessActivityWithCards() {
-        BusinessActivity businessActivity = faker.createWithCards(5);
+    private void createActivities(int quantity) {
+        List<BusinessActivity> activities = faker.create(quantity);
+        for (BusinessActivity activity : activities)
+            businessActivityService.create(activity);
+    }
+
+    private BusinessActivity createBusinessActivityWithCards(int quantity) {
+        BusinessActivity businessActivity = faker.createWithCards(quantity);
         businessActivityService.create(businessActivity);
         return businessActivity;
     }
@@ -71,26 +76,21 @@ public class BusinessActivityServiceTest {
 
     @Test
     public void readAll() {
-        createBusinessActivity();
-        createBusinessActivity();
-        List<BusinessActivity> list = businessActivityService.readAll();
-        assertEquals(list.size(), 2);
+        createActivities(2);
+        assertEquals(2, businessActivityService.readAll().size());
     }
 
     @Test
     public void deleteAll() {
-        createBusinessActivity();
-        createBusinessActivity();
-        createBusinessActivity();
+        createActivities(2);
         businessActivityService.deleteAll();
-        List<BusinessActivity> list = businessActivityService.readAll();
-        assertEquals(list.size(), 0);
+        assertEquals(0, businessActivityService.readAll().size());
     }
 
     @Test
     public void addPlace() {
         BusinessActivity businessActivity = createBusinessActivityWithPlace();
-        assertNotNull(businessActivity.getPlace());
+        assertNotNull(businessActivity.getPlace().getId());
     }
 
     @Test
@@ -103,22 +103,20 @@ public class BusinessActivityServiceTest {
 
     @Test
     public void addCard() {
-        BusinessActivity businessActivity = createBusinessActivityWithCards();
-        assertEquals(5, businessActivity.getCards().size());
+        BusinessActivity businessActivity = createBusinessActivityWithCards(1);
+        assertEquals(1, businessActivity.getCards().size());
     }
 
     @Test
     public void removeCard() {
-        BusinessActivity businessActivity = createBusinessActivityWithCards();
-        //List<Card> cards = businessActivityService.getCards(businessActivity);
+        BusinessActivity businessActivity = createBusinessActivityWithCards(1);
         businessActivityService.removeCard(businessActivity.getCards().get(0));
-        //BusinessActivity newBusinessActivity = businessActivityService.read(businessActivity.getId());
-        assertEquals(4, businessActivity.getCards().size());
+        assertEquals(0, businessActivity.getCards().size());
     }
 
     @Test
     public void removeAllCard() {
-        BusinessActivity businessActivity = createBusinessActivityWithCards();
+        BusinessActivity businessActivity = createBusinessActivityWithCards(2);
         businessActivityService.removeAllCard(businessActivity);
         businessActivity = businessActivityService.read(businessActivity.getId());
         assertEquals(0, businessActivity.getCards().size());
@@ -126,9 +124,9 @@ public class BusinessActivityServiceTest {
 
     @Test
     public void delete() {
-        BusinessActivity businessActivity = createBusinessActivityWithCards();
+        BusinessActivity businessActivity = createBusinessActivity();
         businessActivityService.delete(businessActivity);
-        assertEquals(0, businessActivityService.readAll().size());
-
+        businessActivity = businessActivityService.read(businessActivity.getId());
+        assertNull(businessActivity);
     }
 }

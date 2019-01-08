@@ -15,4 +15,10 @@ public class UserFaker extends AbstractFaker<User> {
         user.setSex(getFaker().random().nextBoolean());
         return user;
     }
+
+    public User createWithPlace() {
+        User user = create();
+        user.addPlace(new PlaceFaker().create());
+        return user;
+    }
 }
