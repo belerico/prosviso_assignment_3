@@ -14,7 +14,7 @@
     <title>Basic Struts 2 Application - Welcome</title>
 </head>
 <body>
-<h1>Welcome To Struts 2!</h1>
+<h1>Welcome to Card webapp!</h1>
 <p><a href="<s:url action='user/hello'/>">User</a></p>
 <p><a href="<s:url action='user/add'/>">AddUser</a></p>
 <p><a href="<s:url action='businessActivity/business'/>">Business Activity</a></p>

@@ -14,7 +14,7 @@ public class WelcomeUserAction extends ActionSupport {
 
     private User user;
     private UserService userService = ServiceFactory.getInstance().getUserService();
-    private String name = "Dio cane";
+    private String name;
     private String surname;
     private String email;
     private String username;
@@ -97,7 +97,6 @@ public class WelcomeUserAction extends ActionSupport {
         try {
             user.setDateOfBirth(format.parse(getDateOfBirth()));
         } catch (ParseException p) {
-            System.out.println("PORCODIO");
             return ActionSupport.ERROR;
         }
         userService.create(user);
