@@ -1,7 +1,6 @@
 package com.assignment3.jpa.service;
 
 import com.assignment3.jpa.model.BusinessActivity;
-import com.assignment3.jpa.model.Card;
 import com.assignment3.jpa.utils.Helper;
 import com.assignment3.jpa.utils.faker.BusinessActivityFaker;
 import com.assignment3.jpa.utils.faker.CardFaker;
@@ -105,10 +104,8 @@ public class BusinessActivityServiceTest {
 
     @Test
     public void addCard() {
-        //BusinessActivity businessActivity = createBusinessActivityWithCards(1);
         BusinessActivity businessActivity = createBusinessActivity();
-        Card card = new CardFaker().create();
-        businessActivity.addCard(card);
+        businessActivityService.addCard(businessActivity, new CardFaker().create());
         assertEquals(1, businessActivity.getCards().size());
     }
 
