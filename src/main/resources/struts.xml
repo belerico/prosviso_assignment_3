@@ -15,6 +15,12 @@
         <action name="hello" class="com.assignment3.action.UserAction" method="cazzo">
             <result name="success">view/User.jsp</result>
         </action>
+        <action name="login" >
+            <result>view/login.jsp</result>
+        </action>
+        <action name="Welcome" class="com.assignment3.action.WelcomeUserAction">
+            <result name="SUCCESS">view/userWelcome.jsp</result>
+        </action>
     </package>
     <package name="businessActivity" namespace="/businessActivity" extends="struts-default">
     <action name="business" class="com.assignment3.action.BusinessActivityAction" method="executeBusinessActivity">
