@@ -12,11 +12,16 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Struts 2 Input Parameter Access Login</h1>
+<h1>Fill form to register into the webapp</h1>
 
-<s:form action="Welcome">
+<s:form action="welcome">
+    <s:textfield name="email" label="email" />
+    <s:textfield name="name" label="name" />
+    <s:textfield name="surname" label="surname" />
+    <s:date name="current" format="YYYY-MM-DD"/>
     <s:textfield name="username" label="Username"/>
     <s:password name="password" label="Password"/>
+    <s:radio label="gender" name="yourAnswer" list="#{'1':'M','2':'F'}"  />
     <s:submit/>
 </s:form>
 
