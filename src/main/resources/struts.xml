@@ -31,11 +31,22 @@
         </action>
     </package>
 
-    <package name="businessActivity" namespace="/businessActivity" extends="struts-default">
-        <action name="business" class="com.assignment3.action.activity.BusinessActivityAction"
-                method="executeBusinessActivity">
+    <package name="activity" namespace="/activity" extends="struts-default">
+        <action name="businessPage" class="com.assignment3.action.RedirectAction" method="JSPRedirect">
             <result name="success">view/BusinessActivity.jsp</result>
         </action>
+        <action name="createActivityPage" class="com.assignment3.action.activity.CreateActivityAction" method="createActivityPage">
+            <result name="success">view/CreateBusinessActivity.jsp</result>
+        </action>
+        <action name="createActivity" class="com.assignment3.action.activity.CreateActivityAction" method="createActivity">
+            <result name="success" type="chain">showActivities</result>
+            <result name="error">view/Error.jsp</result>
+            <result name="input">view/CreateBusinessActivity.jsp</result>
+        </action>
+        <action name="showActivities" class="com.assignment3.action.activity.BusinessActivityAction" method="showActivities">
+            <result name="success">view/ShowBusinessActivity.jsp</result>
+        </action>
+
     </package>
     <package name="place" namespace="/place" extends="struts-default">
         <action name="showPlace" class="com.assignment3.action.user.PlaceAction" method="execute">

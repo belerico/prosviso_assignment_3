@@ -6,21 +6,25 @@ import com.assignment3.jpa.service.ServiceFactory;
 import com.assignment3.utils.faker.BusinessActivityFaker;
 import com.opensymphony.xwork2.ActionSupport;
 
+import java.util.List;
+
 public class BusinessActivityAction extends ActionSupport {
 
 
-    private BusinessActivityFaker faker = new BusinessActivityFaker();
-    private BusinessActivityService BusinessService = ServiceFactory.getInstance().getBusinessActivityService();
-    private BusinessActivity businessActivity;
+    private List<BusinessActivity> businessActivities;
+    private BusinessActivityService businessActivityService;
 
-    public String executeBusinessActivity() {
-        businessActivity = faker.create();
-        BusinessService.create(businessActivity);
-        return SUCCESS;
+    public List<BusinessActivity> getBusinessActivities() {
+        return businessActivities;
     }
 
-    public BusinessActivity getBusinessActivity()
-    {
-        return businessActivity;
+    public void setBusinessActivities(List<BusinessActivity> businessActivities) {
+        this.businessActivities = businessActivities;
+    }
+
+    public String showActivities() {
+        businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
+        setBusinessActivities(businessActivityService.readAll());
+        return ActionSupport.SUCCESS;
     }
 }

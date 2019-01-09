@@ -1,11 +1,11 @@
-<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
-  User: avogadro
-  Date: 08/01/19
-  Time: 12.34
+  User: co
+  Date: 09/01/19
+  Time: 14.41
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,6 +20,6 @@
         <s:actionerror/>
     </div>
 </s:if>
-<p><a href="<s:url action='createUserPage'/>">Create a new user</a></p>
+<p><a href="<s:url action='createActivityPage'/>">Create a new business activity</a></p>
 </body>
 </html>
