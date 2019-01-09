@@ -1,9 +1,8 @@
-package com.assignment3.action.activity;
+package com.assignment3.struts2.action.activity;
 
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.service.BusinessActivityService;
 import com.assignment3.jpa.service.ServiceFactory;
-import com.assignment3.utils.faker.BusinessActivityFaker;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.assignment3.action.user;
+package com.assignment3.struts2.action.user;
 
 import com.assignment3.jpa.model.User;
 import com.assignment3.jpa.service.ServiceFactory;
@@ -9,8 +9,16 @@ import java.util.List;
 
 public class UserAction extends ActionSupport {
 
+    private Long userId;
     private List<User> users;
-    private UserService userService;
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
     public List<User> getUsers() {
         return users;
@@ -20,8 +28,14 @@ public class UserAction extends ActionSupport {
         this.users = users;
     }
 
+    public String removeUser() {
+        UserService userService = ServiceFactory.getInstance().getUserService();
+        userService.delete(userService.read(userId));
+        return ActionSupport.SUCCESS;
+    }
+
     public String showUsers() {
-        userService = ServiceFactory.getInstance().getUserService();
+        UserService userService = ServiceFactory.getInstance().getUserService();
         setUsers(userService.readAll());
         return ActionSupport.SUCCESS;
     }

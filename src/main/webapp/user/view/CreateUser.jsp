@@ -24,6 +24,12 @@
 <body>
 <div class="container">
     <h1>Fill form to register into the webapp</h1>
+    <s:if test="hasActionErrors()">
+        <div class="alert alert-danger" role="alert">
+            <p>Something went wrong while persisting the user</p>
+            <s:actionerror/>
+        </div>
+    </s:if>
     <s:form action="createUser">
         <div class="form-group">
             <s:label for="email" value="Email"/>
@@ -38,9 +44,10 @@
             <s:textfield cssClass="form-control" name="surname" value="%{ surname }" requiredLabel="true"/>
         </div>
         <div class="form-group">
-            <s:if test="hasActionErrors()">
+            <s:if test="hasFieldErrors()">
                 <div class="alert alert-danger" role="alert">
-                    <s:actionerror/>
+                    <p>You must insert a date following the pattern DD/MM/YY</p>
+                    <s:fielderror><s:param>dateOfBirth</s:param></s:fielderror>
                 </div>
             </s:if>
             <s:label for="dateOfBirth" value="Date of birth"/>
@@ -54,13 +61,16 @@
         <div class="form-group">
             <s:label for="places" value="Place"/>
             <s:select cssClass="form-control"
-                      headerKey="-1" headerValue="Select place"
                       list="places"
                       listKey="id"
                       listValue="CAP + ', ' + city"
-                      name="placeId"/>
+                      name="placeId"
+                      requiredLabel="true"/>
         </div>
-        <%--<s:radio label="Sex" name="sex"  list="#{true:'Male', false:'Female'}" value="%{ user.isSex() }"/>--%>
+        <div>
+            <s:radio label="Sex" name="sex" list="#{true:'Male', false:'Female'}" value="%{ isSex() }"/>
+        </div>
+        <%----%>
         <s:submit cssClass="btn btn-secondary" label="Register"/>
     </s:form>
 </div>

@@ -1,4 +1,4 @@
-package com.assignment3.action.place;
+package com.assignment3.struts2.action.place;
 
 import com.assignment3.jpa.model.Place;
 import com.assignment3.jpa.service.PlaceService;

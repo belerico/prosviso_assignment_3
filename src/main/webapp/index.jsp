@@ -16,9 +16,11 @@
     <title>Basic Struts 2 Application - Welcome</title>
 </head>
 <body>
-<h1>Welcome to Card webapp!</h1>
-<p><a href="<s:url action='user/userPage'/>">User</a></p>
-<p><a href="<s:url action='activity/businessPage'/>">Business Activity</a></p>
-<p><a href="<s:url action='place/showPlace'/>">Places</a></p>
+<div class="container">
+    <h1>Welcome to Card webapp!</h1>
+    <p><a href="<s:url namespace="/user" action='userPage'/>">User</a></p>
+    <p><a href="<s:url namespace="/activity" action='businessPage'/>">Business Activity</a></p>
+    <p><a href="<s:url namespace="/place" action='showPlace'/>">Places</a></p>
+</div>
 </body>
 </html>

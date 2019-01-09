@@ -1,4 +1,4 @@
-package com.assignment3.action.activity;
+package com.assignment3.struts2.action.activity;
 
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Place;

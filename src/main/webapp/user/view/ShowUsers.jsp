@@ -15,7 +15,7 @@
     <title>Users</title>
     <style>
         .container {
-            width: 60%;
+            width: 70%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -32,7 +32,10 @@
             <th scope="col">Surname</th>
             <th scope="col">Date of birth</th>
             <th scope="col">Email</th>
+            <th scope="col">Place</th>
             <th scope="col">Gender</th>
+            <th scope="col">Add card</th>
+            <th scope="col">Remove</th>
         </tr>
         </thead>
         <tbody>
@@ -56,9 +59,24 @@
                     <s:property value="email"/>
                 </td>
                 <td>
-                    <s:property value="sex"/>
+                    <s:property value="place.CAP + ', ' + place.city"/>
                 </td>
-                <s:hidden value="%{id}" name="id"/>
+                <td>
+                    <s:if test="sex">
+                        Male
+                    </s:if>
+                    <s:else>
+                        Female
+                    </s:else>
+                </td>
+                <td>
+                    <a href="<s:url namespace="/user" action='removeUser'><s:param name="userId" value="%{id}"></s:param></s:url>">Remove</a>
+                </td>
+                <td>
+                    <a href="<s:url namespace="/user" action='removeUser'><s:param name="userId" value="%{id}"></s:param></s:url>">Add
+                        card</a>
+                </td>
+                    <%--<s:hidden value="" name="userId"/>--%>
             </tr>
         </s:iterator>
         </tbody>

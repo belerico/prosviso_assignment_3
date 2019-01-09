@@ -12,14 +12,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <title>ERROR</title>
+    <style>
+        .container {
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 <body>
-<h1>Something went wrong</h1>
-<s:if test="hasActionErrors()">
-    <div class="alert alert-danger" role="alert">
-        <s:actionerror/>
-    </div>
-</s:if>
-<p><a href="<s:url action='createUserPage'/>">Create a new user</a></p>
+<div class="container">
+    <h1>Ooops!</h1>
+    <s:if test="hasActionErrors()">
+        <div class="alert alert-danger" role="alert">
+            <s:actionerror/>
+        </div>
+    </s:if>
+    <p><a href="<s:url action='index'/>">Home</a></p>
+    <p><a href="<s:url action='createUserPage'/>">Create a new user</a></p>
+</div>
 </body>
 </html>

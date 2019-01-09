@@ -1,4 +1,4 @@
-package com.assignment3.action.user;
+package com.assignment3.struts2.action.user;
 
 import com.assignment3.jpa.model.Place;
 import com.assignment3.jpa.model.User;
@@ -19,6 +19,7 @@ public class CreateUserAction extends ActionSupport implements Preparable {
     private String email;
     private String password;
     private Date dateOfBirth;
+    private boolean sex;
     private Long placeId;
     private List<Place> places;
 
@@ -62,6 +63,14 @@ public class CreateUserAction extends ActionSupport implements Preparable {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public boolean isSex() {
+        return sex;
+    }
+
+    public void setSex(boolean sex) {
+        this.sex = sex;
+    }
+
     public List<Place> getPlaces() {
         return places;
     }
@@ -85,6 +94,7 @@ public class CreateUserAction extends ActionSupport implements Preparable {
         setEmail(user.getEmail());
         setPassword(user.getPassword());
         setDateOfBirth(user.getDateOfBirth());
+        setSex(user.isSex());
         return ActionSupport.SUCCESS;
     }
 
@@ -95,14 +105,15 @@ public class CreateUserAction extends ActionSupport implements Preparable {
         user.setEmail(getEmail());
         user.setPassword(getPassword());
         user.setDateOfBirth(getDateOfBirth());
-        user.addPlace(ServiceFactory.getInstance().getPlaceService().read(placeId));
+        user.addPlace(ServiceFactory.getInstance().getPlaceService().read(getPlaceId()));
+        user.setSex(isSex());
         UserService userService = ServiceFactory.getInstance().getUserService();
         try {
             userService.create(user);
         } catch (PersistenceException p) {
             userService.getDao().rollback();
-            addActionError(p.toString());
-            return ActionSupport.ERROR;
+            addActionError(p.getMessage());
+            return ActionSupport.INPUT;
         }
         return ActionSupport.SUCCESS;
     }
