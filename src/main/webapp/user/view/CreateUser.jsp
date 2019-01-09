@@ -38,9 +38,11 @@
             <s:textfield cssClass="form-control" name="surname" value="%{ surname }" requiredLabel="true"/>
         </div>
         <div class="form-group">
-            <div class="alert alert-success" role="alert">
-                <s:actionerror/>
-            </div>
+            <s:if test="hasActionError()">
+                <div class="alert alert-success" role="alert">
+                    <s:actionerror/>
+                </div>
+            </s:if>
             <s:label for="dateOfBirth" value="Date of birth"/>
             <s:textfield cssClass="form-control" name="dateOfBirth" value="%{ dateOfBirth }" requiredLabel="true"/>
         </div>
