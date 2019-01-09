@@ -38,6 +38,9 @@
             <s:textfield cssClass="form-control" name="surname" value="%{ surname }" requiredLabel="true"/>
         </div>
         <div class="form-group">
+            <div class="alert alert-success" role="alert">
+                <s:actionerror/>
+            </div>
             <s:label for="dateOfBirth" value="Date of birth"/>
             <s:textfield cssClass="form-control" name="dateOfBirth" value="%{ dateOfBirth }" requiredLabel="true"/>
         </div>
@@ -45,6 +48,15 @@
             <s:label for="password" value="Password"/>
             <s:password cssClass="form-control" name="password" value="%{ password }" showPassword="true"
                         requiredLabel="true"/>
+        </div>
+        <div class="form-group">
+            <s:label for="places" value="Place"/>
+            <s:select cssClass="form-control"
+                      headerKey="-1" headerValue="Select place"
+                      list="places"
+                      listKey="id"
+                      listValue="CAP + ', ' + city"
+                      name="placeId"/>
         </div>
         <%--<s:radio label="Sex" name="sex"  list="#{true:'Male', false:'Female'}" value="%{ user.isSex() }"/>--%>
         <s:submit cssClass="btn btn-secondary" label="Register"/>

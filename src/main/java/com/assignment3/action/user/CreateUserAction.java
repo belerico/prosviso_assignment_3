@@ -1,22 +1,26 @@
 package com.assignment3.action.user;
 
+import com.assignment3.jpa.model.Place;
 import com.assignment3.jpa.model.User;
 import com.assignment3.jpa.service.ServiceFactory;
 import com.assignment3.jpa.service.UserService;
 import com.assignment3.utils.faker.UserFaker;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
 
 import javax.persistence.PersistenceException;
 import java.util.Date;
+import java.util.List;
 
-public class CreateUserAction extends ActionSupport {
+public class CreateUserAction extends ActionSupport implements Preparable {
 
-    private UserService userService;
     private String name;
     private String surname;
     private String email;
     private String password;
     private Date dateOfBirth;
+    private Long placeId;
+    private List<Place> places;
 
     public String getName() {
         return name;
@@ -58,6 +62,22 @@ public class CreateUserAction extends ActionSupport {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public List<Place> getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(List<Place> places) {
+        this.places = places;
+    }
+
+    public Long getPlaceId() {
+        return placeId;
+    }
+
+    public void setPlaceId(Long placeId) {
+        this.placeId = placeId;
+    }
+
     public String createUserPage() {
         User user = new UserFaker().create();
         setName(user.getName());
@@ -75,7 +95,8 @@ public class CreateUserAction extends ActionSupport {
         user.setEmail(getEmail());
         user.setPassword(getPassword());
         user.setDateOfBirth(getDateOfBirth());
-        userService = ServiceFactory.getInstance().getUserService();
+        user.addPlace(ServiceFactory.getInstance().getPlaceService().read(placeId));
+        UserService userService = ServiceFactory.getInstance().getUserService();
         try {
             userService.create(user);
         } catch (PersistenceException p) {
@@ -84,5 +105,10 @@ public class CreateUserAction extends ActionSupport {
             return ActionSupport.ERROR;
         }
         return ActionSupport.SUCCESS;
+    }
+
+    @Override
+    public void prepare() {
+        setPlaces(ServiceFactory.getInstance().getPlaceService().readAll());
     }
 }

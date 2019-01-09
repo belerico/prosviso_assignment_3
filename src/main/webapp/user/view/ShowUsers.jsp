@@ -13,48 +13,57 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <title>Users</title>
+    <style>
+        .container {
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 <body>
-<h2>Users</h2>
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Surname</th>
-        <th scope="col">Date of birth</th>
-        <th scope="col">Email</th>
-        <th scope="col">Gender</th>
-    </tr>
-    </thead>
-    <tbody>
-    <s:iterator value="users" status="usersStatus">
+<div class="container">
+    <h2>Users</h2>
+    <table class="table">
+        <thead>
         <tr>
-            <th scope="row">
-                <s:property value="#usersStatus.index"/>
-                    <%--<s:property value="id"/>--%>
-            </th>
-            <td>
-                <s:property value="name"/>
-            </td>
-            <td>
-                <s:property value="surname"/>
-            </td>
-            <td>
-                <s:date name="dateOfBirth" format="MM/dd/yy"/>
-                    <%--<s:property value="dateOfBirth"/>--%>
-            </td>
-            <td>
-                <s:property value="email"/>
-            </td>
-            <td>
-                <s:property value="sex"/>
-            </td>
-            <s:hidden value="%{id}" name="id"/>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Date of birth</th>
+            <th scope="col">Email</th>
+            <th scope="col">Gender</th>
         </tr>
-    </s:iterator>
-    </tbody>
-</table>
-<p><a href="<s:url action='userPage'/>">User</a></p>
+        </thead>
+        <tbody>
+        <s:iterator value="users" status="usersStatus">
+            <tr>
+                <th scope="row">
+                    <s:property value="#usersStatus.index"/>
+                        <%--<s:property value="id"/>--%>
+                </th>
+                <td>
+                    <s:property value="name"/>
+                </td>
+                <td>
+                    <s:property value="surname"/>
+                </td>
+                <td>
+                    <s:date name="dateOfBirth" format="MM/dd/yy"/>
+                        <%--<s:property value="dateOfBirth"/>--%>
+                </td>
+                <td>
+                    <s:property value="email"/>
+                </td>
+                <td>
+                    <s:property value="sex"/>
+                </td>
+                <s:hidden value="%{id}" name="id"/>
+            </tr>
+        </s:iterator>
+        </tbody>
+    </table>
+    <p><a href="<s:url action='userPage'/>">User</a></p>
+</div>
 </body>
 </html>

@@ -6,6 +6,8 @@
 <struts>
 
     <constant name="struts.devMode" value="true"/>
+    <constant name="struts.ui.theme" value="simple"/>
+
     <package name="welcome" extends="struts-default">
         <action name="index">
             <result>/index.jsp</result>
