@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: belerico
-  Date: 1/3/19
-  Time: 2:28 PM
+  User: avogadro
+  Date: 09/01/19
+  Time: 18.02
   To change this template use File | Settings | File Templates.
 --%>
 <!DOCTYPE html>
@@ -13,13 +13,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Basic Struts 2 Application - Welcome</title>
+    <title>User</title>
 </head>
 <body>
-<h1>Welcome to Card webapp!</h1>
-<p><a href="<s:url action='user/userPage'/>">User</a></p>
-<p><a href="<s:url action='activity/businessPage'/>">Business Activity</a></p>
-<p><a href="<s:url action='place/showPlace'/>">Places</a></p>
-<p><a href="<s:url action='card/cardPage'/>">Cards</a></p>
+<h1>User page</h1>
+<p><a href="<s:url action='showCards'/>">Show all cards</a></p>
+<p><a href="<s:url action='createCardPage'/>">Create a new card</a></p>
 </body>
 </html>
+
+
