@@ -53,8 +53,8 @@
                 method="showActivities">
             <result name="success">view/ShowBusinessActivity.jsp</result>
         </action>
-
     </package>
+
     <package name="place" namespace="/place" extends="struts-default">
         <action name="showPlace" class="com.assignment3.struts2.action.place.PlaceAction" method="execute">
             <result name="success">view/ShowPlaces.jsp</result>

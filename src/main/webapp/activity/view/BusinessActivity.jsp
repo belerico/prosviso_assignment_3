@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: co
-  Date: 07/01/19
-  Time: 19.24
+  User: avogadro
+  Date: 09/01/19
+  Time: 15.51
   To change this template use File | Settings | File Templates.
 --%>
 <!DOCTYPE html>
@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Business Activity</title>
+    <title>User</title>
 </head>
 <body>
-<h1>Business activity page</h1>
-<p><a href="<s:url action='showActivities'/>">Show all business activities</a></p>
+<h1>User page</h1>
+<p><a href="<s:url action='showActivities'/>">Show all business activity</a></p>
 <p><a href="<s:url action='createActivityPage'/>">Create a new business activity</a></p>
 </body>
 </html>
