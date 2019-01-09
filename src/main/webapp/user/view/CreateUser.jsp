@@ -38,8 +38,8 @@
             <s:textfield cssClass="form-control" name="surname" value="%{ surname }" requiredLabel="true"/>
         </div>
         <div class="form-group">
-            <s:if test="hasActionError()">
-                <div class="alert alert-success" role="alert">
+            <s:if test="hasActionErrors()">
+                <div class="alert alert-danger" role="alert">
                     <s:actionerror/>
                 </div>
             </s:if>
