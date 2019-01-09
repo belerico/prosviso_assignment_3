@@ -41,7 +41,8 @@
                 <s:property value="surname"/>
             </td>
             <td>
-                <s:property value="dateOfBirth"/>
+                <s:date name="dateOfBirth" format="MM/dd/yy"/>
+                    <%--<s:property value="dateOfBirth"/>--%>
             </td>
             <td>
                 <s:property value="email"/>
@@ -54,6 +55,6 @@
     </s:iterator>
     </tbody>
 </table>
-<p><a href="<s:url action='user'/>">User</a></p>
+<p><a href="<s:url action='userPage'/>">User</a></p>
 </body>
 </html>

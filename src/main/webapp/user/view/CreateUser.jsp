@@ -12,17 +12,43 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <title>Create user</title>
+    <style>
+        .container {
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <s:head/>
 </head>
 <body>
-<h1>Fill form to register into the webapp</h1>
-<s:form action="createUser">
-    <s:textfield name="email" label="email" value="%{ email }" requiredLabel="true"/>
-    <s:textfield name="name" label="name" value="%{ name }" requiredLabel="true"/>
-    <s:textfield name="surname" label="surname" value="%{ surname }" requiredLabel="true"/>
-    <s:textfield name="dateOfBirth" label="dateOfBirth" value="%{ dateOfBirth }" requiredLabel="true"/>
-    <s:password name="password" label="Password" value="%{ password }" showPassword="true" requiredLabel="true"/>
-    <%--<s:radio label="Sex" name="sex"  list="#{true:'Male', false:'Female'}" value="%{ user.isSex() }"/>--%>
-    <s:submit label="Register"/>
-</s:form>
+<div class="container">
+    <h1>Fill form to register into the webapp</h1>
+    <s:form action="createUser">
+        <div class="form-group">
+            <s:label for="email" value="Email"/>
+            <s:textfield cssClass="form-control" name="email" value="%{ email }" requiredLabel="true"/>
+        </div>
+        <div class="form-group">
+            <s:label for="name" value="Name"/>
+            <s:textfield cssClass="form-control" name="name" value="%{ name }" requiredLabel="true"/>
+        </div>
+        <div class="form-group">
+            <s:label for="surname" value="Surname"/>
+            <s:textfield cssClass="form-control" name="surname" value="%{ surname }" requiredLabel="true"/>
+        </div>
+        <div class="form-group">
+            <s:label for="dateOfBirth" value="Date of birth"/>
+            <s:textfield cssClass="form-control" name="dateOfBirth" value="%{ dateOfBirth }" requiredLabel="true"/>
+        </div>
+        <div class="form-group">
+            <s:label for="password" value="Password"/>
+            <s:password cssClass="form-control" name="password" value="%{ password }" showPassword="true"
+                        requiredLabel="true"/>
+        </div>
+        <%--<s:radio label="Sex" name="sex"  list="#{true:'Male', false:'Female'}" value="%{ user.isSex() }"/>--%>
+        <s:submit cssClass="btn btn-secondary" label="Register"/>
+    </s:form>
+</div>
 </body>
 </html>

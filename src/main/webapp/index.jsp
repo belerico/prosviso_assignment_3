@@ -17,7 +17,7 @@
 </head>
 <body>
 <h1>Welcome to Card webapp!</h1>
-<p><a href="<s:url action='user/user'/>">User</a></p>
+<p><a href="<s:url action='user/userPage'/>">User</a></p>
 <p><a href="<s:url action='business/business'/>">Business Activity</a></p>
 <p><a href="<s:url action='place/showPlace'/>">Places</a></p>
 </body>
