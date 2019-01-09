@@ -31,7 +31,7 @@
         </div>
         <div class="form-group">
             <s:label for="type" value="Type"/>
-            <s:textfield cssClass="form-control" name="type" value="%{ surname }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="type" value="%{ type }" requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="places" value="Place"/>
