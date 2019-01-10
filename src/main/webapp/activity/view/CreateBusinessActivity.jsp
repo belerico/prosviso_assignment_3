@@ -24,6 +24,12 @@
 <body>
 <div class="container">
     <h1>Fill form to register a new business activity into the webapp</h1>
+    <s:if test="hasActionErrors()">
+        <div class="alert alert-danger" role="alert">
+            <p>Something went wrong while persisting the activity</p>
+            <s:actionerror/>
+        </div>
+    </s:if>
     <s:form action="createActivity">
         <div class="form-group">
             <s:label for="name" value="Name"/>
@@ -36,7 +42,6 @@
         <div class="form-group">
             <s:label for="places" value="Place"/>
             <s:select cssClass="form-control"
-                      headerKey="-1" headerValue="Select place"
                       list="places"
                       listKey="id"
                       listValue="CAP + ', ' + city"

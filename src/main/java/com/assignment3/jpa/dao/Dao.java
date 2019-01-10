@@ -16,4 +16,5 @@ public interface Dao<T, Id extends Serializable> {
     List<T> readAll();
 
     void deleteAll();
+
 }

@@ -12,6 +12,13 @@ public class UserService extends AbstractService<User, Long> {
         super(new UserDao());
     }
 
+    public User findUserByEmail(String email) {
+        getDao().begin();
+        User user = ((UserDao) getDao()).findUserByEmail(email);
+        getDao().commit();
+        return user;
+    }
+
     public void addPlace(User user, Place place) {
         getDao().begin();
         user.addPlace(place);

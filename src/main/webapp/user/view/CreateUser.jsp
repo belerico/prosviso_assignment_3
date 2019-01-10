@@ -24,38 +24,45 @@
 <body>
 <div class="container">
     <h1>Fill form to register into the webapp</h1>
-    <s:if test="hasActionErrors()">
+    <%--<s:if test="hasActionErrors()">
         <div class="alert alert-danger" role="alert">
             <p>Something went wrong while persisting the user</p>
             <s:actionerror/>
         </div>
-    </s:if>
+    </s:if>--%>
     <s:form action="createUser">
         <div class="form-group">
+            <s:fielderror cssClass="alert alert-danger">
+                <s:param>user.email</s:param>
+            </s:fielderror>
             <s:label for="email" value="Email"/>
-            <s:textfield cssClass="form-control" name="email" value="%{ email }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="user.email" value="%{ email }" requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="name" value="Name"/>
-            <s:textfield cssClass="form-control" name="name" value="%{ name }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="user.name" value="%{ name }" requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="surname" value="Surname"/>
-            <s:textfield cssClass="form-control" name="surname" value="%{ surname }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="user.surname" value="%{ surname }" requiredLabel="true"/>
         </div>
         <div class="form-group">
-            <s:if test="hasFieldErrors()">
-                <div class="alert alert-danger" role="alert">
-                    <p>You must insert a date following the pattern DD/MM/YY</p>
-                    <s:fielderror><s:param>dateOfBirth</s:param></s:fielderror>
-                </div>
-            </s:if>
-            <s:label for="dateOfBirth" value="Date of birth"/>
-            <s:textfield cssClass="form-control" name="dateOfBirth" value="%{ dateOfBirth }" requiredLabel="true"/>
+                <%--<s:if test="hasFieldErrors()">
+                    <div class="alert alert-danger" role="alert">
+                        <p>You must insert a date following the pattern DD/MM/YY</p>
+                        <s:fielderror><s:param>dateOfBirth</s:param></s:fielderror>
+                    </div>
+                </s:if>--%>
+            <s:fielderror cssClass="alert alert-danger">
+                <s:param>typedDateOfBirth</s:param>
+            </s:fielderror>
+            <s:label for="typedDateOfBirth" value="Date of birth"/>
+            <s:textfield cssClass="form-control" name="typedDateOfBirth" value="%{ typedDateOfBirth }"
+                         requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="password" value="Password"/>
-            <s:password cssClass="form-control" name="password" value="%{ password }" showPassword="true"
+            <s:password cssClass="form-control" name="user.password" value="%{ password }" showPassword="true"
                         requiredLabel="true"/>
         </div>
         <div class="form-group">
@@ -67,8 +74,13 @@
                       name="placeId"
                       requiredLabel="true"/>
         </div>
-        <div>
-            <s:radio label="Sex" name="sex" list="#{true:'Male', false:'Female'}" value="%{ isSex() }"/>
+        <div class="form-group">
+            <s:label for="sex" value="Gender"/>
+            <s:select cssClass="form-control"
+                      list="#{true:'Male', false:'Female'}"
+                      name="user.sex"
+                      value="sex"
+                      requiredLabel="true"/>
         </div>
         <%----%>
         <s:submit cssClass="btn btn-secondary" label="Register"/>

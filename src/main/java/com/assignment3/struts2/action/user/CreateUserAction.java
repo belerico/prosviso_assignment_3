@@ -3,72 +3,51 @@ package com.assignment3.struts2.action.user;
 import com.assignment3.jpa.model.Place;
 import com.assignment3.jpa.model.User;
 import com.assignment3.jpa.service.ServiceFactory;
-import com.assignment3.jpa.service.UserService;
 import com.assignment3.utils.faker.UserFaker;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
 
-import javax.persistence.PersistenceException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class CreateUserAction extends ActionSupport implements Preparable {
+public class CreateUserAction extends ActionSupport implements Preparable, ModelDriven<User> {
 
-    private String name;
-    private String surname;
-    private String email;
-    private String password;
-    private Date dateOfBirth;
-    private boolean sex;
+    private static SimpleDateFormat DATE_FORMAT;
+    private static Date MIN_DATE;
+    private static Date MAX_DATE;
+
+    static {
+        DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            MIN_DATE = DATE_FORMAT.parse("01/01/1900");
+            MAX_DATE = DATE_FORMAT.parse(DATE_FORMAT.format(new Date()));
+        } catch (ParseException p) {
+            p.printStackTrace();
+        }
+    }
+
+    private String typedDateOfBirth;
     private Long placeId;
     private List<Place> places;
+    private User user = new UserFaker().create();
 
-    public String getName() {
-        return name;
+    public User getUser() {
+        return user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getTypedDateOfBirth() {
+        return typedDateOfBirth;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public boolean isSex() {
-        return sex;
-    }
-
-    public void setSex(boolean sex) {
-        this.sex = sex;
+    public void setTypedDateOfBirth(String typedDateOfBirth) {
+        this.typedDateOfBirth = typedDateOfBirth;
     }
 
     public List<Place> getPlaces() {
@@ -88,38 +67,47 @@ public class CreateUserAction extends ActionSupport implements Preparable {
     }
 
     public String createUserPage() {
-        User user = new UserFaker().create();
-        setName(user.getName());
-        setSurname(user.getSurname());
-        setEmail(user.getEmail());
-        setPassword(user.getPassword());
-        setDateOfBirth(user.getDateOfBirth());
-        setSex(user.isSex());
+        prepare();
         return ActionSupport.SUCCESS;
     }
 
-    public String createUser() {
-        User user = new User();
-        user.setName(getName());
-        user.setSurname(getSurname());
-        user.setEmail(getEmail());
-        user.setPassword(getPassword());
-        user.setDateOfBirth(getDateOfBirth());
-        user.addPlace(ServiceFactory.getInstance().getPlaceService().read(getPlaceId()));
-        user.setSex(isSex());
-        UserService userService = ServiceFactory.getInstance().getUserService();
-        try {
-            userService.create(user);
-        } catch (PersistenceException p) {
-            userService.getDao().rollback();
-            addActionError(p.getMessage());
-            return ActionSupport.INPUT;
-        }
+    public String createUser() throws ParseException {
+        getUser().setDateOfBirth(DATE_FORMAT.parse(getTypedDateOfBirth()));
+        getUser().addPlace(ServiceFactory.getInstance().getPlaceService().read(getPlaceId()));
+        ServiceFactory.getInstance().getUserService().create(getUser());
         return ActionSupport.SUCCESS;
+    }
+
+    private boolean isDateOfBirthValid(String dateOfBirth) {
+        Date typedDate;
+        try {
+            typedDate = DATE_FORMAT.parse(dateOfBirth);
+        } catch (ParseException p) {
+            return false;
+        }
+        return !typedDate.before(MIN_DATE) && !typedDate.after(MAX_DATE);
+    }
+
+    private boolean isEmailValid(String email) {
+        return ServiceFactory.getInstance().getUserService().findUserByEmail(email) == null;
+    }
+
+    @Override
+    public void validate() {
+        if (!isEmailValid(getUser().getEmail()))
+            addFieldError("user.email", "User with " + getUser().getEmail() + " email is already registered");
+        if (!isDateOfBirthValid(getTypedDateOfBirth()))
+            addFieldError("typedDateOfBirth", "Could not parse date, please enter a date in the format dd/mm/yyyy and between 01/01/1990 and current date");
     }
 
     @Override
     public void prepare() {
+        setTypedDateOfBirth(DATE_FORMAT.format(getUser().getDateOfBirth()));
         setPlaces(ServiceFactory.getInstance().getPlaceService().readAll());
+    }
+
+    @Override
+    public User getModel() {
+        return user;
     }
 }

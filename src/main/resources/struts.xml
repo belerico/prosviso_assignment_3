@@ -24,7 +24,6 @@
         </action>
         <action name="createUser" class="com.assignment3.struts2.action.user.CreateUserAction" method="createUser">
             <result name="success" type="chain">showUsers</result>
-            <result name="error">view/Error.jsp</result>
             <result name="input">view/CreateUser.jsp</result>
         </action>
         <action name="removeUser" class="com.assignment3.struts2.action.user.UserAction" method="removeUser">
