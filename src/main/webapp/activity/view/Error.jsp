@@ -21,5 +21,6 @@
     </div>
 </s:if>
 <p><a href="<s:url action='createActivityPage'/>">Create a new business activity</a></p>
+<p><a href="<s:url action='goIndex'/>">Go back to home</a></p>
 </body>
 </html>

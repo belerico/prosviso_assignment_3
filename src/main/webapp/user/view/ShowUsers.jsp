@@ -82,6 +82,7 @@
         </tbody>
     </table>
     <p><a href="<s:url action='userPage'/>">User</a></p>
+    <p><a href="<s:url action='goIndex'/>">Go back to home</a></p>
 </div>
 </body>
 </html>
