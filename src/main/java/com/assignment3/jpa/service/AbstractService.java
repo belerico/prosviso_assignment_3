@@ -23,6 +23,13 @@ public abstract class AbstractService<T, Id extends Serializable> implements Ser
         dao.commit();
     }
 
+    public T readByNaturalId(String naturalId) {
+        getDao().begin();
+        T t = getDao().readByNaturalId(naturalId);
+        getDao().commit();
+        return t;
+    }
+
     public T read(Id id) {
         dao.begin();
         T t = dao.read(id);

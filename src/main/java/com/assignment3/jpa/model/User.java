@@ -7,6 +7,10 @@ import java.io.Serializable;
 import java.util.*;
 
 @Entity
+@NamedQuery(
+        name = "findUserByEmail",
+        query = "SELECT u FROM User u WHERE u.email LIKE :email"
+)
 public class User implements Serializable {
 
     @Id

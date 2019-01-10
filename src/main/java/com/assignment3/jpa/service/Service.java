@@ -7,6 +7,8 @@ public interface Service<T, Id extends Serializable> {
 
     void create(T entity);
 
+    T readByNaturalId(String naturalId);
+
     T read(Id id);
 
     T update(T entity);

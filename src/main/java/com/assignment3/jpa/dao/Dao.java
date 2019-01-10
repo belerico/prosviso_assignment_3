@@ -7,6 +7,8 @@ public interface Dao<T, Id extends Serializable> {
 
     void create(T entity);
 
+    T readByNaturalId(String field);
+
     T read(Id id);
 
     T update(T entity);
@@ -16,4 +18,5 @@ public interface Dao<T, Id extends Serializable> {
     List<T> readAll();
 
     void deleteAll();
+
 }

@@ -17,6 +17,9 @@
         <action name="userPage" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">view/User.jsp</result>
         </action>
+        <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
+            <result name="success">/index.jsp</result>
+        </action>
         <action name="createUserPage" class="com.assignment3.struts2.action.user.CreateUserAction"
                 method="createUserPage">
             <result name="success">view/CreateUser.jsp</result>
@@ -24,7 +27,6 @@
         </action>
         <action name="createUser" class="com.assignment3.struts2.action.user.CreateUserAction" method="createUser">
             <result name="success" type="chain">showUsers</result>
-            <result name="error">view/Error.jsp</result>
             <result name="input">view/CreateUser.jsp</result>
         </action>
         <action name="removeUser" class="com.assignment3.struts2.action.user.UserAction" method="removeUser">
@@ -38,6 +40,9 @@
     <package name="activity" namespace="/activity" extends="struts-default">
         <action name="businessPage" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">view/BusinessActivity.jsp</result>
+        </action>
+        <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
+            <result name="success">/index.jsp</result>
         </action>
         <action name="createActivityPage" class="com.assignment3.struts2.action.activity.CreateActivityAction"
                 method="createActivityPage">
@@ -75,6 +80,9 @@
     <package name="place" namespace="/place" extends="struts-default">
         <action name="showPlace" class="com.assignment3.struts2.action.place.PlaceAction" method="execute">
             <result name="success">view/ShowPlaces.jsp</result>
+        </action>
+        <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
+            <result name="success">/index.jsp</result>
         </action>
     </package>
 </struts>

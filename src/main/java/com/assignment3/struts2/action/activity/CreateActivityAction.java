@@ -67,8 +67,8 @@ public class CreateActivityAction extends ActionSupport implements Preparable {
             businessActivityService.create(businessActivity);
         } catch (PersistenceException p) {
             businessActivityService.getDao().rollback();
-            addActionError(p.toString());
-            return ActionSupport.ERROR;
+            addActionError(p.getMessage());
+            return ActionSupport.INPUT;
         }
         return ActionSupport.SUCCESS;
     }

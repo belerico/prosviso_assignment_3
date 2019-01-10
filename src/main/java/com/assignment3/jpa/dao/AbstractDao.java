@@ -1,5 +1,7 @@
 package com.assignment3.jpa.dao;
 
+import org.hibernate.Session;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import java.io.Serializable;
@@ -35,7 +37,7 @@ public abstract class AbstractDao<T, Id extends Serializable> implements Dao<T, 
     }
 
     public void commit() {
-        //flush();
+        flush();
         getTransaction().commit();
     }
 
@@ -47,8 +49,21 @@ public abstract class AbstractDao<T, Id extends Serializable> implements Dao<T, 
         return entityManager;
     }
 
+    public Class<T> gettClass() {
+        return tClass;
+    }
+
     public void create(T entity) {
         getEntityManager().persist(entity);
+    }
+
+    @Override
+    public T readByNaturalId(String naturalId) {
+        T t = getEntityManager()
+                .unwrap(Session.class)
+                .bySimpleNaturalId(tClass)
+                .load(naturalId);
+        return t;
     }
 
     public T read(Id id) {

@@ -7,8 +7,6 @@ import com.assignment3.jpa.model.Place;
 
 public class BusinessActivityService extends AbstractService<BusinessActivity, Long> {
 
-    //CardService cardService;
-
     public BusinessActivityService() {
         super(new BusinessActivityDao());
     }

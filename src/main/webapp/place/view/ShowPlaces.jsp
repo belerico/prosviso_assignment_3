@@ -61,7 +61,9 @@
             <s:hidden value="%{id}" name="id"/>
         </tr>
     </s:iterator>
+
     </tbody>
 </table>
+<p><a href="<s:url action='goIndex'/>">Go back to home</a></p>
 </body>
 </html>

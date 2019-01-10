@@ -8,4 +8,17 @@ public class BusinessActivityDao extends AbstractDao<BusinessActivity, Long> {
         super(BusinessActivity.class);
     }
 
+ /*   public BusinessActivity findActivityByName(String name) {
+        BusinessActivity activity = null;
+        try {
+            activity = getEntityManager()
+                    .createNamedQuery("findActivityByName", gettClass())
+                    .setParameter("name", name)
+                    .getSingleResult();
+        } catch (NoResultException n) {
+            n.printStackTrace();
+        }
+        return activity;
+    }*/
+
 }
