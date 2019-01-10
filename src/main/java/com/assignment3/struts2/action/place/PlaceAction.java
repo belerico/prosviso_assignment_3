@@ -3,14 +3,16 @@ package com.assignment3.struts2.action.place;
 import com.assignment3.jpa.model.Place;
 import com.assignment3.jpa.service.PlaceService;
 import com.assignment3.jpa.service.ServiceFactory;
+import com.assignment3.utils.faker.PlaceFaker;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 
 import java.util.List;
 
-public class PlaceAction extends ActionSupport {
+public class PlaceAction extends ActionSupport implements ModelDriven<Place> {
 
-    PlaceService placeService = ServiceFactory.getInstance().getPlaceService();
-    List<Place> places;
+    private List<Place> places;
+    private Place place = new PlaceFaker().create();
 
     public List<Place> getPlaces() {
         return places;
@@ -20,8 +22,37 @@ public class PlaceAction extends ActionSupport {
         this.places = places;
     }
 
-    public String execute() {
-        places = placeService.readAll();
+    public Place getPlace() {
+        return place;
+    }
+
+    public void setPlace(Place place) {
+        this.place = place;
+    }
+
+    public String removePlace() {
+        PlaceService placeService = ServiceFactory.getInstance().getPlaceService();
+        placeService.delete(placeService.read(getPlace().getId()));
         return ActionSupport.SUCCESS;
+    }
+
+    public String showPlaces() {
+        PlaceService placeService = ServiceFactory.getInstance().getPlaceService();
+        setPlaces(placeService.readAll());
+        return ActionSupport.SUCCESS;
+    }
+
+    public String createPlacePage() {
+        return ActionSupport.SUCCESS;
+    }
+
+    public String createPlace() {
+        ServiceFactory.getInstance().getPlaceService().create(getPlace());
+        return ActionSupport.SUCCESS;
+    }
+
+    @Override
+    public Place getModel() {
+        return place;
     }
 }

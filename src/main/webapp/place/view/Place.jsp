@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: belerico
-  Date: 1/3/19
-  Time: 2:28 PM
+  User: avogadro
+  Date: 09/01/19
+  Time: 15.51
   To change this template use File | Settings | File Templates.
 --%>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Welcome to Card webapp!</title>
+    <title>Business Activity home page</title>
     <style>
         .list {
             margin: 0 auto;
@@ -23,10 +23,10 @@
 </head>
 <body>
 <div class="list">
-    <h1>Welcome to Card webapp!</h1>
-    <p><a href="<s:url namespace="/user" action='userPage'/>">User</a></p>
-    <p><a href="<s:url namespace="/activity" action='activityPage'/>">Business Activity</a></p>
-    <p><a href="<s:url namespace="/place" action='placePage'/>">Places</a></p>
+    <h1>Place page</h1>
+    <p><a href="<s:url action='showPlaces'/>">Show all places</a></p>
+    <p><a href="<s:url action='createPlacePage'/>">Create a new place</a></p>
+    <p><a href="<s:url action='goIndex'/>">Home</a></p>
 </div>
 </body>
 </html>

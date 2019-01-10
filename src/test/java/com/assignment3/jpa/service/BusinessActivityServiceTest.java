@@ -61,7 +61,7 @@ public class BusinessActivityServiceTest {
     public void readByNaturalId() {
         BusinessActivity businessActivity = createBusinessActivity();
         BusinessActivity businessActivity1 = businessActivityService.readByNaturalId(businessActivity.getName());
-        assertEquals(businessActivity.getName(), businessActivity1.getName());
+        assertEquals(businessActivity, businessActivity1);
     }
 
     @Test

@@ -57,6 +57,13 @@ public class PlaceServiceTest {
     }
 
     @Test
+    public void readByNaturalId() {
+        Place place = createPlace();
+        Place place1 = placeService.readByNaturalId(place.getCAP());
+        assertEquals(place, place1);
+    }
+
+    @Test
     public void read() {
         Place place = createPlace();
         place = placeService.read(place.getId());

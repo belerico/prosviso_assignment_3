@@ -53,6 +53,13 @@ public class CardServiceTest {
     }
 
     @Test
+    public void readByNaturalId() {
+        Card card = createCard();
+        Card card1 = cardService.readByNaturalId(card.getCardNumber());
+        assertEquals(card, card1);
+    }
+
+    @Test
     public void update() {
         Card card = createCard();
         card.setQuantity(8);

@@ -27,14 +27,14 @@
     <s:form action="createActivity">
         <div class="form-group">
             <s:fielderror cssClass="alert alert-danger">
-                <s:param>businessActivity.name</s:param>
+                <s:param>activity.name</s:param>
             </s:fielderror>
             <s:label for="name" value="Name"/>
-            <s:textfield cssClass="form-control" name="businessActivity.name" value="%{ name }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="activity.name" value="%{ name }" requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="type" value="Type"/>
-            <s:textfield cssClass="form-control" name="businessActivity.type" value="%{ type }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="activity.type" value="%{ type }" requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="places" value="Place"/>
@@ -44,7 +44,7 @@
                       listValue="CAP + ', ' + city"
                       name="placeId"/>
         </div>
-        <s:submit cssClass="btn btn-secondary" label="Register"/>
+        <s:submit cssClass="btn btn-secondary" label="Create activity"/>
     </s:form>
     <span><a href="<s:url action='showActivities'/>">Show all business activities</a></span><br>
     <span><a href="<s:url action='activityPage'/>">Activity page</a></span><br>

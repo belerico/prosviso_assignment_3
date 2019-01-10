@@ -13,10 +13,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <title>Places</title>
-
 </head>
 <body>
-<h2>Places generated on startup</h2>
+<h2>Places</h2>
 
 <%--<ol>
     <s:iterator value="places">
@@ -37,6 +36,7 @@
         <th scope="col">City</th>
         <th scope="col">Province</th>
         <th scope="col">Region</th>
+        <th scope="col">Remove</th>
     </tr>
     </thead>
     <tbody>
@@ -58,12 +58,16 @@
             <td>
                 <s:property value="region"/>
             </td>
-            <s:hidden value="%{id}" name="id"/>
+            <td>
+                <a href="<s:url action='removePlace'><s:param name="place.id" value="%{id}"></s:param></s:url>">Remove</a>
+            </td>
         </tr>
     </s:iterator>
 
     </tbody>
 </table>
-<p><a href="<s:url action='goIndex'/>">Go back to home</a></p>
+<span><a href="<s:url action='createPlacePage'/>">Create a new place</a></span><br>
+<span><a href="<s:url action='placePage'/>">Place page</a></span><br>
+<span><a href="<s:url action='goIndex'/>">Home</a></span>
 </body>
 </html>

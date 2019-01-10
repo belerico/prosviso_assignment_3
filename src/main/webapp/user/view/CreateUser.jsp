@@ -83,7 +83,7 @@
                       requiredLabel="true"/>
         </div>
         <%----%>
-        <s:submit cssClass="btn btn-secondary" label="Register"/>
+        <s:submit cssClass="btn btn-secondary" label="Create user"/>
     </s:form>
     <span><a href="<s:url action='showUsers'/>">Show all users</a></span><br>
     <span><a href="<s:url action='userPage'/>">User page</a></span><br>

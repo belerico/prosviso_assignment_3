@@ -6,6 +6,7 @@
 <struts>
     <constant name="struts.devMode" value="true"/>
     <constant name="struts.ui.theme" value="simple"/>
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
 
     <package name="welcome" extends="struts-default">
         <action name="index">
@@ -23,7 +24,7 @@
         <action name="createUserPage" class="com.assignment3.struts2.action.user.CreateUserAction"
                 method="createUserPage">
             <result name="success">view/CreateUser.jsp</result>
-            <result name="input">view/CreateUser.jsp</result>
+            <!--<result name="input">view/CreateUser.jsp</result>-->
         </action>
         <action name="createUser" class="com.assignment3.struts2.action.user.CreateUserAction" method="createUser">
             <result name="success" type="chain">showUsers</result>
@@ -39,19 +40,19 @@
 
     <package name="activity" namespace="/activity" extends="struts-default">
         <action name="activityPage" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
-            <result name="success">view/BusinessActivity.jsp</result>
+            <result name="success">view/Activity.jsp</result>
         </action>
         <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">/index.jsp</result>
         </action>
         <action name="createActivityPage" class="com.assignment3.struts2.action.activity.CreateActivityAction"
                 method="createActivityPage">
-            <result name="success">view/CreateBusinessActivity.jsp</result>
+            <result name="success">view/CreateActivity.jsp</result>
         </action>
         <action name="createActivity" class="com.assignment3.struts2.action.activity.CreateActivityAction"
                 method="createActivity">
             <result name="success" type="chain">showActivities</result>
-            <result name="input">view/CreateBusinessActivity.jsp</result>
+            <result name="input">view/CreateActivity.jsp</result>
         </action>
         <action name="removeActivity" class="com.assignment3.struts2.action.activity.ActivityAction"
                 method="removeActivity">
@@ -59,7 +60,7 @@
         </action>
         <action name="showActivities" class="com.assignment3.struts2.action.activity.ActivityAction"
                 method="showActivities">
-            <result name="success">view/ShowBusinessActivity.jsp</result>
+            <result name="success">view/ShowActivities.jsp</result>
         </action>
     </package>
 
@@ -75,7 +76,9 @@
         </action>
         <action name="createCard" class="com.assignment3.struts2.action.card.CreateCardAction" method="createCard">
             <result name="success" type="chain">showCards</result>
-            <result name="error">view/Error.jsp</result>
+            <!--
+                        <result name="error">view/Error.jsp</result>
+            -->
             <result name="input">view/CreateCard.jsp</result>
         </action>
         <action name="showCards" class="com.assignment3.struts2.action.card.CardAction" method="showCards">
@@ -84,8 +87,23 @@
     </package>
 
     <package name="place" namespace="/place" extends="struts-default">
-        <action name="showPlace" class="com.assignment3.struts2.action.place.PlaceAction" method="execute">
+        <action name="placePage" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
+            <result name="success">view/Place.jsp</result>
+        </action>
+        <action name="createPlacePage" class="com.assignment3.struts2.action.place.PlaceAction"
+                method="createPlacePage">
+            <result name="success">view/CreatePlace.jsp</result>
+        </action>
+        <action name="createPlace" class="com.assignment3.struts2.action.place.PlaceAction" method="createPlace">
+            <result name="success" type="redirectAction">showPlaces</result>
+            <result name="input">view/CreatePlace.jsp</result>
+        </action>
+        <action name="showPlaces" class="com.assignment3.struts2.action.place.PlaceAction" method="showPlaces">
             <result name="success">view/ShowPlaces.jsp</result>
+        </action>
+        <action name="removePlace" class="com.assignment3.struts2.action.place.PlaceAction"
+                method="removePlace">
+            <result name="success" type="chain">showPlaces</result>
         </action>
         <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">/index.jsp</result>

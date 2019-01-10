@@ -13,11 +13,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class CreateUserAction extends ActionSupport implements Preparable, ModelDriven<User> {
+public class CreateUserAction extends ActionSupport implements ModelDriven<User>, Preparable {
 
     private static SimpleDateFormat DATE_FORMAT;
     private static Date MIN_DATE;
     private static Date MAX_DATE;
+    private String typedDateOfBirth;
+    private Long placeId;
+    private List<Place> places;
+    private User user = new UserFaker().create();
 
     static {
         DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
@@ -28,11 +32,6 @@ public class CreateUserAction extends ActionSupport implements Preparable, Model
             p.printStackTrace();
         }
     }
-
-    private String typedDateOfBirth;
-    private Long placeId;
-    private List<Place> places;
-    private User user = new UserFaker().create();
 
     public User getUser() {
         return user;

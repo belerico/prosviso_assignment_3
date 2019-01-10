@@ -81,6 +81,13 @@ public class UserServiceTest {
     }
 
     @Test
+    public void readByNaturalId() {
+        User user = createUser();
+        User user1 = userService.readByNaturalId(user.getEmail());
+        assertEquals(user, user1);
+    }
+
+    @Test
     public void read() {
         User user = createUser();
         user = userService.read(user.getId());
