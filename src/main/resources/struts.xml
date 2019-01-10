@@ -51,7 +51,6 @@
         <action name="createActivity" class="com.assignment3.struts2.action.activity.CreateActivityAction"
                 method="createActivity">
             <result name="success" type="chain">showActivities</result>
-            <result name="error">view/Error.jsp</result>
             <result name="input">view/CreateBusinessActivity.jsp</result>
         </action>
         <action name="showActivities" class="com.assignment3.struts2.action.activity.BusinessActivityAction"

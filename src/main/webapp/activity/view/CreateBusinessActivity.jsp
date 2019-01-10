@@ -24,20 +24,17 @@
 <body>
 <div class="container">
     <h1>Fill form to register a new business activity into the webapp</h1>
-    <s:if test="hasActionErrors()">
-        <div class="alert alert-danger" role="alert">
-            <p>Something went wrong while persisting the activity</p>
-            <s:actionerror/>
-        </div>
-    </s:if>
     <s:form action="createActivity">
         <div class="form-group">
+            <s:fielderror cssClass="alert alert-danger">
+                <s:param>businessActivity.name</s:param>
+            </s:fielderror>
             <s:label for="name" value="Name"/>
-            <s:textfield cssClass="form-control" name="name" value="%{ name }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="businessActivity.name" value="%{ name }" requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="type" value="Type"/>
-            <s:textfield cssClass="form-control" name="type" value="%{ type }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="businessActivity.type" value="%{ type }" requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="places" value="Place"/>
