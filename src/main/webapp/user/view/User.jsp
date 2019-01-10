@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>User</title>
+    <title>User home page</title>
     <style>
         .container {
             width: 60%;
@@ -27,6 +27,7 @@
     <h1>User page</h1>
     <p><a href="<s:url action='showUsers'/>">Show all users</a></p>
     <p><a href="<s:url action='createUserPage'/>">Create a new user</a></p>
+    <p><a href="<s:url action='goIndex'/>">Go back to home</a></p>
 </div>
 </body>
 </html>
