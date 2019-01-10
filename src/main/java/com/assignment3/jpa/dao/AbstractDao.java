@@ -1,12 +1,13 @@
 package com.assignment3.jpa.dao;
 
+import org.hibernate.Session;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.NoResultException;
 import java.io.Serializable;
 import java.util.List;
 
-public abstract class AbstractDao<T, Id extends Serializable, NaturalId extends Serializable> implements Dao<T, Id, NaturalId> {
+public abstract class AbstractDao<T, Id extends Serializable> implements Dao<T, Id> {
 
     //private final static EntityManagerSingleton entityManagerFactory;
     private final static EntityManager entityManager;
@@ -57,16 +58,11 @@ public abstract class AbstractDao<T, Id extends Serializable, NaturalId extends 
     }
 
     @Override
-    public T readByNaturalId(String field, NaturalId naturalId) {
-        T t = null;
-        try {
-            t = getEntityManager()
-                    .createQuery("SELECT t FROM " + tClass.getName() + " t WHERE t." + field + "=:naturalId", gettClass())
-                    .setParameter("naturalId", naturalId)
-                    .getSingleResult();
-        } catch (NoResultException n) {
-            n.printStackTrace();
-        }
+    public T readByNaturalId(String naturalId) {
+        T t = getEntityManager()
+                .unwrap(Session.class)
+                .bySimpleNaturalId(tClass)
+                .load(naturalId);
         return t;
     }
 

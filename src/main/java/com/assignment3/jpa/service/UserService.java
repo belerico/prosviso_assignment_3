@@ -6,18 +6,10 @@ import com.assignment3.jpa.model.SharableCard;
 import com.assignment3.jpa.model.StandardCard;
 import com.assignment3.jpa.model.User;
 
-public class UserService extends AbstractService<User, Long, String> {
+public class UserService extends AbstractService<User, Long> {
 
     public UserService() {
         super(new UserDao());
-    }
-
-    @Override
-    public User readByNaturalId(String s) {
-        getDao().begin();
-        User user = getDao().readByNaturalId("email", s);
-        getDao().commit();
-        return user;
     }
 
     public void addPlace(User user, Place place) {

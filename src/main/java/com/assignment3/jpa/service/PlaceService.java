@@ -5,17 +5,9 @@ import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Place;
 import com.assignment3.jpa.model.User;
 
-public class PlaceService extends AbstractService<Place, Long, String> {
+public class PlaceService extends AbstractService<Place, Long> {
 
     public PlaceService() { super(new PlaceDao()); }
-
-    @Override
-    public Place readByNaturalId(String s) {
-        getDao().begin();
-        Place place = getDao().readByNaturalId("CAP", s);
-        getDao().commit();
-        return place;
-    }
 
     public void addUser(Place place, User user) {
         getDao().begin();
