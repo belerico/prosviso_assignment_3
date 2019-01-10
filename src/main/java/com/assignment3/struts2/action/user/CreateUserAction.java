@@ -89,7 +89,7 @@ public class CreateUserAction extends ActionSupport implements Preparable, Model
     }
 
     private boolean isEmailValid(String email) {
-        return ServiceFactory.getInstance().getUserService().findUserByEmail(email) == null;
+        return ServiceFactory.getInstance().getUserService().readByNaturalId(email) == null;
     }
 
     @Override

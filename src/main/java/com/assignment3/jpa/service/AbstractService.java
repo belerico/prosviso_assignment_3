@@ -5,15 +5,15 @@ import com.assignment3.jpa.dao.AbstractDao;
 import java.io.Serializable;
 import java.util.List;
 
-public abstract class AbstractService<T, Id extends Serializable> implements Service<T, Id> {
+public abstract class AbstractService<T, Id extends Serializable, NaturalId extends Serializable> implements Service<T, Id, NaturalId> {
 
-    private AbstractDao<T, Id> dao;
+    private AbstractDao<T, Id, NaturalId> dao;
 
-    public AbstractService(AbstractDao<T, Id> dao) {
+    public AbstractService(AbstractDao<T, Id, NaturalId> dao) {
         this.dao = dao;
     }
 
-    public AbstractDao<T, Id> getDao() {
+    public AbstractDao<T, Id, NaturalId> getDao() {
         return this.dao;
     }
 
@@ -22,6 +22,8 @@ public abstract class AbstractService<T, Id extends Serializable> implements Ser
         dao.create(entity);
         dao.commit();
     }
+
+    public abstract T readByNaturalId(NaturalId naturalId);
 
     public T read(Id id) {
         dao.begin();

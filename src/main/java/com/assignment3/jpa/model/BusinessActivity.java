@@ -6,6 +6,10 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
+@NamedQuery(
+        name = "findActivityByName",
+        query = "SELECT b FROM BusinessActivity b WHERE b.name LIKE :name"
+)
 public class BusinessActivity {
 
     @Id

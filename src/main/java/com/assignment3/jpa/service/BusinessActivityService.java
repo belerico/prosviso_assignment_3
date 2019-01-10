@@ -5,12 +5,20 @@ import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Card;
 import com.assignment3.jpa.model.Place;
 
-public class BusinessActivityService extends AbstractService<BusinessActivity, Long> {
+public class BusinessActivityService extends AbstractService<BusinessActivity, Long, String> {
 
     //CardService cardService;
 
     public BusinessActivityService() {
         super(new BusinessActivityDao());
+    }
+
+    @Override
+    public BusinessActivity readByNaturalId(String s) {
+        getDao().begin();
+        BusinessActivity activity = getDao().readByNaturalId("name", s);
+        getDao().commit();
+        return activity;
     }
 
     public void addPlace(BusinessActivity businessActivity, Place place) {
