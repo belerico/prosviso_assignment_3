@@ -1,6 +1,7 @@
-package com.assignment3.action.card;
+package com.assignment3.struts2.action.card;
 
 import com.assignment3.jpa.model.Card;
+import com.assignment3.jpa.model.SharableCard;
 import com.assignment3.jpa.model.StandardCard;
 import com.assignment3.jpa.service.CardService;
 import com.assignment3.jpa.service.ServiceFactory;
@@ -61,8 +62,14 @@ public class CreateCardAction extends ActionSupport implements Preparable {
     }
 
     public String createCard() {
-        Card card = new StandardCard();
+        String type = getType();
+        Card card;
+        if(type.equals("ST"))
+            card = new StandardCard();
+        else
+            card = new SharableCard();
         card.setCardNumber(getCardNumber());
+        card.setQuantity(getQuantity());
         CardService cardService = ServiceFactory.getInstance().getCardService();
         try {
             cardService.create(card);

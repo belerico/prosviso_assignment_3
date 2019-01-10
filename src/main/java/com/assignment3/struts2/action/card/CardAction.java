@@ -1,4 +1,4 @@
-package com.assignment3.action.card;
+package com.assignment3.struts2.action.card;
 
 import com.assignment3.jpa.model.Card;
 import com.assignment3.jpa.service.CardService;
@@ -8,11 +8,20 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
 
 public class CardAction extends ActionSupport {
+    private Long id;
     private List<Card> cards;
-    private CardService cardService;
+
 
     public List<Card> getCards() {
         return cards;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setCards(List<Card> cards) {
@@ -20,7 +29,7 @@ public class CardAction extends ActionSupport {
     }
 
     public String showCards() {
-        cardService = ServiceFactory.getInstance().getCardService();
+        CardService cardService = ServiceFactory.getInstance().getCardService();
         setCards(cardService.readAll());
         return ActionSupport.SUCCESS;
     }

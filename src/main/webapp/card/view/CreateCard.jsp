@@ -27,11 +27,11 @@
     <s:form action="createCard">
         <div class="form-group">
             <s:label for="cardNumber" value="cardNumber"/>
-            <s:textfield cssClass="form-control" name="name" value="%{ cardNumber }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="cardNumber" value="%{ cardNumber }" requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="typecard" value="typeCard"/>
-            <s:radio label="Type Card" name="typeCard"  list="typeCard" value="%{ type }"/>
+            <s:radio label="Type Card" name="type"  list="typeCard" value="%{ type }"/>
         </div>
         <div class="form-group">
             <s:label for="quantity" value="quantity"/>

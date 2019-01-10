@@ -61,18 +61,21 @@
     </package>
 
     <package name="card" namespace="/card" extends="struts-default">
-        <action name="cardPage" class="com.assignment3.action.RedirectAction" method="JSPRedirect">
+        <action name="cardPage" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">view/Card.jsp</result>
         </action>
-        <action name="createCardPage" class="com.assignment3.action.card.CreateCardAction" method="createCardPage">
+        <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
+            <result name="success">/index.jsp</result>
+        </action>
+        <action name="createCardPage" class="com.assignment3.struts2.action.card.CreateCardAction" method="createCardPage">
             <result name="success">view/CreateCard.jsp</result>
         </action>
-        <action name="createCard" class="com.assignment3.action.card.CreateCardAction" method="createCard">
-            <result name="success" type="chain">showCard.jsp</result>
+        <action name="createCard" class="com.assignment3.struts2.action.card.CreateCardAction" method="createCard">
+            <result name="success" type="chain">showCards</result>
             <result name="error">view/Error.jsp</result>
             <result name="input">view/CreateCard.jsp</result>
         </action>
-        <action name="showCards" class="com.assignment3.action.card.CardAction" method="showCards">
+        <action name="showCards" class="com.assignment3.struts2.action.card.CardAction" method="showCards">
             <result name="success">view/ShowCard.jsp</result>
         </action>
     </package>

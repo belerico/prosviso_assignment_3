@@ -23,37 +23,39 @@
 </head>
 <body>
 <div class="container">
-    <h2>Business Activities</h2>
+    <h2>Cards</h2>
     <table class="table">
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
+            <th scope="col">CardNumber</th>
             <th scope="col">Type</th>
+            <th scope="col">Quantity</th>
+
         </tr>
         </thead>
         <tbody>
-        <s:iterator value="Cards" status="activitiesStatus">
+        <s:iterator value="cards" status="cardsStatus">
             <tr>
                 <th scope="row">
-                    <s:property value="#activitiesStatus.index"/>
+                    <s:property value="#cardsStatus.index"/>
                         <%--<s:property value="id"/>--%>
                 </th>
-                <td>
-                    <s:property value="DTYPE"/>
-                </td>
                 <td>
                     <s:property value="cardNumber"/>
                 </td>
                 <td>
+                    <s:property value="DTYPE"/>
+                </td>
+                <td>
                     <s:property value="quantity"/>
                 </td>
-                <s:hidden value="%{id}" name="id"/>
             </tr>
         </s:iterator>
         </tbody>
     </table>
-    <p><a href="<s:url action='businessPage'/>">Business Activities</a></p>
+    <p><a href="<s:url action='cardPage'/>">Cards</a></p>
+    <p><a href="<s:url action='goIndex'/>">Go back to home</a></p>
 </div>
 </body>
 </html>
