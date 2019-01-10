@@ -5,7 +5,7 @@ import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Place;
 import com.assignment3.jpa.model.User;
 
-public class PlaceService extends AbstractService<Place, Long> {
+public class PlaceService extends AbstractService<Place, Long, String> {
 
     public PlaceService() { super(new PlaceDao()); }
 

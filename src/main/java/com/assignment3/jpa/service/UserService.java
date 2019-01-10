@@ -6,7 +6,7 @@ import com.assignment3.jpa.model.SharableCard;
 import com.assignment3.jpa.model.StandardCard;
 import com.assignment3.jpa.model.User;
 
-public class UserService extends AbstractService<User, Long> {
+public class UserService extends AbstractService<User, Long, String> {
 
     public UserService() {
         super(new UserDao());
