@@ -59,7 +59,12 @@
                     <s:property value="email"/>
                 </td>
                 <td>
-                    <s:property value="place.CAP + ', ' + place.city"/>
+                    <s:if test="place == null">
+                        N/A
+                    </s:if>
+                    <s:else>
+                        <s:property value="place.CAP + ', ' + place.city"/>
+                    </s:else>
                 </td>
                 <td>
                     <s:if test="sex">

@@ -30,6 +30,11 @@ public class PlaceAction extends ActionSupport implements ModelDriven<Place> {
         this.place = place;
     }
 
+    public String removeAllPlaces() {
+        ServiceFactory.getInstance().getPlaceService().deleteAll();
+        return ActionSupport.SUCCESS;
+    }
+
     public String removePlace() {
         PlaceService placeService = ServiceFactory.getInstance().getPlaceService();
         placeService.delete(placeService.read(getPlace().getId()));

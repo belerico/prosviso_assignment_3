@@ -11,7 +11,7 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <title>Create business activity</title>
+    <title>Create place</title>
     <style>
         .container {
             width: 60%;
@@ -25,13 +25,13 @@
 <div class="container">
     <h1>Fill form to register a new place into the webapp</h1>
     <s:form action="createPlace">
+        <s:fielderror cssClass="alert alert-danger">
+            <s:param>place.CAP</s:param>
+            <s:param>place.city</s:param>
+            <s:param>place.province</s:param>
+            <s:param>place.region</s:param>
+        </s:fielderror>
         <div class="form-group">
-            <s:fielderror cssClass="alert alert-danger">
-                <s:param>place.CAP</s:param>
-                <%--                <s:param>place.city</s:param>
-                                <s:param>place.province</s:param>
-                                <s:param>place.region</s:param>--%>
-            </s:fielderror>
             <s:label for="CAP" value="CAP"/>
             <s:textfield cssClass="form-control" name="place.CAP" value="%{ place.CAP }" requiredLabel="true"/>
         </div>

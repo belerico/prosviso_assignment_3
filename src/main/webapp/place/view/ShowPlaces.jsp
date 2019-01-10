@@ -66,6 +66,7 @@
 
     </tbody>
 </table>
+<span><a href="<s:url action='removeAllPlaces'/>">Remove all places</a></span><br>
 <span><a href="<s:url action='createPlacePage'/>">Create a new place</a></span><br>
 <span><a href="<s:url action='placePage'/>">Place page</a></span><br>
 <span><a href="<s:url action='goIndex'/>">Home</a></span>

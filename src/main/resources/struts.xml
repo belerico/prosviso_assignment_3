@@ -105,6 +105,10 @@
                 method="removePlace">
             <result name="success" type="chain">showPlaces</result>
         </action>
+        <action name="removeAllPlaces" class="com.assignment3.struts2.action.place.PlaceAction"
+                method="removeAllPlaces">
+            <result name="success" type="chain">showPlaces</result>
+        </action>
         <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">/index.jsp</result>
         </action>
