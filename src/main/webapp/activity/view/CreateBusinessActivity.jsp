@@ -46,6 +46,9 @@
         </div>
         <s:submit cssClass="btn btn-secondary" label="Register"/>
     </s:form>
+    <span><a href="<s:url action='showActivities'/>">Show all business activities</a></span><br>
+    <span><a href="<s:url action='activityPage'/>">Activity page</a></span><br>
+    <span><a href="<s:url action='goIndex'/>">Home</a></span>
 </div>
 </body>
 </html>

@@ -38,7 +38,7 @@
     </package>
 
     <package name="activity" namespace="/activity" extends="struts-default">
-        <action name="businessPage" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
+        <action name="activityPage" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">view/BusinessActivity.jsp</result>
         </action>
         <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
@@ -53,7 +53,11 @@
             <result name="success" type="chain">showActivities</result>
             <result name="input">view/CreateBusinessActivity.jsp</result>
         </action>
-        <action name="showActivities" class="com.assignment3.struts2.action.activity.BusinessActivityAction"
+        <action name="removeActivity" class="com.assignment3.struts2.action.activity.ActivityAction"
+                method="removeActivity">
+            <result name="success" type="chain">showActivities</result>
+        </action>
+        <action name="showActivities" class="com.assignment3.struts2.action.activity.ActivityAction"
                 method="showActivities">
             <result name="success">view/ShowBusinessActivity.jsp</result>
         </action>

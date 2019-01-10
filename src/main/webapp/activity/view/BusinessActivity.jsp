@@ -18,9 +18,9 @@
 <body>
 <div class="container">
     <h1>Business Activity page</h1>
-    <p><a href="<s:url action='showActivities'/>">Show all business activity</a></p>
+    <p><a href="<s:url action='showActivities'/>">Show all business activities</a></p>
     <p><a href="<s:url action='createActivityPage'/>">Create a new business activity</a></p>
-    <p><a href="<s:url action='goIndex'/>">Go back to home</a></p>
+    <p><a href="<s:url action='goIndex'/>">Home</a></p>
 </div>
 </body>
 </html>
