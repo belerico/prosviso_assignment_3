@@ -12,16 +12,16 @@ import java.util.List;
 
 public class CreateActivityAction extends ActionSupport implements ModelDriven<BusinessActivity>, Preparable {
 
-    private BusinessActivity businessActivity = new BusinessActivityFaker().create();
+    private BusinessActivity activity = new BusinessActivityFaker().create();
     private Long placeId;
     private List<Place> places;
 
-    public BusinessActivity getBusinessActivity() {
-        return businessActivity;
+    public BusinessActivity getActivity() {
+        return activity;
     }
 
-    public void setBusinessActivity(BusinessActivity businessActivity) {
-        this.businessActivity = businessActivity;
+    public void setActivity(BusinessActivity activity) {
+        this.activity = activity;
     }
 
     public Long getPlaceId() {
@@ -46,15 +46,15 @@ public class CreateActivityAction extends ActionSupport implements ModelDriven<B
     }
 
     public String createActivity() {
-        getBusinessActivity().addPlace(ServiceFactory.getInstance().getPlaceService().read(placeId));
-        ServiceFactory.getInstance().getBusinessActivityService().create(getBusinessActivity());
+        getActivity().addPlace(ServiceFactory.getInstance().getPlaceService().read(placeId));
+        ServiceFactory.getInstance().getBusinessActivityService().create(getActivity());
         return ActionSupport.SUCCESS;
     }
 
     @Override
     public void validate() {
-        if (ServiceFactory.getInstance().getBusinessActivityService().readByNaturalId(getBusinessActivity().getName()) != null)
-            addFieldError("businessActivity.name", "Activity " + getBusinessActivity().getName() + " already registered");
+        if (ServiceFactory.getInstance().getBusinessActivityService().readByNaturalId(getActivity().getName()) != null)
+            addFieldError("activity.name", "Activity " + getActivity().getName() + " already registered");
     }
 
     @Override
@@ -64,7 +64,7 @@ public class CreateActivityAction extends ActionSupport implements ModelDriven<B
 
     @Override
     public BusinessActivity getModel() {
-        return businessActivity;
+        return activity;
     }
 }
 
