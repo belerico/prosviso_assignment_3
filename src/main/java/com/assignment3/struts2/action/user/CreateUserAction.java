@@ -88,13 +88,9 @@ public class CreateUserAction extends ActionSupport implements Preparable, Model
         return !typedDate.before(MIN_DATE) && !typedDate.after(MAX_DATE);
     }
 
-    private boolean isEmailValid(String email) {
-        return ServiceFactory.getInstance().getUserService().readByNaturalId(email) == null;
-    }
-
     @Override
     public void validate() {
-        if (!isEmailValid(getUser().getEmail()))
+        if (ServiceFactory.getInstance().getUserService().readByNaturalId(getUser().getEmail()) != null)
             addFieldError("user.email", "User with " + getUser().getEmail() + " email is already registered");
         if (!isDateOfBirthValid(getTypedDateOfBirth()))
             addFieldError("typedDateOfBirth", "Could not parse date, please enter a date in the format dd/mm/yyyy and between 01/01/1990 and current date");

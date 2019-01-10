@@ -7,23 +7,35 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.List;
 
-public class BusinessActivityAction extends ActionSupport {
+public class ActivityAction extends ActionSupport {
 
-
+    private Long activityId;
     private List<BusinessActivity> businessActivities;
-    private BusinessActivityService businessActivityService;
 
     public List<BusinessActivity> getBusinessActivities() {
         return businessActivities;
+    }
+
+    public Long getActivityId() {
+        return activityId;
+    }
+
+    public void setActivityId(Long activityId) {
+        this.activityId = activityId;
     }
 
     public void setBusinessActivities(List<BusinessActivity> businessActivities) {
         this.businessActivities = businessActivities;
     }
 
+    public String removeActivity() {
+        BusinessActivityService businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
+        businessActivityService.delete(businessActivityService.read(getActivityId()));
+        return ActionSupport.SUCCESS;
+    }
+
     public String showActivities() {
-        businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
-        setBusinessActivities(businessActivityService.readAll());
+        setBusinessActivities(ServiceFactory.getInstance().getBusinessActivityService().readAll());
         return ActionSupport.SUCCESS;
     }
 }

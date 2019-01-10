@@ -27,7 +27,7 @@
     <h1>User page</h1>
     <p><a href="<s:url action='showUsers'/>">Show all users</a></p>
     <p><a href="<s:url action='createUserPage'/>">Create a new user</a></p>
-    <p><a href="<s:url action='goIndex'/>">Go back to home</a></p>
+    <p><a href="<s:url action='goIndex'/>">Home</a></p>
 </div>
 </body>
 </html>

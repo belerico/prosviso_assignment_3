@@ -76,13 +76,13 @@
                     <a href="<s:url namespace="/user" action='removeUser'><s:param name="userId" value="%{id}"></s:param></s:url>">Add
                         card</a>
                 </td>
-                    <%--<s:hidden value="" name="userId"/>--%>
             </tr>
         </s:iterator>
         </tbody>
     </table>
-    <p><a href="<s:url action='userPage'/>">User</a></p>
-    <p><a href="<s:url action='goIndex'/>">Go back to home</a></p>
+    <span><a href="<s:url action='createUserPage'/>">Create a new user</a></span><br>
+    <span><a href="<s:url action='userPage'/>">User page</a></span><br>
+    <span><a href="<s:url action='goIndex'/>">Home</a></span>
 </div>
 </body>
 </html>

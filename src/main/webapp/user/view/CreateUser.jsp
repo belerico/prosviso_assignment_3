@@ -85,6 +85,9 @@
         <%----%>
         <s:submit cssClass="btn btn-secondary" label="Register"/>
     </s:form>
+    <span><a href="<s:url action='showUsers'/>">Show all users</a></span><br>
+    <span><a href="<s:url action='userPage'/>">User page</a></span><br>
+    <span><a href="<s:url action='goIndex'/>">Home</a></span>
 </div>
 </body>
 </html>

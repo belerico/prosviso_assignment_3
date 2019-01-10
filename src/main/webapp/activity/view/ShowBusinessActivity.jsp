@@ -30,6 +30,8 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Type</th>
+            <th scope="col">Remove</th>
+            <th scope="col">Add card</th>
         </tr>
         </thead>
         <tbody>
@@ -45,13 +47,20 @@
                 <td>
                     <s:property value="type"/>
                 </td>
-                <s:hidden value="%{id}" name="id"/>
+                <td>
+                    <a href="<s:url namespace="/activity" action='removeActivity'><s:param name="activityId" value="%{id}"></s:param></s:url>">Remove</a>
+                </td>
+                <td>
+                    <a href="<s:url namespace="/activity" action='removeActivity'><s:param name="activityId" value="%{id}"></s:param></s:url>">Add
+                        card</a>
+                </td>
             </tr>
         </s:iterator>
         </tbody>
     </table>
-    <p><a href="<s:url action='businessPage'/>">Business Activity</a></p>
-    <p><a href="<s:url action='goIndex'/>">Go back to home</a></p>
+    <span><a href="<s:url action='createActivityPage'/>">Create a new business activity</a></span><br>
+    <span><a href="<s:url action='activityPage'/>">Activity page</a></span><br>
+    <span><a href="<s:url action='goIndex'/>">Home</a></span>
 </div>
 </body>
 </html>
