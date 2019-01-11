@@ -31,7 +31,7 @@
         </div>
         <div class="form-group">
             <s:label for="typecard" value="typeCard"/>
-            <s:radio label="Type Card" name="type" list="typeCard" value="%{ type }"/>
+            <s:radio label="Type Card" name="type" list="{'SH','ST'}" value="%{ getDiscriminatorValue() }"/>
         </div>
         <div class="form-group">
             <s:label for="quantity" value="quantity"/>
@@ -39,8 +39,6 @@
         </div>
         <s:submit cssClass="btn btn-secondary" label="Add Card"/>
     </s:form>
-    <s:label for="places" value="Type Card"/>
-
 </div>
 </body>
 </html>
