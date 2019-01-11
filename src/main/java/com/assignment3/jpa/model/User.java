@@ -4,13 +4,13 @@ import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.*;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@NamedQuery(
-        name = "findUserByEmail",
-        query = "SELECT u FROM User u WHERE u.email LIKE :email"
-)
 public class User implements Serializable {
 
     @Id
@@ -21,7 +21,7 @@ public class User implements Serializable {
     private String password;
     @NaturalId
     private String email;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     private boolean sex;
     @OneToMany(mappedBy = "standardCard", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserStandardCard> standardCards = new HashSet<>();
@@ -33,7 +33,7 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String name, String surname, String password, String email, Date dateOfBirth, boolean sex) {
+    public User(String name, String surname, String password, String email, LocalDate dateOfBirth, boolean sex) {
         this.name = name;
         this.surname = surname;
         this.password = password;
@@ -82,11 +82,11 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

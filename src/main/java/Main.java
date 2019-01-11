@@ -7,7 +7,7 @@ import com.assignment3.jpa.service.UserService;
 import com.assignment3.utils.Helper;
 import com.assignment3.utils.faker.PlaceFaker;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Main {
@@ -21,8 +21,8 @@ public class Main {
         SharableCard sh3 = new SharableCard("SCCCC");
         BusinessActivity ba1 = new BusinessActivity("name1", "type1");
         BusinessActivity ba2 = new BusinessActivity("name2", "type2");
-        User user1 = new User("n1", "s1", "p1", "e1", new Date(), true);
-        User user2 = new User("n2", "s2", "p2", "e2", new Date(), true);
+        User user1 = new User("n1", "s1", "p1", "e1", LocalDate.now(), true);
+        User user2 = new User("n2", "s2", "p2", "e2", LocalDate.now(), true);
 
         UserService userService = ServiceFactory.getInstance().getUserService();
         CardService cardService = ServiceFactory.getInstance().getCardService();

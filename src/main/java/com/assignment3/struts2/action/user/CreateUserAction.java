@@ -71,7 +71,8 @@ public class CreateUserAction extends ActionSupport implements ModelDriven<User>
     }
 
     public String createUser() throws ParseException {
-        getUser().setDateOfBirth(DATE_FORMAT.parse(getTypedDateOfBirth()));
+        //getUser().setDateOfBirth(DATE_FORMAT.parse(getTypedDateOfBirth()));
+        System.out.println(getPlaceId());
         getUser().addPlace(ServiceFactory.getInstance().getPlaceService().read(getPlaceId()));
         ServiceFactory.getInstance().getUserService().create(getUser());
         return ActionSupport.SUCCESS;
@@ -87,17 +88,17 @@ public class CreateUserAction extends ActionSupport implements ModelDriven<User>
         return !typedDate.before(MIN_DATE) && !typedDate.after(MAX_DATE);
     }
 
-    @Override
+    /*@Override
     public void validate() {
         if (ServiceFactory.getInstance().getUserService().readByNaturalId(getUser().getEmail()) != null)
             addFieldError("user.email", "User with " + getUser().getEmail() + " email is already registered");
         if (!isDateOfBirthValid(getTypedDateOfBirth()))
             addFieldError("typedDateOfBirth", "Could not parse date, please enter a date in the format dd/mm/yyyy and between 01/01/1990 and current date");
-    }
+    }*/
 
     @Override
     public void prepare() {
-        setTypedDateOfBirth(DATE_FORMAT.format(getUser().getDateOfBirth()));
+        //setTypedDateOfBirth(DATE_FORMAT.format(getUser().getDateOfBirth()));
         setPlaces(ServiceFactory.getInstance().getPlaceService().readAll());
     }
 

@@ -2,6 +2,8 @@ package com.assignment3.utils.faker;
 
 import com.assignment3.jpa.model.User;
 
+import java.time.ZoneId;
+
 public class UserFaker extends AbstractFaker<User> {
 
     @Override
@@ -9,7 +11,11 @@ public class UserFaker extends AbstractFaker<User> {
         User user = new User();
         user.setName(getFaker().name().firstName());
         user.setSurname(getFaker().name().lastName());
-        user.setDateOfBirth(getFaker().date().birthday());
+        user.setDateOfBirth(getFaker().date().birthday()
+                .toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate()
+        );
         user.setEmail(getFaker().internet().safeEmailAddress());
         user.setPassword(getFaker().internet().password());
         user.setSex(getFaker().random().nextBoolean());

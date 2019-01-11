@@ -52,7 +52,7 @@
                     <s:property value="surname"/>
                 </td>
                 <td>
-                    <s:date name="dateOfBirth" format="MM/dd/yy"/>
+                    <s:property value="dateOfBirth"/>
                         <%--<s:property value="dateOfBirth"/>--%>
                 </td>
                 <td>

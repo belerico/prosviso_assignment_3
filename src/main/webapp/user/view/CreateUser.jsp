@@ -31,10 +31,14 @@
         </div>
     </s:if>--%>
     <s:form action="createUser">
+        <s:fielderror cssClass="alert alert-danger">
+            <s:param>user.email</s:param>
+            <s:param>user.name</s:param>
+            <s:param>user.surname</s:param>
+            <s:param>user.dateOfBirth</s:param>
+            <s:param>user.password</s:param>
+        </s:fielderror>
         <div class="form-group">
-            <s:fielderror cssClass="alert alert-danger">
-                <s:param>user.email</s:param>
-            </s:fielderror>
             <s:label for="email" value="Email"/>
             <s:textfield cssClass="form-control" name="user.email" value="%{ email }" requiredLabel="true"/>
         </div>
@@ -47,17 +51,8 @@
             <s:textfield cssClass="form-control" name="user.surname" value="%{ surname }" requiredLabel="true"/>
         </div>
         <div class="form-group">
-                <%--<s:if test="hasFieldErrors()">
-                    <div class="alert alert-danger" role="alert">
-                        <p>You must insert a date following the pattern DD/MM/YY</p>
-                        <s:fielderror><s:param>dateOfBirth</s:param></s:fielderror>
-                    </div>
-                </s:if>--%>
-            <s:fielderror cssClass="alert alert-danger">
-                <s:param>typedDateOfBirth</s:param>
-            </s:fielderror>
-            <s:label for="typedDateOfBirth" value="Date of birth"/>
-            <s:textfield cssClass="form-control" name="typedDateOfBirth" value="%{ typedDateOfBirth }"
+            <s:label for="user.dateOfBirth" value="Date of birth"/>
+            <s:textfield cssClass="form-control" name="user.dateOfBirth" value="%{ dateOfBirth }"
                          requiredLabel="true"/>
         </div>
         <div class="form-group">

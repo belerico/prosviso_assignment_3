@@ -15,6 +15,11 @@
     </package>
 
     <package name="user" namespace="/user" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="localdate" class="com.assignment3.struts2.interceptor.LocalDateInterceptor"/>
+        </interceptors>
+
         <action name="userPage" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">view/User.jsp</result>
         </action>
@@ -27,6 +32,29 @@
             <!--<result name="input">view/CreateUser.jsp</result>-->
         </action>
         <action name="createUser" class="com.assignment3.struts2.action.user.CreateUserAction" method="createUser">
+            <!--<interceptor-ref name="exception"/>
+            <interceptor-ref name="alias"/>
+            <interceptor-ref name="servletConfig"/>
+            <interceptor-ref name="i18n"/>
+            <interceptor-ref name="prepare"/>
+            <interceptor-ref name="chain"/>
+            <interceptor-ref name="scopedModelDriven"/>
+            <interceptor-ref name="modelDriven"/>
+            <interceptor-ref name="fileUpload"/>
+            <interceptor-ref name="checkbox"/>
+            <interceptor-ref name="localdate"/>
+            <interceptor-ref name="multiselect"/>
+            <interceptor-ref name="staticParams"/>
+            <interceptor-ref name="actionMappingParams"/>
+            <interceptor-ref name="params"/>
+            <interceptor-ref name="conversionError"/>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="debugging"/>-->
             <result name="success" type="chain">showUsers</result>
             <result name="input">view/CreateUser.jsp</result>
         </action>
