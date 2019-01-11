@@ -12,7 +12,7 @@
     <%--<link rel="stylesheet" href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css"/>--%>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <title>Business Activities</title>
+    <title>Cards</title>
     <style>
         .container {
             width: 60%;
@@ -39,13 +39,13 @@
             <tr>
                 <th scope="row">
                     <s:property value="#cardsStatus.index"/>
-                        <%--<s:property value="id"/>--%>
+                    <s:hidden name="idCard" value="%{id}" />
                 </th>
                 <td>
                     <s:property value="cardNumber"/>
                 </td>
                 <td>
-                    <s:property value="DTYPE"/>
+                    <s:property value="getDiscriminatorValue()"/>
                 </td>
                 <td>
                     <s:property value="quantity"/>

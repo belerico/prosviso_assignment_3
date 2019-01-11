@@ -27,6 +27,7 @@
     <p><a href="<s:url namespace="/user" action='userPage'/>">User page</a></p>
     <p><a href="<s:url namespace="/activity" action='activityPage'/>">Business activity page</a></p>
     <p><a href="<s:url namespace="/place" action='placePage'/>">Place page</a></p>
+    <p><a href="<s:url namespace="/card" action='cardPage'/>">Card page</a></p>
 </div>
 </body>
 </html>

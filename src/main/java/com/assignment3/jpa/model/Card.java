@@ -77,6 +77,12 @@ public abstract class Card implements Serializable {
         getBusinessActivity().getCards().remove(this);
     }*/
 
+    @Transient
+    public String getDiscriminatorValue(){
+        DiscriminatorValue val = this.getClass().getAnnotation(DiscriminatorValue.class);
+        return val == null ? null : val.value();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -94,6 +100,7 @@ public abstract class Card implements Serializable {
     public String toString() {
         return "Card{" +
                 "id=" + id +
+                ", type='"+getDiscriminatorValue()+"'"+
                 ", cardNumber='" + cardNumber + '\'' +
                 ", quantity=" + quantity +
                 '}';
