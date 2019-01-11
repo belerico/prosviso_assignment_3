@@ -81,12 +81,13 @@
 
                 </td>
                 <td>
-                    <a href="<s:url namespace="/user" action='removeUser'><s:param name="userId" value="%{id}"></s:param></s:url>">Remove</a>
+                    <a href="<s:url namespace="/user" action='removeUser'><s:param name="user.id" value="%{id}"/></s:url>">Remove</a>
                 </td>
             </tr>
         </s:iterator>
         </tbody>
     </table>
+    <span><a href="<s:url action='removeAllUsers'/>">Remove all users</a></span><br>
     <span><a href="<s:url action='createUserPage'/>">Create a new user</a></span><br>
     <span><a href="<s:url action='userPage'/>">User page</a></span><br>
     <span><a href="<s:url action='goIndex'/>">Home</a></span>

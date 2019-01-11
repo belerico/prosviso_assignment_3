@@ -21,15 +21,18 @@
         <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">/index.jsp</result>
         </action>
-        <action name="createUserPage" class="com.assignment3.struts2.action.user.CreateUserAction"
+        <action name="createUserPage" class="com.assignment3.struts2.action.user.UserAction"
                 method="createUserPage">
             <result name="success">view/CreateUser.jsp</result>
         </action>
-        <action name="createUser" class="com.assignment3.struts2.action.user.CreateUserAction" method="createUser">
+        <action name="createUser" class="com.assignment3.struts2.action.user.UserAction" method="createUser">
             <result name="success" type="chain">showUsers</result>
             <result name="input">view/CreateUser.jsp</result>
         </action>
         <action name="removeUser" class="com.assignment3.struts2.action.user.UserAction" method="removeUser">
+            <result name="success" type="chain">showUsers</result>
+        </action>
+        <action name="removeAllUsers" class="com.assignment3.struts2.action.user.UserAction" method="removeAllUsers">
             <result name="success" type="chain">showUsers</result>
         </action>
         <action name="showUsers" class="com.assignment3.struts2.action.user.UserAction" method="showUsers">

@@ -59,7 +59,7 @@
                 <s:property value="region"/>
             </td>
             <td>
-                <a href="<s:url action='removePlace'><s:param name="place.id" value="%{id}"></s:param></s:url>">Remove</a>
+                <a href="<s:url action='removePlace'><s:param name="place.id" value="%{id}"/></s:url>">Remove</a>
             </td>
         </tr>
     </s:iterator>

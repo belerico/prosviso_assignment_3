@@ -2,7 +2,6 @@ package com.assignment3.struts2.action.card;
 
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Card;
-import com.assignment3.jpa.model.User;
 import com.assignment3.jpa.service.CardService;
 import com.assignment3.jpa.service.ServiceFactory;
 import com.assignment3.utils.faker.CardFaker;
@@ -15,9 +14,17 @@ import java.util.List;
 public class CardAction extends ActionSupport implements ModelDriven<Card> {
 
     private List<Card> cards;
+    private String myType;
     private  Card card = new CardFaker().create();
     private Long businessId;
 
+    public String getMyType() {
+        return myType;
+    }
+
+    public void setMyType(String myType) {
+        this.myType = myType;
+    }
 
     public Long getBusinessId() {
         return businessId;
@@ -52,7 +59,11 @@ public class CardAction extends ActionSupport implements ModelDriven<Card> {
     public String createCard() {
         BusinessActivity activity = ServiceFactory.getInstance().getBusinessActivityService().read(getBusinessId());
         Card card = getCard();
-        card.setBusinessActivity(activity);
+        //card.setBusinessActivity(activity);
+        if (getMyType().equalsIgnoreCase("sh"))
+            activity.addCard(card);
+        else
+            activity.addCard(card);
         ServiceFactory.getInstance().getCardService().create(card);
         return ActionSupport.SUCCESS;
     }

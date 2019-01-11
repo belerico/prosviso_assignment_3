@@ -33,7 +33,6 @@
             <tr>
                 <th scope="row">
                     <s:property value="#activitiesStatus.index"/>
-                        <%--<s:property value="id"/>--%>
                 </th>
                 <td>
                     <s:property value="name"/>

@@ -18,7 +18,6 @@ public abstract class Card implements Serializable {
     private int quantity;
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private BusinessActivity businessActivity;
-    @Column(insertable = false, updatable = false) private String type;
 
     public Card() {
     }
@@ -26,7 +25,6 @@ public abstract class Card implements Serializable {
     public Card(String cardNumber, int quantity) {
         this.cardNumber = cardNumber;
         this.quantity = quantity;
-        setType(getDiscriminatorValue());
     }
 
     public Card(String cardNumber) {
@@ -68,24 +66,6 @@ public abstract class Card implements Serializable {
     public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    /*public void addBusinessActivity(BusinessActivity businessActivity) {
-        setBusinessActivity(businessActivity);
-        businessActivity.getCards().add(this);
-    }
-
-    public void removeBusinessActivity() {
-        setBusinessActivity(null);
-        getBusinessActivity().getCards().remove(this);
-    }*/
 
     @Transient
     public String getDiscriminatorValue(){
