@@ -80,8 +80,7 @@
         </action>
         <action name="createCard" class="com.assignment3.struts2.action.card.CardAction" method="createCard">
             <result name="success" type="chain">showCards</result>
-            <result name="error">view/Error.jsp</result>
-            <result name="input">view/CreateCard.jsp</result>
+            <!--<result name="input">view/CreateCard.jsp</result>-->
         </action>
         <action name="showCards" class="com.assignment3.struts2.action.card.CardAction" method="showCards">
             <result name="success">view/ShowCard.jsp</result>

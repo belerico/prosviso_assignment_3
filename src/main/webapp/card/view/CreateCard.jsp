@@ -30,13 +30,14 @@
             <s:textfield cssClass="form-control" name="cardNumber" value="%{ cardNumber }" requiredLabel="true"/>
         </div>
         <div class="form-group">
-            <s:label for="typecard" value="typeCard"/>
+            <s:label for="type" value="typeCard"/>
             <s:radio label="Type Card" name="type" list="{'SH','ST'}" value="%{ getDiscriminatorValue() }"/>
         </div>
         <div class="form-group">
             <s:label for="quantity" value="quantity"/>
             <s:textfield cssClass="form-control" name="quantity" value="%{ quantity }" requiredLabel="true"/>
         </div>
+        <s:hidden name="businessId" value="%{businessId}"></s:hidden>
         <s:submit cssClass="btn btn-secondary" label="Add Card"/>
     </s:form>
 </div>

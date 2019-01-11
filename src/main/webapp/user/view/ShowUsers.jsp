@@ -75,11 +75,13 @@
                     </s:else>
                 </td>
                 <td>
-                    <a href="<s:url namespace="/user" action='removeUser'><s:param name="userId" value="%{id}"></s:param></s:url>">Remove</a>
+                    <a href="<s:url namespace="/card" action='addStandardCard'><s:param name="userId" value="%{id}"></s:param></s:url>">STANDARD</a>
+                    <br>
+                    <a href="<s:url namespace="/card" action='addSharableCard'><s:param name="userId" value="%{id}"></s:param></s:url>">SHARABLE</a>
+
                 </td>
                 <td>
-                    <a href="<s:url namespace="/user" action='removeUser'><s:param name="userId" value="%{id}"></s:param></s:url>">Add
-                        card</a>
+                    <a href="<s:url namespace="/user" action='removeUser'><s:param name="userId" value="%{id}"></s:param></s:url>">Remove</a>
                 </td>
             </tr>
         </s:iterator>

@@ -53,7 +53,7 @@
                     <a href="<s:url namespace="/activity" action='removeActivity'><s:param name="activity.id" value="%{id}"></s:param></s:url>">Remove</a>
                 </td>
                 <td>
-                    <a href="<s:url namespace="/card" action='createCard'><s:param name="activity.id" value="%{id}"></s:param></s:url>">Create
+                    <a href="<s:url namespace="/card" action='createCardPage'><s:param name="activity.id" value="%{id}"></s:param></s:url>">Create
                         card</a>
                 </td>
             </tr>
