@@ -45,17 +45,21 @@
         <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">/index.jsp</result>
         </action>
-        <action name="createActivityPage" class="com.assignment3.struts2.action.activity.CreateActivityAction"
+        <action name="createActivityPage" class="com.assignment3.struts2.action.activity.ActivityAction"
                 method="createActivityPage">
             <result name="success">view/CreateActivity.jsp</result>
         </action>
-        <action name="createActivity" class="com.assignment3.struts2.action.activity.CreateActivityAction"
+        <action name="createActivity" class="com.assignment3.struts2.action.activity.ActivityAction"
                 method="createActivity">
             <result name="success" type="chain">showActivities</result>
             <result name="input">view/CreateActivity.jsp</result>
         </action>
         <action name="removeActivity" class="com.assignment3.struts2.action.activity.ActivityAction"
                 method="removeActivity">
+            <result name="success" type="chain">showActivities</result>
+        </action>
+        <action name="removeAllActivities" class="com.assignment3.struts2.action.activity.ActivityAction"
+                method="removeAllActivities">
             <result name="success" type="chain">showActivities</result>
         </action>
         <action name="showActivities" class="com.assignment3.struts2.action.activity.ActivityAction"

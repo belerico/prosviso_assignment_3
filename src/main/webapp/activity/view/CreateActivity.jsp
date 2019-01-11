@@ -25,16 +25,17 @@
 <div class="container">
     <h1>Fill form to register a new business activity into the webapp</h1>
     <s:form action="createActivity">
+        <s:fielderror cssClass="alert alert-danger">
+            <s:param>activity.name</s:param>
+            <s:param>activity.type</s:param>
+        </s:fielderror>
         <div class="form-group">
-            <s:fielderror cssClass="alert alert-danger">
-                <s:param>activity.name</s:param>
-            </s:fielderror>
             <s:label for="name" value="Name"/>
-            <s:textfield cssClass="form-control" name="activity.name" value="%{ name }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="activity.name" value="%{ activity.name }" requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="type" value="Type"/>
-            <s:textfield cssClass="form-control" name="activity.type" value="%{ type }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="activity.type" value="%{ activity.type }" requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="places" value="Place"/>

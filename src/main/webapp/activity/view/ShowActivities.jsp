@@ -23,12 +23,13 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Type</th>
+            <th scope="col">Place</th>
             <th scope="col">Remove</th>
             <th scope="col">Add card</th>
         </tr>
         </thead>
         <tbody>
-        <s:iterator value="businessActivities" status="activitiesStatus">
+        <s:iterator value="activities" status="activitiesStatus">
             <tr>
                 <th scope="row">
                     <s:property value="#activitiesStatus.index"/>
@@ -41,19 +42,29 @@
                     <s:property value="type"/>
                 </td>
                 <td>
-                    <a href="<s:url namespace="/activity" action='removeActivity'><s:param name="activityId" value="%{id}"></s:param></s:url>">Remove</a>
+                    <s:if test="place == null">
+                        N/A
+                    </s:if>
+                    <s:else>
+                        <s:property value="place.CAP + ', ' + place.city"/>
+                    </s:else>
                 </td>
                 <td>
-                    <a href="<s:url namespace="/activity" action='removeActivity'><s:param name="activityId" value="%{id}"></s:param></s:url>">Add
+                    <a href="<s:url namespace="/activity" action='removeActivity'><s:param name="activity.id" value="%{id}"></s:param></s:url>">Remove</a>
+                </td>
+                <td>
+                    <a href="<s:url namespace="/activity" action='removeActivity'><s:param name="activity.id" value="%{id}"></s:param></s:url>">Add
                         card</a>
                 </td>
             </tr>
         </s:iterator>
         </tbody>
     </table>
-    <span><a href="<s:url action='createActivityPage'/>">Create a new business activity</a></span><br>
-    <span><a href="<s:url action='activityPage'/>">Activity page</a></span><br>
-    <span><a href="<s:url action='goIndex'/>">Home</a></span>
+    <span><a
+            href="<s:url namespace="/activity" action='removeAllActivities'/>">Remove all business activities</a></span><br>
+    <span><a href="<s:url namespace="/activity" action='createActivityPage'/>">Create a new business activity</a></span><br>
+    <span><a href="<s:url namespace="/activity" action='activityPage'/>">Activity page</a></span><br>
+    <span><a href="<s:url namespace="/activity" action='goIndex'/>">Home</a></span>
 </div>
 </body>
 </html>
