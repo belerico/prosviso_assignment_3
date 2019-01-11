@@ -1,3 +1,4 @@
+import com.assignment3.jpa.dao.CardDao;
 import com.assignment3.jpa.model.*;
 import com.assignment3.jpa.service.BusinessActivityService;
 import com.assignment3.jpa.service.CardService;
@@ -33,7 +34,9 @@ public class Main {
         cardService.create(sh2);
         cardService.create(sh3);
         //cardService.deleteAll();
-
+        CardDao cardProva = new CardDao();
+        List<Card> cardP = cardProva.getStandardCard();
+        System.out.println(cardP);
         Place p = new PlaceFaker().create();
 
         /*ba1.addPlace(p);

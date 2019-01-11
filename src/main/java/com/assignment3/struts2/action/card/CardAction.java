@@ -2,6 +2,7 @@ package com.assignment3.struts2.action.card;
 
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Card;
+import com.assignment3.jpa.model.User;
 import com.assignment3.jpa.service.CardService;
 import com.assignment3.jpa.service.ServiceFactory;
 import com.assignment3.utils.faker.CardFaker;
@@ -54,6 +55,12 @@ public class CardAction extends ActionSupport implements ModelDriven<Card> {
         card.setBusinessActivity(activity);
         ServiceFactory.getInstance().getCardService().create(card);
         return ActionSupport.SUCCESS;
+    }
+
+    public String addStandardCard(){
+
+
+    return "ciao";
     }
 
     public String showCards() {
