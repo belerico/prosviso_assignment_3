@@ -31,7 +31,6 @@
             <th scope="col">CardNumber</th>
             <th scope="col">Type</th>
             <th scope="col">Quantity</th>
-
         </tr>
         </thead>
         <tbody>
@@ -45,7 +44,7 @@
                     <s:property value="cardNumber"/>
                 </td>
                 <td>
-                    <s:property value="getDiscriminatorValue()"/>
+                    <s:property value="type"/>
                 </td>
                 <td>
                     <s:property value="quantity"/>

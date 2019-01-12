@@ -2,36 +2,38 @@ package com.assignment3.struts2.action.card;
 
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Card;
+import com.assignment3.jpa.model.SharableCard;
+import com.assignment3.jpa.model.StandardCard;
 import com.assignment3.jpa.service.CardService;
 import com.assignment3.jpa.service.ServiceFactory;
 import com.assignment3.utils.faker.CardFaker;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import org.apache.struts2.ServletActionContext;
+import com.opensymphony.xwork2.Preparable;
 
 import java.util.List;
 
-public class CardAction extends ActionSupport implements ModelDriven<Card> {
+public class CardAction extends ActionSupport implements ModelDriven<Card>, Preparable {
 
     private List<Card> cards;
-    private String myType;
+    private String type;
     private  Card card = new CardFaker().create();
-    private Long businessId;
+    private Long activityId;
 
-    public String getMyType() {
-        return myType;
+    public String getType() {
+        return type;
     }
 
-    public void setMyType(String myType) {
-        this.myType = myType;
+    public void setType(String myType) {
+        this.type = myType;
     }
 
-    public Long getBusinessId() {
-        return businessId;
+    public Long getActivityId() {
+        return activityId;
     }
 
-    public void setBusinessId(Long businessId) {
-        this.businessId = businessId;
+    public void setActivityId(Long activityId) {
+        this.activityId = activityId;
     }
 
     public Card getCard() {
@@ -51,27 +53,19 @@ public class CardAction extends ActionSupport implements ModelDriven<Card> {
     }
 
     public String createCardPage() {
-        Long paramValue = Long.parseLong(ServletActionContext.getRequest().getParameter("activity.id"));
-        setBusinessId(paramValue);
         return ActionSupport.SUCCESS;
     }
 
     public String createCard() {
-        BusinessActivity activity = ServiceFactory.getInstance().getBusinessActivityService().read(getBusinessId());
+        BusinessActivity activity = ServiceFactory.getInstance().getBusinessActivityService().read(getActivityId());
         Card card = getCard();
-        //card.setBusinessActivity(activity);
-        if (getMyType().equalsIgnoreCase("sh"))
-            activity.addCard(card);
-        else
-            activity.addCard(card);
+        activity.addCard(card);
         ServiceFactory.getInstance().getCardService().create(card);
         return ActionSupport.SUCCESS;
     }
 
     public String addStandardCard(){
-
-
-    return "ciao";
+        return "ciao";
     }
 
     public String showCards() {
@@ -80,6 +74,13 @@ public class CardAction extends ActionSupport implements ModelDriven<Card> {
         return ActionSupport.SUCCESS;
     }
 
+    @Override
+    public void prepare() {
+        if (getCard() instanceof StandardCard)
+            setType("ST");
+        else if (getCard() instanceof SharableCard)
+            setType("SH");
+    }
 
     @Override
     public Card getModel() {

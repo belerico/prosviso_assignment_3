@@ -25,19 +25,24 @@
 <div class="container">
     <h1>Fill form to register a new card into the webapp</h1>
     <s:form action="createCard">
+        <s:fielderror cssClass="alert alert-danger">
+            <s:param>card.cardNumber</s:param>
+            <s:param>card.quantity</s:param>
+        </s:fielderror>
         <div class="form-group">
-            <s:label for="cardNumber" value="cardNumber"/>
+            <s:label for="cardNumber" value="Card number"/>
             <s:textfield cssClass="form-control" name="card.cardNumber" value="%{ cardNumber }" requiredLabel="true"/>
         </div>
         <div class="form-group">
-            <s:label for="myType" value="typeCard"/>
-            <s:radio label="Type Card" name="myType" list="{'SH','ST'}" value="%{ getDiscriminatorValue() }"/>
+            <s:label for="type" value="Type"/>
+            <s:select cssClass="form-control" list="#{'ST':'Standard card','SH':'Sharable card'}" value="%{ type }"/>
+                <%--<s:radio label="Type Card" name="myType" list="{'SH','ST'}" value="%{ getDiscriminatorValue() }"/>--%>
         </div>
         <div class="form-group">
-            <s:label for="quantity" value="quantity"/>
+            <s:label for="quantity" value="Quantity"/>
             <s:textfield cssClass="form-control" name="card.quantity" value="%{ quantity }" requiredLabel="true"/>
         </div>
-        <s:hidden name="businessId" value="%{businessId}"></s:hidden>
+        <s:hidden name="activityId" value="%{ activityId }"></s:hidden>
         <s:submit cssClass="btn btn-secondary" label="Add Card"/>
     </s:form>
 </div>

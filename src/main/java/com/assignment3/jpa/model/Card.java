@@ -67,11 +67,11 @@ public abstract class Card implements Serializable {
         this.cardNumber = cardNumber;
     }
 
-    @Transient
+    /*@Transient
     public String getDiscriminatorValue(){
         DiscriminatorValue val = this.getClass().getAnnotation(DiscriminatorValue.class);
         return val == null ? null : val.value();
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
@@ -90,7 +90,7 @@ public abstract class Card implements Serializable {
     public String toString() {
         return "Card{" +
                 "id=" + id +
-                ", type='"+getDiscriminatorValue()+"'"+
+                //", type='"+getDiscriminatorValue()+"'"+
                 ", cardNumber='" + cardNumber + '\'' +
                 ", quantity=" + quantity +
                 '}';
