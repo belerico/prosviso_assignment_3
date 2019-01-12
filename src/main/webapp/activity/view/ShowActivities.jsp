@@ -35,7 +35,8 @@
                     <s:property value="#activitiesStatus.index"/>
                 </th>
                 <td>
-                    <s:property value="name"/>
+                    <a href="<s:url namespace="/activity" action="createActivityPage"><s:param name="activityId" value="%{ id }"/></s:url>"><s:property
+                            value="name"/></a>
                 </td>
                 <td>
                     <s:property value="type"/>

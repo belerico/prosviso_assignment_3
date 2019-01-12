@@ -24,7 +24,7 @@
 <body>
 <div class="container">
     <h1>Fill form to register a new business activity into the webapp</h1>
-    <s:form namespace="/activity" action="createActivity">
+    <s:form namespace="/activity" action="%{ activityId == null ? 'createActivity' : 'updateActivity' }">
         <s:fielderror cssClass="alert alert-danger">
             <s:param>activity.name</s:param>
             <s:param>activity.type</s:param>

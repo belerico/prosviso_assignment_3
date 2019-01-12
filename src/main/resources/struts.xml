@@ -51,6 +51,11 @@
                 method="createActivityPage">
             <result name="success">view/CreateActivity.jsp</result>
         </action>
+        <action name="updateActivity" class="com.assignment3.struts2.action.activity.ActivityAction"
+                method="updateActivity">
+            <result name="success" type="chain">showActivities</result>
+            <result name="input">view/CreateActivity.jsp</result>
+        </action>
         <action name="createActivity" class="com.assignment3.struts2.action.activity.ActivityAction"
                 method="createActivity">
             <result name="success" type="chain">showActivities</result>

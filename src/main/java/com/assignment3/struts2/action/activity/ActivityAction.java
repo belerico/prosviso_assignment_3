@@ -80,14 +80,18 @@ public class ActivityAction extends ActionSupport implements ModelDriven<Busines
         return ActionSupport.SUCCESS;
     }
 
+    public String updateActivity() {
+        BusinessActivityService businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
+        BusinessActivity businessActivity = businessActivityService.read(getActivityId());
+        businessActivity.setType(getActivity().getType());
+        businessActivity.addPlace(ServiceFactory.getInstance().getPlaceService().read(getPlaceId()));
+        businessActivityService.update(businessActivity);
+        return ActionSupport.SUCCESS;
+    }
+
     public String createActivity() {
-        System.out.println("Activity id: " + getActivityId());
-        if (getActivityId() != null)
-            ServiceFactory.getInstance().getBusinessActivityService().update(getActivity());
-        else {
-            getActivity().addPlace(ServiceFactory.getInstance().getPlaceService().read(placeId));
-            ServiceFactory.getInstance().getBusinessActivityService().create(getActivity());
-        }
+        getActivity().addPlace(ServiceFactory.getInstance().getPlaceService().read(getPlaceId()));
+        ServiceFactory.getInstance().getBusinessActivityService().create(getActivity());
         return ActionSupport.SUCCESS;
     }
 
