@@ -16,7 +16,7 @@
         </field-validator>
     </field>
     <field name="card.quantity">
-        <field-validator type="required">
+        <field-validator type="requiredstring">
             <message>You must enter a quantity</message>
         </field-validator>
         <field-validator type="int">

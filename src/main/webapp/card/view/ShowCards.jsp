@@ -44,7 +44,7 @@
                     <s:property value="cardNumber"/>
                 </td>
                 <td>
-                    <s:if test="%{c instanceof SharableCard}">
+                    <s:if test="%{#c instanceof com.assignment3.jpa.model.SharableCard}">
                         Sharable card
                     </s:if>
                     <s:else>
@@ -58,8 +58,9 @@
         </s:iterator>
         </tbody>
     </table>
-    <p><a href="<s:url action='cardPage'/>">Cards</a></p>
-    <p><a href="<s:url action='goIndex'/>">Go back to home</a></p>
+    <span><a href="<s:url action='cardPage'/>">Remove all cards</a></span><br>
+    <span><a href="<s:url action='cardPage'/>">Cards</a></span><br>
+    <span><a href="<s:url action='goIndex'/>">Go back to home</a></span>
 </div>
 </body>
 </html>

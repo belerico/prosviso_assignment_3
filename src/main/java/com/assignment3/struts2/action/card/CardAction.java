@@ -16,16 +16,16 @@ import java.util.List;
 public class CardAction extends ActionSupport implements ModelDriven<Card>, Preparable {
 
     private List<Card> cards;
-    private String type;
+    private String cardType;
     private Card card = new CardFaker().create();
     private Long activityId;
 
-    public String getType() {
-        return type;
+    public String getCardType() {
+        return cardType;
     }
 
-    public void setType(String myType) {
-        this.type = myType;
+    public void setCardType(String myType) {
+        this.cardType = myType;
     }
 
     public Long getActivityId() {
@@ -53,27 +53,39 @@ public class CardAction extends ActionSupport implements ModelDriven<Card>, Prep
     }
 
     public String createCardPage() {
+        prepare();
         return ActionSupport.SUCCESS;
     }
 
     public String createCard() {
-        System.out.println(getType());
+        System.out.println(getCardType());
         System.out.println(card.getClass());
         BusinessActivity activity = ServiceFactory.getInstance().getBusinessActivityService().read(getActivityId());
-        Card card1 = getCard();
-        if (card1 instanceof StandardCard && getType().equals("SH"))
-            card1 = new SharableCard(card.getCardNumber(), card.getQuantity());
-        else if (card1 instanceof SharableCard && getType().equals("ST"))
-            card1 = new StandardCard(card.getCardNumber(), card.getQuantity());
-        System.out.println(getType());
-        System.out.println(card1.getClass());
-        activity.addCard(card1);
-        ServiceFactory.getInstance().getCardService().create(card1);
+        Card card = getCard();
+        if (card instanceof StandardCard && getCardType().equals("SH"))
+            card = new SharableCard(card.getCardNumber(), card.getQuantity());
+        else if (card instanceof SharableCard && getCardType().equals("ST"))
+            card = new StandardCard(card.getCardNumber(), card.getQuantity());
+        System.out.println(getCardType());
+        System.out.println(card.getClass());
+        activity.addCard(card);
+        ServiceFactory.getInstance().getCardService().create(card);
         return ActionSupport.SUCCESS;
     }
 
     public String addStandardCard(){
         return "ciao";
+    }
+
+    public String removeCard() {
+        CardService cardService = ServiceFactory.getInstance().getCardService();
+        cardService.delete(cardService.read(getCard().getId()));
+        return ActionSupport.SUCCESS;
+    }
+
+    public String removeAllCards() {
+        ServiceFactory.getInstance().getCardService().deleteAll();
+        return ActionSupport.SUCCESS;
     }
 
     public String showCards() {
@@ -84,10 +96,10 @@ public class CardAction extends ActionSupport implements ModelDriven<Card>, Prep
 
     @Override
     public void prepare() {
-        if (getCard() instanceof StandardCard)
-            setType("ST");
-        else if (getCard() instanceof SharableCard)
-            setType("SH");
+        if (card instanceof StandardCard)
+            setCardType("ST");
+        else if (card instanceof SharableCard)
+            setCardType("SH");
     }
 
     @Override

@@ -31,16 +31,18 @@
         </s:fielderror>
         <div class="form-group">
             <s:label for="cardNumber" value="Card number"/>
-            <s:textfield cssClass="form-control" name="card.cardNumber" value="%{ cardNumber }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="card.cardNumber" value="%{ card.cardNumber }"
+                         requiredLabel="true"/>
         </div>
         <div class="form-group">
-            <s:label for="type" value="Type"/>
-            <s:select cssClass="form-control" list="#{'ST':'Standard card','SH':'Sharable card'}" value="%{ type }"/>
+            <s:label for="cardType" value="Type"/>
+            <s:select cssClass="form-control" name="cardType" list="#{'ST':'Standard card','SH':'Sharable card'}"/>
+                <%--value="%{ type }"--%>
                 <%--<s:radio label="Type Card" name="myType" list="{'SH','ST'}" value="%{ getDiscriminatorValue() }"/>--%>
         </div>
         <div class="form-group">
             <s:label for="quantity" value="Quantity"/>
-            <s:textfield cssClass="form-control" name="card.quantity" value="%{ quantity }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="card.quantity" value="%{ card.quantity }" requiredLabel="true"/>
         </div>
         <s:hidden name="activityId" value="%{ activityId }"></s:hidden>
         <s:submit cssClass="btn btn-secondary" label="Add Card"/>
