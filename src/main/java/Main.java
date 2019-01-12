@@ -1,8 +1,10 @@
+import com.assignment3.jpa.dao.CardDao;
 import com.assignment3.jpa.model.*;
 import com.assignment3.jpa.service.BusinessActivityService;
 import com.assignment3.jpa.service.CardService;
 import com.assignment3.jpa.service.ServiceFactory;
 import com.assignment3.jpa.service.UserService;
+import com.assignment3.utils.Helper;
 import com.assignment3.utils.faker.PlaceFaker;
 
 import java.time.LocalDate;
@@ -10,7 +12,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        //Helper.dropDatabase();
+        Helper.dropDatabase();
         StandardCard st1 = new StandardCard("AAAA");
         StandardCard st2 = new StandardCard("BBBB");
         StandardCard st3 = new StandardCard("CCCC");
@@ -56,6 +58,8 @@ public class Main {
         userService.create(user1);
         List<Card> card = cardService.readAll();
         System.out.println(card.get(0));
+        System.out.println(new CardDao().getStandardCard());
+        System.out.println(new CardDao().getSharableCard());
         /*user1.addStandardCard(st1);
         user1.addStandardCard(st2);*/
 
