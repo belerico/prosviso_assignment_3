@@ -34,7 +34,7 @@
         </tr>
         </thead>
         <tbody>
-        <s:iterator value="cards" status="cardsStatus">
+        <s:iterator value="cards" status="cardsStatus" var="c">
             <tr>
                 <th scope="row">
                     <s:property value="#cardsStatus.index"/>
@@ -44,7 +44,12 @@
                     <s:property value="cardNumber"/>
                 </td>
                 <td>
-                    <s:property value="type"/>
+                    <s:if test="%{c instanceof SharableCard}">
+                        Sharable card
+                    </s:if>
+                    <s:else>
+                        Standard card
+                    </s:else>
                 </td>
                 <td>
                     <s:property value="quantity"/>

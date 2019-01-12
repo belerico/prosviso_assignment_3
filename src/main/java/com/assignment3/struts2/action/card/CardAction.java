@@ -17,7 +17,7 @@ public class CardAction extends ActionSupport implements ModelDriven<Card>, Prep
 
     private List<Card> cards;
     private String type;
-    private  Card card = new CardFaker().create();
+    private Card card = new CardFaker().create();
     private Long activityId;
 
     public String getType() {
@@ -57,10 +57,18 @@ public class CardAction extends ActionSupport implements ModelDriven<Card>, Prep
     }
 
     public String createCard() {
+        System.out.println(getType());
+        System.out.println(card.getClass());
         BusinessActivity activity = ServiceFactory.getInstance().getBusinessActivityService().read(getActivityId());
-        Card card = getCard();
-        activity.addCard(card);
-        ServiceFactory.getInstance().getCardService().create(card);
+        Card card1 = getCard();
+        if (card1 instanceof StandardCard && getType().equals("SH"))
+            card1 = new SharableCard(card.getCardNumber(), card.getQuantity());
+        else if (card1 instanceof SharableCard && getType().equals("ST"))
+            card1 = new StandardCard(card.getCardNumber(), card.getQuantity());
+        System.out.println(getType());
+        System.out.println(card1.getClass());
+        activity.addCard(card1);
+        ServiceFactory.getInstance().getCardService().create(card1);
         return ActionSupport.SUCCESS;
     }
 
