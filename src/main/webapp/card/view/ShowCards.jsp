@@ -61,6 +61,7 @@
     </table>
     <span><a href="<s:url action='removeAllCards'/>">Remove all cards</a></span><br>
     <span><a href="<s:url action='cardPage'/>">Cards</a></span><br>
+    <span><a href="<s:url action='showActivities'/>">Activity page</a></span><br>
     <span><a href="<s:url action='goIndex'/>">Go back to home</a></span>
 </div>
 </body>
