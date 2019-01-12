@@ -6,10 +6,16 @@ import com.assignment3.jpa.model.SharableCard;
 import com.assignment3.jpa.model.StandardCard;
 import com.assignment3.jpa.model.User;
 
+import java.util.List;
+
 public class UserService extends AbstractService<User, Long, String> {
 
     public UserService() {
         super(new UserDao());
+    }
+
+    public List<User> getUsersNotEquals(Long id) {
+        return ((UserDao) getDao()).getUsersNotEquals(id);
     }
 
     public void addPlace(User user, Place place) {

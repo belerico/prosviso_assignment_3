@@ -82,8 +82,23 @@
         <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">/index.jsp</result>
         </action>
-        <action name="createCardPage" class="com.assignment3.struts2.action.card.CardAction" method="createCardPage">
+        <action name="createCardPage" class="com.assignment3.struts2.action.card.CardAction"
+                method="createCardPage">
             <result name="success">view/CreateCard.jsp</result>
+        </action>
+        <action name="createAddStandardCardPage" class="com.assignment3.struts2.action.card.CardAction"
+                method="createAddStandardCardPage">
+            <result name="success">view/AddSTCard.jsp</result>
+        </action>
+        <action name="createAddSharableCardPage" class="com.assignment3.struts2.action.card.CardAction"
+                method="createAddSharableCardPage">
+            <result name="success">view/AddSHCard.jsp</result>
+        </action>
+        <action name="addSTCard" class="com.assignment3.struts2.action.card.CardAction" method="addStandardCard">
+            <result name="success" type="chain">showCards</result>
+        </action>
+        <action name="addSHCard" class="com.assignment3.struts2.action.card.CardAction" method="addSharableCard">
+            <result name="success" type="chain">showCards</result>
         </action>
         <action name="createCard" class="com.assignment3.struts2.action.card.CardAction" method="createCard">
             <result name="success" type="chain">showCards</result>
@@ -115,8 +130,7 @@
         <action name="showPlaces" class="com.assignment3.struts2.action.place.PlaceAction" method="showPlaces">
             <result name="success">view/ShowPlaces.jsp</result>
         </action>
-        <action name="removePlace" class="com.assignment3.struts2.action.place.PlaceAction"
-                method="removePlace">
+        <action name="removePlace" class="com.assignment3.struts2.action.place.PlaceAction" method="removePlace">
             <result name="success" type="chain">showPlaces</result>
         </action>
         <action name="removeAllPlaces" class="com.assignment3.struts2.action.place.PlaceAction"

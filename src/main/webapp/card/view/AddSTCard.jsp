@@ -14,15 +14,16 @@
 <body>
 <div class="container">
     <h1>Select a standard card you want to add to your wallet</h1>
-    <s:form action="createST">
+    <s:form action="addSTCard">
     <div class="form-group">
         <s:label for="cards" value="Card"/>
         <s:select cssClass="form-control"
-                  list="cards"
+                  list="standardCards"
                   listKey="id"
-                  listValue="CAP + ', ' + city"
-                  name="placeId"/>
+                  listValue="'Card number: '+cardNumber + ', Slot:' + quantity"
+                  name="cardId"/>
     </div>
+        <s:hidden name="userId" value="%{userId}"></s:hidden>
         <s:submit cssClass="btn btn-secondary" label="Create activity"/>
     </s:form>
 

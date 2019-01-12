@@ -2,9 +2,13 @@ package com.assignment3.utils;
 
 import com.assignment3.jpa.dao.EntityManagerSingleton;
 import com.assignment3.jpa.model.*;
+import com.assignment3.jpa.service.CardService;
 import com.assignment3.jpa.service.PlaceService;
 import com.assignment3.jpa.service.ServiceFactory;
+import com.assignment3.jpa.service.UserService;
+import com.assignment3.utils.faker.CardFaker;
 import com.assignment3.utils.faker.PlaceFaker;
+import com.assignment3.utils.faker.UserFaker;
 
 import javax.persistence.EntityManager;
 
@@ -28,6 +32,14 @@ public class Helper {
         PlaceService placeService = ServiceFactory.getInstance().getPlaceService();
         for (int i = 0; i < quantity; i++)
             placeService.create(faker.create());
+        CardFaker cardFaker = new CardFaker();
+        CardService cardService = ServiceFactory.getInstance().getCardService();
+        for (int i = 0; i < quantity; i++)
+            cardService.create(cardFaker.create());
+        UserFaker userFaker = new UserFaker();
+        UserService userService = ServiceFactory.getInstance().getUserService();
+        for (int i = 0; i < quantity; i++)
+            userService.create(userFaker.create());
     }
 
     public static void dropDatabase() {

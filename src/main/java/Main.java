@@ -1,3 +1,4 @@
+import com.assignment3.jpa.dao.UserDao;
 import com.assignment3.jpa.model.*;
 import com.assignment3.jpa.service.BusinessActivityService;
 import com.assignment3.jpa.service.CardService;
@@ -7,7 +8,10 @@ import com.assignment3.utils.Helper;
 import com.assignment3.utils.faker.PlaceFaker;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,7 +26,7 @@ public class Main {
         BusinessActivity ba2 = new BusinessActivity("name2", "type2");
         User user1 = new User("n1", "s1", "p1", "e1", LocalDate.now(), true);
         User user2 = new User("n2", "s2", "p2", "e2", LocalDate.now(), true);
-
+        User user3 = new User("n2", "s2", "p2", "e3", LocalDate.now(), true);
         UserService userService = ServiceFactory.getInstance().getUserService();
         CardService cardService = ServiceFactory.getInstance().getCardService();
         BusinessActivityService businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
@@ -51,25 +55,17 @@ public class Main {
 
         userService.create(user1);
         userService.create(user2);
+        userService.create(user3);
 
         user1.addSharableCard(user2, sh1);
         //user1.addSharableCard(user2, sh2);
         userService.create(user1);
-        List<Card> card = cardService.readAll();
-        System.out.println(card.get(0));
-        /*user1.addStandardCard(st1);
-        user1.addStandardCard(st2);*/
+        System.out.println(new UserDao().getUsersNotEquals(user1.getId()));
 
-        //userService.update(user1);
-        //userService.getDao().flush();
-        /*user2.addSharableCard(user1, sh3);
-        user2.addStandardCard(st2);
-        userService.create(user2);
+        user1.addStandardCard(st2);
+        userService.create(user1);
         user1.addStandardCard(st3);
         userService.create(user1);
-        user1.setName("another");
-        userService.update(user1);*/
-
         //ba1.removeAllCard();
         //businessActivityService.delete(ba1);
         //cardService.deleteAll();
