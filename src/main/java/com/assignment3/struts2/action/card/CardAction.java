@@ -58,16 +58,12 @@ public class CardAction extends ActionSupport implements ModelDriven<Card>, Prep
     }
 
     public String createCard() {
-        System.out.println(getCardType());
-        System.out.println(card.getClass());
         BusinessActivity activity = ServiceFactory.getInstance().getBusinessActivityService().read(getActivityId());
         Card card = getCard();
         if (card instanceof StandardCard && getCardType().equals("SH"))
             card = new SharableCard(card.getCardNumber(), card.getQuantity());
         else if (card instanceof SharableCard && getCardType().equals("ST"))
             card = new StandardCard(card.getCardNumber(), card.getQuantity());
-        System.out.println(getCardType());
-        System.out.println(card.getClass());
         activity.addCard(card);
         ServiceFactory.getInstance().getCardService().create(card);
         return ActionSupport.SUCCESS;

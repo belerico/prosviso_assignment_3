@@ -1,4 +1,3 @@
-import com.assignment3.jpa.dao.CardDao;
 import com.assignment3.jpa.model.*;
 import com.assignment3.jpa.service.BusinessActivityService;
 import com.assignment3.jpa.service.CardService;
@@ -58,8 +57,6 @@ public class Main {
         userService.create(user1);
         List<Card> card = cardService.readAll();
         System.out.println(card.get(0));
-        System.out.println(new CardDao().getStandardCard());
-        System.out.println(new CardDao().getSharableCard());
         /*user1.addStandardCard(st1);
         user1.addStandardCard(st2);*/
 

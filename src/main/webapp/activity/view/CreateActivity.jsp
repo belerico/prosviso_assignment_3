@@ -24,7 +24,7 @@
 <body>
 <div class="container">
     <h1>Fill form to register a new business activity into the webapp</h1>
-    <s:form action="createActivity">
+    <s:form namespace="/activity" action="createActivity">
         <s:fielderror cssClass="alert alert-danger">
             <s:param>activity.name</s:param>
             <s:param>activity.type</s:param>
@@ -45,6 +45,9 @@
                       listValue="CAP + ', ' + city"
                       name="placeId"/>
         </div>
+        <s:if test="%{ activityId != null }">
+            <s:hidden name="activityId" value="%{ activityId }"></s:hidden>
+        </s:if>
         <s:submit cssClass="btn btn-secondary" label="Create activity"/>
     </s:form>
     <span><a href="<s:url action='showActivities'/>">Show all business activities</a></span><br>

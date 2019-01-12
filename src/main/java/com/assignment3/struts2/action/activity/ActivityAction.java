@@ -15,6 +15,7 @@ public class ActivityAction extends ActionSupport implements ModelDriven<Busines
 
     private BusinessActivity activity = new BusinessActivityFaker().create();
     private Long placeId;
+    private Long activityId;
     private List<Place> places;
     private List<BusinessActivity> activities;
 
@@ -32,6 +33,14 @@ public class ActivityAction extends ActionSupport implements ModelDriven<Busines
 
     public void setPlaceId(Long placeId) {
         this.placeId = placeId;
+    }
+
+    public Long getActivityId() {
+        return activityId;
+    }
+
+    public void setActivityId(Long activityId) {
+        this.activityId = activityId;
     }
 
     public List<Place> getPlaces() {
@@ -72,8 +81,13 @@ public class ActivityAction extends ActionSupport implements ModelDriven<Busines
     }
 
     public String createActivity() {
-        getActivity().addPlace(ServiceFactory.getInstance().getPlaceService().read(placeId));
-        ServiceFactory.getInstance().getBusinessActivityService().create(getActivity());
+        System.out.println("Activity id: " + getActivityId());
+        if (getActivityId() != null)
+            ServiceFactory.getInstance().getBusinessActivityService().update(getActivity());
+        else {
+            getActivity().addPlace(ServiceFactory.getInstance().getPlaceService().read(placeId));
+            ServiceFactory.getInstance().getBusinessActivityService().create(getActivity());
+        }
         return ActionSupport.SUCCESS;
     }
 
@@ -85,7 +99,13 @@ public class ActivityAction extends ActionSupport implements ModelDriven<Busines
 
     @Override
     public void prepare() {
-        setPlaces(ServiceFactory.getInstance().getPlaceService().readAll());
+        if (getActivityId() != null) {
+            BusinessActivity businessActivity = ServiceFactory.getInstance().getBusinessActivityService().read(getActivityId());
+            setActivityId(getActivityId());
+            setActivity(businessActivity);
+            setPlaceId(businessActivity.getPlace().getId());
+        } else
+            setPlaces(ServiceFactory.getInstance().getPlaceService().readAll());
     }
 
     @Override

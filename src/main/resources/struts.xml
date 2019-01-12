@@ -84,6 +84,12 @@
             <result name="success" type="chain">showCards</result>
             <result name="input">view/CreateCard.jsp</result>
         </action>
+        <action name="removeCard" class="com.assignment3.struts2.action.card.CardAction" method="removeCard">
+            <result name="success" type="chain">showCards</result>
+        </action>
+        <action name="removeAllCards" class="com.assignment3.struts2.action.card.CardAction" method="removeAllCards">
+            <result name="success" type="chain">showCards</result>
+        </action>
         <action name="showCards" class="com.assignment3.struts2.action.card.CardAction" method="showCards">
             <result name="success">view/ShowCards.jsp</result>
         </action>

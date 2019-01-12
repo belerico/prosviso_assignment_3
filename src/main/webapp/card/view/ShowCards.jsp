@@ -13,16 +13,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <title>Cards</title>
-    <style>
-        .container {
-            width: 60%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
 </head>
 <body>
-<div class="container">
+<div>
     <h2>Cards</h2>
     <table class="table">
         <thead>
@@ -31,6 +24,8 @@
             <th scope="col">CardNumber</th>
             <th scope="col">Type</th>
             <th scope="col">Quantity</th>
+            <th scope="col">Activity</th>
+            <th scope="col">Remove</th>
         </tr>
         </thead>
         <tbody>
@@ -38,7 +33,6 @@
             <tr>
                 <th scope="row">
                     <s:property value="#cardsStatus.index"/>
-                    <s:hidden name="idCard" value="%{id}" />
                 </th>
                 <td>
                     <s:property value="cardNumber"/>
@@ -54,11 +48,18 @@
                 <td>
                     <s:property value="quantity"/>
                 </td>
+                <td>
+                    <a href="<s:url namespace="/activity" action="createActivityPage"><s:param name="activityId" value="%{ #c.getBusinessActivity().getId() }"/></s:url>"><s:property
+                            value="%{ #c.getBusinessActivity().getName() }"/></a>
+                </td>
+                <td>
+                    <a href="<s:url action="removeCard"><s:param name="card.id" value="%{ id }"/></s:url>">Remove</a>
+                </td>
             </tr>
         </s:iterator>
         </tbody>
     </table>
-    <span><a href="<s:url action='cardPage'/>">Remove all cards</a></span><br>
+    <span><a href="<s:url action='removeAllCards'/>">Remove all cards</a></span><br>
     <span><a href="<s:url action='cardPage'/>">Cards</a></span><br>
     <span><a href="<s:url action='goIndex'/>">Go back to home</a></span>
 </div>

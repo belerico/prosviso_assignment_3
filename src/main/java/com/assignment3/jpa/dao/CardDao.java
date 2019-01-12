@@ -13,11 +13,11 @@ public class CardDao extends AbstractDao<Card, Long, String> {
     }
 
     public List<StandardCard> getStandardCards() {
-        return getEntityManager().createQuery("SELECT c FROM Card c WHERE  TYPE = 'ST'").getResultList();
+        return getEntityManager().createQuery("SELECT c FROM Card c WHERE TYPE = 'ST'").getResultList();
     }
 
     public List<SharableCard> getSharableCards() {
-        return getEntityManager().createQuery("SELECT c FROM Card c WHERE  TYPE = 'SH'").getResultList();
+        return getEntityManager().createQuery("SELECT c FROM Card c WHERE TYPE = 'SH'").getResultList();
     }
 }
 

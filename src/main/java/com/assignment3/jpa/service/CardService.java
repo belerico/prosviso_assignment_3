@@ -25,11 +25,11 @@ public class CardService extends AbstractService<Card, Long, String> {
     }
 
     public List<StandardCard> getStandardCards() {
-       return  ((CardDao)getDao()).getStandardCards();
+        return ((CardDao) getDao()).getStandardCards();
     }
 
     public List<SharableCard> getSharableCards() {
-        return  ((CardDao)getDao()).getSharableCards();
+        return ((CardDao) getDao()).getSharableCards();
     }
 
 }
