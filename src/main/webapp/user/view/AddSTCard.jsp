@@ -9,7 +9,16 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <title>Subscribe to a standard card</title>
+    <style>
+        .container {
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -20,7 +29,7 @@
         <s:select cssClass="form-control"
                   list="standardCards"
                   listKey="id"
-                  listValue="'Card number: '+cardNumber + ', Slot:' + quantity"
+                  listValue="'Card number: ' + cardNumber + ', Slot:' + quantity"
                   name="cardId"/>
     </div>
         <s:hidden name="userId" value="%{userId}"></s:hidden>
