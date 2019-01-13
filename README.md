@@ -33,7 +33,7 @@
 ### Database Login 
 
 + The program will look for a db instance on `mysql://localhost:3306` running with a db within it called 'assignment3'; if there is not any db called 'assignment3' it will be automatically created
-+ `mysql -u root -p`
++ Login command: `mysql -u root -p`
 + DB access parameters:
     + username: root
     + password: root
