@@ -16,20 +16,20 @@
 
 
 
-# Requirements
+# Environment setup
 
 + Tested using openjdk version `11.0.1 2018-10-16`
 
 + Operating systems: `Ubuntu v.18.10` and `Ubuntu v.16.04` 
 
-## MySQL
+## MySQL docker image
 ![](.images/mysql.png)
+![](.images/docker.png)
 
-### Install MySQL v.5.7
+### Run docker with MySQL v.5.8
+```
 
-+ `sudo apt-get update`
-+ `sudo apt-get install mysql-server`
-
+```
 ### Database Login 
 
 + The program will look for a db instance on `mysql://localhost:3306` running with a db within it called `assignment3`.
@@ -38,7 +38,7 @@
 + DB access parameters:
     + username: root
     + password: root
-+ N.B: you can change access informations in file `src/main/resources/META-INF/persistence.xml`
++ N.B: you can change configurations in file `src/main/resources/META-INF/persistence.xml`
 
 ### Apache Maven plugin
 ![](.images/apacheMaven.png)
@@ -69,11 +69,11 @@
 
 ## Test cases
 
-We have implemented JUnit test cases for testing 'Services' of the application as they abstract "DAOs" who manage "CRUD" operations.
+We have implemented JUnit test cases for testing 'Services' of the application as they abstract *DAOs* who manage *CRUD* operations.
 We used faker classes for testing the application as they were useful to generate entry in rapid way:
 + `src/main/java/com.assignment3/utils/faker`.
 
-## Run test cases
+## Run tests
 + command: `mvn test`
 
 + Snapshot of the console after running tests
