@@ -23,7 +23,7 @@
 + Operating systems: `Ubuntu v.18.10` and `Ubuntu v.16.04` 
 
 ## MySQL
-![](.README/mysql.png)
+![](.images/mysql.png)
 
 ### Install MySQL v.5.7
 
@@ -41,7 +41,7 @@
 + N.B: you can change access informations in file `src/main/resources/META-INF/persistence.xml`
 
 ### Apache Maven plugin
-![](.README/apacheMaven.png)
+![](.images/apacheMaven.png)
 
 + Install maven : 
     + `sudo apt install maven`
@@ -62,7 +62,7 @@
 
 + You'll be redirected to the index page of the webapp
 
-![](.README/CardWebapp.png)
+![](.images/CardWebapp.png)
 
 
 
@@ -78,7 +78,7 @@ We used faker classes for testing the application as they were useful to generat
 
 + Snapshot of the console after running tests
 
-![](.README/Test.png)
+![](.images/Test.png)
 
 
 
