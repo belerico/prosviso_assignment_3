@@ -32,6 +32,8 @@
                       listKey="id"
                       listValue="cardNumber"
                       name="cardId"/>
+        </div>
+        <div class="form-group">
             <s:label for="cards" value="Share with user"/>
             <s:select cssClass="form-control"
                       list="usersShare"
