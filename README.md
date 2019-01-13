@@ -32,7 +32,8 @@
     + password: root
 + N.B: you can change access informations in file `src/main/resources/META-INF/persistence.xml`
 
-### Maven
+### Apache Maven plugin
+![](.README/apacheMaven.png)
 
 + Install maven : 
     + `sudo apt install maven`
