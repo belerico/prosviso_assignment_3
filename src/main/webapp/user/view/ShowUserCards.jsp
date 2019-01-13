@@ -111,34 +111,6 @@
                 </td>
             </tr>
         </s:iterator>
-        <s:iterator value="userSharableCards" status="userSharableCardsStatus" var="c">
-            <tr>
-                <td scope="row">
-                    <s:property value="#userStandardCardsStatus.index"/>
-                </td>
-                <td>
-                    <s:property value="%{ #c.getSharableCard().getCardNumber() }"/>
-                </td>
-                <td>
-                    <s:if test="%{#c instanceof com.assignment3.jpa.model.SharableCard}">
-                        Sharable card
-                    </s:if>
-                    <s:else>
-                        Standard card
-                    </s:else>
-                </td>
-                <td>
-                    <s:property value="%{ #c.getSharableCard().getQuantity() }"/>
-                </td>
-                <td>
-                    <a href="<s:url namespace="/activity" action="createActivityPage"><s:param name="activityId" value="%{ #c.getSharableCard().getBusinessActivity().getId() }"/></s:url>"><s:property
-                            value="%{ #c.getSharableCard().getBusinessActivity().getName() }"/></a>
-                </td>
-                <td>
-                    <a href="<s:url namespace="/user" action="removeCard"><s:param name="userId" value="user.id"/><s:param name="cardId" value="%{ #c.getSharableCard().getId() }"/></s:url>">Remove</a>
-                </td>
-            </tr>
-        </s:iterator>
         </tbody>
     </table>
     <span><a
