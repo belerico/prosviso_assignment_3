@@ -38,7 +38,7 @@
 + DB access parameters:
     + username: root
     + password: root
-+ N.B: you can change access informations in file `src/main/resources/META-INF/persistence.xml`
++ N.B: you can change configurations in file `src/main/resources/META-INF/persistence.xml`
 
 ### Apache Maven plugin
 ![](.images/apacheMaven.png)
