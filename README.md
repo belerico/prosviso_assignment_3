@@ -1,12 +1,12 @@
 # ASSIGNMENT 3
 
-Members:
+## Members:
 + Avogadro Roberto 807387
 + Belotti Federico 808708    
 + Carta Costantino 808417
     
-+ Repository with the project's code:
-https://gitlab.com/belerico/prosviso_assignment_3
+## Repository with the project's code:
++ https://gitlab.com/belerico/prosviso_assignment_3
 
 + The project was developed using 'Intellij IDEA', you can directly import project from gitlab on the IDE.
 + File/new/Project from version control/git
