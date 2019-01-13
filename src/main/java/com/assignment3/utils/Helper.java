@@ -2,11 +2,11 @@ package com.assignment3.utils;
 
 import com.assignment3.jpa.dao.EntityManagerSingleton;
 import com.assignment3.jpa.model.*;
-import com.assignment3.jpa.service.CardService;
+import com.assignment3.jpa.service.BusinessActivityService;
 import com.assignment3.jpa.service.PlaceService;
 import com.assignment3.jpa.service.ServiceFactory;
 import com.assignment3.jpa.service.UserService;
-import com.assignment3.utils.faker.CardFaker;
+import com.assignment3.utils.faker.BusinessActivityFaker;
 import com.assignment3.utils.faker.PlaceFaker;
 import com.assignment3.utils.faker.UserFaker;
 
@@ -27,15 +27,15 @@ public class Helper {
         entityManager.getTransaction().commit();
     }
 
-    public static void populateDatabaseWithPlaces(int quantity) {
+    public static void populateDatabase(int quantity) {
         PlaceFaker faker = new PlaceFaker();
         PlaceService placeService = ServiceFactory.getInstance().getPlaceService();
         for (int i = 0; i < quantity; i++)
             placeService.create(faker.create());
-        CardFaker cardFaker = new CardFaker();
-        CardService cardService = ServiceFactory.getInstance().getCardService();
+        BusinessActivityFaker businessActivityFaker = new BusinessActivityFaker();
+        BusinessActivityService businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
         for (int i = 0; i < quantity; i++)
-            cardService.create(cardFaker.create());
+            businessActivityService.create(businessActivityFaker.createWithCards(quantity));
         UserFaker userFaker = new UserFaker();
         UserService userService = ServiceFactory.getInstance().getUserService();
         for (int i = 0; i < quantity; i++)
