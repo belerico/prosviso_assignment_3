@@ -17,7 +17,7 @@
 <body>
 <div>
     <h3>Standard and sharable cards of <s:property value="user.name + ' ' + user.surname"/> <a
-            href="<s:url namespace="/user" action="createUpdateUserPage"><s:param name="userId" value="%{ #user.id }"/></s:url>"><s:property
+            href="<s:url namespace="/user" action="createUpdateUserPage"><s:param name="userId" value="%{ user.id }"/></s:url>"><s:property
             value="user.email"/></a></h3>
     <table class="table">
         <thead>
@@ -50,14 +50,14 @@
                             value="%{ #c.getStandardCard().getBusinessActivity().getName() }"/></a>
                 </td>
                 <td>
-                    <a href="<s:url namespace="/user" action="removeStandardCard"><s:param name="userId" value="user.id"/><s:param name="cardId" value="%{ #c.getStandardCard().getId() }"/></s:url>">Remove</a>
+                    <a href="<s:url namespace="/user" action="removeStandardCard"><s:param name="userId" value="%{ user.id }"/><s:param name="cardId" value="%{ #c.getStandardCard().getId() }"/></s:url>">Remove</a>
                 </td>
             </tr>
         </s:iterator>
         </tbody>
     </table>
     <span><a
-            href="<s:url namespace="/user" action="removeAllUserStandardCards"><s:param name="userId" value="user.id"/></s:url>">Remove all <s:property
+            href="<s:url namespace="/user" action="removeAllUserStandardCards"><s:param name="userId" value="%{ user.id }"/></s:url>">Remove all <s:property
             value="user.name + ' ' + user.surname"/> standard cards</a></span><br>
     <br>
     <br>
@@ -114,13 +114,18 @@
         </tbody>
     </table>
     <span><a
-            href="<s:url namespace="/user" action="removeAllUserSharableCards"><s:param name="userId" value="user.id"/></s:url>">Remove all <s:property
+            href="<s:url namespace="/user" action="removeAllUserSharableCards"><s:param name="userId" value="%{ user.id }"/></s:url>">Remove all <s:property
             value="user.name + ' ' + user.surname"/> sharable cards</a></span><br><br><br>
     <span><a
-            href="<s:url namespace="/user" action="removeAllUserCards"><s:param name="userId" value="user.id"/></s:url>">Remove all <s:property
+            href="<s:url namespace="/user" action='createAddStandardCardPage'><s:param name="userId" value="%{ user.id }"/></s:url>">Add a standard card</a></span>
+    <br>
+    <span><a
+            href="<s:url namespace="/user" action='createAddSharableCardPage'><s:param name="userId" value="%{ user.id }"/></s:url>">Add a sharable card</a></span><br>
+    <span><a
+            href="<s:url namespace="/user" action="removeAllUserCards"><s:param name="userId" value="%{ user.id }"/></s:url>">Remove all <s:property
             value="user.name + ' ' + user.surname"/> cards</a></span><br>
     <span><a href="<s:url namespace="/user" action='showUsers'/>">Show users</a></span><br>
-    <span><a href="<s:url namespace="/user" action='createUserPage'/>">User page</a></span><br>
+    <span><a href="<s:url namespace="/user" action='createUserPage'/>">Create a new user</a></span><br>
     <span><a href="<s:url action='goIndex'/>">Go back to home</a></span>
 </div>
 </body>
