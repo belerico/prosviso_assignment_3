@@ -18,8 +18,12 @@
 
 ## Requirements
 
-+ Install MySQL v.5.7
+### Install MySQL v.5.7
++ `sudo apt-get update`
++ `sudo apt-get install mysql-server`
+### Login 
 + The program will look for a db instance on `mysql://localhost:3306` running with a db within it called 'assignment3'; if there is not any db called 'assignment3' it will be automatically created
++ `mysql -u root -p`
 + DB access parameters:
     + username: root
     + password: root
@@ -30,7 +34,7 @@
 
 + Tested using openjdk version `11.0.1 2018-10-16`
 
-+ Operating systems: Ubuntu 18.10 and 16.04 
++ Operating systems: `Ubuntu v.18.10` and `Ubuntu v.16.04` 
 
 
 ## Run the webapp
