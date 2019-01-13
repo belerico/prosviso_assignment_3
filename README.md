@@ -18,6 +18,10 @@
 
 ## Requirements
 
++ Tested using openjdk version `11.0.1 2018-10-16`
+
++ Operating systems: `Ubuntu v.18.10` and `Ubuntu v.16.04` 
+
 ## MySQL
 ![](.README/mysql.png)
 
@@ -40,11 +44,6 @@
 
 + Install maven : 
     + `sudo apt install maven`
-
-+ Tested using openjdk version `11.0.1 2018-10-16`
-
-+ Operating systems: `Ubuntu v.18.10` and `Ubuntu v.16.04` 
-
 
 ## Run the webapp
 
