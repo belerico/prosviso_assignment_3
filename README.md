@@ -25,7 +25,9 @@ https://gitlab.com/belerico/prosviso_assignment_3
 + Ubuntu 18.10 and 16.04 
 
 
-## Run the project
+## Run the webapp
+
+
 
 + Install the project
     + mvn clean install
