@@ -95,7 +95,7 @@
     <span><a href="<s:url action='removeAllUsers'/>">Remove all users</a></span><br>
     <span><a href="<s:url action='createUserPage'/>">Create a new user</a></span><br>
     <span><a href="<s:url action='userPage'/>">User page</a></span><br>
-    <span><a href="<s:url action='goIndex'/>">Home</a></span>
+    <span><a href="<s:url namespace="/home" action='goIndex'/>">Go back to home</a></span>
 </div>
 </body>
 </html>

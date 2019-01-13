@@ -126,7 +126,7 @@
             value="user.name + ' ' + user.surname"/> cards</a></span><br>
     <span><a href="<s:url namespace="/user" action='showUsers'/>">Show users</a></span><br>
     <span><a href="<s:url namespace="/user" action='createUserPage'/>">Create a new user</a></span><br>
-    <span><a href="<s:url action='goIndex'/>">Go back to home</a></span>
+    <span><a href="<s:url namespace="/home" action='goIndex'/>">Go back to home</a></span>
 </div>
 </body>
 </html>

@@ -68,7 +68,7 @@
     <span><a href="<s:url namespace="/activity"  action='removeAllActivities'/>">Remove all business activities</a></span><br>
     <span><a href="<s:url namespace="/activity" action='createActivityPage'/>">Create a new business activity</a></span><br>
     <span><a href="<s:url namespace="/activity" action='activityPage'/>">Activity page</a></span><br>
-    <span><a href="<s:url action='goIndex'/>">Home</a></span>
+    <span><a href="<s:url namespace="/home" action='goIndex'/>">Go back to home</a></span>
 </div>
 </body>
 </html>

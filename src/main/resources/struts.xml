@@ -14,7 +14,7 @@
         </action>
     </package>
 
-    <package name="helper" extends="struts-default">
+    <package name="home" namespace="/home" extends="struts-default">
         <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">/index.jsp</result>
         </action>

@@ -26,7 +26,7 @@
     <h1>Place page</h1>
     <p><a href="<s:url action='showPlaces'/>">Show all places</a></p>
     <p><a href="<s:url action='createPlacePage'/>">Create a new place</a></p>
-    <p><a href="<s:url action='goIndex'/>">Home</a></p>
+    <p><a href="<s:url namespace="/home" action='goIndex'/>">Go back to home</a></p>
 </div>
 </body>
 </html>

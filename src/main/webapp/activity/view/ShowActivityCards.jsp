@@ -63,7 +63,7 @@
             value="activity.name"/> cards</a></span><br>
     <span><a href="<s:url namespace="/activity" action='showActivities'/>">Show activities</a></span><br>
     <span><a href="<s:url namespace="/activity" action='createActivityPage'/>">Create a new business activity</a></span><br>
-    <span><a href="<s:url action='goIndex'/>">Go back to home</a></span>
+    <span><a href="<s:url namespace="/home" action='goIndex'/>">Go back to home</a></span>
 </div>
 </body>
 </html>

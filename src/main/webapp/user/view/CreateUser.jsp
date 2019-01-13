@@ -24,12 +24,6 @@
 <body>
 <div class="container">
     <h1>Fill form to register into the webapp</h1>
-    <%--<s:if test="hasActionErrors()">
-        <div class="alert alert-danger" role="alert">
-            <p>Something went wrong while persisting the user</p>
-            <s:actionerror/>
-        </div>
-    </s:if>--%>
     <s:form namespace="/user" action="%{ userId == null ? 'createUser' : 'updateUser' }">
         <s:fielderror cssClass="alert alert-danger">
             <s:param>user.email</s:param>
@@ -84,7 +78,7 @@
     </s:form>
     <span><a href="<s:url action='showUsers'/>">Show all users</a></span><br>
     <span><a href="<s:url action='userPage'/>">User page</a></span><br>
-    <span><a href="<s:url action='goIndex'/>">Home</a></span>
+    <span><a href="<s:url namespace="/home" action='goIndex'/>">Go back to home</a></span>
 </div>
 </body>
 </html>

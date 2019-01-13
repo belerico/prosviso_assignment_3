@@ -23,8 +23,9 @@
 </head>
 <body>
 <div class="list">
-<h1>Card page</h1>
-<p><a href="<s:url action='showCards'/>">Show all cards</a></p>
+    <h1>Card page</h1>
+    <p><a href="<s:url action='showCards'/>">Show all cards</a></p>
+    <p><a href="<s:url namespace="/home" action='goIndex'/>">Go back to home</a></p>
 </div>
 </body>
 </html>

@@ -37,8 +37,6 @@
         <div class="form-group">
             <s:label for="cardType" value="Type"/>
             <s:select cssClass="form-control" name="cardType" list="#{'ST':'Standard card','SH':'Sharable card'}"/>
-                <%--value="%{ type }"--%>
-                <%--<s:radio label="Type Card" name="myType" list="{'SH','ST'}" value="%{ getDiscriminatorValue() }"/>--%>
         </div>
         <div class="form-group">
             <s:label for="quantity" value="Quantity"/>

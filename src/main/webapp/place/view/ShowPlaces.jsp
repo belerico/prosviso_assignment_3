@@ -16,18 +16,6 @@
 </head>
 <body>
 <h2>Places</h2>
-
-<%--<ol>
-    <s:iterator value="places">
-        <li>
-            <s:property value="CAP"/>
-            <s:property value="city"/>
-            <s:property value="province"/>
-            <s:property value="region"/>
-        </li>
-    </s:iterator>
-</ol>--%>
-
 <table class="table">
     <thead>
     <tr>
@@ -69,6 +57,6 @@
 <span><a href="<s:url action='removeAllPlaces'/>">Remove all places</a></span><br>
 <span><a href="<s:url action='createPlacePage'/>">Create a new place</a></span><br>
 <span><a href="<s:url action='placePage'/>">Place page</a></span><br>
-<span><a href="<s:url action='goIndex'/>">Home</a></span>
+<span><a href="<s:url namespace="/home" action='goIndex'/>">Go back to home</a></span>
 </body>
 </html>
