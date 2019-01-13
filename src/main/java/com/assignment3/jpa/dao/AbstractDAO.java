@@ -7,8 +7,11 @@ import javax.persistence.EntityTransaction;
 import java.io.Serializable;
 import java.util.List;
 
-
-public abstract class AbstractDao<T, Id extends Serializable, NaturalId extends Serializable> implements Dao<T, Id, NaturalId> {
+/*
+    AbstractDAO implements the DAO interface and implements all its methods.
+    It defines other useful methods to interface with the EntityManager
+ */
+public abstract class AbstractDAO<T, Id extends Serializable, NaturalId extends Serializable> implements DAO<T, Id, NaturalId> {
 
     //private final static EntityManagerSingleton entityManagerFactory;
     private final static EntityManager entityManager;
@@ -21,7 +24,7 @@ public abstract class AbstractDao<T, Id extends Serializable, NaturalId extends 
 
     private final Class<T> tClass;
 
-    AbstractDao(Class<T> tClass) {
+    AbstractDAO(Class<T> tClass) {
         this.tClass = tClass;
     }
 

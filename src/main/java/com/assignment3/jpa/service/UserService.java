@@ -1,29 +1,26 @@
 package com.assignment3.jpa.service;
 
-import com.assignment3.jpa.dao.UserDao;
-import com.assignment3.jpa.model.Place;
-import com.assignment3.jpa.model.SharableCard;
-import com.assignment3.jpa.model.StandardCard;
-import com.assignment3.jpa.model.User;
+import com.assignment3.jpa.dao.UserDAO;
+import com.assignment3.jpa.model.*;
 
 import java.util.List;
 
 public class UserService extends AbstractService<User, Long, String> {
 
     public UserService() {
-        super(new UserDao());
+        super(new UserDAO());
     }
 
     public List<User> getUsersNotEquals(Long id) {
-        return ((UserDao) getDao()).getUsersNotEquals(id);
+        return ((UserDAO) getDao()).getUsersNotEquals(id);
     }
 
-    public List<StandardCard> getUserStandardCard(Long id){
-        return ((UserDao) getDao()).getUserStandardCards(id);
+    public List<UserStandardCard> getUserStandardCard(Long id) {
+        return ((UserDAO) getDao()).getUserStandardCards(id);
     }
 
-    public List<SharableCard> getUserSharablecard(Long id){
-        return ((UserDao) getDao()).getUserSharableCards(id);
+    public List<UserSharableCard> getUserSharablecard(Long id) {
+        return ((UserDAO) getDao()).getUserSharableCards(id);
     }
 
     public void addPlace(User user, Place place) {

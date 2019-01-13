@@ -1,14 +1,16 @@
 package com.assignment3.jpa.service;
 
-import com.assignment3.jpa.dao.BusinessActivityDao;
-import com.assignment3.jpa.model.*;
+import com.assignment3.jpa.dao.BusinessActivityDAO;
+import com.assignment3.jpa.model.BusinessActivity;
+import com.assignment3.jpa.model.Card;
+import com.assignment3.jpa.model.Place;
 
 import java.util.List;
 
 public class BusinessActivityService extends AbstractService<BusinessActivity, Long, String> {
 
     public BusinessActivityService() {
-        super(new BusinessActivityDao());
+        super(new BusinessActivityDAO());
     }
 
     public void addPlace(BusinessActivity businessActivity, Place place) {
@@ -49,7 +51,7 @@ public class BusinessActivityService extends AbstractService<BusinessActivity, L
     }
 
     public List<Card> getActivityCards(Long id){
-        return ((BusinessActivityDao) getDao()).getActivityCards(id);
+        return ((BusinessActivityDAO) getDao()).getActivityCards(id);
     }
 
 

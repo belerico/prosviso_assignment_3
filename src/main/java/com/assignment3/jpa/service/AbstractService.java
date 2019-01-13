@@ -1,19 +1,19 @@
 package com.assignment3.jpa.service;
 
-import com.assignment3.jpa.dao.AbstractDao;
+import com.assignment3.jpa.dao.AbstractDAO;
 
 import java.io.Serializable;
 import java.util.List;
 
 public abstract class AbstractService<T, Id extends Serializable, NaturalId extends Serializable> implements Service<T, Id, NaturalId> {
 
-    private AbstractDao<T, Id, NaturalId> dao;
+    private AbstractDAO<T, Id, NaturalId> dao;
 
-    public AbstractService(AbstractDao<T, Id, NaturalId> dao) {
+    public AbstractService(AbstractDAO<T, Id, NaturalId> dao) {
         this.dao = dao;
     }
 
-    public AbstractDao<T, Id, NaturalId> getDao() {
+    public AbstractDAO<T, Id, NaturalId> getDao() {
         return this.dao;
     }
 

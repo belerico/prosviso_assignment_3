@@ -6,9 +6,9 @@ import com.assignment3.jpa.model.StandardCard;
 
 import java.util.List;
 
-public class CardDao extends AbstractDao<Card, Long, String> {
+public class CardDAO extends AbstractDAO<Card, Long, String> {
 
-    public CardDao() {
+    public CardDAO() {
         super(Card.class);
     }
 

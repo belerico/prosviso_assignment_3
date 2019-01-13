@@ -1,13 +1,15 @@
 package com.assignment3.jpa.service;
 
-import com.assignment3.jpa.dao.PlaceDao;
+import com.assignment3.jpa.dao.PlaceDAO;
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Place;
 import com.assignment3.jpa.model.User;
 
 public class PlaceService extends AbstractService<Place, Long, String> {
 
-    public PlaceService() { super(new PlaceDao()); }
+    public PlaceService() {
+        super(new PlaceDAO());
+    }
 
     public void addUser(Place place, User user) {
         getDao().begin();

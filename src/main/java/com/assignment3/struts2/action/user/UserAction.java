@@ -1,9 +1,6 @@
 package com.assignment3.struts2.action.user;
 
-import com.assignment3.jpa.model.Place;
-import com.assignment3.jpa.model.SharableCard;
-import com.assignment3.jpa.model.StandardCard;
-import com.assignment3.jpa.model.User;
+import com.assignment3.jpa.model.*;
 import com.assignment3.jpa.service.ServiceFactory;
 import com.assignment3.jpa.service.UserService;
 import com.assignment3.utils.faker.UserFaker;
@@ -22,8 +19,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Prep
     private Long placeId;
     private List<User> users;
     private List<Place> places;
-    private List<StandardCard> userStandardCards;
-    private List<SharableCard> userSharableCards;
+    private List<UserStandardCard> userStandardCards;
+    private List<UserSharableCard> userSharableCards;
 
     public User getUser() {
         return user;
@@ -73,19 +70,19 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Prep
         this.places = places;
     }
 
-    public List<StandardCard> getUserStandardCards() {
+    public List<UserStandardCard> getUserStandardCards() {
         return userStandardCards;
     }
 
-    public void setUserStandardCards(List<StandardCard> userStandardCards) {
+    public void setUserStandardCards(List<UserStandardCard> userStandardCards) {
         this.userStandardCards = userStandardCards;
     }
 
-    public List<SharableCard> getUserSharableCards() {
+    public List<UserSharableCard> getUserSharableCards() {
         return userSharableCards;
     }
 
-    public void setUserSharableCards(List<SharableCard> userSharableCards) {
+    public void setUserSharableCards(List<UserSharableCard> userSharableCards) {
         this.userSharableCards = userSharableCards;
     }
 

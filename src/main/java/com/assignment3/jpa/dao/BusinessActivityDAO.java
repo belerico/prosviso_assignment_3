@@ -2,14 +2,12 @@ package com.assignment3.jpa.dao;
 
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Card;
-import com.assignment3.jpa.model.SharableCard;
-import com.assignment3.jpa.model.StandardCard;
 
 import java.util.List;
 
-public class BusinessActivityDao extends AbstractDao<BusinessActivity, Long, String> {
+public class BusinessActivityDAO extends AbstractDAO<BusinessActivity, Long, String> {
 
-    public BusinessActivityDao() {
+    public BusinessActivityDAO() {
         super(BusinessActivity.class);
     }
 

@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 
 /*
-    Dao interface. This class define the basic CRUD operation plus two more useful operations
+    DAO interface. This class define the basic CRUD operation.
  */
-public interface Dao<T, Id extends Serializable, NaturalId extends Serializable> {
+public interface DAO<T, Id extends Serializable, NaturalId extends Serializable> {
 
     void create(T entity);
 

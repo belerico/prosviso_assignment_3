@@ -1,6 +1,6 @@
 package com.assignment3.jpa.service;
 
-import com.assignment3.jpa.dao.CardDao;
+import com.assignment3.jpa.dao.CardDAO;
 import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Card;
 import com.assignment3.jpa.model.SharableCard;
@@ -11,7 +11,7 @@ import java.util.List;
 public class CardService extends AbstractService<Card, Long, String> {
 
     public CardService() {
-        super(new CardDao());
+        super(new CardDAO());
     }
 
     @Override
@@ -25,11 +25,11 @@ public class CardService extends AbstractService<Card, Long, String> {
     }
 
     public List<StandardCard> getStandardCards() {
-        return ((CardDao) getDao()).getStandardCards();
+        return ((CardDAO) getDao()).getStandardCards();
     }
 
     public List<SharableCard> getSharableCards() {
-        return ((CardDao) getDao()).getSharableCards();
+        return ((CardDAO) getDao()).getSharableCards();
     }
 
 }
