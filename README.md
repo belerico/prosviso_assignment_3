@@ -18,7 +18,7 @@
 
 + Install MySQL v.5.7
 + The program will look for a db instance on `mysql://localhost:3306` running with a db within it called 'assignment3'; if there is not any db called 'assignment3' it will be automatically created
-+ + DB access parameters:
++ DB access parameters:
     + username: root
     + password: root
 + N.B: you can change access informations in file `src/main/resources/META-INF/persistence.xml`
