@@ -1,8 +1,9 @@
 package com.assignment3.struts2.action.activity;
 
-import com.assignment3.jpa.model.*;
+import com.assignment3.jpa.model.BusinessActivity;
+import com.assignment3.jpa.model.Card;
+import com.assignment3.jpa.model.Place;
 import com.assignment3.jpa.service.BusinessActivityService;
-import com.assignment3.jpa.service.Service;
 import com.assignment3.jpa.service.ServiceFactory;
 import com.assignment3.utils.faker.BusinessActivityFaker;
 import com.opensymphony.xwork2.ActionSupport;
@@ -15,6 +16,7 @@ public class ActivityAction extends ActionSupport implements ModelDriven<Busines
 
     private BusinessActivity activity = new BusinessActivityFaker().create();
     private Long placeId;
+    private Long cardId;
     private Long activityId;
     private List<Place> places;
     private List<BusinessActivity> activities;
@@ -36,6 +38,14 @@ public class ActivityAction extends ActionSupport implements ModelDriven<Busines
 
     public void setPlaceId(Long placeId) {
         this.placeId = placeId;
+    }
+
+    public Long getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(Long cardId) {
+        this.cardId = cardId;
     }
 
     public Long getActivityId() {
@@ -98,8 +108,24 @@ public class ActivityAction extends ActionSupport implements ModelDriven<Busines
     }
 
     public String showActivityCards(){
+        System.out.println("Show activity cards " + getActivityId());
         setActivity(ServiceFactory.getInstance().getBusinessActivityService().read(getActivityId()));
         setBusinessCards(ServiceFactory.getInstance().getBusinessActivityService().getActivityCards(getActivityId()));
+        return ActionSupport.SUCCESS;
+    }
+
+    public String removeActivityCard() {
+        System.out.println("Remove activity card " + getActivityId());
+        ServiceFactory.getInstance().getBusinessActivityService().removeCard(
+                ServiceFactory.getInstance().getCardService().read(getCardId())
+        );
+        return ActionSupport.SUCCESS;
+    }
+
+    public String removeAllActivityCards() {
+        ServiceFactory.getInstance().getBusinessActivityService().removeAllCard(
+                ServiceFactory.getInstance().getBusinessActivityService().read(getActivityId())
+        );
         return ActionSupport.SUCCESS;
     }
 

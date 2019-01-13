@@ -147,6 +147,22 @@
                 method="removeAllActivities">
             <result name="success" type="chain">showActivities</result>
         </action>
+        <action name="removeActivityCard" class="com.assignment3.struts2.action.activity.ActivityAction"
+                method="removeActivityCard">
+            <result name="success" type="chain">
+                <param name="activityId">${activity.id}</param>
+                <param name="namespace">/activity</param>
+                <param name="actionName">showActivityCards</param>
+            </result>
+        </action>
+        <action name="removeAllActivityCards" class="com.assignment3.struts2.action.activity.ActivityAction"
+                method="removeAllActivityCards">
+            <result name="success" type="chain">
+                <param name="activityId">${activity.id}</param>
+                <param name="namespace">/activity</param>
+                <param name="actionName">showActivityCards</param>
+            </result>
+        </action>
         <action name="showActivities" class="com.assignment3.struts2.action.activity.ActivityAction"
                 method="showActivities">
             <result name="success">view/ShowActivities.jsp</result>
