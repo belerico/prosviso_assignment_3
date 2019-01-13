@@ -49,7 +49,7 @@
                     <s:property value="quantity"/>
                 </td>
                 <td>
-                    <a href="<s:url namespace="/activity" action="createActivityPage"><s:param name="activityId" value="%{ #c.getBusinessActivity().getId() }"/></s:url>"><s:property
+                    <a href="<s:url namespace="/activity" action="createUpdateActivityPage"><s:param name="activityId" value="%{ #c.getBusinessActivity().getId() }"/></s:url>"><s:property
                             value="%{ #c.getBusinessActivity().getName() }"/></a>
                 </td>
                 <td>

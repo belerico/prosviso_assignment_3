@@ -35,11 +35,11 @@ public class Helper {
         BusinessActivityFaker businessActivityFaker = new BusinessActivityFaker();
         BusinessActivityService businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
         for (int i = 0; i < quantity; i++)
-            businessActivityService.create(businessActivityFaker.createWithCards(quantity));
+            businessActivityService.create(businessActivityFaker.createWithPlaceAndCards(2));
         UserFaker userFaker = new UserFaker();
         UserService userService = ServiceFactory.getInstance().getUserService();
         for (int i = 0; i < quantity; i++)
-            userService.create(userFaker.create());
+            userService.create(userFaker.createWithPlace());
     }
 
     public static void dropDatabase() {

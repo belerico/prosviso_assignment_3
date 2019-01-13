@@ -19,6 +19,6 @@ public class WebappServletContextListener implements ServletContextListener {
         System.out.println("ServletContextListener started");
         //new DefaultValidatorFactory().registerValidator("dioporco", "LocalDateValidator");
         Helper.dropDatabase();
-        Helper.populateDatabase(5);
+        Helper.populateDatabase(2);
     }
 }

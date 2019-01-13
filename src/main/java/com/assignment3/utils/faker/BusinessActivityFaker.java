@@ -28,4 +28,12 @@ public class BusinessActivityFaker extends AbstractFaker<BusinessActivity> {
         businessActivity.addPlace(new PlaceFaker().create());
         return businessActivity;
     }
+
+    public BusinessActivity createWithPlaceAndCards(int quantity) {
+        BusinessActivity businessActivity = createWithPlace();
+        List<Card> cards = new CardFaker().create(quantity);
+        for (Card card : cards)
+            businessActivity.addCard(card);
+        return businessActivity;
+    }
 }

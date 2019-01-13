@@ -56,7 +56,8 @@
                         <%--<s:property value="dateOfBirth"/>--%>
                 </td>
                 <td>
-                    <s:property value="email"/>
+                    <a href="<s:url namespace="/user" action="createUpdateUserPage"><s:param name="userId" value="%{ id }"/></s:url>"><s:property
+                            value="email"/></a>
                 </td>
                 <td>
                     <s:if test="place == null">
@@ -75,9 +76,9 @@
                     </s:else>
                 </td>
                 <td>
-                    <a href="<s:url namespace="/card" action='createAddStandardCardPage'><s:param name="userId" value="%{id}"></s:param></s:url>">STANDARD</a>
+                    <a href="<s:url namespace="/user" action='createAddStandardCardPage'><s:param name="userId" value="%{id}"></s:param></s:url>">STANDARD</a>
                     <br>
-                    <a href="<s:url namespace="/card" action='createAddSharableCardPage'><s:param name="userId" value="%{id}"></s:param></s:url>">SHARABLE</a>
+                    <a href="<s:url namespace="/user" action='createAddSharableCardPage'><s:param name="userId" value="%{id}"></s:param></s:url>">SHARABLE</a>
 
                 </td>
                 <td>

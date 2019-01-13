@@ -29,6 +29,29 @@
             <result name="success" type="chain">showUsers</result>
             <result name="input">view/CreateUser.jsp</result>
         </action>
+        <action name="createUpdateUserPage" class="com.assignment3.struts2.action.user.UpdateUserAction"
+                method="createUpdateUserPage">
+            <result name="success">view/CreateUser.jsp</result>
+        </action>
+        <action name="updateUser" class="com.assignment3.struts2.action.user.UpdateUserAction"
+                method="updateUser">
+            <result name="success" type="chain">showUsers</result>
+            <result name="input">view/CreateUser.jsp</result>
+        </action>
+        <action name="createAddStandardCardPage" class="com.assignment3.struts2.action.user.AddCardAction"
+                method="createAddStandardCardPage">
+            <result name="success">view/AddSTCard.jsp</result>
+        </action>
+        <action name="createAddSharableCardPage" class="com.assignment3.struts2.action.user.AddCardAction"
+                method="createAddSharableCardPage">
+            <result name="success">view/AddSHCard.jsp</result>
+        </action>
+        <action name="addSTCard" class="com.assignment3.struts2.action.user.AddCardAction" method="addStandardCard">
+            <result name="success" type="chain">/card/showCards</result>
+        </action>
+        <action name="addSHCard" class="com.assignment3.struts2.action.user.AddCardAction" method="addSharableCard">
+            <result name="success" type="chain">/card/showCards</result>
+        </action>
         <action name="removeUser" class="com.assignment3.struts2.action.user.UserAction" method="removeUser">
             <result name="success" type="chain">showUsers</result>
         </action>
@@ -51,7 +74,11 @@
                 method="createActivityPage">
             <result name="success">view/CreateActivity.jsp</result>
         </action>
-        <action name="updateActivity" class="com.assignment3.struts2.action.activity.ActivityAction"
+        <action name="createUpdateActivityPage" class="com.assignment3.struts2.action.activity.UpdateActivityAction"
+                method="createUpdateActivityPage">
+            <result name="success">view/CreateActivity.jsp</result>
+        </action>
+        <action name="updateActivity" class="com.assignment3.struts2.action.activity.UpdateActivityAction"
                 method="updateActivity">
             <result name="success" type="chain">showActivities</result>
             <result name="input">view/CreateActivity.jsp</result>
@@ -85,20 +112,6 @@
         <action name="createCardPage" class="com.assignment3.struts2.action.card.CardAction"
                 method="createCardPage">
             <result name="success">view/CreateCard.jsp</result>
-        </action>
-        <action name="createAddStandardCardPage" class="com.assignment3.struts2.action.card.CardAction"
-                method="createAddStandardCardPage">
-            <result name="success">view/AddSTCard.jsp</result>
-        </action>
-        <action name="createAddSharableCardPage" class="com.assignment3.struts2.action.card.CardAction"
-                method="createAddSharableCardPage">
-            <result name="success">view/AddSHCard.jsp</result>
-        </action>
-        <action name="addSTCard" class="com.assignment3.struts2.action.card.CardAction" method="addStandardCard">
-            <result name="success" type="chain">showCards</result>
-        </action>
-        <action name="addSHCard" class="com.assignment3.struts2.action.card.CardAction" method="addSharableCard">
-            <result name="success" type="chain">showCards</result>
         </action>
         <action name="createCard" class="com.assignment3.struts2.action.card.CardAction" method="createCard">
             <result name="success" type="chain">showCards</result>

@@ -30,7 +30,7 @@
             <s:actionerror/>
         </div>
     </s:if>--%>
-    <s:form action="createUser">
+    <s:form namespace="/user" action="%{ userId == null ? 'createUser' : 'updateUser' }">
         <s:fielderror cssClass="alert alert-danger">
             <s:param>user.email</s:param>
             <s:param>user.name</s:param>
@@ -40,24 +40,24 @@
         </s:fielderror>
         <div class="form-group">
             <s:label for="email" value="Email"/>
-            <s:textfield cssClass="form-control" name="user.email" value="%{ email }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="user.email" value="%{ user.email }" requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="name" value="Name"/>
-            <s:textfield cssClass="form-control" name="user.name" value="%{ name }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="user.name" value="%{ user.name }" requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="surname" value="Surname"/>
-            <s:textfield cssClass="form-control" name="user.surname" value="%{ surname }" requiredLabel="true"/>
+            <s:textfield cssClass="form-control" name="user.surname" value="%{ user.surname }" requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="user.dateOfBirth" value="Date of birth"/>
-            <s:textfield cssClass="form-control" name="user.dateOfBirth" value="%{ dateOfBirth }"
+            <s:textfield cssClass="form-control" name="user.dateOfBirth" value="%{ user.dateOfBirth }"
                          requiredLabel="true"/>
         </div>
         <div class="form-group">
             <s:label for="password" value="Password"/>
-            <s:password cssClass="form-control" name="user.password" value="%{ password }" showPassword="true"
+            <s:password cssClass="form-control" name="user.password" value="%{ user.password }" showPassword="true"
                         requiredLabel="true"/>
         </div>
         <div class="form-group">
@@ -77,7 +77,9 @@
                       value="sex"
                       requiredLabel="true"/>
         </div>
-        <%----%>
+        <s:if test="%{ userId != null }">
+            <s:hidden name="userId" value="%{ userId }"></s:hidden>
+        </s:if>
         <s:submit cssClass="btn btn-secondary" label="Create user"/>
     </s:form>
     <span><a href="<s:url action='showUsers'/>">Show all users</a></span><br>
