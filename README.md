@@ -22,13 +22,16 @@
 
 + Operating systems: `Ubuntu v.18.10` and `Ubuntu v.16.04` 
 
-## MySQL
+## MySQL docker image
 ![](.images/mysql.png)
+![](.images/docker.png)
 
-### Install MySQL v.5.7
+### run docker with MySQL v.5.7
 
-+ `sudo apt-get update`
-+ `sudo apt-get install mysql-server`
++ commands:
+    + ``
+    + ``
+    + ``
 
 ### Database Login 
 
@@ -73,7 +76,7 @@ We have implemented JUnit test cases for testing 'Services' of the application a
 We used faker classes for testing the application as they were useful to generate entry in rapid way:
 + `src/main/java/com.assignment3/utils/faker`.
 
-## Run test cases
+## Run tests
 + command: `mvn test`
 
 + Snapshot of the console after running tests
