@@ -47,10 +47,6 @@
 
 ## Run the webapp
 
-+ View of the index page of the webapp
-
-![](.README/CardWebapp.png)
-
 + Install the project
     + `mvn clean install`
 
@@ -59,6 +55,15 @@
 
 + Run jetty server
     + `mvn jetty:run`
+
++ After running previous commands open a browser and type:
+    + `http://localhost:8080/assignment3/index.jsp`
+
++ You'll be able to see the index page of the webapp
+
+![](.README/CardWebapp.png)
+
+
 
 
 ## Test cases
