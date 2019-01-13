@@ -6,25 +6,25 @@
 + Carta Costantino 808417
     
 ## Project Repository and import information
-+ Gitlab repository link: https://gitlab.com/belerico/prosviso_assignment_3
++ Gitlab repository link: `https://gitlab.com/belerico/prosviso_assignment_3`
 
-+ The project was developed using [Intellij IDEA], you can directly import project from gitlab on the IntelliJ.
++ The project was developed using `Intellij IDEA`, you can directly import project from gitlab on the IntelliJ.
 + On intelliJ --> 'File/new/Project from version control/git'
     + Insert the link of the gitlab repo.
 
-+ Download IntelliJ --> https://www.jetbrains.com/idea/
++ Download IntelliJ --> `https://www.jetbrains.com/idea/`
 
 ## Requirements
 
 + Install MySQL v.5.7
-+ The program will look for a db instance on 'mysql://localhost:3306' running with a db within it called 'assignment3'
++ The program will look for a db instance on `mysql://localhost:3306` running with a db within it called 'assignment3'
 + (If there is not any db called 'assignment3' it will be automatically created)
     + username: root
     + password: root
-+ N.B: you can change access informations in file src/main/resources/META-INF/persistence.xml
++ N.B: you can change access informations in file `src/main/resources/META-INF/persistence.xml`
 
 + Install maven : 
-    + sudo apt install maven
+    + `sudo apt install maven`
 
 + Tested using openjdk 11.0.1 2018-10-16
 
@@ -38,23 +38,23 @@
 ![](.README/CardWebapp.png)
 
 + Install the project
-    + 'mvn clean install'
+    + `mvn clean install`
 
 + Compile the project
-    + 'mvn compile'
+    + `mvn compile`
 
 + Run jetty server
-    + 'mvn jetty:run'
+    + `mvn jetty:run`
 
 
 ## Test cases
 
 We have implemented JUnit test cases for testing 'Services' of the application as they abstract "DAOs" which manage "CRUD" operations.
 We used faker classes for testing the application as they were useful to generate entry in rapid way:
-+ src/main/java/com.assignment3/utils/faker.
++ `src/main/java/com.assignment3/utils/faker`.
 
 ## Run test cases
-+ command: 'mvn test'
++ command: `mvn test`
 
 + Snapshot of the console after running tests
 
