@@ -34,7 +34,7 @@
         </field-validator>
         <field-validator type="localdate">
             <param name="min">1900-01-01</param>
-            <message>Date of birth must be between %{min} and %{max}</message>
+            <message><![CDATA[ Date of birth must be between %{min} and %{max} ]]></message>
         </field-validator>
     </field>
     <field name="user.password">
