@@ -62,6 +62,7 @@ public class UpdateUserAction extends ActionSupport implements ModelDriven<User>
         user.setSex(userModified.isSex());
         user.setDateOfBirth(userModified.getDateOfBirth());
         user.addPlace(ServiceFactory.getInstance().getPlaceService().read(getPlaceId()));
+        ServiceFactory.getInstance().getUserService().update(user);
         return ActionSupport.SUCCESS;
     }
 

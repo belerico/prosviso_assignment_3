@@ -7,6 +7,7 @@ import javax.persistence.EntityTransaction;
 import java.io.Serializable;
 import java.util.List;
 
+
 public abstract class AbstractDao<T, Id extends Serializable, NaturalId extends Serializable> implements Dao<T, Id, NaturalId> {
 
     //private final static EntityManagerSingleton entityManagerFactory;
