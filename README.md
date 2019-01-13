@@ -57,6 +57,10 @@ We used faker classes for testing the application as they were useful to generat
 ## Run test cases
 + mvn test
 
++ Snapshot of the console after running tests
+
+![](.README/Test.png)
+
 
 
 
