@@ -19,15 +19,20 @@
 ## Requirements
 
 ### Install MySQL v.5.7
+
 + `sudo apt-get update`
 + `sudo apt-get install mysql-server`
-### Login 
+
+### Database Login 
+
 + The program will look for a db instance on `mysql://localhost:3306` running with a db within it called 'assignment3'; if there is not any db called 'assignment3' it will be automatically created
 + `mysql -u root -p`
 + DB access parameters:
     + username: root
     + password: root
 + N.B: you can change access informations in file `src/main/resources/META-INF/persistence.xml`
+
+### Maven
 
 + Install maven : 
     + `sudo apt install maven`
