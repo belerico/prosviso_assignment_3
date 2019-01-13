@@ -1,4 +1,4 @@
-.ASSIGNMENT 3
+# ASSIGNMENT 3
 
 Members:
 + Avogadro Roberto 807387
@@ -47,8 +47,7 @@ We have implemented JUnit test cases for testing 'Services' of the application a
 We used faker classes for testing the application as they were useful to generate entry in rapid way:
 + src/main/java/com.assignment3/utils/faker.
 
-
-### Run test cases
+## Run test cases
 + mvn test
 
 
