@@ -18,7 +18,7 @@ https://gitlab.com/belerico/prosviso_assignment_3
 + N.B: you can change settings in file src/main/resources/META-INF/persistence.xml
 
 + Install maven : 
-        + sudo apt install maven
++ sudo apt install maven
 
 + Tested with openjdk 11.0.1 2018-10-16
 
