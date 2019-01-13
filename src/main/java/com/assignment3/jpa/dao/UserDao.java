@@ -18,9 +18,9 @@ public class UserDao extends AbstractDao<User, Long, String> {
     }
 
     public List<StandardCard> getUserStandardCards(Long id) {
-        return getEntityManager().createQuery("SELECT sc FROM UserStandardCard sc WHERE user_id = "+id).getResultList();
+        return getEntityManager().createQuery("SELECT sc FROM UserStandardCard sc WHERE user_id = " + id).getResultList();
     }
     public List<SharableCard> getUserSharableCards(Long id){
-        return getEntityManager().createQuery("SELECT sh from UserSharableCard sh WHERE user1_id = "+id).getResultList();
+        return getEntityManager().createQuery("SELECT sh from UserSharableCard sh WHERE user1_id = " + id).getResultList();
     }
 }

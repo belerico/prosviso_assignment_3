@@ -1,6 +1,9 @@
 package com.assignment3.struts2.action.user;
 
-import com.assignment3.jpa.model.*;
+import com.assignment3.jpa.model.Place;
+import com.assignment3.jpa.model.SharableCard;
+import com.assignment3.jpa.model.StandardCard;
+import com.assignment3.jpa.model.User;
 import com.assignment3.jpa.service.ServiceFactory;
 import com.assignment3.jpa.service.UserService;
 import com.assignment3.utils.faker.UserFaker;
@@ -12,13 +15,22 @@ import java.util.List;
 
 public class UserAction extends ActionSupport implements ModelDriven<User>, Preparable {
 
+    private User user = new UserFaker().create();
+    private Long userId;
+    private Long cardId;
     private Long placeId;
     private List<User> users;
     private List<Place> places;
-    private User user = new UserFaker().create();
     private List<StandardCard> userStandardCards;
     private List<SharableCard> userSharableCards;
-    private Long userId;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Long getUserId() {
         return userId;
@@ -26,6 +38,30 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Prep
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public Long getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(Long cardId) {
+        this.cardId = cardId;
+    }
+
+    public Long getPlaceId() {
+        return placeId;
+    }
+
+    public void setPlaceId(Long placeId) {
+        this.placeId = placeId;
+    }
+
+    public List<Place> getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(List<Place> places) {
+        this.places = places;
     }
 
     public List<StandardCard> getUserStandardCards() {
@@ -42,30 +78,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Prep
 
     public void setUserSharableCards(List<SharableCard> userSharableCards) {
         this.userSharableCards = userSharableCards;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public List<Place> getPlaces() {
-        return places;
-    }
-
-    public void setPlaces(List<Place> places) {
-        this.places = places;
-    }
-
-    public Long getPlaceId() {
-        return placeId;
-    }
-
-    public void setPlaceId(Long placeId) {
-        this.placeId = placeId;
     }
 
     public String createUserPage() {
@@ -104,9 +116,29 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Prep
         return ActionSupport.SUCCESS;
     }
 
+    public String removeCard() {
+        ServiceFactory.getInstance().getUserService().removeStandardCard(
+                ServiceFactory.getInstance().getUserService().read(getUserId()),
+                (StandardCard) ServiceFactory.getInstance().getCardService().read(getCardId())
+        );
+        return ActionSupport.SUCCESS;
+    }
+
+    public String removeAllCards() {
+        ServiceFactory.getInstance().getUserService().removeAllCard(
+                ServiceFactory.getInstance().getUserService().read(getUserId())
+        );
+        return ActionSupport.SUCCESS;
+    }
+
     public String showUserCards(){
-        setUserStandardCards(ServiceFactory.getInstance().getUserService().getUserStandardCard(userId));
-        setUserSharableCards(ServiceFactory.getInstance().getUserService().getUserSharablecard(userId));
+        setUser(ServiceFactory.getInstance().getUserService().read(getUserId()));
+        setUserStandardCards(ServiceFactory.getInstance().getUserService().getUserStandardCard(getUserId()));
+        setUserSharableCards(ServiceFactory.getInstance().getUserService().getUserSharablecard(getUserId()));
+        return ActionSupport.SUCCESS;
+    }
+
+    public String removeUserCards() {
         return ActionSupport.SUCCESS;
     }
 

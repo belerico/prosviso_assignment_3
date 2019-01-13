@@ -21,9 +21,11 @@ public class UserService extends AbstractService<User, Long, String> {
     public List<StandardCard> getUserStandardCard(Long id){
         return ((UserDao) getDao()).getUserStandardCards(id);
     }
+
     public List<SharableCard> getUserSharablecard(Long id){
         return ((UserDao) getDao()).getUserSharableCards(id);
     }
+
     public void addPlace(User user, Place place) {
         getDao().begin();
         user.addPlace(place);

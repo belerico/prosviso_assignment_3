@@ -6,17 +6,27 @@ import com.assignment3.jpa.model.User;
 import com.assignment3.jpa.service.ServiceFactory;
 import com.assignment3.jpa.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 
 import java.util.List;
 
-public class AddCardAction extends ActionSupport {
+public class AddCardAction extends ActionSupport implements ModelDriven<User> {
 
+    private User user;
     private List<SharableCard> sharableCards;
     private List<StandardCard> standardCards;
     private List<User> usersShare;
     private Long userId;
     private Long userShareId;
     private Long cardId;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public List<SharableCard> getSharableCards() {
         return sharableCards;
@@ -83,6 +93,7 @@ public class AddCardAction extends ActionSupport {
         StandardCard st = (StandardCard) ServiceFactory.getInstance().getCardService().read(getCardId());
         userService.addStandardCard(user, st);
         userService.create(user);
+        setUser(user);
         return ActionSupport.SUCCESS;
     }
 
@@ -93,6 +104,12 @@ public class AddCardAction extends ActionSupport {
         SharableCard sh = (SharableCard) ServiceFactory.getInstance().getCardService().read(getCardId());
         userService.addSharableCard(user1, user2, sh);
         userService.create(user1);
+        setUser(user);
         return ActionSupport.SUCCESS;
+    }
+
+    @Override
+    public User getModel() {
+        return user;
     }
 }

@@ -50,10 +50,20 @@
             <result name="success">view/AddSHCard.jsp</result>
         </action>
         <action name="addSTCard" class="com.assignment3.struts2.action.user.AddCardAction" method="addStandardCard">
-            <result name="success" type="chain">/card/showCards</result>
+            <param name="userId">${user.id}</param>
+            <result name="success" type="redirectAction">showUserCards</result>
         </action>
         <action name="addSHCard" class="com.assignment3.struts2.action.user.AddCardAction" method="addSharableCard">
-            <result name="success" type="chain">/card/showCards</result>
+            <param name="userId">${user.id}</param>
+            <result name="success" type="redirectAction">showUserCards</result>
+        </action>
+        <action name="removeCard" class="com.assignment3.struts2.action.user.UserAction" method="removeCard">
+            <param name="userId">${user.id}</param>
+            <result name="success" type="redirectAction">showUserCards</result>
+        </action>
+        <action name="removeAllCards" class="com.assignment3.struts2.action.user.UserAction" method="removeAllCards">
+            <param name="userId">${user.id}</param>
+            <result name="success" type="redirectAction">showUserCards</result>
         </action>
         <action name="removeUser" class="com.assignment3.struts2.action.user.UserAction" method="removeUser">
             <result name="success" type="chain">showUsers</result>
@@ -64,7 +74,7 @@
         <action name="showUsers" class="com.assignment3.struts2.action.user.UserAction" method="showUsers">
             <result name="success">view/ShowUsers.jsp</result>
         </action>
-        <action name="showCards" class="com.assignment3.struts2.action.user.UserAction" method="showUserCards">
+        <action name="showUserCards" class="com.assignment3.struts2.action.user.UserAction" method="showUserCards">
             <result name="success">view/ShowUserCards.jsp</result>
         </action>
 

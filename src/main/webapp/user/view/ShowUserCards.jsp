@@ -16,7 +16,7 @@
 </head>
 <body>
 <div>
-    <h2>User Cards</h2>
+    <h2><s:property value="'Standard cards of ' + user.name + ' ' + user.surname + ', ' + user.email"/></h2>
     <table class="table">
         <thead>
         <tr>
@@ -29,13 +29,13 @@
         </tr>
         </thead>
         <tbody>
-        <s:iterator value="userStandardCards" status="cardsStatus" var="c">
+        <s:iterator value="userStandardCards" status="userStandardCardsStatus" var="c">
             <tr>
-                <th scope="row">
-                    <s:property value="#cardsStatus.index"/>
-                </th>
+                <td scope="row">
+                    <s:property value="#userStandardCardsStatus.index"/>
+                </td>
                 <td>
-                    <s:property value="cardNumber"/>
+                    <s:property value="%{ #c.getStandardCard().getCardNumber() }"/>
                 </td>
                 <td>
                     <s:if test="%{#c instanceof com.assignment3.jpa.model.SharableCard}">
@@ -46,14 +46,23 @@
                     </s:else>
                 </td>
                 <td>
-                    <s:property value="quantity"/>
+                    <s:property value="%{ #c.getStandardCard().getQuantity() }"/>
+                </td>
+                <td>
+                    <a href="<s:url namespace="/activity" action="createActivityPage"><s:param name="activityId" value="%{ #c.getStandardCard().getBusinessActivity().getId() }"/></s:url>"><s:property
+                            value="%{ #c.getStandardCard().getBusinessActivity().getName() }"/></a>
+                </td>
+                <td>
+                    <a href="<s:url namespace="/user" action="removeCard"><s:param name="userId" value="user.id"/><s:param name="cardId" value="%{ #c.getStandardCard().getId() }"/></s:url>">Remove</a>
                 </td>
             </tr>
         </s:iterator>
         </tbody>
     </table>
-    <span><a href="<s:url action='removeAllCards'/>">Remove all cards</a></span><br>
-    <span><a href="<s:url namespace="/activity" action='showActivities'/>">Activity page</a></span><br>
+    <span><a href="<s:url namespace="/user" action="removeAllCards"><s:param name="userId" value="user.id"/></s:url>">Remove all <s:property
+            value="user.name + ' ' + user.surname"/> cards</a></span><br>
+    <span><a href="<s:url namespace="/user" action='showUsers'/>">Show users</a></span><br>
+    <span><a href="<s:url namespace="/user" action='createUserPage'/>">User page</a></span><br>
     <span><a href="<s:url action='goIndex'/>">Go back to home</a></span>
 </div>
 </body>
