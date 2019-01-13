@@ -93,7 +93,7 @@ public class AddCardAction extends ActionSupport implements ModelDriven<User> {
         StandardCard st = (StandardCard) ServiceFactory.getInstance().getCardService().read(getCardId());
         userService.addStandardCard(user, st);
         userService.create(user);
-        setUser(user);
+        //setUser(user);
         return ActionSupport.SUCCESS;
     }
 
@@ -104,7 +104,7 @@ public class AddCardAction extends ActionSupport implements ModelDriven<User> {
         SharableCard sh = (SharableCard) ServiceFactory.getInstance().getCardService().read(getCardId());
         userService.addSharableCard(user1, user2, sh);
         userService.create(user1);
-        setUser(user);
+        //setUser(user);
         return ActionSupport.SUCCESS;
     }
 

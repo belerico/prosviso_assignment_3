@@ -16,7 +16,9 @@
 </head>
 <body>
 <div>
-    <h2><s:property value="'Standard cards of ' + user.name + ' ' + user.surname + ', ' + user.email"/></h2>
+    <h3>Standard and sharable cards of <s:property value="user.name + ' ' + user.surname"/> <a
+            href="<s:url namespace="/user" action="createUpdateUserPage"><s:param name="userId" value="%{ #user.id }"/></s:url>"><s:property
+            value="user.email"/></a></h3>
     <table class="table">
         <thead>
         <tr>
@@ -38,12 +40,7 @@
                     <s:property value="%{ #c.getStandardCard().getCardNumber() }"/>
                 </td>
                 <td>
-                    <s:if test="%{#c instanceof com.assignment3.jpa.model.SharableCard}">
-                        Sharable card
-                    </s:if>
-                    <s:else>
-                        Standard card
-                    </s:else>
+                    Standard card
                 </td>
                 <td>
                     <s:property value="%{ #c.getStandardCard().getQuantity() }"/>
@@ -53,13 +50,74 @@
                             value="%{ #c.getStandardCard().getBusinessActivity().getName() }"/></a>
                 </td>
                 <td>
-                    <a href="<s:url namespace="/user" action="removeCard"><s:param name="userId" value="user.id"/><s:param name="cardId" value="%{ #c.getStandardCard().getId() }"/></s:url>">Remove</a>
+                    <a href="<s:url namespace="/user" action="removeStandardCard"><s:param name="userId" value="user.id"/><s:param name="cardId" value="%{ #c.getStandardCard().getId() }"/></s:url>">Remove</a>
                 </td>
             </tr>
         </s:iterator>
         </tbody>
     </table>
-    <span><a href="<s:url namespace="/user" action="removeAllCards"><s:param name="userId" value="user.id"/></s:url>">Remove all <s:property
+    <span><a
+            href="<s:url namespace="/user" action="removeAllUserStandardCards"><s:param name="userId" value="user.id"/></s:url>">Remove all <s:property
+            value="user.name + ' ' + user.surname"/> standard cards</a></span><br>
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">CardNumber</th>
+            <th scope="col">Type</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Shared with</th>
+            <th scope="col">Activity</th>
+            <th scope="col">Remove</th>
+        </tr>
+        </thead>
+        <tbody>
+        <s:iterator value="userSharableCards" status="userSharableCardsStatus" var="c">
+            <tr>
+                <td scope="row">
+                    <s:property value="#userSharableCardsStatus.index"/>
+                </td>
+                <td>
+                    <s:property value="%{ #c.getSharableCard().getCardNumber() }"/>
+                </td>
+                <td>
+                    Sharable card
+                </td>
+                <td>
+                    <s:property value="%{ #c.getSharableCard().getQuantity() }"/>
+                </td>
+                <td>
+                    <s:if test="%{ #c.getUser1().getEmail().equals(user.email) }">
+                        <a href="<s:url namespace="/user" action="createUpdateUserPage"><s:param name="userId" value="%{ #c.getUser2().getId() }"/></s:url>"><s:property
+                                value="%{ #c.getUser2().getEmail() }"/></a>
+                    </s:if>
+                    <s:else>
+                        <a href="<s:url namespace="/user" action="createUpdateUserPage"><s:param name="userId" value="%{ #c.getUser1().getId() }"/></s:url>"><s:property
+                                value="%{ #c.getUser1().getEmail() }"/></a>
+                    </s:else>
+                </td>
+                <td>
+                    <a href="<s:url namespace="/activity" action="createActivityPage"><s:param name="activityId" value="%{ #c.getSharableCard().getBusinessActivity().getId() }"/></s:url>"><s:property
+                            value="%{ #c.getSharableCard().getBusinessActivity().getName() }"/></a>
+                </td>
+                <td>
+                    <a href="<s:url namespace="/user" action="removeSharableCard">
+                                <s:param name="userId" value="%{ #c.getUser1().getId() }"/>
+                                <s:param name="otherUserId" value="%{ #c.getUser2().getId() }"/>
+                                <s:param name="cardId" value="%{ #c.getSharableCard().getId() }"/>
+                            </s:url>">Remove</a>
+                </td>
+            </tr>
+        </s:iterator>
+        </tbody>
+    </table>
+    <span><a
+            href="<s:url namespace="/user" action="removeAllUserSharableCards"><s:param name="userId" value="user.id"/></s:url>">Remove all <s:property
+            value="user.name + ' ' + user.surname"/> sharable cards</a></span><br><br><br>
+    <span><a
+            href="<s:url namespace="/user" action="removeAllUserCards"><s:param name="userId" value="user.id"/></s:url>">Remove all <s:property
             value="user.name + ' ' + user.surname"/> cards</a></span><br>
     <span><a href="<s:url namespace="/user" action='showUsers'/>">Show users</a></span><br>
     <span><a href="<s:url namespace="/user" action='createUserPage'/>">User page</a></span><br>
