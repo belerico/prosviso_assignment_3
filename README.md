@@ -39,8 +39,7 @@ https://gitlab.com/belerico/prosviso_assignment_3
 
 ## Test cases
 
-We have implemented JUnit test cases for testing services of the application.
-This because "Services" abstract "DAOs" which have to manage "CRUD" operations.
+We have implemented JUnit test cases for testing 'Services' of the application as they abstract "DAOs" which manage "CRUD" operations.
 We used faker classes for testing the application as they were useful to generate entry in rapid way:
 + src/main/java/com.assignment3/utils/faker.
 
