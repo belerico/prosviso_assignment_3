@@ -5,31 +5,30 @@
 + Belotti Federico 808708    
 + Carta Costantino 808417
     
-## Repository with the project's code:
-+ https://gitlab.com/belerico/prosviso_assignment_3
+## Project Repository and import information
++ Gitlab repository link: https://gitlab.com/belerico/prosviso_assignment_3
 
-+ The project was developed using 'Intellij IDEA', you can directly import project from gitlab on the IDE.
-+ File/new/Project from version control/git
++ The project was developed using 'Intellij IDEA', you can directly import project from gitlab on the IntelliJ.
++ On intelliJ --> 'File/new/Project from version control/git'
     + Insert the link of the gitlab repo.
 
-+ Download link --> https://www.jetbrains.com/idea/
++ Download IntelliJ --> https://www.jetbrains.com/idea/
 
 ## Requirements
-
 
 + Install MySQL v.5.7
 + The program will look for a db instance on 'mysql://localhost:3306' running with a db within it called 'assignment3'
 + (If there is not any db called 'assignment3' it will be automatically created)
     + username: root
     + password: root
-+ N.B: you can change settings in file src/main/resources/META-INF/persistence.xml
++ N.B: you can change access informations in file src/main/resources/META-INF/persistence.xml
 
 + Install maven : 
     + sudo apt install maven
 
-+ Tested with openjdk 11.0.1 2018-10-16
++ Tested using openjdk 11.0.1 2018-10-16
 
-+ Ubuntu 18.10 and 16.04 
++ Operating systems: Ubuntu 18.10 and 16.04 
 
 
 ## Run the webapp
