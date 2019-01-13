@@ -79,6 +79,9 @@
                     <a href="<s:url namespace="/user" action='createAddStandardCardPage'><s:param name="userId" value="%{id}"></s:param></s:url>">STANDARD</a>
                     <br>
                     <a href="<s:url namespace="/user" action='createAddSharableCardPage'><s:param name="userId" value="%{id}"></s:param></s:url>">SHARABLE</a>
+                </td>
+                <td>
+                    <a href="<s:url namespace="/user" action='showCards'><s:param name="userId" value="%{id}"></s:param></s:url>">VIEW CARDS</a>
 
                 </td>
                 <td>

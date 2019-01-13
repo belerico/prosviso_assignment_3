@@ -1,7 +1,6 @@
 package com.assignment3.struts2.action.user;
 
-import com.assignment3.jpa.model.Place;
-import com.assignment3.jpa.model.User;
+import com.assignment3.jpa.model.*;
 import com.assignment3.jpa.service.ServiceFactory;
 import com.assignment3.jpa.service.UserService;
 import com.assignment3.utils.faker.UserFaker;
@@ -17,6 +16,33 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Prep
     private List<User> users;
     private List<Place> places;
     private User user = new UserFaker().create();
+    private List<StandardCard> userStandardCards;
+    private List<SharableCard> userSharableCards;
+    private Long userId;
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public List<StandardCard> getUserStandardCards() {
+        return userStandardCards;
+    }
+
+    public void setUserStandardCards(List<StandardCard> userStandardCards) {
+        this.userStandardCards = userStandardCards;
+    }
+
+    public List<SharableCard> getUserSharableCards() {
+        return userSharableCards;
+    }
+
+    public void setUserSharableCards(List<SharableCard> userSharableCards) {
+        this.userSharableCards = userSharableCards;
+    }
 
     public User getUser() {
         return user;
@@ -75,6 +101,12 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Prep
     public String showUsers() {
         UserService userService = ServiceFactory.getInstance().getUserService();
         setUsers(userService.readAll());
+        return ActionSupport.SUCCESS;
+    }
+
+    public String showUserCards(){
+        setUserStandardCards(ServiceFactory.getInstance().getUserService().getUserStandardCard(userId));
+        setUserSharableCards(ServiceFactory.getInstance().getUserService().getUserSharablecard(userId));
         return ActionSupport.SUCCESS;
     }
 

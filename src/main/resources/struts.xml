@@ -61,6 +61,10 @@
         <action name="showUsers" class="com.assignment3.struts2.action.user.UserAction" method="showUsers">
             <result name="success">view/ShowUsers.jsp</result>
         </action>
+        <action name="showCards" class="com.assignment3.struts2.action.user.UserAction" method="showUserCards">
+            <result name="success">view/ShowUserCards.jsp</result>
+        </action>
+
     </package>
 
     <package name="activity" namespace="/activity" extends="struts-default">
