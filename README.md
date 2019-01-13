@@ -27,12 +27,12 @@
 ![](.images/docker.png)
 
 ### Run docker with MySQL v.5.8
-
+```
 + commands:
     + ``
     + ``
     + ``
-
+```
 ### Database Login 
 
 + The program will look for a db instance on `mysql://localhost:3306` running with a db within it called `assignment3`.
