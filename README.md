@@ -8,34 +8,45 @@
 ## Project Repository and import information
 + Gitlab repository link: `https://gitlab.com/belerico/prosviso_assignment_3`
 
++  Download IntelliJ --> `https://www.jetbrains.com/idea/`
+
 + The project was developed using `Intellij IDEA`, you can directly import project from gitlab on IntelliJ.
 + On intelliJ --> ``File/new/Project from version control/git``
     + Insert the link of the gitlab repo.
 
-+ Download IntelliJ --> `https://www.jetbrains.com/idea/`
 
-## Requirements
 
-+ Install MySQL v.5.7
-+ The program will look for a db instance on `mysql://localhost:3306` running with a db within it called 'assignment3'; if there is not any db called 'assignment3' it will be automatically created
+# Requirements
+
++ Tested using openjdk version `11.0.1 2018-10-16`
+
++ Operating systems: `Ubuntu v.18.10` and `Ubuntu v.16.04` 
+
+## MySQL
+![](.images/mysql.png)
+
+### Install MySQL v.5.7
+
++ `sudo apt-get update`
++ `sudo apt-get install mysql-server`
+
+### Database Login 
+
++ The program will look for a db instance on `mysql://localhost:3306` running with a db within it called `assignment3`.
++ If there is not any db called `assignment3` it will be automatically created
++ Login command: `mysql -u root -p`
 + DB access parameters:
     + username: root
     + password: root
 + N.B: you can change access informations in file `src/main/resources/META-INF/persistence.xml`
 
+### Apache Maven plugin
+![](.images/apacheMaven.png)
+
 + Install maven : 
     + `sudo apt install maven`
 
-+ Tested using openjdk version `11.0.1 2018-10-16`
-
-+ Operating systems: Ubuntu 18.10 and 16.04 
-
-
 ## Run the webapp
-
-+ View of the index page of the webapp
-
-![](.README/CardWebapp.png)
 
 + Install the project
     + `mvn clean install`
@@ -45,6 +56,15 @@
 
 + Run jetty server
     + `mvn jetty:run`
+
++ After running previous commands open a browser and type:
+    + `http://localhost:8080/assignment3/index.jsp`
+
++ You'll be redirected to the index page of the webapp
+
+![](.images/CardWebapp.png)
+
+
 
 
 ## Test cases
@@ -58,7 +78,7 @@ We used faker classes for testing the application as they were useful to generat
 
 + Snapshot of the console after running tests
 
-![](.README/Test.png)
+![](.images/Test.png)
 
 
 
