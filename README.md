@@ -1,11 +1,11 @@
 # ASSIGNMENT 3
 
 Members:
-+Avogadro Roberto 807387
-+Belotti Federico 808708    
-+Carta Costantino 808417
++ Avogadro Roberto 807387
++ Belotti Federico 808708    
++ Carta Costantino 808417
     
-Repository with the project's code:
++ Repository with the project's code:
 https://gitlab.com/belerico/prosviso_assignment_3
 
 ## Requirements
