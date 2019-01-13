@@ -14,12 +14,15 @@
         </action>
     </package>
 
+    <package name="helper" extends="struts-default">
+        <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
+
     <package name="user" namespace="/user" extends="struts-default">
         <action name="userPage" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">view/User.jsp</result>
-        </action>
-        <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
-            <result name="success">/index.jsp</result>
         </action>
         <action name="createUserPage" class="com.assignment3.struts2.action.user.UserAction"
                 method="createUserPage">
@@ -67,9 +70,6 @@
         <action name="activityPage" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">view/Activity.jsp</result>
         </action>
-        <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
-            <result name="success">/index.jsp</result>
-        </action>
         <action name="createActivityPage" class="com.assignment3.struts2.action.activity.ActivityAction"
                 method="createActivityPage">
             <result name="success">view/CreateActivity.jsp</result>
@@ -105,9 +105,6 @@
     <package name="card" namespace="/card" extends="struts-default">
         <action name="cardPage" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
             <result name="success">view/Card.jsp</result>
-        </action>
-        <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
-            <result name="success">/index.jsp</result>
         </action>
         <action name="createCardPage" class="com.assignment3.struts2.action.card.CardAction"
                 method="createCardPage">
@@ -149,9 +146,6 @@
         <action name="removeAllPlaces" class="com.assignment3.struts2.action.place.PlaceAction"
                 method="removeAllPlaces">
             <result name="success" type="chain">showPlaces</result>
-        </action>
-        <action name="goIndex" class="com.assignment3.struts2.action.RedirectAction" method="JSPRedirect">
-            <result name="success">/index.jsp</result>
         </action>
     </package>
 </struts>
