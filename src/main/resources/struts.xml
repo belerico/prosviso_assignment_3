@@ -181,11 +181,19 @@
             <result name="success">view/CreateCard.jsp</result>
         </action>
         <action name="createCard" class="com.assignment3.struts2.action.card.CardAction" method="createCard">
-            <result name="success" type="chain">showCards</result>
+            <result name="success" type="redirectAction">
+                <param name="activityId">${activityId}</param>
+                <param name="namespace">/activity</param>
+                <param name="actionName">showActivityCards</param>
+            </result>
             <result name="input">view/CreateCard.jsp</result>
         </action>
         <action name="removeCard" class="com.assignment3.struts2.action.card.CardAction" method="removeCard">
-            <result name="success" type="chain">showCards</result>
+            <result name="success" type="redirectAction">
+                <param name="activityId">${activityId}</param>
+                <param name="namespace">/activity</param>
+                <param name="actionName">showActivityCards</param>
+            </result>
         </action>
         <action name="removeAllCards" class="com.assignment3.struts2.action.card.CardAction" method="removeAllCards">
             <result name="success" type="chain">showCards</result>

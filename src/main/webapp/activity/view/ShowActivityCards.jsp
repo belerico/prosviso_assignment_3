@@ -17,7 +17,7 @@
 <body>
 <div>
     <h3>Cards provided by <a
-            href="<s:url namespace="/activity" action="createUpdateActivityPage"><s:param name="activityId" value="%{ #activity.id }"/></s:url>"><s:property
+            href="<s:url namespace="/activity" action="createUpdateActivityPage"><s:param name="activityId" value="%{ activity.id }"/></s:url>"><s:property
             value="activity.name"/></a></h3>
     <table class="table">
         <thead>
@@ -50,17 +50,19 @@
                     <s:property value="%{ #c.getQuantity() }"/>
                 </td>
                 <td>
-                    <a href="<s:url namespace="/activity" action="removeActivityCard"><s:param name="activityId" value="activity.id"/><s:param name="cardId" value="%{ #c.getId() }"/></s:url>">Remove</a>
+                    <a href="<s:url namespace="/activity" action="removeActivityCard"><s:param name="activityId" value="%{ activity.id }"/><s:param name="cardId" value="%{ #c.getId() }"/></s:url>">Remove</a>
                 </td>
             </tr>
         </s:iterator>
         </tbody>
     </table>
     <span><a
-            href="<s:url namespace="/activity" action="removeAllActivityCards"><s:param name="activityId" value="activity.id"/></s:url>">Remove all <s:property
+            href="<s:url namespace="/card" action='createCardPage'><s:param name="activityId" value="%{ activity.id }"/></s:url>">Create a new card</a></span><br>
+    <span><a
+            href="<s:url namespace="/activity" action="removeAllActivityCards"><s:param name="activityId" value="%{ activity.id }"/></s:url>">Remove all <s:property
             value="activity.name"/> cards</a></span><br>
     <span><a href="<s:url namespace="/activity" action='showActivities'/>">Show activities</a></span><br>
-    <span><a href="<s:url namespace="/activity" action='createActivityPage'/>">User page</a></span><br>
+    <span><a href="<s:url namespace="/activity" action='createActivityPage'/>">Create a new business activity</a></span><br>
     <span><a href="<s:url action='goIndex'/>">Go back to home</a></span>
 </div>
 </body>

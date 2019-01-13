@@ -51,14 +51,15 @@
                     </s:else>
                 </td>
                 <td>
-                    <a href="<s:url namespace="/activity" action='removeActivity'><s:param name="activity.id" value="%{id}"/></s:url>">Remove</a>
+                    <a href="<s:url namespace="/activity" action='removeActivity'><s:param name="activity.id" value="%{ id }"/></s:url>">Remove</a>
                 </td>
                 <td>
-                    <a href="<s:url namespace="/card" action='createCardPage'><s:param name="activityId" value="%{id}"/></s:url>">Create
+                    <a href="<s:url namespace="/card" action='createCardPage'><s:param name="activityId" value="%{ id }"/></s:url>">Create
                         card</a>
                 </td>
                 <td>
-                    <a href="<s:url namespace="/activity" action='showActivityCards'><s:param name="activityId" value="%{id}"/></s:url>">Show Cards</a>
+                    <a href="<s:url namespace="/activity" action='showActivityCards'><s:param name="activityId" value="%{ id }"/></s:url>">Show
+                        Cards</a>
                 </td>
             </tr>
         </s:iterator>
