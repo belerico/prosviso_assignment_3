@@ -28,10 +28,7 @@
 
 ### Run docker with MySQL v.5.8
 ```
-+ commands:
-    + ``
-    + ``
-    + ``
+
 ```
 ### Database Login 
 
