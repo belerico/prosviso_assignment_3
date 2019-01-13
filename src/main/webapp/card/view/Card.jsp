@@ -14,12 +14,17 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Card</title>
+    <style>
+        .list {
+            margin: 0 auto;
+            display: table;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
+<div class="list">
 <h1>Card page</h1>
 <p><a href="<s:url action='showCards'/>">Show all cards</a></p>
-<p><a href="<s:url action='createCardPage'/>">Create a new card</a></p>
 </div>
 </body>
 </html>

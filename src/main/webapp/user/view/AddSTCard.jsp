@@ -29,7 +29,7 @@
         <s:select cssClass="form-control"
                   list="standardCards"
                   listKey="id"
-                  listValue="'Card number: ' + cardNumber + ', Slot:' + quantity"
+                  listValue="cardNumber"
                   name="cardId"/>
     </div>
         <s:hidden name="userId" value="%{userId}"></s:hidden>

@@ -30,13 +30,13 @@
             <s:select cssClass="form-control"
                       list="sharableCards"
                       listKey="id"
-                      listValue="'Card number: '+cardNumber + ', Slot:' + quantity"
+                      listValue="cardNumber"
                       name="cardId"/>
             <s:label for="cards" value="Share with user"/>
             <s:select cssClass="form-control"
                       list="usersShare"
                       listKey="id"
-                      listValue="'Name: '+ name + ', Surname:' + surname + ' Email: ' + email"
+                      listValue="name + ' ' + surname + ', ' + email"
                       name="userShareId"/>
         </div>
         <s:hidden name="userId" value="%{userId}"></s:hidden>
