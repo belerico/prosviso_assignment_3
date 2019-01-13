@@ -49,7 +49,7 @@
 
 ## Test cases
 
-We have implemented JUnit test cases for testing 'Services' of the application as they abstract "DAOs" which manage "CRUD" operations.
+We have implemented JUnit test cases for testing 'Services' of the application as they abstract "DAOs" who manage "CRUD" operations.
 We used faker classes for testing the application as they were useful to generate entry in rapid way:
 + `src/main/java/com.assignment3/utils/faker`.
 
