@@ -1,8 +1,8 @@
 package com.assignment3.struts2.action.activity;
 
-import com.assignment3.jpa.model.BusinessActivity;
-import com.assignment3.jpa.model.Place;
+import com.assignment3.jpa.model.*;
 import com.assignment3.jpa.service.BusinessActivityService;
+import com.assignment3.jpa.service.Service;
 import com.assignment3.jpa.service.ServiceFactory;
 import com.assignment3.utils.faker.BusinessActivityFaker;
 import com.opensymphony.xwork2.ActionSupport;
@@ -18,6 +18,9 @@ public class ActivityAction extends ActionSupport implements ModelDriven<Busines
     private Long activityId;
     private List<Place> places;
     private List<BusinessActivity> activities;
+    private List<Card> businessCards;
+
+
 
     public BusinessActivity getActivity() {
         return activity;
@@ -59,6 +62,14 @@ public class ActivityAction extends ActionSupport implements ModelDriven<Busines
         this.activities = activities;
     }
 
+    public List<Card> getBusinessCards() {
+        return businessCards;
+    }
+
+    public void setBusinessCards(List<Card> businessCards) {
+        this.businessCards = businessCards;
+    }
+
     public String removeActivity() {
         BusinessActivityService businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
         businessActivityService.delete(businessActivityService.read(getActivity().getId()));
@@ -83,6 +94,12 @@ public class ActivityAction extends ActionSupport implements ModelDriven<Busines
     public String createActivity() {
         getActivity().addPlace(ServiceFactory.getInstance().getPlaceService().read(getPlaceId()));
         ServiceFactory.getInstance().getBusinessActivityService().create(getActivity());
+        return ActionSupport.SUCCESS;
+    }
+
+    public String showActivityCards(){
+        setActivity(ServiceFactory.getInstance().getBusinessActivityService().read(getActivityId()));
+        setBusinessCards(ServiceFactory.getInstance().getBusinessActivityService().getActivityCards(getActivityId()));
         return ActionSupport.SUCCESS;
     }
 
