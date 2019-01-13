@@ -35,7 +35,7 @@ public class Helper {
         BusinessActivityFaker businessActivityFaker = new BusinessActivityFaker();
         BusinessActivityService businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
         for (int i = 0; i < quantity; i++)
-            businessActivityService.create(businessActivityFaker.createWithPlaceAndCards(2));
+            businessActivityService.create(businessActivityFaker.createWithPlaceAndCards(3));
         UserFaker userFaker = new UserFaker();
         UserService userService = ServiceFactory.getInstance().getUserService();
         for (int i = 0; i < quantity; i++)
@@ -43,9 +43,6 @@ public class Helper {
     }
 
     public static void dropDatabase() {
-        /*new PlaceService().deleteAll();
-        new BusinessActivityService().deleteAll();
-        new UserService().deleteAll();*/
         entityManager.getTransaction().begin();
         entityManager.createNativeQuery("delete ignore from " + UserSharableCard.class.getSimpleName()).executeUpdate();
         entityManager.createNativeQuery("delete ignore from " + UserStandardCard.class.getSimpleName()).executeUpdate();
