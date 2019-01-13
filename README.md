@@ -60,7 +60,7 @@
 + After running previous commands open a browser and type:
     + `http://localhost:8080/assignment3/index.jsp`
 
-+ You'll be able to see the index page of the webapp
++ You'll be redirected to the index page of the webapp
 
 ![](.README/CardWebapp.png)
 
