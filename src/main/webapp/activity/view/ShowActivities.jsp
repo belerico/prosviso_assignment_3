@@ -56,12 +56,14 @@
                     <a href="<s:url namespace="/card" action='createCardPage'><s:param name="activityId" value="%{id}"/></s:url>">Create
                         card</a>
                 </td>
+                <td>
+                    <a href="<s:url namespace="/activity" action='showActivityCards'><s:param name="activityId" value="%{id}"/></s:url>">Show Cards</a>
+                </td>
             </tr>
         </s:iterator>
         </tbody>
     </table>
-    <span><a
-            href="<s:url namespace="/activity" action='removeAllActivities'/>">Remove all business activities</a></span><br>
+    <span><a href="<s:url namespace="/activity"  action='removeAllActivities'/>">Remove all business activities</a></span><br>
     <span><a href="<s:url namespace="/activity" action='createActivityPage'/>">Create a new business activity</a></span><br>
     <span><a href="<s:url namespace="/activity" action='activityPage'/>">Activity page</a></span><br>
     <span><a href="<s:url action='goIndex'/>">Home</a></span>

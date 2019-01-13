@@ -1,9 +1,9 @@
 package com.assignment3.jpa.service;
 
 import com.assignment3.jpa.dao.BusinessActivityDao;
-import com.assignment3.jpa.model.BusinessActivity;
-import com.assignment3.jpa.model.Card;
-import com.assignment3.jpa.model.Place;
+import com.assignment3.jpa.model.*;
+
+import java.util.List;
 
 public class BusinessActivityService extends AbstractService<BusinessActivity, Long, String> {
 
@@ -47,6 +47,11 @@ public class BusinessActivityService extends AbstractService<BusinessActivity, L
             businessActivity.removeAllCard();
         getDao().commit();
     }
+
+    public List<Card> getActivityCards(Long id){
+        return ((BusinessActivityDao) getDao()).getActivityCards(id);
+    }
+
 
     @Override
     public void delete(BusinessActivity b) {
