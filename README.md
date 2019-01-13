@@ -22,11 +22,11 @@
 
 + Operating systems: `Ubuntu v.18.10` and `Ubuntu v.16.04` 
 
-## MySQL docker image
+**MySQL docker image**
 ![](.images/mysql.png)
 ![](.images/docker.png)
 
-### run docker with MySQL v.5.7
+### Run docker with MySQL v.5.7
 
 + commands:
     + ``
