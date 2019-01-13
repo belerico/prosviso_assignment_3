@@ -1,4 +1,4 @@
-# ASSIGNMENT 3
+# ASSIGNMENT 3 - Let's Card Webapp
 
 ## Members:
 + Avogadro Roberto 807387
@@ -8,7 +8,7 @@
 ## Project Repository and import information
 + Gitlab repository link: `https://gitlab.com/belerico/prosviso_assignment_3`
 
-+ The project was developed using `Intellij IDEA`, you can directly import project from gitlab on the IntelliJ.
++ The project was developed using `Intellij IDEA`, you can directly import project from gitlab on IntelliJ.
 + On intelliJ --> 'File/new/Project from version control/git'
     + Insert the link of the gitlab repo.
 
