@@ -18,6 +18,9 @@
 
 ## Requirements
 
+## MySQL
+![](.README/mysql.png)
+
 ### Install MySQL v.5.7
 
 + `sudo apt-get update`
