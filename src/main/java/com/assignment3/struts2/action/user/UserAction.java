@@ -17,6 +17,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Prep
 
     private User user = new UserFaker().create();
     private Long userId;
+    private Long otherUserId;
     private Long cardId;
     private Long placeId;
     private List<User> users;
@@ -38,6 +39,14 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Prep
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public Long getOtherUserId() {
+        return otherUserId;
+    }
+
+    public void setOtherUserId(Long otherUserId) {
+        this.otherUserId = otherUserId;
     }
 
     public Long getCardId() {
@@ -116,7 +125,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Prep
         return ActionSupport.SUCCESS;
     }
 
-    public String removeCard() {
+    public String removeStandardCard() {
         ServiceFactory.getInstance().getUserService().removeStandardCard(
                 ServiceFactory.getInstance().getUserService().read(getUserId()),
                 (StandardCard) ServiceFactory.getInstance().getCardService().read(getCardId())
@@ -124,7 +133,30 @@ public class UserAction extends ActionSupport implements ModelDriven<User>, Prep
         return ActionSupport.SUCCESS;
     }
 
-    public String removeAllCards() {
+    public String removeSharableCard() {
+        ServiceFactory.getInstance().getUserService().removeSharableCard(
+                ServiceFactory.getInstance().getUserService().read(getUserId()),
+                ServiceFactory.getInstance().getUserService().read(getOtherUserId()),
+                (SharableCard) ServiceFactory.getInstance().getCardService().read(getCardId())
+        );
+        return ActionSupport.SUCCESS;
+    }
+
+    public String removeAllUserStandardCards() {
+        ServiceFactory.getInstance().getUserService().removeAllStandardCard(
+                ServiceFactory.getInstance().getUserService().read(getUserId())
+        );
+        return ActionSupport.SUCCESS;
+    }
+
+    public String removeAllUserSharableCards() {
+        ServiceFactory.getInstance().getUserService().removeAllSharableCard(
+                ServiceFactory.getInstance().getUserService().read(getUserId())
+        );
+        return ActionSupport.SUCCESS;
+    }
+
+    public String removeAllUserCards() {
         ServiceFactory.getInstance().getUserService().removeAllCard(
                 ServiceFactory.getInstance().getUserService().read(getUserId())
         );

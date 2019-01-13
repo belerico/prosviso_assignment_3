@@ -41,10 +41,9 @@
         <tbody>
         <s:iterator value="users" status="usersStatus">
             <tr>
-                <th scope="row">
+                <td>
                     <s:property value="#usersStatus.index"/>
-                        <%--<s:property value="id"/>--%>
-                </th>
+                </td>
                 <td>
                     <s:property value="name"/>
                 </td>
