@@ -17,8 +17,8 @@
 ## Requirements
 
 + Install MySQL v.5.7
-+ The program will look for a db instance on `mysql://localhost:3306` running with a db within it called 'assignment3'
-+ (If there is not any db called 'assignment3' it will be automatically created)
++ The program will look for a db instance on `mysql://localhost:3306` running with a db within it called 'assignment3'; if there is not any db called 'assignment3' it will be automatically created
++ + DB access parameters:
     + username: root
     + password: root
 + N.B: you can change access informations in file `src/main/resources/META-INF/persistence.xml`
@@ -26,7 +26,7 @@
 + Install maven : 
     + `sudo apt install maven`
 
-+ Tested using openjdk 11.0.1 2018-10-16
++ Tested using openjdk version `11.0.1 2018-10-16`
 
 + Operating systems: Ubuntu 18.10 and 16.04 
 
