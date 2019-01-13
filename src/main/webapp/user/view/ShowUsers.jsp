@@ -36,6 +36,7 @@
             <th scope="col">Gender</th>
             <th scope="col">Add card</th>
             <th scope="col">Remove</th>
+            <th scope="col">Show user cards</th>
         </tr>
         </thead>
         <tbody>

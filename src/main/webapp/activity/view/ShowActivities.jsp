@@ -26,7 +26,7 @@
             <th scope="col">Place</th>
             <th scope="col">Remove</th>
             <th scope="col">Add card</th>
-            <th scope="col">Show Cards</th>
+            <th scope="col">Show activity cards</th>
         </tr>
         </thead>
         <tbody>
