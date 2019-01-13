@@ -1,4 +1,4 @@
-# ASSIGNMENT 3
+.ASSIGNMENT 3
 
 Members:
 + Avogadro Roberto 807387
@@ -27,7 +27,9 @@ https://gitlab.com/belerico/prosviso_assignment_3
 
 ## Run the webapp
 
++ View of the index page of the webapp
 
+![](.README/CardWebapp.png)
 
 + Install the project
     + mvn clean install
