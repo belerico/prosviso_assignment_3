@@ -8,7 +8,14 @@ Members:
 + Repository with the project's code:
 https://gitlab.com/belerico/prosviso_assignment_3
 
++ The project was developed using 'Intellij IDEA', you can directly import project from gitlab on the IDE.
++ File/new/Project from version control/git
+    + Insert the link of the gitlab repo.
+
++ Download link --> https://www.jetbrains.com/idea/
+
 ## Requirements
+
 
 + Install MySQL v.5.7
 + The program will look for a db instance on 'mysql://localhost:3306' running with a db within it called 'assignment3'
