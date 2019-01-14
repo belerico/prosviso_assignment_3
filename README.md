@@ -44,7 +44,7 @@
     + `sudo apt install maven`
 
 ## Run the webapp
-+ Run docker with MySQL v.5.8 image
++ Run docker with MySQL v.8 image
     + `docker-compose up -d`
 
 + Install the project
