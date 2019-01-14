@@ -87,8 +87,8 @@ We used faker classes for testing the application as they were useful to generat
 
 ## BUGS
 Use Case : 
-        -If you delete all the cards, and then from a User you try to add a new card (who doesn't exist) doing the submit you'll get an exception that we didn't managed
-        -As similar in places you'll get an exception we didn't managed if there are not places and you want to add a place to an activity.
+    + If you delete all the cards, and then from a User you try to add a new card (who doesn't exist) doing the submit you'll get an exception that we didn't managed
+    + As similar in places you'll get an exception we didn't managed if there are not places and you want to add a place to an activity.
 
 
 
