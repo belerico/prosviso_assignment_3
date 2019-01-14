@@ -26,6 +26,9 @@
 ![](.images/mysql.png)
 ![](.images/docker.png)
 
++ Download docker link:
+    + https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
 
 ### Database Login (not needed if using the docker image)
 
