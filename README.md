@@ -44,6 +44,11 @@
     + `sudo apt install maven`
 
 ## Run the webapp
++ Clone the repo locally
+    + `git clone https://gitlab.com/belerico/prosviso_assignment_3.git`
+
++ Move to prosviso_assignment_3 directory
+
 + Run docker with MySQL v.8 image
     + `docker-compose up -d`
 
