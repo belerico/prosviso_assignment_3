@@ -27,7 +27,7 @@
 ![](.images/docker.png)
 
 
-### Database Login (not useful if using the docker image)
+### Database Login (not needed if using the docker image)
 
 + The program will look for a db instance on `mysql://localhost:3306` running with a db within it called `assignment3`.
 + If there is not any db called `assignment3` it will be automatically created
