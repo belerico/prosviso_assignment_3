@@ -7,10 +7,8 @@
     
 ## Project Repository and import information
 + Gitlab repository link: `https://gitlab.com/belerico/prosviso_assignment_3`
-
-+  Download IntelliJ --> `https://www.jetbrains.com/idea/`
-
 + The project was developed using `Intellij IDEA`, you can directly import project from gitlab on IntelliJ.
++ Download IntelliJ --> `https://www.jetbrains.com/idea/`
 + On intelliJ --> ``File/new/Project from version control/git``
     + Insert the link of the gitlab repo.
 
@@ -26,11 +24,11 @@
 ![](.images/mysql.png)
 ![](.images/docker.png)
 
-### Run docker with MySQL v.5.8
-```
++ Download docker link:
+    + https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
-```
-### Database Login 
+
+### Database Login (not needed if using the docker image)
 
 + The program will look for a db instance on `mysql://localhost:3306` running with a db within it called `assignment3`.
 + If there is not any db called `assignment3` it will be automatically created
@@ -47,6 +45,13 @@
     + `sudo apt install maven`
 
 ## Run the webapp
++ Clone the repo locally
+    + `git clone https://gitlab.com/belerico/prosviso_assignment_3.git`
+
++ Move to prosviso_assignment_3 directory
+
++ Run docker with MySQL v.8 image
+    + `docker-compose up -d`
 
 + Install the project
     + `mvn clean install`
@@ -79,7 +84,5 @@ We used faker classes for testing the application as they were useful to generat
 + Snapshot of the console after running tests
 
 ![](.images/Test.png)
-
-
 
 

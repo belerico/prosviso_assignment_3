@@ -82,8 +82,9 @@ public class AddCardAction extends ActionSupport implements ModelDriven<User> {
     }
 
     public String createAddSharableCardPage() {
-        sharableCards = ServiceFactory.getInstance().getCardService().getSharableCards();
-        usersShare = ServiceFactory.getInstance().getUserService().getUsersNotEquals(getUserId());
+        setSharableCards(ServiceFactory.getInstance().getCardService().getSharableCards());
+        setUsersShare(ServiceFactory.getInstance().getUserService().getUsersNotEquals(getUserId()));
+        System.out.println(getUsersShare().isEmpty());
         return ActionSupport.SUCCESS;
     }
 
