@@ -72,9 +72,8 @@ public class CardAction extends ActionSupport implements ModelDriven<Card>, Prep
     }
 
     public String removeCard() {
-        System.out.println(getCard());
-        BusinessActivityService businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
-        businessActivityService.removeCard(ServiceFactory.getInstance().getCardService().read(getCard().getId()));
+        CardService cardService = ServiceFactory.getInstance().getCardService();
+        cardService.delete(cardService.read(getCard().getId()));
         return ActionSupport.SUCCESS;
     }
 

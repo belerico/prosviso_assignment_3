@@ -20,7 +20,6 @@ public class CardService extends AbstractService<Card, Long, String> {
         getDao().begin();
         if (businessActivity != null)
             businessActivity.removeCard(card);
-        getDao().delete(card);
         getDao().commit();
     }
 
