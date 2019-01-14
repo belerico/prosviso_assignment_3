@@ -53,7 +53,7 @@
                             value="%{ #c.getBusinessActivity().getName() }"/></a>
                 </td>
                 <td>
-                    <a href="<s:url action="removeCard"><s:param name="card.id" value="card.id"/></s:url>">Remove</a>
+                    <a href="<s:url action="removeCard"><s:param name="card.id" value="%{id}"/></s:url>">Remove</a>
                 </td>
             </tr>
         </s:iterator>

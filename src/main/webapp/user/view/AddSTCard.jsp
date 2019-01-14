@@ -23,18 +23,25 @@
 <body>
 <div class="container">
     <h1>Select a standard card you want to add to your wallet</h1>
-    <s:form action="addSTCard">
-        <div class="form-group">
-            <s:label for="cards" value="Card"/>
-            <s:select cssClass="form-control"
-                      list="standardCards"
-                      listKey="id"
-                      listValue="cardNumber"
-                      name="cardId"/>
-        </div>
-        <s:hidden name="userId" value="%{userId}"></s:hidden>
-        <s:submit cssClass="btn btn-secondary" label="Create activity"/>
-    </s:form>
+    <s:if test="%{getStandardCards().isEmpty()}">
+        <br>
+        <span>There's no standard cards present</span><br>
+        <span><a href="<s:url namespace="/activity" action='showActivities'/>">Create a new card from a business activity</a></span><br>
+    </s:if>
+    <s:else>
+        <s:form action="addSTCard">
+            <div class="form-group">
+                <s:label for="cards" value="Card"/>
+                <s:select cssClass="form-control"
+                          list="standardCards"
+                          listKey="id"
+                          listValue="cardNumber"
+                          name="cardId"/>
+            </div>
+            <s:hidden name="userId" value="%{userId}"></s:hidden>
+            <s:submit cssClass="btn btn-secondary" label="Create activity"/>
+        </s:form>
+    </s:else>
 </div>
 </body>
 </html>

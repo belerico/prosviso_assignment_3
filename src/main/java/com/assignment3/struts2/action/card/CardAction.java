@@ -4,6 +4,7 @@ import com.assignment3.jpa.model.BusinessActivity;
 import com.assignment3.jpa.model.Card;
 import com.assignment3.jpa.model.SharableCard;
 import com.assignment3.jpa.model.StandardCard;
+import com.assignment3.jpa.service.BusinessActivityService;
 import com.assignment3.jpa.service.CardService;
 import com.assignment3.jpa.service.ServiceFactory;
 import com.assignment3.utils.faker.CardFaker;
@@ -71,13 +72,17 @@ public class CardAction extends ActionSupport implements ModelDriven<Card>, Prep
     }
 
     public String removeCard() {
-        CardService cardService = ServiceFactory.getInstance().getCardService();
-        cardService.delete(cardService.read(getCard().getId()));
+        System.out.println(getCard());
+        BusinessActivityService businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
+        businessActivityService.removeCard(ServiceFactory.getInstance().getCardService().read(getCard().getId()));
         return ActionSupport.SUCCESS;
     }
 
     public String removeAllCards() {
-        ServiceFactory.getInstance().getCardService().deleteAll();
+        BusinessActivityService businessActivityService = ServiceFactory.getInstance().getBusinessActivityService();
+        List<Card> cards = ServiceFactory.getInstance().getCardService().readAll();
+        for (Card card : cards)
+            businessActivityService.removeCard(card);
         return ActionSupport.SUCCESS;
     }
 
