@@ -16,7 +16,7 @@ public class WebappServletContextListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        /*Helper.dropDatabase();
-        Helper.populateDatabase(2);*/
+        Helper.dropDatabase();
+        Helper.populateDatabase(2);
     }
 }
