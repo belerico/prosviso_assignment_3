@@ -6,7 +6,7 @@
 + Carta Costantino 808417
     
 ## Project Repository and import information
-+ Gitlab repository link: `https://gitlab.com/belerico/prosviso_assignment_3`
++ Gitlab repository link: `https://gitlab.com/belerico/lets_card`
 + The project was developed using `Intellij IDEA`, you can directly import project from gitlab on IntelliJ.
 + Download IntelliJ --> `https://www.jetbrains.com/idea/`
 + On intelliJ --> ``File/new/Project from version control/git``
